@@ -27,6 +27,7 @@ USE project_3_db;
 
 -- CREATE TABLE Appointments
 -- (
+	
 -- 	id int NOT NULL AUTO_INCREMENT,
 -- 	first_name varchar(30) NOT NULL,
 -- 	last_name varchar(30) NOT NULL,
