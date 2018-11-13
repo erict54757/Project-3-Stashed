@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Row,
-  Button,
-  Col,
-  CardPanel,
-  Modal,
-  Icon,
-  Input
-} from "react-materialize";
+import { Row, Carousel, Modal, Button, Input, Icon } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
@@ -15,69 +7,81 @@ import "materialize-css/dist/css/materialize.css";
 class EmployeeSchedule extends React.Component {
   render() {
     return (
-      <div className="row">
+      <div>
         <Row>
           <Modal
             header="New Employee Information"
-            fixedFooter
             trigger={
               <Button className="green">
-                Add Employee<Icon left>add</Icon>
+                Add Appointment<Icon left>add</Icon>
               </Button>
             }
           >
             <Row>
-              <Input s={6} label="First Name" />
-              <Input s={6} label="Last Name" />
-              <Input label="Address" s={12} />
-              <Input label="City" s={6} />
-              <Input label="State" s={6} />
-              <Input type="email" label="Email" s={12} />
+              <Input s={6}
+                className="black-text"
+                label="First Name"><Icon>account_circle</Icon>
+                </Input>
+
+              <Input className="black-text" s={6} placeholder="Last Name">
+                <Icon>account_circle</Icon>
+              </Input>
+
+              <Input s={6}
+                className="black-text"
+                label="Telephone"
+                validate
+                type="tel"><Icon>phone</Icon>
+              </Input>
+              
+              <Input s={6}
+                className="black-text"
+                type="date"
+                label="Select Date"
+                defaultValue="2"
+                onChange={function(e, value) {}}><Icon>date_range</Icon>
+              </Input>
+
+              <Input s={6}
+                className="black-text"
+                name="on"
+                type="time"
+                placeholder="Time"
+                onChange={function(e, value) {}}><Icon>access_time</Icon>
+              </Input>
+
+              <Button
+                type="submit"
+                className="btn btn-primary blue lighten-1 "
+                style={{ marginLeft: "25%", marginRight: "25%" }}
+                onClick={function(e, value) {}}>Submit</Button>
             </Row>
           </Modal>
         </Row>
 
         <Row>
-          <Col s={12} m={4} className="lighten-4 black-text">
-          <CardPanel id="employee">
-            <h5>
-              Andrew Gallowitch
-              <Button
-                style={{ marginLeft: "90%", marginBottom: "5%" }}
-                floating
-                waves="light"
-                icon="clear"
-                className="red"
-              />
-            </h5>
-            </CardPanel>
-
-
-
-          </Col>
-
-          <Col s={12} m={1} />
-          <Col s={12} m={6} className="lighten-4 black-text">
-            <CardPanel>
-              <p>Name:</p>
-              <p>Phone:</p>
-              <p>E-Mail:</p>
-              <p>Address:</p>
-            </CardPanel>
-          </Col>
-          <Col s={12} m={1} />
-        </Row>
-        <Row>
-          <Col s={12} m={4} />
-          <Col s={12} m={1} />
-          <Col s={12} m={6} className="black-text">
-          
-            <CardPanel />
-          </Col>
-          <Col s={12} m={1} />
+          <Carousel options={{ fullWidth: false }}>
+            <div className="red">
+              <h2>First Panel</h2>
+              <p className="white-text">This is your first panel</p>
+            </div>
+            <div className="amber">
+              <h2>Second Panel</h2>
+              <p className="white-text">This is your second panel</p>
+            </div>
+            <div className="green">
+              <h2>Third Panel</h2>
+              <p className="white-text">This is your third panel</p>
+            </div>
+            <div className="blue">
+              <h2>Fourth Panel</h2>
+              <p className="white-text">This is your fourth panel</p>
+            </div>
+          </Carousel>
         </Row>
       </div>
     );
   }
 }
+
 export default EmployeeSchedule;
