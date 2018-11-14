@@ -46,20 +46,20 @@ class NewAppointment extends React.Component {
                 <div className="row">
                     <form >
                         <Row>
-                            <Input s={6} className="black-text" label="First Name" placeholder="First Name" name="firstName"  
+                            <Input s={6} className="black-text"  placeholder="First Name" name="firstName"  
                             value={this.state.firstName}
                             onChange={this.handleInputChange}><Icon>account_circle</Icon></Input>
 
-                            <Input className="black-text" s={6} placeholder="Last Name"  name="lastName"  
+                            <Input className="black-text"  s={6} placeholder="Last Name"  name="lastName"  
                             value={this.state.lastName}
                             onChange={this.handleInputChange}><Icon>account_circle</Icon></Input>
 
 
 
-                            <Input s={6} className="black-text" label="Telephone" validate type='tel' name="telephone" 
+                            <Input s={6} className="black-text"  validate type='tel' name="telephone" 
                             value={this.state.telephone} 
                             onChange={this.handleInputChange}><Icon>phone</Icon></Input>
-                            <Input s={6} className="black-text" type='date' label="Select Date"   name="date"  
+                            <Input s={6} className="black-text" type='date'    name="date"  
                             value={this.state.date} onChange={this.handleInputChange} ><Icon>date_range</Icon></Input>
 
 
@@ -67,7 +67,7 @@ class NewAppointment extends React.Component {
                              value={this.state.time}  onChange={this.handleInputChange}><Icon>access_time</Icon></Input>
 
 
-                            <Button className="btn btn-primary blue lighten-1 " style={{ marginLeft: "25%", marginRight: "25%" }} onClick={this.handleSubmit}>Submit</Button>
+                            <Button className="btn btn-primary blue lighten-1 " style={{ marginLeft: "45%", marginRight: "45%" }} onClick={this.handleSubmit}>Submit</Button>
 
                         </Row>
                      </form>
