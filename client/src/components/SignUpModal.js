@@ -90,8 +90,7 @@ class SignUpModal extends Component {
                       placeholder="Your State"
                     />
                     <Dropdown
-                      trigger={<Button>State</Button>}
-                      className="btn blue lighten-1"
+                      trigger={<Button className="blue">State</Button>}
                       data-target="inputState"
                     >
                       <NavItem value="AL">Alabama</NavItem>
@@ -224,7 +223,7 @@ class SignUpModal extends Component {
                     <Button
                       type="submit"
                       id="add-account"
-                      className="btn btn-primary modal-close blue lighten-1"
+                      className="btn btn-primary modal-close blue"
                     >
                       Submit
                     </Button>

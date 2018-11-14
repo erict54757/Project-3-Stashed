@@ -14,38 +14,37 @@ class SignInModal extends Component {
         header="Credentials"
         trigger={<Button className="blue">Sign In</Button>}
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-body">
               <form>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="inputAccount">Email</label>
-                  <input type="text" class="form-control" id="email" />
+                  <input type="text" className="form-control" id="email" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="inputAccount">Password (min 8 characters)</label>
                   <input
                     type="password"
-                    class="form-control"
+                    className="form-control"
                     id="account_password"
                   />
                 </div>
               </form>
             </div>
 
-            <div class="modal-footer">
+            <div className="modal-footer">
               <Button
                 id="sign-in"
                 type="button"
-                class="btn btn-primary blue lighten-1"
+                className="btn  blue"
               >
                 Login
               </Button>
               <Button
                 type="button"
-                href="#"
                 id="userLogin"
-                class="modal-close btn btn-secondary blue lighten-1"
+                className="modal-close btn  blue"
               >
                 Close
               </Button>

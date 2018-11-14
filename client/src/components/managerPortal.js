@@ -16,11 +16,11 @@ class ManagerPortal extends Component {
     return (
       <div className="row">
         <Row>
-          <ManagerPortalModal />
+          <ManagerPortalModal/>
         </Row>
 
         <Row>
-          <Col s={12} m={4} className="lighten-4 black-text">
+          <Col s={12} m={6} className="lighten-4 black-text">
           <CardPanel id="employee">
             <h5>
               Andrew Gallowitch
@@ -38,7 +38,7 @@ class ManagerPortal extends Component {
 
           </Col>
 
-          <Col s={12} m={1} />
+       
           <Col s={12} m={6} className="lighten-4 black-text">
             <CardPanel>
               <p>Name:</p>
@@ -47,17 +47,9 @@ class ManagerPortal extends Component {
               <p>Address:</p>
             </CardPanel>
           </Col>
-          <Col s={12} m={1} />
+        
         </Row>
-        <Row>
-          <Col s={12} m={4} />
-          <Col s={12} m={1} />
-          <Col s={12} m={6} className="black-text">
-          
-            <CardPanel />
-          </Col>
-          <Col s={12} m={1} />
-        </Row>
+       
       </div>
     );
   }
