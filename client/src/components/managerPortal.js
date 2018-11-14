@@ -4,10 +4,8 @@ import {
   Button,
   Col,
   CardPanel,
-  Modal,
-  Icon,
-  Input
 } from "react-materialize";
+import ManagerPortalModal from "./managerPortalModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
@@ -17,24 +15,7 @@ class ManagerPortal extends React.Component {
     return (
       <div className="row">
         <Row>
-          <Modal
-            header="New Employee Information"
-            fixedFooter
-            trigger={
-              <Button className="green">
-                Add Employee<Icon left>add</Icon>
-              </Button>
-            }
-          >
-            <Row>
-              <Input s={6} label="First Name" />
-              <Input s={6} label="Last Name" />
-              <Input label="Address" s={12} />
-              <Input label="City" s={6} />
-              <Input label="State" s={6} />
-              <Input type="email" label="Email" s={12} />
-            </Row>
-          </Modal>
+          <ManagerPortalModal />
         </Row>
 
         <Row>
