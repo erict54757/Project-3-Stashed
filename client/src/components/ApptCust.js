@@ -24,7 +24,7 @@ const Appointment = props=> (
 
 
  );
-class ScheduledAppointment extends React.Component {
+class ApptCust extends React.Component {
   //     constructor() {
   //  super();
   state ={
@@ -49,4 +49,4 @@ class ScheduledAppointment extends React.Component {
     )
   }
 }
-export default ScheduledAppointment;
+export default ApptCust;
