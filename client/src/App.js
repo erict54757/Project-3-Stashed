@@ -10,14 +10,14 @@ import ManagerPortal from "./components/managerPortal";
 // import ScheduledAppointment from "./components/scheduledAppointment"
 // import NewAppointment from "./components/newAppointment"
 
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         {/* <ScheduledAppointment/> */}
-        {/* <NewAppointment/> */}
-        <ManagerPortal />
-      
+        <NewAppointment/>
+        {/* <ManagerPortal /> */}    
         {/* <EmployeeSchedule /> */}
       </div>
     );
