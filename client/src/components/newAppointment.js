@@ -1,10 +1,10 @@
-import React from "react";
-import { Row, Input, Button, Icon } from 'react-materialize'
+import React, { Component } from 'react';
+import { Row, Input, Button, Icon } from 'react-materialize';
 import 'jquery';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
 
-class NewAppointment extends React.Component {
+class NewAppointment extends Component {
 
     state = {
         firstName: "",
