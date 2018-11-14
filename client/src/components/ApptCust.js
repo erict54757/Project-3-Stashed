@@ -3,7 +3,7 @@ import { Col, Card, Button} from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import "./DumbApptCard"
+import Appointment from "./DumbApptCard"
 
 
 class ApptCust extends React.Component {
