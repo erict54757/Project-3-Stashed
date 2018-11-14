@@ -3,27 +3,9 @@ import { Col, Card, Button} from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
+import "./DumbApptCard"
 
 
-const Appointment = props=> (
- 
-    <Col m={4} s={12}>
-      <Card
-        className="blue-grey darken-1"
-        textClassName="white-text"
-        title="Appointment With:"
-      >
-      
-      <h5>{props.name}</h5>
-        <div >At {props.time}</div>
-        <Button className="red" value={props.id} >X
-         </Button> 
-      </Card>
-    </Col>
-  
-
-
- );
 class ApptCust extends React.Component {
   //     constructor() {
   //  super();
@@ -38,6 +20,7 @@ class ApptCust extends React.Component {
     return (
       <div className="container">
       <div className="row">
+      <Col s={4}>
       {this.state.appointments.map(appointment => (
       <Appointment
       id={appointment.id}
@@ -45,7 +28,8 @@ class ApptCust extends React.Component {
       name={appointment.name}
       />
       ))
-    }</div></div>
+    }
+    </Col></div></div>
     )
   }
 }
