@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Component } from 'react';
 import { Row, Carousel} from "react-materialize";
 import EmployeeScheduleModal from "./employeeScheduleModal";
+// import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 
-class EmployeeSchedule extends React.Component {
+class EmployeeSchedule extends Component {
   render() {
     return (
       <div>
