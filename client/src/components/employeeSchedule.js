@@ -3,10 +3,17 @@ import { Row, Carousel} from "react-materialize";
 import EmployeeScheduleModal from "./employeeScheduleModal";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
+import Appointment from "./DumbApptCard"
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 
-class EmployeeSchedule extends Component {
+class EmployeeSchedule extends React.Component {
+  state ={
+    appointments: [{ id:1, time: "8:30", name:"eric" },{id:2,  time: "8:45", name:"drew" },{ id:3, time: "9:30", name:"nicole" },{ id:4, time: "10:30", name:"eric" }]
+  
+    
+};
+
   render() {
     return (
       <div>
@@ -16,22 +23,20 @@ class EmployeeSchedule extends Component {
 
         <Row>
           <Carousel options={{ fullWidth: false }}>
-            <div className="green">
-              <h2>First Panel</h2>
-              <p className="white-text">This is your first panel</p>
-            </div>
-            <div className="red">
-              <h2>Second Panel</h2>
-              <p className="white-text">This is your second panel</p>
-            </div>
-            <div className="green">
-              <h2>Third Panel</h2>
-              <p className="white-text">This is your third panel</p>
-            </div>
-            <div className="amber">
-              <h2>Fourth Panel</h2>
-              <p className="white-text">This is your fourth panel</p>
-            </div>
+   
+        
+      
+      {this.state.appointments.map(appointment => (
+       <div>
+      <Appointment
+      id={appointment.id}
+      time={appointment.time}
+      name={appointment.name}
+      />
+      </div>
+      ))
+    }
+       
           </Carousel>
         </Row>
       </div>
