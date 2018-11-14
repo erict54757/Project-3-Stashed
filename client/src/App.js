@@ -15,9 +15,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <ScheduledAppointment/> */}
+
         <ApptCust/>
-        {/* <ManagerPortal /> */}    
+        {/* <NewAppointment/> */}
+        {/* <ManagerPortal /> */}
+      
+
         {/* <EmployeeSchedule /> */}
       </div>
     );
