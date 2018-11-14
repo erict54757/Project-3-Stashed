@@ -21,16 +21,17 @@ class ApptCust extends React.Component {
     return (
       <div className="container">
       <div className="row">
-      <Col s={4}>
+      
       {this.state.appointments.map(appointment => (
+      <Col s={4}>
       <Appointment
       id={appointment.id}
       time={appointment.time}
       name={appointment.name}
-      />
+      /></Col>
       ))
     }
-    </Col></div></div>
+    </div></div>
     )
   }
 }

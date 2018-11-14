@@ -12,7 +12,7 @@ class SignInModal extends Component {
         id="account-info"
         role="dialog"
         header="Credentials"
-        trigger={<Button>Sign In</Button>}
+        trigger={<Button className="blue">Sign In</Button>}
       >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
