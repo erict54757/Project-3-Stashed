@@ -14,13 +14,16 @@ import "materialize-css/dist/css/materialize.css";
 class ManagerPortal extends Component {
   render() {
     return (
-      <div className="row">
+      
+      <div >
         <Row>
+          <Col>
           <ManagerPortalModal/>
+          </Col>
         </Row>
 
         <Row>
-          <Col s={12} m={6} className="lighten-4 black-text">
+          <Col s={12}  m={6} className="lighten-4 black-text">
           <CardPanel id="employee">
             <h5>
               Andrew Gallowitch
@@ -49,8 +52,8 @@ class ManagerPortal extends Component {
           </Col>
         
         </Row>
-       
-      </div>
+       </div>
+     
     );
   }
 }

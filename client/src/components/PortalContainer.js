@@ -17,19 +17,18 @@ render(){
 <div className="container">
 <Row>
 <Tabs className='tab-demo z-depth-1'>
-    <Tab title="Test 1">Test 1</Tab>
-    <Tab title="Test 2" active>Test 2</Tab>
-    <Tab title="Test 3">Test 3</Tab>
-    <Tab title="Test 4">Test 4</Tab>
+    <Tab title="View Check Ins">View Check Ins</Tab>
+    <Tab title="Checked In" active>Checked In</Tab>
+    <Tab title="Employee">Employee</Tab>
+    <Tab title="Admin">Admin</Tab>
 </Tabs>
 
-    <Row >
      <ManagerPortal/>
     
     </Row>
-
-</Row>
+ 
 </div>
+
     )
 }
 }
