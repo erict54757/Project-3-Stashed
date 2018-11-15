@@ -1,0 +1,12 @@
+
+.tabs .tab a.active {
+    color: black;
+  }
+  
+  .tabs .tab a:hover {
+    color: black;
+  }
+  
+  .tabs .tab a {
+    color: black;
+  }

@@ -16,8 +16,8 @@ class ManagerPortal extends Component {
     return (
       
       <div >
-        <Row>
-          <Col>
+        <Row >
+          <Col >
           <ManagerPortalModal/>
           </Col>
         </Row>
@@ -32,7 +32,7 @@ class ManagerPortal extends Component {
                 floating
                 waves="light"
                 icon="clear"
-                className="red"
+                className="blue"
               />
             </h5>
             </CardPanel>

@@ -8,16 +8,16 @@ class EmployeeScheduleModal extends Component {
         <Modal
           header="New Employee Information"
           trigger={
-            <Button className="green">
+            <Button className="blue">
               Add Appointment<Icon left>add</Icon>
             </Button>
           }
           actions={
             <div>
-              <Button modal="close" waves="light">
+              <Button style={{marginLeft: "5px"}}  className="blue" modal="close" waves="light">
                 Save
               </Button>
-              <Button flat modal="close" waves="light">
+              <Button style={{marginLeft: "5px"}} className="blue"  modal="close" waves="light">
                 Close
               </Button>
             </div>

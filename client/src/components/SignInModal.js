@@ -4,14 +4,28 @@ import { Modal, Button } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-
+import "./SignInModal.css"
 class SignInModal extends Component {
   render() {
     return (
       <Modal
+      actions={  <div><Button
+        type="button"
+        id="userLogin"
+        className="modal-close btn  blue"
+      >
+        Close
+      </Button><Button
+        id="sign-in"
+        type="button"
+        className="btn  blue"
+      >
+        Login
+      </Button>
+      </div>}
         id="account-info"
         role="dialog"
-        header="Credentials"
+        header="Sign-In"
         trigger={<Button className="blue">Sign In</Button>}
       >
         <div className="modal-dialog" role="document">
@@ -33,22 +47,7 @@ class SignInModal extends Component {
               </form>
             </div>
 
-            <div className="modal-footer">
-              <Button
-                id="sign-in"
-                type="button"
-                className="btn  blue"
-              >
-                Login
-              </Button>
-              <Button
-                type="button"
-                id="userLogin"
-                className="modal-close btn  blue"
-              >
-                Close
-              </Button>
-            </div>
+          
           </div>
         </div>
       </Modal>
