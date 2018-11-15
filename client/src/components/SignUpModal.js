@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Modal, Button, NavItem, Dropdown } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -12,7 +12,17 @@ class SignUpModal extends Component {
         id="account-signUp"
         role="dialog"
         header="Create Your Account"
-        trigger={<Button className="blue">Sign Up</Button>}
+        trigger={<Button className="teal">Sign Up</Button>}
+        actions={
+          <div>
+            <Button modal="close" waves="light">
+              Sign Up
+            </Button>
+            <Button flat modal="close" waves="light">
+              Close
+            </Button>
+          </div>
+        }
       >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -90,7 +100,7 @@ class SignUpModal extends Component {
                       placeholder="Your State"
                     />
                     <Dropdown
-                      trigger={<Button className="blue">State</Button>}
+                      trigger={<Button className="teal">State</Button>}
                       data-target="inputState"
                     >
                       <NavItem value="AL">Alabama</NavItem>
@@ -219,15 +229,7 @@ class SignUpModal extends Component {
                     </div>
                   </div>
 
-                  <div className="modal-footer">
-                    <Button
-                      type="submit"
-                      id="add-account"
-                      className="btn btn-primary modal-close blue"
-                    >
-                      Submit
-                    </Button>
-                  </div>
+                  <div className="modal-footer" />
                 </div>
               </form>
             </div>

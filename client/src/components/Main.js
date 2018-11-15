@@ -1,13 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { Parallax } from "react-materialize";
 import background1 from "../Images/background1.jpg";
 import background2 from "../Images/background2.jpg";
 import background3 from "../Images/background3.jpg";
+import SignInModal from "./SignInModal";
+import SignUpModal from "./SignUpModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 
-class Main extends React.Component {
+class Main extends Component {
   render() {
     return (
       <div>
@@ -35,9 +37,19 @@ class Main extends React.Component {
             <div className="section no-pad-bit">
               <div className="row">
                 <div className="col s12 center">
-                  <h5 className="header light">
+                  <h5 className="header light m-5">
                     Specializing In Classic Cuts.
                   </h5>
+                  <div className="row">
+                    <div className="col s2"></div>
+                    <div className="col s4">
+                      <SignInModal />
+                    </div>
+                    <div className="col s4">
+                      <SignUpModal />
+                    </div>
+                    <div className="col s2"></div>
+                  </div>
                 </div>
               </div>
             </div>
