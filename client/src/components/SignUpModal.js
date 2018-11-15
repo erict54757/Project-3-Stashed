@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from 'react';
 import { Modal, Button, NavItem, Dropdown } from "react-materialize";
+// import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 
-class SignUpModal extends React.Component {
+class SignUpModal extends Component {
   render() {
     return (
       <Modal
