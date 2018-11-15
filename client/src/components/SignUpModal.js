@@ -12,86 +12,85 @@ class SignUpModal extends Component {
         id="account-signUp"
         role="dialog"
         header="Create Your Account"
-        trigger={<Button>Sign Up</Button>}
+        trigger={<Button className="blue">Sign Up</Button>}
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-body">
               <form id="create-form">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
+                <div className="form-row">
+                  <div className="form-group col-md-6">
                     <label for="inputFirst">First Name</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="inputFirst"
                       placeholder="John"
                     />
                   </div>
-                  <div class="form-group col-md-6">
+                  <div className="form-group col-md-6">
                     <label for="inputLast">Last Name</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="inputLast"
                       placeholder="Doe"
                     />
                   </div>
                 </div>
 
-                <div class="form-row">
-                  <div class="form-group col-md-6">
+                <div className="form-row">
+                  <div className="form-group col-md-6">
                     <label for="inputEmail">Email</label>
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       id="inputEmail"
                       placeholder="Email"
                     />
                   </div>
-                  <div class="form-group col-md-6">
+                  <div className="form-group col-md-6">
                     <label for="inputPhone">Phone</label>
 
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="inputPhone"
                       placeholder="4155551234"
                     />
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                   <label for="inputStreet">Street</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="inputStreet"
                     placeholder="1234 Your St"
                   />
                 </div>
 
-                <div class="form-row">
-                  <div class="form-group col-md-6">
+                <div className="form-row">
+                  <div className="form-group col-md-6">
                     <label for="inputCity">City</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="inputCity"
                       placeholder="Your City"
                     />
                   </div>
-                  <div class="form-group col-md-4">
+                  <div className="form-group col-md-4">
                     <label for="inputCity">State</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="inputState"
                       placeholder="Your State"
                     />
                     <Dropdown
-                      trigger={<Button>State</Button>}
-                      class="btn blue lighten-1"
+                      trigger={<Button className="blue">State</Button>}
                       data-target="inputState"
                     >
                       <NavItem value="AL">Alabama</NavItem>
@@ -197,34 +196,34 @@ class SignUpModal extends Component {
                       <NavItem value="WY">Wyoming</NavItem>
                     </Dropdown>
 
-                    <div class="form-group col-md-2">
+                    <div className="form-group col-md-2">
                       <label for="inputZip">Zip</label>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="inputZip"
                         placeholder="12567"
                       />
                     </div>
                   </div>
 
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
+                  <div className="form-row">
+                    <div className="form-group col-md-6">
                       <label for="inputPassword">Password</label>
                       <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         id="inputPassword"
                         placeholder="password"
                       />
                     </div>
                   </div>
 
-                  <div class="modal-footer">
+                  <div className="modal-footer">
                     <Button
                       type="submit"
                       id="add-account"
-                      class="btn btn-primary modal-close blue lighten-1"
+                      className="btn btn-primary modal-close blue"
                     >
                       Submit
                     </Button>

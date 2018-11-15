@@ -4,7 +4,7 @@ import "jquery";
 // import { Link, Route } from "react-router-dom";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import "./DumbApptCard"
+import Appointment from "./DumbApptCard"
 
 
 class ApptCust extends React.Component {
@@ -21,16 +21,17 @@ class ApptCust extends React.Component {
     return (
       <div className="container">
       <div className="row">
-      <Col s={4}>
+      
       {this.state.appointments.map(appointment => (
+      <Col s={4}>
       <Appointment
       id={appointment.id}
       time={appointment.time}
       name={appointment.name}
-      />
+      /></Col>
       ))
     }
-    </Col></div></div>
+    </div></div>
     )
   }
 }

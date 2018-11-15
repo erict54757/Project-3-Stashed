@@ -5,32 +5,26 @@ import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import logo from "../Images/logo.jpg";
+import SignUpModal from "./SignUpModal";
+import SignInModal from "./SignInModal";
 
 class NavBar extends Component {
   render() {
     return (
-      <Navbar brand={logo} right class="black" role="navigation">
-        {/*<a id="logo-container" href="/" class="brand-logo">
-            <img
-              style={({ height: 55 }, { width: "auto" })}
+      <Navbar style={{height: "80px"}} className="black" brand={ <img
+              style={({ height: "auto", width: "110px", padding: "5px"})}
               src={logo}
               alt="logo"
               srcset=""
-            />
-          </a> */}
+    />}  
+    right role="navigation">
+      
         <NavItem>
-          <a
-            class="modal-trigger hideSign"
-            href="#account-info"
-            id="sign-in-modal"
-          >
-            SIGN-IN
-          </a>
+         
+          <SignInModal/>
         </NavItem>
         <NavItem>
-          <a class="modal-trigger hideSign" href="#account-signUp">
-            SIGN-UP
-          </a>
+          <SignUpModal/>
         </NavItem>
       </Navbar>
     );
