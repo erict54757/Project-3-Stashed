@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Modal, Button, Input, Icon } from "react-materialize";
-
+import "./employeeScheduleModal.css"
 class EmployeeScheduleModal extends Component {
   render() {
     return (
@@ -14,10 +14,10 @@ class EmployeeScheduleModal extends Component {
           }
           actions={
             <div>
-              <Button style={{marginLeft: "5px"}}  className="blue" modal="close" waves="light">
+              <Button   className="blue " modal="close" waves="light">
                 Save
               </Button>
-              <Button style={{marginLeft: "5px"}} className="blue"  modal="close" waves="light">
+              <Button  className="blue "  modal="close" waves="light">
                 Close
               </Button>
             </div>

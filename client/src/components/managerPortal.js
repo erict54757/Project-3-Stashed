@@ -17,7 +17,7 @@ class ManagerPortal extends Component {
       
       <div >
         <Row >
-          <Col >
+          <Col style={{marginLeft:"5px"}} >
           <ManagerPortalModal/>
           </Col>
         </Row>

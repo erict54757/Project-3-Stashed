@@ -16,7 +16,7 @@ render(){
     return(
 
 <div className="container">
-<Row>
+<div className=" row z-depth-5" style={{marginTop: "25px"}}>
 <Tabs style={{color: "black"}} className='black-text z-depth-1'>
     <Tab className="blue-text" title="View Check Ins">View Check Ins</Tab>
     <Tab title="Checked In" active>Checked In</Tab>
@@ -24,9 +24,9 @@ render(){
     <Tab title="Admin">Admin</Tab>
 </Tabs>
 {/*  insert the appropriate manager component here */}
-     {/* <ManagerPortal/> */}
-    <EmployeeSchedule/>
-    </Row>
+     <ManagerPortal/>
+    {/* <EmployeeSchedule/> */}
+    </div>
  
 </div>
 

@@ -24,7 +24,7 @@ class EmployeeSchedule extends React.Component {
         </Row>
 
         <Row>
-          <Carousel style={{width: "200px"}}  options={{ fullWidth: false }}>
+          <Carousel   options={{ fullWidth: false }}>
    
         
       
