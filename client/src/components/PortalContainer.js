@@ -18,14 +18,13 @@ render(){
 <div className="container">
 <div className=" row z-depth-5" style={{marginTop: "25px"}}>
 <Tabs style={{color: "black"}} className='black-text z-depth-1'>
-    <Tab className="blue-text" title="View Check Ins">View Check Ins</Tab>
-    <Tab title="Checked In" active>Checked In</Tab>
-    <Tab title="Employee">Employee</Tab>
-    <Tab title="Admin">Admin</Tab>
+    
+    <Tab title="Employee Info">Employee Info</Tab>
+    <Tab title="Emplyee Schedule">Emplyee Schedule</Tab>
 </Tabs>
 {/*  insert the appropriate manager component here */}
-     <ManagerPortal/>
-    {/* <EmployeeSchedule/> */}
+     {/* <ManagerPortal/> */}
+    <EmployeeSchedule/>
     </div>
  
 </div>

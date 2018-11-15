@@ -8,6 +8,7 @@ import SignUpModal from "./SignUpModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
+import NewAppointment from "./newAppointment";
 
 class Main extends Component {
   render() {
@@ -40,16 +41,7 @@ class Main extends Component {
                   <h5 className="header light m-5">
                     Specializing In Classic Cuts.
                   </h5>
-                  <div className="row">
-                    <div className="col s2"></div>
-                    <div className="col s4">
-                      <SignInModal />
-                    </div>
-                    <div className="col s4">
-                      <SignUpModal />
-                    </div>
-                    <div className="col s2"></div>
-                  </div>
+             <NewAppointment/>
                 </div>
               </div>
             </div>
