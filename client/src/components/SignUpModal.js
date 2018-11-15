@@ -4,7 +4,7 @@ import { Modal, Button, NavItem, Dropdown } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-
+import "./SignUpModal.css"
 class SignUpModal extends Component {
   render() {
     return (
@@ -12,17 +12,7 @@ class SignUpModal extends Component {
         id="account-signUp"
         role="dialog"
         header="Create Your Account"
-        trigger={<Button className="teal">Sign Up</Button>}
-        actions={
-          <div>
-            <Button modal="close" waves="light">
-              Sign Up
-            </Button>
-            <Button flat modal="close" waves="light">
-              Close
-            </Button>
-          </div>
-        }
+        trigger={<Button className="btn blue">Sign Up</Button>}
       >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -229,7 +219,15 @@ class SignUpModal extends Component {
                     </div>
                   </div>
 
-                  <div className="modal-footer" />
+                  <div className="">
+                    <Button
+                      type="submit"
+                      id="add-account"
+                      className="btn modal-close blue"
+                    >
+                      Submit
+                    </Button>
+                  </div>
                 </div>
               </form>
             </div>

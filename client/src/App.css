@@ -1,2 +1,21 @@
 /* remove center align from manager portal */
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  min-height: 100%;
+  margin-bottom: 40px;
+}
+#root{
+  min-height: 860px;
+}
+.footer{
+  width: 100%;
+  
+  position: absolute;
+  bottom: 0;
+
+}

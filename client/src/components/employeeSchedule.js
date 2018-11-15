@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Carousel} from "react-materialize";
+import { Row, Carousel,Col} from "react-materialize";
 import EmployeeScheduleModal from "./employeeScheduleModal";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -18,17 +18,19 @@ class EmployeeSchedule extends React.Component {
     return (
       <div>
         <Row>
+          <Col>
           <EmployeeScheduleModal />
+          </Col>
         </Row>
 
         <Row>
-          <Carousel options={{ fullWidth: false }}>
+          <Carousel   options={{ fullWidth: false }}>
    
         
       
       {this.state.appointments.map(appointment => (
-       <div>
-      <Appointment
+       <div >
+      <Appointment 
       id={appointment.id}
       time={appointment.time}
       name={appointment.name}
