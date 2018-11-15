@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Modal, Button } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -12,7 +12,17 @@ class SignInModal extends Component {
         id="account-info"
         role="dialog"
         header="Credentials"
-        trigger={<Button className="blue">Sign In</Button>}
+        trigger={<Button className="teal">Sign In</Button>}
+        actions={
+          <div>
+            <Button modal="close" waves="light">
+              Sign In
+            </Button>
+            <Button flat modal="close" waves="light">
+              Close
+            </Button>
+          </div>
+        }
       >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -31,23 +41,6 @@ class SignInModal extends Component {
                   />
                 </div>
               </form>
-            </div>
-
-            <div className="modal-footer">
-              <Button
-                id="sign-in"
-                type="button"
-                className="btn  blue"
-              >
-                Login
-              </Button>
-              <Button
-                type="button"
-                id="userLogin"
-                className="modal-close btn  blue"
-              >
-                Close
-              </Button>
             </div>
           </div>
         </div>
