@@ -10,3 +10,6 @@
   .tabs .tab a {
     color: black;
   }
+  .tabs .indicator {
+   background-color: black;
+}

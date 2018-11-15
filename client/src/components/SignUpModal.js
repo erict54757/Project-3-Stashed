@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Modal, Button, NavItem, Dropdown } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -90,7 +90,7 @@ class SignUpModal extends Component {
                       placeholder="Your State"
                     />
                     <Dropdown
-                      trigger={<Button className="blue">State</Button>}
+                      trigger={<Button className="teal">State</Button>}
                       data-target="inputState"
                     >
                       <NavItem value="AL">Alabama</NavItem>
