@@ -7,20 +7,27 @@ class EmployeeScheduleModal extends Component {
       <div>
         <Modal
           header="New Employee Information"
-          trigger={
-            <Button className="blue">
-              Add Appointment<Icon left>add</Icon>
-            </Button>
-          }
+
           actions={
             <div>
-              <Button   className="blue " modal="close" waves="light">
+              <Button
+                waves="light"
+                type="button"
+                id="employeeSave"
+                className="modal-close btn  blue"
+              >
                 Save
               </Button>
-              <Button  className="blue "  modal="close" waves="light">
+              <Button className="blue " modal="close" waves="light">
                 Close
               </Button>
             </div>
+          }
+          
+          trigger={
+            <Button className="blue addAppointment">
+              Add Appointment<Icon left>add</Icon>
+            </Button>
           }
         >
           <Row>
@@ -48,7 +55,7 @@ class EmployeeScheduleModal extends Component {
               type="date"
               label="Select Date"
               defaultValue="2"
-              onChange={function(e, value) {}}
+              onChange={function (e, value) { }}
             >
               <Icon>date_range</Icon>
             </Input>
@@ -59,7 +66,7 @@ class EmployeeScheduleModal extends Component {
               name="on"
               type="time"
               placeholder="Time"
-              onChange={function(e, value) {}}
+              onChange={function (e, value) { }}
             >
               <Icon>access_time</Icon>
             </Input>

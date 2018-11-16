@@ -9,20 +9,20 @@ class SignInModal extends Component {
   render() {
     return (
       <Modal
-      actions={  <div><Button
-        type="button"
-        id="userLogin"
-        className="modal-close btn  blue"
-      >
-        Close
+        actions={<div><Button
+          type="button"
+          id="userLogin"
+          className="modal-close btn  blue"
+        >
+          Close
       </Button><Button
-        id="sign-in"
-        type="button"
-        className="btn  blue"
-      >
-        Login
+            id="sign-in"
+            type="button"
+            className="btn  blue"
+          >
+            Login
       </Button>
-      </div>}
+        </div>}
         id="account-info"
         role="dialog"
         header="Sign-In"
@@ -47,7 +47,7 @@ class SignInModal extends Component {
               </form>
             </div>
 
-          
+
           </div>
         </div>
       </Modal>

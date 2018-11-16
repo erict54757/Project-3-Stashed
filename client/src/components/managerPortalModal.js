@@ -15,7 +15,7 @@ class ManagerPortalModal extends Component {
             }
           actions={
             <div>
-              <Button className="blue" modal="close" waves="light">
+              <Button style={{marginLeft: "5px"}}className="blue" modal="close" waves="light">
                 Save
               </Button>
               <Button className="blue" flat modal="close" waves="light">
