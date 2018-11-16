@@ -14,7 +14,7 @@ import EmpApptUpdateModal from "./components/EmpApptUpdateModal"
 //import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
-import PortalFooter from "./components/PortalFooter"
+import PortalFooter from "./components/PortalFooter";
 
 // const App = () => (
 //   <Router>
@@ -27,7 +27,6 @@ import PortalFooter from "./components/PortalFooter"
 //     </div>
 //     </Router>
 //   );
-
 
 class App extends Component {
   render() {

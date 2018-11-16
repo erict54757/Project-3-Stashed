@@ -1,8 +1,6 @@
 DROP DATABASE IF EXISTS project_3_db;
 CREATE DATABASE project_3_db;
-<<<<<<< HEAD
-=======
-USE project_3_db;
+
 
 -- CREATE TABLE accounts
 -- (
@@ -38,4 +36,4 @@ USE project_3_db;
 -- 	PRIMARY KEY(id),
 -- 	FOREIGN KEY(cust_id) REFERENCES accounts(id)
 -- );
->>>>>>> 152fd118a7df55689dd2a05773afc7e87d199efd
+
