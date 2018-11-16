@@ -7,7 +7,7 @@ import Appointment from "./DumbApptCard"
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 
-class EmployeeSchedule extends React.Component {
+class EmployeeSchedule extends Component {
   state ={
     appointments: [{ id:1, time: "8:30", name:"eric" },{id:2,  time: "8:45", name:"drew" },{ id:3, time: "9:30", name:"nicole" },{ id:4, time: "10:30", name:"eric" }]
   
