@@ -6,7 +6,7 @@ import "materialize-css/dist/css/materialize.css";
 
 const Appointment = props=> (
     
-    <Col >
+    
       <Card 
         className="blue-grey darken-1"
         textClassName="white-text"
@@ -18,7 +18,7 @@ const Appointment = props=> (
         <Button className="red" value={props.id} >X
          </Button> 
       </Card>
-    </Col>
+ 
   
 
  );

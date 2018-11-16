@@ -7,6 +7,7 @@ import "materialize-css/dist/css/materialize.css";
 import logo from "../Images/logo.jpg";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
+import "./NavBar.css"
 
 class NavBar extends Component {
   render() {
