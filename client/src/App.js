@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
+import SignInModal from "./components/SignInModal"
+import NavBarCust from "./components/NavBarCust"
 import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 import Navbar from "react-materialize/lib/Navbar";
 import { Footer } from "react-materialize";
 import PortalContainer from "./components/PortalContainer";
+import Foot from "./components/Foot"
+import EmpApptUpdateModal from "./components/EmpApptUpdateModal"
 // import ManagerPortal from "./components/managerPortal";
 //import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
@@ -29,15 +33,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Main /> */}
-        <NavBar/>
-
+      <NavBarCust/>
+        <Main />
+        <Foot/> 
+        {/* <NavBar/>
+ <PortalContainer/> */}
         {/* <ApptCust/> */}
         {/* <NewAppointment/> */}
-        <PortalContainer/>
+        {/* <EmpApptUpdateModal/>
+        <SignInModal/> */}
         {/* <EmployeeSchedule /> */}
-        <PortalFooter/>
-    
+        {/* <PortalFooter/> */}
+   
       </div>
     );
   }
