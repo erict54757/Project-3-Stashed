@@ -10,7 +10,7 @@ import PortalContainer from "./components/PortalContainer";
 //import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
-import PortalFooter from "./components/PortalFooter"
+import PortalFooter from "./components/PortalFooter";
 
 // const App = () => (
 //   <Router>
@@ -24,20 +24,18 @@ import PortalFooter from "./components/PortalFooter"
 //     </Router>
 //   );
 
-
 class App extends Component {
   render() {
     return (
       <div className="App">
         {/* <Main /> */}
-        <NavBar/>
+        <NavBar />
 
         {/* <ApptCust/> */}
         {/* <NewAppointment/> */}
-        <PortalContainer/>
+        <PortalContainer />
         {/* <EmployeeSchedule /> */}
-        <PortalFooter/>
-    
+        <PortalFooter />
       </div>
     );
   }
