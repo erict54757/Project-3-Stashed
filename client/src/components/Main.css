@@ -1,0 +1,18 @@
+#index-banner{
+    height: 250px;
+    width: 100%;
+    top: 10%;
+   
+    position: absolute;
+
+}
+
+.special{
+    width: 100%;
+    top: 45%;
+ position: absolute;
+
+}
+.appoint{
+    height: 33%;
+}

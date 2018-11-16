@@ -7,12 +7,14 @@ import "materialize-css/dist/css/materialize.css";
 import logo from "../Images/logo.jpg";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
+import "./NavBarCust.css"
 
-class NavBar extends Component {
+
+class NavBarCust extends Component {
   render() {
     return (
-      <Navbar 
-       style={{height: "80px"}} className="black" brand={ <img
+      <Navbar id="navBarCust"
+       style={{height: "80px"}} className="white" brand={ <img
               style={({ height: "auto", width: "110px", padding: "5px"})}
               src={logo}
               alt="logo"
@@ -32,4 +34,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default NavBarCust;
