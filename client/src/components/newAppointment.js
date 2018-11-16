@@ -3,6 +3,7 @@ import { Row, Input, Button, Icon } from 'react-materialize';
 import 'jquery';
 import 'materialize-css/dist/js/materialize.js';
 import 'materialize-css/dist/css/materialize.css';
+import "./NewAppointment.css"
 
 class NewAppointment extends Component {
 

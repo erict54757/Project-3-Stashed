@@ -4,21 +4,21 @@ import { Row, Modal, Button, Input, Icon } from "react-materialize";
 class ManagerPortalModal extends Component {
     render() {
       return (
-        <div>
-<Modal
+        <div >
+<Modal 
             header="New Employee Information"
             fixedFooter
             trigger={
-              <Button className="green">
-                Add Employee<Icon left>add</Icon>
+              <Button className="blue">
+                Add Employee<Icon className="blue" left>add</Icon>
               </Button>
             }
           actions={
             <div>
-              <Button modal="close" waves="light">
+              <Button style={{marginLeft: "5px"}}className="blue" modal="close" waves="light">
                 Save
               </Button>
-              <Button flat modal="close" waves="light">
+              <Button className="blue" flat modal="close" waves="light">
                 Close
               </Button>
             </div>

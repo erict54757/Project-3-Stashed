@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown } from "react-materialize";
+import { Modal, Button, NavItem, Dropdown, Input } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import "./SignUpModal.css"
+import "./empApptUpdateModal.css"
 class SignUpModal extends Component {
   render() {
     return (
@@ -12,7 +12,7 @@ class SignUpModal extends Component {
         id="account-signUp"
         role="dialog"
         header="Create Your Account"
-        trigger={<Button className="btn blue">Sign Up</Button>}
+        trigger={<Button className="btn blue">Update</Button>}
       >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -20,77 +20,92 @@ class SignUpModal extends Component {
               <form id="create-form">
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="inputFirst">First Name</label>
-                    <input
+                   
+                    <Input
                       type="text"
                       className="form-control"
                       id="inputFirst"
-                      placeholder="John"
+                      placeholder={this.props.firstName}
+                      value={this.state.firstName}
+                            onChange={this.handleInputChange}
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <label for="inputLast">Last Name</label>
-                    <input
+                   
+                    <Input
                       type="text"
                       className="form-control"
                       id="inputLast"
-                      placeholder="Doe"
+                      placeholder={this.props.lastName}
+                      value={this.state.lastName}
+                            onChange={this.handleInputChange}
                     />
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="inputEmail">Email</label>
-                    <input
+                 
+                    <Input
                       type="email"
                       className="form-control"
                       id="inputEmail"
-                      placeholder="Email"
+                      placeholder={this.props.email} 
+                      value={this.state.email} 
+                      onChange={this.handleInputChange}
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <label for="inputPhone">Phone</label>
+                   
 
-                    <input
+                    <Input
                       type="text"
                       className="form-control"
                       id="inputPhone"
-                      placeholder="4155551234"
+                      placeholder={this.props.telephone} 
+                      value={this.state.telephone} 
+                      onChange={this.handleInputChange}
                     />
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label for="inputStreet">Street</label>
-                  <input
+                
+                  <Input
                     type="text"
                     className="form-control"
                     id="inputStreet"
-                    placeholder="1234 Your St"
+                    placeholder={this.props.street} 
+                    value={this.state.street} 
+                    onChange={this.handleInputChange}
                   />
                 </div>
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input
+                   
+                    <Input
                       type="text"
                       className="form-control"
                       id="inputCity"
-                      placeholder="Your City"
+                      placeholder={this.props.city} 
+                      value={this.state.city} 
+                      onChange={this.handleInputChange}
                     />
                   </div>
                   <div className="form-group col-md-4">
-                    <label for="inputCity">State</label>
-                    <input
+                   
+                    <Input
                       type="text"
                       className="form-control"
                       id="inputState"
-                      placeholder="Your State"
+                      placeholder={this.props.state} 
+                      value={this.state.state} 
+                      onChange={this.handleInputChange}
                     />
                     <Dropdown
                       trigger={<Button className="teal">State</Button>}
+                      placeholder={this.props.state}
                       data-target="inputState"
                     >
                       <NavItem value="AL">Alabama</NavItem>
@@ -197,24 +212,28 @@ class SignUpModal extends Component {
                     </Dropdown>
 
                     <div className="form-group col-md-2">
-                      <label for="inputZip">Zip</label>
-                      <input
+                     
+                      <Input
                         type="text"
                         className="form-control"
                         id="inputZip"
                         placeholder="12567"
+                        value={this.state.zip} 
+                        onChange={this.handleInputChange}
                       />
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="inputPassword">Password</label>
-                      <input
+                    
+                      <Input
                         type="password"
                         className="form-control"
                         id="inputPassword"
-                        placeholder="password"
+                        placeholder={this.props.password}
+                        value={this.state.password} 
+                        onChange={this.handleInputChange}
                       />
                     </div>
                   </div>
