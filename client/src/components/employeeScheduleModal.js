@@ -25,7 +25,7 @@ class EmployeeScheduleModal extends Component {
           }
           
           trigger={
-            <Button className="blue">
+            <Button className="blue addAppointment">
               Add Appointment<Icon left>add</Icon>
             </Button>
           }

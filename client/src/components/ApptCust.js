@@ -25,7 +25,7 @@ class ApptCust extends React.Component {
       {this.state.appointments.map(appointment => (
       <Col s={4}>
       <Appointment
-      id={appointment.id}
+      key={appointment.id}
       time={appointment.time}
       name={appointment.name}
       /></Col>
