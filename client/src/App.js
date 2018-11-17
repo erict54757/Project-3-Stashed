@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* <Main /> */}
-        <NavBar />
+        {/* <NavBar /> */}
         {/* <ApptCust/> */}
         {/* <NewAppointment/> */}
         <EmpApptUpdateModal/>

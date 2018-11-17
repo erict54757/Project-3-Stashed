@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown, Input,Icon } from "react-materialize";
+import { Modal, Button, NavItem, Dropdown, Input,Icon, Row } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -14,6 +14,34 @@ class EmpApptUpdateModal extends Component {
     { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
     { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
     { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  }]
+  };
+
+  handleDrop = event => {
+    event.preventDefault()
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+
+    // Updating the input's state
+    this.setState({
+        ...this.state,
+      [name]: value
+    });
+  
+  };
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+
+    // Updating the input's state
+    this.setState({
+        ...this.state,
+      [name]: value
+    });
+  
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -32,11 +60,21 @@ class EmpApptUpdateModal extends Component {
   render() {
     return (
       <Modal
-        id="account-signUp"
-        role="dialog"
-        header="Create Your Account"
-        trigger={<Button className="btn blue">Update</Button>}
+      actions={<div><Button
+        type="button"
+        id="userLogin"
+        className="modal-close btn  blue"
       >
+        Update
+    </Button>
+      </div>}
+      id="account-info"
+      role="dialog"
+      header="Sign-In"
+      trigger={<Button className="blue"
+      onChange={this.handleUpdate}
+      >Update</Button>}
+    >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-body">
@@ -45,6 +83,7 @@ class EmpApptUpdateModal extends Component {
                   <div className="form-group col-md-6">
                    
                     <Input
+                    label="First Name"
                       type="text"
                       className="form-control"
                       id="inputFirst"
@@ -56,6 +95,7 @@ class EmpApptUpdateModal extends Component {
                   <div className="form-group col-md-6">
                    
                     <Input
+                    label="Last Name"
                       type="text"
                       className="form-control"
                       id="inputLast"
@@ -65,11 +105,18 @@ class EmpApptUpdateModal extends Component {
                     />
                   </div>
                 </div>
-
+  
+                <Input
+                    label="Current Appointment Date" s={6} className="black-text" type='date' name='on'
+                    placeholder={this.props.password} 
+                            value={this.state.appointments.date} 
+                            onChange={this.handleInputChange} ><Icon>date_range</Icon></Input>
+                              
                 <div className="form-row">
                   <div className="form-group col-md-6">
                  
                     <Input
+                    label="Email"
                       type="email"
                       className="form-control"
                       id="inputEmail"
@@ -82,6 +129,7 @@ class EmpApptUpdateModal extends Component {
                    
 
                     <Input
+                    label="Telephone"
                       type="text"
                       className="form-control"
                       id="inputPhone"
@@ -95,6 +143,7 @@ class EmpApptUpdateModal extends Component {
                 <div className="form-group">
                 
                   <Input
+                  label="Street"
                     type="text"
                     className="form-control"
                     id="inputStreet"
@@ -108,6 +157,7 @@ class EmpApptUpdateModal extends Component {
                   <div className="form-group col-md-6">
                    
                     <Input
+                    label="City"
                       type="text"
                       className="form-control"
                       id="inputCity"
@@ -121,16 +171,18 @@ class EmpApptUpdateModal extends Component {
                 
                     <Dropdown
                       trigger={    <Input
+                      
                       label="State"
                         type="text"
                         className="form-control"
                         id="inputState"
-                        placeholder={this.props.state} 
-                        value={this.state.appointments.state} 
+                       placeholder={this.state.appointments.state} 
                         onChange={this.handleInputChange}
-                      />}
-                      data-target="NavItem"
-                    >
+                        value={this.state.appointments.state} 
+                     />}
+                      data-target= {NavItem}
+                      onClick={this.handleDrop}
+                   >
                       <NavItem value="AL">Alabama</NavItem>
                       <NavItem divider />
                       <NavItem value="AK">Alaska</NavItem>
@@ -237,6 +289,7 @@ class EmpApptUpdateModal extends Component {
                     <div className="form-group col-md-2">
                      
                       <Input
+                      label="ZipCode"
                         type="text"
                         className="form-control"
                         id="inputZip"
@@ -251,6 +304,7 @@ class EmpApptUpdateModal extends Component {
                     <div className="form-group col-md-6">
                     
                       <Input
+                      label=""
                         type="password"
                         className="form-control"
                         id="inputPassword"
@@ -263,21 +317,10 @@ class EmpApptUpdateModal extends Component {
 
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                    
-                    <Input s={6} className="black-text" type='date'    name="date"  
-                            value={this.state.appointments.date} 
-                            onChange={this.handleInputChange} ><Icon>date_range</Icon></Input>
+                  
               </div>
                   </div>
-                  <div className="">
-                    <Button
-                      type="submit"
-                      id="add-account"
-                      className="btn modal-close blue"
-                    >
-                      Submit
-                    </Button>
-                  </div>
+                
                 </div>
               </form>
             </div>
