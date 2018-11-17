@@ -32,11 +32,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {/* <NavBarCust/>
-        <Main />
-        <Foot/>  */}
-        {/* <NavBar/>
- <PortalContainer/> */}
+        {/* <Main /> */}
+        <NavBar />
         {/* <ApptCust/> */}
         {/* <NewAppointment/> */}
         <EmpApptUpdateModal/>

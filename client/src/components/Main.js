@@ -3,7 +3,6 @@ import { Parallax } from "react-materialize";
 import background1 from "../Images/background1.jpg";
 import background2 from "../Images/background2.jpg";
 import background3 from "../Images/background3.jpg";
-import background5 from "../Images/background5.jpg";
 import SignInModal from "./SignInModal";
 import SignUpModal from "./SignUpModal";
 import "jquery";

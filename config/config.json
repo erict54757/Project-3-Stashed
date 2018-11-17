@@ -5,11 +5,11 @@
     "database": "project_3_db",
     "host": "localhost",
     "dialect": "mysql",
-    "port": "3306"
+    "port": "8889"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "project_3_db",
     "host": "localhost",
     "dialect": "mysql",
