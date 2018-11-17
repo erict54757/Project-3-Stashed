@@ -3,7 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./models");
-
+// const sequelize =require("Sequelize");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

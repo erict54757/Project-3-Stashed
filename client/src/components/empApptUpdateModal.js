@@ -6,9 +6,7 @@ import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./empApptUpdateModal.css"
 class EmpApptUpdateModal extends Component {
-  state1={
-    stuff:this.props
-  }
+  state1=[]
   state ={
     appointments: [{ id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
     { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
