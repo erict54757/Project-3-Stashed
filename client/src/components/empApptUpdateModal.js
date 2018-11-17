@@ -6,15 +6,28 @@ import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./empApptUpdateModal.css"
 class EmpApptUpdateModal extends Component {
+  state1={
+    stuff:this.props
+  }
   state ={
     appointments: [{ id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
     { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
     { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
     { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  }]
-  
-    
-};
+  };
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
 
+
+    // Updating the input's state
+    this.setState({
+        ...this.state,
+      [name]: value
+    });
+  
+  };
 
   render() {
     return (
@@ -116,7 +129,7 @@ class EmpApptUpdateModal extends Component {
                         value={this.state.appointments.state} 
                         onChange={this.handleInputChange}
                       />}
-                      data-target="inputState"
+                      data-target="NavItem"
                     >
                       <NavItem value="AL">Alabama</NavItem>
                       <NavItem divider />
