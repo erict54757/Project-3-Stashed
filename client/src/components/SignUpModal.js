@@ -4,7 +4,7 @@ import { Modal, Button, NavItem, Dropdown } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import "./SignUpModal.css"
+import "./SignUpModal.css";
 class SignUpModal extends Component {
   render() {
     return (
@@ -83,14 +83,16 @@ class SignUpModal extends Component {
                   </div>
                   <div className="form-group col-md-4">
                     <label for="inputCity">State</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputState"
-                      placeholder="Your State"
-                    />
+
                     <Dropdown
-                      trigger={<Button className="teal">State</Button>}
+                      trigger={
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="inputState"
+                          placeholder="Your State"
+                        />
+                      }
                       data-target="inputState"
                     >
                       <NavItem value="AL">Alabama</NavItem>

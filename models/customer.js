@@ -1,11 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   var Customer = sequelize.define("Customer", {
-    uuid: {
-      primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1,
-      isUnique: true
-    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -70,21 +64,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [8]
       }
-    },
-    schedule: {
-      type: DataTypes.TEXT
-    },
-    isCustomer: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
-    },
-    isEmployee: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    },
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
     }
   });
 
