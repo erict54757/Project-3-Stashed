@@ -17,7 +17,7 @@ const Appointment = props=> (
         <div >At {props.time}</div>
         <Button className="red" value={props.id} >X
          </Button> 
-         < EmpApptUpdateModal/>
+         < EmpApptUpdateModal />
       </Card>
  
   

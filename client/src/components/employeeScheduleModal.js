@@ -6,7 +6,7 @@ class EmployeeScheduleModal extends Component {
     return (
       <div>
         <Modal
-          header="New Employee Information"
+          header="New Appointment Information"
 
           actions={
             <div>

@@ -60,13 +60,12 @@ class EmpApptUpdateModal extends Component {
       <Modal
       actions={<div><Button
         type="button"
-        id="userLogin"
         className="modal-close btn  blue"
       >
         Update
     </Button>
       </div>}
-      id="account-info"
+      id=""
       role="dialog"
       header="Sign-In"
       trigger={<Button className="blue"
