@@ -15,7 +15,7 @@ const Appointment = props=> (
       
       <h5>{props.name}</h5>
         <div >At {props.time}</div>
-        <Button className="red" value={props.id} >X
+        <Button style={{marginBottom:"10px;"}} className="red" value={props.id} >X
          </Button> 
          < EmpApptUpdateModal />
       </Card>

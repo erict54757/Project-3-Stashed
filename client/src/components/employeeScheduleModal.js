@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Modal, Button, Input, Icon } from "react-materialize";
+import { Row, Modal, Button, Input, Icon,Col } from "react-materialize";
 import "./employeeScheduleModal.css"
 class EmployeeScheduleModal extends Component {
   render() {
@@ -9,24 +9,22 @@ class EmployeeScheduleModal extends Component {
           header="New Appointment Information"
 
           actions={
-            <div>
+           <div>
               <Button
                 waves="light"
                 type="button"
                 id="employeeSave"
                 className="modal-close btn  blue"
-              >
-                Save
-              </Button>
-              <Button className="blue " modal="close" waves="light">
+              >Save</Button>
+              <Button  className="blue " modal="close" waves="light">
                 Close
               </Button>
-            </div>
+         </div>
           }
           
           trigger={
             <Button className="blue addAppointment">
-              Add Appointment<Icon left>add</Icon>
+              Add Appointment
             </Button>
           }
         >

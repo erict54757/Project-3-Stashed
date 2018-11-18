@@ -67,7 +67,7 @@ class EmpApptUpdateModal extends Component {
       </div>}
       id=""
       role="dialog"
-      header="Sign-In"
+      header="Update Customer Info."
       trigger={<Button className="blue"
       onChange={this.handleUpdate}
       >Update</Button>}
