@@ -7,7 +7,7 @@ import Navbar from "react-materialize/lib/Navbar";
 import { Footer } from "react-materialize";
 import PortalContainer from "./components/PortalContainer";
 // import ManagerPortal from "./components/managerPortal";
-//import EmployeeSchedule from "./components/employeeSchedule";
+// import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
 import PortalFooter from "./components/PortalFooter";
