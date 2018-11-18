@@ -9,11 +9,14 @@ import "materialize-css/dist/css/materialize.css";
 import "./employeeScheduleModal.css"
 import "./employeeSchedule.css"
 class EmployeeSchedule extends React.Component {
-  state = {
-    appointments: [{ id: 1, time: "8:30", name: "eric" }, { id: 2, time: "8:45", name: "drew" }, { id: 3, time: "9:30", name: "nicole" }, { id: 4, time: "10:30", name: "eric" }]
-
-
-  };
+  state ={
+    appointments: [{ id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
+    { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
+    { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
+    { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  }]
+  
+    
+};
 
   render() {
     return (

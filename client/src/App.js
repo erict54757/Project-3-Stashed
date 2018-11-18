@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import NavBar from "./components/NavBar";
-import Main from "./components/Main";
-import Navbar from "react-materialize/lib/Navbar";
-import { Footer } from "react-materialize";
+// import SignInModal from "./components/SignInModal"
+// import NavBarCust from "./components/NavBarCust"
+// import NavBar from "./components/NavBar";
+// import Main from "./components/Main";
+// import Navbar from "react-materialize/lib/Navbar";
+// import { Footer } from "react-materialize";
 import PortalContainer from "./components/PortalContainer";
+// import Foot from "./components/Foot"
+import EmpApptUpdateModal from "./components/EmpApptUpdateModal"
 // import ManagerPortal from "./components/managerPortal";
 // import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
-import PortalFooter from "./components/PortalFooter";
+// import PortalFooter from "./components/PortalFooter";
+import Customer from "./pages/Customer"
+import Employee from "./pages/Employee"
 
 // const App = () => (
 //   <Router>
@@ -29,12 +35,16 @@ class App extends Component {
     return (
       <div className="App">
         {/* <Main /> */}
-        <NavBar />
+        {/* <NavBar /> */}
         {/* <ApptCust/> */}
         {/* <NewAppointment/> */}
-        <PortalContainer />
+        {/* <EmpApptUpdateModal/> */}
+{/* <Customer/> */}
+<Employee/>
+        {/* <SignInModal/> */}
         {/* <EmployeeSchedule /> */}
-        <PortalFooter />
+        {/* <PortalFooter/> */}
+   
       </div>
     );
   }

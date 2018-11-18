@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown } from "react-materialize";
+import { Modal, Button, NavItem, Dropdown, Input} from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -82,15 +82,16 @@ class SignUpModal extends Component {
                     />
                   </div>
                   <div className="form-group col-md-4">
-                    <label for="inputCity">State</label>
-                    <input
+                    
+                   
+                    <Dropdown
+                      trigger={ <Input
+                      label="State"
                       type="text"
                       className="form-control"
                       id="inputState"
                       placeholder="Your State"
-                    />
-                    <Dropdown
-                      trigger={<Button className="teal">State</Button>}
+                    />}
                       data-target="inputState"
                     >
                       <NavItem value="AL">Alabama</NavItem>

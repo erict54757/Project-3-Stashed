@@ -1,19 +1,78 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown, Input } from "react-materialize";
+import { Modal, Button, NavItem, Dropdown, Input,Icon, Row } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./empApptUpdateModal.css"
-class SignUpModal extends Component {
+class EmpApptUpdateModal extends Component {
+  state1=[]
+  state ={
+    appointments: [{ id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
+    { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
+    { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  },
+    { id:1, time: "8:30", firstName:"eric", lastName:"taft", email: "erict54757@gmail.com", telephone: 7153799917,  street: "9518 grove hill dr", city: "charlotte", state: "nc", zip:28262, password: "password", date: "01/01/2019"  }]
+  };
+
+  handleDrop = event => {
+    event.preventDefault()
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+
+    // Updating the input's state
+    this.setState({
+        ...this.state,
+      [name]: value
+    });
+  
+  };
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+
+    // Updating the input's state
+    this.setState({
+        ...this.state,
+      [name]: value
+    });
+  
+  };
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+
+    // Updating the input's state
+    this.setState({
+        ...this.state,
+      [name]: value
+    });
+  
+  };
+
   render() {
     return (
       <Modal
-        id="account-signUp"
-        role="dialog"
-        header="Create Your Account"
-        trigger={<Button className="btn blue">Update</Button>}
+      actions={<div><Button
+        type="button"
+        id="userLogin"
+        className="modal-close btn  blue"
       >
+        Update
+    </Button>
+      </div>}
+      id="account-info"
+      role="dialog"
+      header="Sign-In"
+      trigger={<Button className="blue"
+      onChange={this.handleUpdate}
+      >Update</Button>}
+    >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-body">
@@ -22,36 +81,45 @@ class SignUpModal extends Component {
                   <div className="form-group col-md-6">
                    
                     <Input
+                    label="First Name"
                       type="text"
                       className="form-control"
                       id="inputFirst"
                       placeholder={this.props.firstName}
-                      value={this.state.firstName}
+                      value={this.state.appointments.firstName}
                             onChange={this.handleInputChange}
                     />
                   </div>
                   <div className="form-group col-md-6">
                    
                     <Input
+                    label="Last Name"
                       type="text"
                       className="form-control"
                       id="inputLast"
                       placeholder={this.props.lastName}
-                      value={this.state.lastName}
+                      value={this.state.appointments.lastName}
                             onChange={this.handleInputChange}
                     />
                   </div>
                 </div>
-
+  
+                <Input
+                    label="Current Appointment Date" s={6} className="black-text" type='date' name='on'
+                    placeholder={this.props.password} 
+                            value={this.state.appointments.date} 
+                            onChange={this.handleInputChange} ><Icon>date_range</Icon></Input>
+                              
                 <div className="form-row">
                   <div className="form-group col-md-6">
                  
                     <Input
+                    label="Email"
                       type="email"
                       className="form-control"
                       id="inputEmail"
                       placeholder={this.props.email} 
-                      value={this.state.email} 
+                      value={this.state.appointments.email} 
                       onChange={this.handleInputChange}
                     />
                   </div>
@@ -59,11 +127,12 @@ class SignUpModal extends Component {
                    
 
                     <Input
+                    label="Telephone"
                       type="text"
                       className="form-control"
                       id="inputPhone"
                       placeholder={this.props.telephone} 
-                      value={this.state.telephone} 
+                      value={this.state.appointments.telephone} 
                       onChange={this.handleInputChange}
                     />
                   </div>
@@ -72,11 +141,12 @@ class SignUpModal extends Component {
                 <div className="form-group">
                 
                   <Input
+                  label="Street"
                     type="text"
                     className="form-control"
                     id="inputStreet"
                     placeholder={this.props.street} 
-                    value={this.state.street} 
+                    value={this.state.appointments.street} 
                     onChange={this.handleInputChange}
                   />
                 </div>
@@ -85,29 +155,32 @@ class SignUpModal extends Component {
                   <div className="form-group col-md-6">
                    
                     <Input
+                    label="City"
                       type="text"
                       className="form-control"
                       id="inputCity"
                       placeholder={this.props.city} 
-                      value={this.state.city} 
+                      value={this.state.appointments.city} 
                       onChange={this.handleInputChange}
                     />
                   </div>
                   <div className="form-group col-md-4">
                    
-                    <Input
-                      type="text"
-                      className="form-control"
-                      id="inputState"
-                      placeholder={this.props.state} 
-                      value={this.state.state} 
-                      onChange={this.handleInputChange}
-                    />
+                
                     <Dropdown
-                      trigger={<Button className="teal">State</Button>}
-                      placeholder={this.props.state}
-                      data-target="inputState"
-                    >
+                      trigger={    <Input
+                      
+                      label="State"
+                        type="text"
+                        className="form-control"
+                        id="inputState"
+                       placeholder={this.state.appointments.state} 
+                        onChange={this.handleInputChange}
+                        value={this.state.appointments.state} 
+                     />}
+                      data-target= {NavItem}
+                      onClick={this.handleDrop}
+                   >
                       <NavItem value="AL">Alabama</NavItem>
                       <NavItem divider />
                       <NavItem value="AK">Alaska</NavItem>
@@ -214,11 +287,12 @@ class SignUpModal extends Component {
                     <div className="form-group col-md-2">
                      
                       <Input
+                      label="ZipCode"
                         type="text"
                         className="form-control"
                         id="inputZip"
                         placeholder="12567"
-                        value={this.state.zip} 
+                        value={this.state.appointments.zip} 
                         onChange={this.handleInputChange}
                       />
                     </div>
@@ -228,25 +302,23 @@ class SignUpModal extends Component {
                     <div className="form-group col-md-6">
                     
                       <Input
+                      label=""
                         type="password"
                         className="form-control"
                         id="inputPassword"
                         placeholder={this.props.password}
-                        value={this.state.password} 
+                        value={this.state.appointments.password} 
                         onChange={this.handleInputChange}
                       />
                     </div>
                   </div>
 
-                  <div className="">
-                    <Button
-                      type="submit"
-                      id="add-account"
-                      className="btn modal-close blue"
-                    >
-                      Submit
-                    </Button>
+                  <div className="form-row">
+                    <div className="form-group col-md-6">
+                  
+              </div>
                   </div>
+                
                 </div>
               </form>
             </div>
@@ -257,4 +329,4 @@ class SignUpModal extends Component {
   }
 }
 
-export default SignUpModal;
+export default EmpApptUpdateModal;

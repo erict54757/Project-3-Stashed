@@ -13,7 +13,7 @@ render(){
     return(
 
 
-<Footer className="footer"
+<Footer 
 
  
   links={
