@@ -65,9 +65,6 @@ module.exports = function(sequelize, DataTypes) {
           len: [8]
         }
       },
-      schedule: {
-        type: DataTypes.TEXT
-      },
       isAdmin: {
         type: DataTypes.BOOLEAN,
         defaultValue: false

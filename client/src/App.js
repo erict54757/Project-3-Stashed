@@ -11,11 +11,12 @@ import "./App.css";
 // import Foot from "./components/Foot"
 //import EmpApptUpdateModal from "./components/EmpApptUpdateModal";
 // import ManagerPortal from "./components/managerPortal";
-//import EmployeeSchedule from "./components/employeeSchedule";
+import PortalContainer from "./components/PortalContainer";
+// import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
 // import PortalFooter from "./components/PortalFooter";
-import Customer from "./pages/Customer";
+// import Customer from "./pages/Customer";
 //import Employee from "./pages/Employee";
 
 // const App = () => (
@@ -39,11 +40,12 @@ class App extends Component {
         {/* <ApptCust/> */}
         {/* <NewAppointment/> */}
         {/* <EmpApptUpdateModal/> */}
-        <Customer />
+        {/* <Customer /> */}
         {/* <Employee/> */}
         {/* <SignInModal/> */}
         {/* <EmployeeSchedule /> */}
         {/* <PortalFooter/> */}
+        <PortalContainer />
       </div>
     );
   }
