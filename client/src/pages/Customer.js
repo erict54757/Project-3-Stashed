@@ -4,10 +4,11 @@ import { Navbar, NavItem } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
+import NavBar from "../components/NavBar";
 import NavBarCust from "../components/NavBarCust";
 import Main from "../components/Main";
 import Foot from "../components/Foot";
-import NavBar from "../components/NavBar";
+
 
 class Customer extends Component {
   state = {

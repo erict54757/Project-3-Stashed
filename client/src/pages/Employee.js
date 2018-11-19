@@ -15,7 +15,7 @@ import Customer from "../pages/Customer"
 
 class Employee extends Component {
   state = {
-    isEmployee: false,
+    isEmployee: true,
     isLoggedIn: true,
     user: {
       id: 1,
