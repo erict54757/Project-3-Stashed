@@ -9,18 +9,21 @@ import NavBarCust from "../components/NavBarCust";
 import Main from "../components/Main";
 import Foot from "../components/Foot";
 
+
 class Customer extends Component {
   state = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    user: {id:1,
+            name:"Eric"}
   };
   render() {
     return (
       <div>
-        {this.state.isLoggedIn ? <NavBar /> : <NavBarCust />}
+        {this.state.isLoggedIn ? <NavBar user={this.state.user} background={"white"}/> : <NavBarCust user={this.state.user} />}
         <Main />
         <Foot />
       </div>
     );
   }
 }
-export default Customer;
+export default Customer

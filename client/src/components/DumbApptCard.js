@@ -1,9 +1,9 @@
 import React from "react";
-import { Col, Card, Button} from "react-materialize";
+import {  Card, Button} from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import EmpApptUpdateModal from "../components/empApptUpdateModal"
+import EmpApptUpdateModal from "./EmpApptUpdateModal"
 const Appointment = props=> (
     
     

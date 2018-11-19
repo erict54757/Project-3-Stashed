@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Card, Button} from "react-materialize";
+import { Col, } from "react-materialize";
 import "jquery";
 // import { Link, Route } from "react-router-dom";
 import "materialize-css/dist/js/materialize.js";

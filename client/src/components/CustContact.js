@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Tab, Tabs } from "react-materialize";
+import { Row, } from "react-materialize";
 
 // import { Link, Route } from "react-router-dom";
 import "jquery";

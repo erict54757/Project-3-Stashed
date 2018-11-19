@@ -14,7 +14,7 @@ class NavBarCust extends Component {
   render() {
     return (
       <Navbar id="navBarCust"
-       style={{height: "80px"}} className="white" brand={ <img
+       style={{height: "80px"}} className={this.props.background} brand={ <img
               style={({ height: "auto", width: "110px", padding: "5px"})}
               src={logo}
               alt="logo"
