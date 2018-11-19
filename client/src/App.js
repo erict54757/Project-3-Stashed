@@ -10,8 +10,8 @@ import "./App.css";
 //import PortalContainer from "./components/PortalContainer";
 // import Foot from "./components/Foot"
 //import EmpApptUpdateModal from "./components/EmpApptUpdateModal";
-// import ManagerPortal from "./components/managerPortal";
-import PortalContainer from "./components/PortalContainer";
+import ManagerPortal from "./components/managerPortal";
+// import PortalContainer from "./components/PortalContainer";
 // import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
@@ -45,7 +45,7 @@ class App extends Component {
         {/* <SignInModal/> */}
         {/* <EmployeeSchedule /> */}
         {/* <PortalFooter/> */}
-        <PortalContainer />
+        <ManagerPortal />
       </div>
     );
   }

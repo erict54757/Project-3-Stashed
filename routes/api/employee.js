@@ -8,6 +8,9 @@ router
   .get(employeeController.findAll);
 
 // "/api/employees/:id"
-router.route("/:id").delete(employeeController.delete);
+router
+  .route("/:id")
+  .delete(employeeController.delete);
+//   .get(employeeController.findOne);
 
 module.exports = router;
