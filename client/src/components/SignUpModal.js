@@ -1,11 +1,49 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown, Input} from "react-materialize";
+import API from "../utils/API.js";
+import { Modal, Button, NavItem, Dropdown, Input } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import "./SignUpModal.css"
+import "./SignUpModal.css";
 class SignUpModal extends Component {
+  state = {
+    firstName: "",
+    lastName: "",
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    email: "",
+    phone: "",
+    password: ""
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
+    API.saveCustomer({
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      street: this.state.street,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
+      email: this.state.email,
+      phone: this.state.phone,
+      account_key: this.state.password
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Modal
@@ -22,18 +60,20 @@ class SignUpModal extends Component {
                   <div className="form-group col-md-6">
                     <label for="inputFirst">First Name</label>
                     <input
-                      type="text"
+                      value={this.state.firstName}
+                      onChange={this.handleInputChange}
                       className="form-control"
-                      id="inputFirst"
+                      name="firstName"
                       placeholder="John"
                     />
                   </div>
                   <div className="form-group col-md-6">
                     <label for="inputLast">Last Name</label>
                     <input
-                      type="text"
+                      value={this.state.lastName}
+                      onChange={this.handleInputChange}
                       className="form-control"
-                      id="inputLast"
+                      name="lastName"
                       placeholder="Doe"
                     />
                   </div>
@@ -43,9 +83,10 @@ class SignUpModal extends Component {
                   <div className="form-group col-md-6">
                     <label for="inputEmail">Email</label>
                     <input
-                      type="email"
+                      value={this.state.email}
+                      onChange={this.handleInputChange}
                       className="form-control"
-                      id="inputEmail"
+                      name="email"
                       placeholder="Email"
                     />
                   </div>
@@ -53,9 +94,10 @@ class SignUpModal extends Component {
                     <label for="inputPhone">Phone</label>
 
                     <input
-                      type="text"
+                      value={this.state.phone}
+                      onChange={this.handleInputChange}
                       className="form-control"
-                      id="inputPhone"
+                      name="phone"
                       placeholder="4155551234"
                     />
                   </div>
@@ -64,9 +106,10 @@ class SignUpModal extends Component {
                 <div className="form-group">
                   <label for="inputStreet">Street</label>
                   <input
-                    type="text"
+                    value={this.state.street}
+                    onChange={this.handleInputChange}
                     className="form-control"
-                    id="inputStreet"
+                    name="street"
                     placeholder="1234 Your St"
                   />
                 </div>
@@ -75,24 +118,31 @@ class SignUpModal extends Component {
                   <div className="form-group col-md-6">
                     <label for="inputCity">City</label>
                     <input
-                      type="text"
+                      value={this.state.city}
+                      onChange={this.handleInputChange}
                       className="form-control"
-                      id="inputCity"
+                      name="city"
                       placeholder="Your City"
                     />
                   </div>
                   <div className="form-group col-md-4">
-                    
-                   
-                    <Dropdown
+                    <label for="inputState">State</label>
+                    <input
+                      value={this.state.state}
+                      onChange={this.handleInputChange}
+                      className="form-control"
+                      name="state"
+                      placeholder="Your State"
+                    />
+
+                    {/* <Dropdown
                       trigger={ <Input
                       label="State"
                       type="text"
                       className="form-control"
                       id="inputState"
                       placeholder="Your State"
-                    />}
-                      data-target="inputState"
+                    />
                     >
                       <NavItem value="AL">Alabama</NavItem>
                       <NavItem divider />
@@ -195,14 +245,15 @@ class SignUpModal extends Component {
                       <NavItem value="WI">Wisconsin</NavItem>
                       <NavItem divider />
                       <NavItem value="WY">Wyoming</NavItem>
-                    </Dropdown>
+                    </Dropdown> */}
 
                     <div className="form-group col-md-2">
                       <label for="inputZip">Zip</label>
                       <input
-                        type="text"
+                        value={this.state.zip}
+                        onChange={this.handleInputChange}
                         className="form-control"
-                        id="inputZip"
+                        name="zip"
                         placeholder="12567"
                       />
                     </div>
@@ -212,9 +263,10 @@ class SignUpModal extends Component {
                     <div className="form-group col-md-6">
                       <label for="inputPassword">Password</label>
                       <input
-                        type="password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
                         className="form-control"
-                        id="inputPassword"
+                        name="password"
                         placeholder="password"
                       />
                     </div>
@@ -225,6 +277,7 @@ class SignUpModal extends Component {
                       type="submit"
                       id="add-account"
                       className="btn modal-close blue"
+                      onClick={this.handleFormSubmit}
                     >
                       Submit
                     </Button>
