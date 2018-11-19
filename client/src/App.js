@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-// import SignInModal from "./components/SignInModal"
+// import SignUpModal from "./components/SignUpModal";
 // import NavBarCust from "./components/NavBarCust"
 // import NavBar from "./components/NavBar";
 // import Main from "./components/Main";
@@ -11,7 +11,7 @@ import "./App.css";
 // import Foot from "./components/Foot"
 //import EmpApptUpdateModal from "./components/EmpApptUpdateModal";
 // import ManagerPortal from "./components/managerPortal";
-// import PortalContainer from "./components/PortalContainer";
+import PortalContainer from "./components/PortalContainer";
 // import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
@@ -40,12 +40,12 @@ class App extends Component {
         {/* <ApptCust/> */}
         {/* <NewAppointment/> */}
         {/* <EmpApptUpdateModal/> */}
-        <Customer />
+        {/* <Customer /> */}
         {/* <Employee/> */}
-        {/* <SignInModal/> */}
+        {/* <SignUpModal /> */}
         {/* <EmployeeSchedule /> */}
         {/* <PortalFooter/> */}
-        {/* <PortalContainer /> */}
+        <PortalContainer />
       </div>
     );
   }
