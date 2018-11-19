@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Navbar, NavItem } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -8,25 +8,15 @@ import NavBarCust from "../components/NavBarCust";
 import Main from "../components/Main";
 import Foot from "../components/Foot";
 
-
-
 class Customer extends Component {
-
-    render() {
-        return (
-            <div>
-            <NavBarCust/>
-            <Main/>
-            <Foot/>
-            </div>
-
-
-
-
-
-        )
-    }
-
-
+  render() {
+    return (
+      <div>
+        <NavBarCust />
+        <Main />
+        <Foot />
+      </div>
+    );
+  }
 }
-export default Customer
+export default Customer;
