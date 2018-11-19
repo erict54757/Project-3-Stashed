@@ -38,7 +38,7 @@ class ManagerPortalModal extends Component {
       account_key: this.state.password,
       isAdmin: this.state.isAdmin
     })
-      .then(res => console.log(res))
+      .then(res => this.props.loadEmployees())
       .catch(err => console.log(err));
   };
 
@@ -46,6 +46,8 @@ class ManagerPortalModal extends Component {
     return (
       <div>
         <Modal
+          s={12}
+          m={3}
           header="New Employee Information"
           fixedFooter
           trigger={

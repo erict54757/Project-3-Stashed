@@ -10,14 +10,14 @@ import "./App.css";
 //import PortalContainer from "./components/PortalContainer";
 // import Foot from "./components/Foot"
 //import EmpApptUpdateModal from "./components/EmpApptUpdateModal";
-// import ManagerPortal from "./components/managerPortal";
+import ManagerPortal from "./components/managerPortal";
 // import PortalContainer from "./components/PortalContainer";
 // import EmployeeSchedule from "./components/employeeSchedule";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
 // import PortalFooter from "./components/PortalFooter";
 // import Customer from "./pages/Customer";
-import Employee from "./pages/Employee";
+// import Employee from "./pages/Employee";
 
 // const App = () => (
 //   <Router>
@@ -41,11 +41,11 @@ class App extends Component {
         {/* <NewAppointment/> */}
         {/* <EmpApptUpdateModal/> */}
         {/* <Customer /> */}
-        <Employee/>
+        {/* <Employee/> */}
         {/* <SignInModal/> */}
         {/* <EmployeeSchedule /> */}
         {/* <PortalFooter/> */}
-        {/* <PortalContainer /> */}
+        <ManagerPortal />
       </div>
     );
   }
