@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row,  Col, CardPanel } from "react-materialize";
+import { Row, Col, CardPanel } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
 // import { Link } from "react-router-dom";
 import "jquery";
@@ -36,7 +36,10 @@ class ManagerPortal extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row z-depth-5" style={{ marginTop: "25px", marginBottom: "25px" }}>
+        <div
+          className="row z-depth-5"
+          style={{ marginTop: "25px", marginBottom: "25px" }}
+        >
           <ul id="tabs-swipe-demo" className="tabs black white-text">
             <li className="tab col s3">
               <a className="active white-text" href="#employeeInfo">
@@ -44,7 +47,9 @@ class ManagerPortal extends Component {
               </a>
             </li>
             <li className="tab col s3">
-              <a className="white-text" href="#employeeSchedule">Employee Schedule</a>
+              <a className="white-text" href="#employeeSchedule">
+                Employee Schedule
+              </a>
             </li>
           </ul>
           <div>
@@ -55,7 +60,12 @@ class ManagerPortal extends Component {
             </Row>
 
             <Row>
-              <Col s={12} m={3} style={{ marginLeft: "5px" }} className="lighten-4 black-text">
+              <Col
+                s={12}
+                m={3}
+                style={{ marginLeft: "5px" }}
+                className="lighten-4 black-text"
+              >
                 {this.state.employees.length ? (
                   <ul className="collection with-header">
                     <li className="collection-header blue white-text">
@@ -63,7 +73,10 @@ class ManagerPortal extends Component {
                     </li>
                     {this.state.employees.map(employee => (
                       <li className="collection-item" key={employee.id}>
-                        <div onClick={() => this.changeEmployee(employee)}>
+                        <div
+                          onClick={() => this.changeEmployee(employee)}
+                          href={"/employees/" + employee.id}
+                        >
                           {employee.first_name} {employee.last_name}
                           <a
                             href={"/employees/" + employee.id}
@@ -119,9 +132,7 @@ class ManagerPortal extends Component {
                 className="lighten-4 black-text"
               >
                 <CardPanel>
-                  
-                      <h4>Employee Schedule</h4>
-                    
+                  <h4>Employee Schedule</h4>
                 </CardPanel>
               </Col>
             </Row>
