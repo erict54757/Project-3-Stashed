@@ -10,14 +10,27 @@ const Appointment = props=> (
       <Card 
         className="blue-grey darken-1"
         textClassName="white-text"
-        title="Appointment With:"
+       
       >
       
-      <h5>{props.name}</h5>
+      <h5>{props.firstName} {props.lastName}</h5>
         <div >At {props.time}</div>
-        <Button style={{marginBottom:"10px;"}} className="red" value={props.id} >X
+      
+        <Button style={{marginBottom:"10px"}} className="red" value={props.id} >X
          </Button> 
-         < EmpApptUpdateModal />
+         < EmpApptUpdateModal
+         firstName={props.all.firstName}
+         lastName={props.all.lastName}
+         id={props.all.id}
+         time={props.all.time}
+         date={props.all.date}
+         email={props.customer.email}
+         street={props.customer.street}
+         city={props.customer.city}
+         state={props.customer.state}
+         zip={props.customer.zip}
+         telephone={props.customer.telephone}
+         />
       </Card>
  
   

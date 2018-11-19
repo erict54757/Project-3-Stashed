@@ -15,7 +15,7 @@ class EmployeeScheduleModal extends Component {
                 type="button"
                 id="employeeSave"
                 className="modal-close btn  blue"
-              >Save</Button>
+              >Create</Button>
               <Button  className="blue " modal="close" waves="light">
                 Close
               </Button>

@@ -15,8 +15,8 @@ class PortalContainer extends Component {
       <div className="container">
         <div className=" row z-depth-5" style={{ marginTop: "25px" }}>
           <Tabs style={{ color: "black" }} className="black-text z-depth-1">
-            <Tab title="Employee Info">Employee Info</Tab>
-            <Tab title="Emplyee Schedule">Emplyee Schedule</Tab>
+            <Tab className="blue rounded white-text" title="Upcoming Appointments"></Tab>
+            
           </Tabs>
           {/*  insert the appropriate manager component here */}
           {/* <ManagerPortal/> */}

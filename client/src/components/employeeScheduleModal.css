@@ -1,5 +1,5 @@
 #employeeSave{
-    margin-left: 500px;
+    margin-left: 5px;
 }
 
 .picker__date-display{
@@ -11,4 +11,21 @@
   .btn-flat{
    color:  #2196F3;
   }
-  
+  .material-icons:active{
+    color:  #2196F3;
+  }
+  .material-icons:selection{
+    color:  #2196F3;
+  }
+  .active{
+    color:  #2196F3;
+  }
+  .input-field:active{
+    color:  #2196F3;
+  }
+  .prefix:active{
+    color:  #2196F3;
+  }
+  .border-bottom:focus{
+    color:  #2196F3;
+  }

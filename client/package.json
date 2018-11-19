@@ -9,6 +9,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-materialize": "^2.4.8",
+    "react-moment": "^0.8.3",
     "react-scripts": "1.0.14"
   },
   "scripts": {
@@ -18,5 +19,9 @@
     "eject": "react-scripts eject"
   },
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0"
+  }
 }
