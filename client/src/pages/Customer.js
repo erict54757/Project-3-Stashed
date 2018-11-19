@@ -7,16 +7,22 @@ import "materialize-css/dist/css/materialize.css";
 import NavBarCust from "../components/NavBarCust";
 import Main from "../components/Main";
 import Foot from "../components/Foot";
+import NavBar from "../components/NavBar";
 
 class Customer extends Component {
+  state = {
+    isLoggedIn: false,
+    user: {id:1,
+            name:"Eric"}
+  };
   render() {
     return (
       <div>
-        <NavBarCust />
+        {this.state.isLoggedIn ? <NavBar user={this.state.user} background={"white"}/> : <NavBarCust user={this.state.user} />}
         <Main />
         <Foot />
       </div>
     );
   }
 }
-export default Customer;
+export default Customer

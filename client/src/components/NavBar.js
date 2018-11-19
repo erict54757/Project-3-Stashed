@@ -13,7 +13,7 @@ class NavBar extends Component {
   render() {
     return (
       <Navbar 
-       style={{height: "80px"}} className="black" brand={ <img
+       style={{height: "80px"}} className={this.props.background} brand={ <img
               style={({ height: "auto", width: "110px", padding: "5px"})}
               src={logo}
               alt="logo"
@@ -25,12 +25,12 @@ class NavBar extends Component {
          
           <WelcomeMat
        
-          name="Eric"
+         name={this.props.user.name}
           />
         </NavItem>
         <NavItem>
          <LogoutButton
-         id="1"
+       id={this.props.user.id}
          />
 
         </NavItem>
