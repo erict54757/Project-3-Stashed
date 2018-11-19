@@ -25,8 +25,11 @@ export default {
   getCustomers: function() {
     return axios.get("/api/customer");
   },
+  saveAppointment: function(appointmentData) {
+    return axios.post("/api/appointments", appointmentData);
+  },
   getAppointments: function() {
-    return axios.get("/api/appointments")
+    return axios.get("/api/appointments");
   },
   //deletes an appointment with a given id
   deleteAppointment: function(id) {
@@ -36,5 +39,4 @@ export default {
   updateCustomer: function(customerData) {
     return axios.put("/api/update/customer", customerData);
   }
- 
 };

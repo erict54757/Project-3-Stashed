@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-// import SignInModal from "./components/SignInModal"
+// import SignUpModal from "./components/SignUpModal";
 // import NavBarCust from "./components/NavBarCust"
 // import NavBar from "./components/NavBar";
 // import Main from "./components/Main";
@@ -16,7 +16,7 @@ import PortalContainer from "./components/PortalContainer";
 // import NewAppointment from "./components/newAppointment"
 // import ApptCust from "./components/ApptCust"
 // import PortalFooter from "./components/PortalFooter";
-// import Customer from "./pages/Customer";
+import Customer from "./pages/Customer";
 //import Employee from "./pages/Employee";
 
 // const App = () => (
@@ -42,7 +42,7 @@ class App extends Component {
         {/* <EmpApptUpdateModal/> */}
         {/* <Customer /> */}
         {/* <Employee/> */}
-        {/* <SignInModal/> */}
+        {/* <SignUpModal /> */}
         {/* <EmployeeSchedule /> */}
         {/* <PortalFooter/> */}
         <PortalContainer />
