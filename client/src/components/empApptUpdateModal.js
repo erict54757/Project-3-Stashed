@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown, Input, Icon, Row, Col } from "react-materialize";
+import { Modal, Button, NavItem, Dropdown, Input, Icon, Row, } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel } from "react-materialize";
+import { Row,  Col, CardPanel } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
 // import { Link } from "react-router-dom";
 import "jquery";

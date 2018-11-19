@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-// import SignInModal from "./components/SignInModal"
+// import SignUpModal from "./components/SignUpModal";
 // import NavBarCust from "./components/NavBarCust"
 // import NavBar from "./components/NavBar";
 // import Main from "./components/Main";
@@ -17,7 +17,7 @@ import ManagerPortal from "./components/managerPortal";
 // import ApptCust from "./components/ApptCust"
 // import PortalFooter from "./components/PortalFooter";
 // import Customer from "./pages/Customer";
-//import Employee from "./pages/Employee";
+// import Employee from "./pages/Employee";
 
 // const App = () => (
 //   <Router>

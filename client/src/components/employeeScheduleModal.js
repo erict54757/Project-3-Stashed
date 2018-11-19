@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Modal, Button, Input, Icon,Col } from "react-materialize";
+import { Row, Modal, Button, Input, Icon,} from "react-materialize";
 import "./employeeScheduleModal.css"
 class EmployeeScheduleModal extends Component {
   render() {
