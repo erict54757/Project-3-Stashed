@@ -28,9 +28,11 @@ class ManagerPortalModal extends Component {
               <Input s={6} label="First Name" />
               <Input s={6} label="Last Name" />
               <Input label="Address" s={12} />
-              <Input label="City" s={6} />
-              <Input label="State" s={6} />
-              <Input type="email" label="Email" s={12} />
+              <Input label="City" s={4} />
+              <Input label="State" s={4} />
+              <Input label="Zip Code" s={4} />
+              <Input type="email" label="Email" s={6} />
+              <Input label="Phone" s={6} />
             </Row>
           </Modal>
           </div>

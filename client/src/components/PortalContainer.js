@@ -19,8 +19,8 @@ class PortalContainer extends Component {
             <Tab title="Emplyee Schedule">Emplyee Schedule</Tab>
           </Tabs>
           {/*  insert the appropriate manager component here */}
-          {/* <ManagerPortal/> */}
-          <EmployeeSchedule />
+          <ManagerPortal/>
+          {/* <EmployeeSchedule /> */}
         </div>
       </div>
     );
