@@ -8,6 +8,8 @@ import logo from "../Images/logo.jpg";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
 import "./NavBar.css"
+import LogoutButton from "./LogoutButton"
+import WelcomeMat from "./WelcomeMat"
 
 class NavBar extends Component {
   render() {
@@ -23,10 +25,16 @@ class NavBar extends Component {
       
         <NavItem>
          
-          <SignInModal/>
+          <WelcomeMat
+       
+          name="Eric"
+          />
         </NavItem>
         <NavItem>
-          <SignUpModal/>
+         <LogoutButton
+         id="1"
+         />
+
         </NavItem>
       </Navbar>
     );
