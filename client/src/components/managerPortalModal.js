@@ -69,7 +69,7 @@ class ManagerPortalModal extends Component {
               >
                 Save
               </Button>
-              <Button className="blue" flat modal="close" waves="light">
+              <Button className="blue" modal="close" waves="light">
                 Close
               </Button>
             </div>

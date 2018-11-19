@@ -7,9 +7,9 @@ import "./App.css";
 // import Main from "./components/Main";
 // import Navbar from "react-materialize/lib/Navbar";
 // import { Footer } from "react-materialize";
-//import PortalContainer from "./components/PortalContainer";
+// import PortalContainer from "./components/PortalContainer";
 // import Foot from "./components/Foot"
-//import EmpApptUpdateModal from "./components/EmpApptUpdateModal";
+// import EmpApptUpdateModal from "./components/EmpApptUpdateModal";
 // import ManagerPortal from "./components/managerPortal";
 // import PortalContainer from "./components/PortalContainer";
 // import EmployeeSchedule from "./components/employeeSchedule";
@@ -17,7 +17,8 @@ import "./App.css";
 // import ApptCust from "./components/ApptCust"
 // import PortalFooter from "./components/PortalFooter";
 // import Customer from "./pages/Customer";
-import Employee from "./pages/Employee";
+// import Employee from "./pages/Employee";
+import Admin from "./pages/Admin";
 
 // const App = () => (
 //   <Router>
@@ -41,11 +42,12 @@ class App extends Component {
         {/* <NewAppointment/> */}
         {/* <EmpApptUpdateModal/> */}
         {/* <Customer /> */}
-        <Employee/>
+        {/* <Employee/> */}
         {/* <SignInModal/> */}
         {/* <EmployeeSchedule /> */}
         {/* <PortalFooter/> */}
         {/* <ManagerPortal /> */}
+        <Admin />
       </div>
     );
   }
