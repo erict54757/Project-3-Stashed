@@ -23,7 +23,7 @@ class EmpApptUpdateModal extends Component {
   };
 
   handleDrop = event => {
-    event.preventDefault()
+    // event.preventDefault()
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
@@ -31,7 +31,7 @@ class EmpApptUpdateModal extends Component {
 
     // Updating the input's state
     this.setState({
-      ...this.state,
+      
       [name]: value
     });
     console.log(this.state.state)
@@ -197,9 +197,9 @@ class EmpApptUpdateModal extends Component {
 
                       />}
                       data-target={NavItem}
-                      onClick={this.handleDrop}
+                      onChange={this.handleDrop}
                     >
-                      <NavItem onClick={this.handleInputChange}
+                      <NavItem 
                         value={"dfajkljkfsda"}>Alabama</NavItem>
                       <NavItem
                         divider />
