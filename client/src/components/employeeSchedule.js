@@ -5,7 +5,7 @@ import moment from "moment"
 import EmployeeScheduleModal from "./employeeScheduleModal";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
-import Appointment from "./DumbApptCard"
+import Appointment from "./DumbApptCard";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./employeeScheduleModal.css"
@@ -32,8 +32,6 @@ class EmployeeSchedule extends React.Component {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
-
-
     // Updating the input's state
     this.setState({
       ...this.state,
@@ -42,23 +40,20 @@ class EmployeeSchedule extends React.Component {
     console.log(this.state.date)
 
   };
-
-
   componentDidMount() {
-    
+
     API.getCustomers()
       .then(res =>
-        this.setState({ Customers: res.data})
+        this.setState({ Customers: res.data })
       )
       .then(
         API.getAppointments()
-        .then(res =>
-          this.setState({ Appointments: res.data})
-        )
+          .then(res =>
+            this.setState({ Appointments: res.data })
+          )
       )
       .catch(err => console.log(err));
   };
-
   render() {
     return (
       <div>
@@ -69,8 +64,6 @@ class EmployeeSchedule extends React.Component {
 
             </Col>
           </Row>
-
-
           <Col className="inputDate "> <Input
             className="center "
             name="date" type='date' placeholder={this.state.date}
@@ -84,13 +77,8 @@ class EmployeeSchedule extends React.Component {
 
         <Row className="right"
           style={{ paddingLeft: "3%", paddingRight: "3%" }}>
-
-
-
           {this.state.Appointments.map(appointment => (
-
             <div className="col s12 m6 l4" >
-
               <Appointment
                 customer={this.state.Customers.find(Customer => Customer.id === appointment.id)}
                 key={appointment.id}
@@ -101,9 +89,6 @@ class EmployeeSchedule extends React.Component {
                 lastName={appointment.lastName}
               />
             </div>
-
-
-
           ))
           }
 
