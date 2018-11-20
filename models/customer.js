@@ -65,7 +65,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Customer.associate = function(models) {
-    Customer.hasMany(models.Appointment, {onDelete: "cascade"});
+    Customer.hasMany(models.Appointment, {});
   };
 
   Customer.generateHash = function(password) {
