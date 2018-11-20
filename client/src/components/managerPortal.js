@@ -11,13 +11,13 @@ import API from "../utils/API";
 
 class ManagerPortal extends Component {
   state = {
-    employees: [],
-    employee: [],
     date: moment().format("DD MMMM, YYYY"),
     Appointments: [],
     appt: [],
     Customers: [],
-    filtered: []
+    filtered: [],
+    employees: [],
+    employee: []
   };
 
   componentDidMount() {
@@ -37,7 +37,9 @@ class ManagerPortal extends Component {
 
   deleteEmployee = id => {
     API.deleteEmployee(id)
-      .then(res => this.loadEmployees())
+      .then(res => {
+        this.loadEmployees();
+      })
       .catch(err => console.log(err));
   };
 
@@ -48,10 +50,6 @@ class ManagerPortal extends Component {
     API.getAppointments()
       .then(res => this.setState({ Appointments: res.data }))
       .catch(err => console.log(err));
-  };
-
-  changeAppointmentsById = appt => {
-    this.setState({ appt: appt });
   };
 
   deleteAppointment = id => {
@@ -75,9 +73,11 @@ class ManagerPortal extends Component {
 
   render() {
     const filteredAppointments = this.state.Appointments.filter(appointment => {
-      return appointment.date === this.state.date;
+      return (
+        appointment.date === this.state.date &&
+        appointment.EmployeeId === this.state.employee.id
+      );
     });
-
     return (
       <div className="container">
         <div
@@ -122,13 +122,12 @@ class ManagerPortal extends Component {
                           href={"/employees/" + employee.id}
                         >
                           {employee.first_name} {employee.last_name}
-                          <a
-                            href={"/employees/" + employee.id}
+                          <span
                             onClick={() => this.deleteEmployee(employee.id)}
                             className="secondary-content"
                           >
                             <i className="material-icons red-text">clear</i>
-                          </a>
+                          </span>
                         </div>
                       </li>
                     ))}
@@ -181,7 +180,7 @@ class ManagerPortal extends Component {
                       <h4>Employee Schedule</h4>
                     </Col>
 
-                    <Col className="inputDate">
+                    <Col className="date">
                       {" "}
                       <Input
                         className="center "
@@ -206,10 +205,10 @@ class ManagerPortal extends Component {
                               key={appointment.id}
                             >
                               <div>
-                                {appointment.CustomerId}{" "}{appointment.date}{" "}
+                                {appointment.CustomerId} {appointment.date}{" "}
                                 {appointment.time}
-                                <a
-                                  href={"/appointments/" + appointment.id}
+                                <span
+                                
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)
                                   }
@@ -218,7 +217,7 @@ class ManagerPortal extends Component {
                                   <i className="material-icons red-text">
                                     clear
                                   </i>
-                                </a>
+                                </span>
                               </div>
                             </li>
                           ))}
