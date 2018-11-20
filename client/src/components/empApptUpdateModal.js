@@ -127,7 +127,7 @@ class EmpApptUpdateModal extends Component {
 
 
           <Input
-            name="state"
+            name="time"
             s={12} l={6}
             type="select"
             onChange={this.handleInputChange}
