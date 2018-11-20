@@ -69,17 +69,40 @@ class NewAppointment extends Component {
               </Input>
 
               <Input
-                s={6}
-                className="black-text"
-                name="on"
-                type="time"
-                placeholder="Time"
-                name="time"
-                value={this.state.time}
-                onChange={this.handleInputChange}
-              >
+            name="time"
+            s={12} l={6}
+            type="select"
+            onChange={this.handleInputChange}
+            className="modalDrop"
+          >
+
+            <option value="8AM">"8:00AM</option>
+
+            <option value="9AM">9:00AM</option>
+
+            <option value="10AM">10:00AM</option>
+
+            <option value="11AM">11:00AM</option>
+
+            <option value="12PM">12:00PM</option>
+
+            <option value="1PM">1:00PM</option>
+
+            <option value="2PM">2:00PM</option>
+
+            <option value="3PM">3:00PM</option>
+
+            <option value="4PM">4:00PM</option>
+
+            <option value="5PM">5:00PM</option>
+
+            <option value="6PM">6:00PM</option>
+
+
+
+          </Input>
                 <Icon>access_time</Icon>
-              </Input>
+              
 
               <Button
                 className="btn blue lighten-1 "
