@@ -31,9 +31,6 @@ module.exports = function(sequelize, DataTypes) {
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [1, 2]
-      }
     },
     zip: {
       type: DataTypes.INTEGER,

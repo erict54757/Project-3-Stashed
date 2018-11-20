@@ -18,7 +18,9 @@ module.exports = function(sequelize, DataTypes) {
     Appointment.belongsTo(models.Employee, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: 'CASCADE',
+      hooks: true
     });
   };
 
