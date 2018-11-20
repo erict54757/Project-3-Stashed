@@ -45,25 +45,27 @@ class EmployeeSchedule extends React.Component {
 
 
 
-  componentDidMount() {
+  componentDWillMount() {
 
-    // API.getCustomers()
-    //   .then(res =>
-    //     this.setState({ Customers: res.data })
-    //   )
-    //   .then(
-    //     API.getAppointments()
-    //       .then(res =>
-    //         this.setState({ Appointments: res.data })
-    //       )
-    //   )
-    //   .catch(err => console.log(err));
-   
-    
-
+    API.getCustomers()
+      .then(res =>
+        this.setState({ Customers: res.data })
+      )
+      .then(
+        API.getAppointments()
+          .then(res =>
+            this.setState({ Appointments: res.data })
+            
+          )
+      )
+      .catch(err => console.log(err));
   };
+  componentDidMount(){
+    console.log(this.state.Appointments)
+  }
 
   render() {
+    console.log(this.state.Appointments)
     const filteredAppointments = this.state.Appointments.filter(appointment => {
       return appointment.date === this.state.date
     })
