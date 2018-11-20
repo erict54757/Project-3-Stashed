@@ -2,15 +2,18 @@ import React, { Component } from "react";
 import { Row, Input, Button, Icon, Modal } from "react-materialize";
 import API from "../utils/API";
 import "jquery";
+import moment from "moment"
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./NewAppointment.css";
+import { deflateRaw } from "zlib";
 
 class NewAppointment extends Component {
   state = {
-    date: "",
+    date: moment().format("DD MMMM, YYYY"),
     time: "",
-    employeeId: ""
+    employeeId: "",
+    employees: [{id:1,firstName:"Eric", lastname:"Taft"},{id:2,firstName:"Nicole", lastname:"Barry"},{id:3,firstName:"Drew", lastname:"Gallowitch"}]
   };
 
   handleInputChange = event => {
@@ -52,38 +55,44 @@ class NewAppointment extends Component {
         id=""
         role="dialog"
         header="Make A New Appointment"
-        trigger={<Button className="blue"
-          onClick={this.handleUpdateCustomer}
-        >Make An Appointment</Button>}
+        trigger={<Button className="blue waves-effect waves-light makeAppointment"
+        ><h5>Make An Appointment</h5></Button>}
       >
         <div className="container">
           <div className="row">
             <form>
               <Row>
-                <Input
-                  s={12}
-                  className="black-text"
-                  type="text"
-                  name="employeeId"
-                  placeholder="Pick a Barber"
-                  value={this.state.employeeId}
-                  onChange={this.handleInputChange}
-                >
-                  <Icon>account_circle</Icon>
-                </Input>
-              </Row>
-              <Row>
-                <Input
-                  s={12} l={6}
+              <Input
+                  s={12} 
                   className="black-text"
                   type="date"
                   name="date"
-                  placeholder="Date"
+                  placeholder={this.state.date}
                   value={this.state.date}
                   onChange={this.handleInputChange}
                 >
                   <Icon>date_range</Icon>
                 </Input>
+              {/* <Icon>account_circle</Icon> */}
+               
+              </Row>
+              <Row>
+              <Input
+                  name="employeeId"
+                  l={6}
+                  s={12}
+                  label="Choose An Employee"
+                  //  l={6}
+                  type="select"
+                  onChange={this.handleInputChange}
+                  className="modalDrop "
+                >
+  {this.state.employees.map(employee => (
+                  <option value={employee.id}>{employee.firstName} {employee.lastname}</option>
+                
+    ))}
+
+                  </Input>
 
                 <Input
                   name="time"
