@@ -62,7 +62,6 @@ class SignUpModal extends Component {
                     <input
                       value={this.state.firstName}
                       onChange={this.handleInputChange}
-                      className="form-control"
                       name="firstName"
                       placeholder="John"
                     />
@@ -72,7 +71,6 @@ class SignUpModal extends Component {
                     <input
                       value={this.state.lastName}
                       onChange={this.handleInputChange}
-                      className="form-control"
                       name="lastName"
                       placeholder="Doe"
                     />
@@ -85,18 +83,15 @@ class SignUpModal extends Component {
                     <input
                       value={this.state.email}
                       onChange={this.handleInputChange}
-                      className="form-control"
                       name="email"
                       placeholder="Email"
                     />
                   </div>
                   <div className="form-group col-md-6">
                     <label for="inputPhone">Phone</label>
-
                     <input
                       value={this.state.phone}
                       onChange={this.handleInputChange}
-                      className="form-control"
                       name="phone"
                       placeholder="4155551234"
                     />
@@ -108,7 +103,6 @@ class SignUpModal extends Component {
                   <input
                     value={this.state.street}
                     onChange={this.handleInputChange}
-                    className="form-control"
                     name="street"
                     placeholder="1234 Your St"
                   />
@@ -120,7 +114,6 @@ class SignUpModal extends Component {
                     <input
                       value={this.state.city}
                       onChange={this.handleInputChange}
-                      className="form-control"
                       name="city"
                       placeholder="Your City"
                     />
@@ -130,7 +123,6 @@ class SignUpModal extends Component {
                     <input
                       value={this.state.state}
                       onChange={this.handleInputChange}
-                      className="form-control"
                       name="state"
                       placeholder="Your State"
                     />

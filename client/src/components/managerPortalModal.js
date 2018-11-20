@@ -3,7 +3,7 @@ import { Row, Modal, Button, Input, Icon } from "react-materialize";
 import API from "../utils/API";
 
 class ManagerPortalModal extends Component {
-  state = {
+  initialState = {
     firstName: "",
     lastName: "",
     street: "",
@@ -15,6 +15,8 @@ class ManagerPortalModal extends Component {
     password: "barber18",
     isAdmin: false
   };
+
+  state = this.initialState;
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -39,6 +41,7 @@ class ManagerPortalModal extends Component {
       isAdmin: this.state.isAdmin
     })
       .then(res => this.props.loadEmployees())
+      .then(res => this.setState(this.initialState))
       .catch(err => console.log(err));
   };
 
