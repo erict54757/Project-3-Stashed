@@ -11,16 +11,16 @@ import Foot from "../components/Foot";
 
 class Customer extends Component {
   state = {
-    isLoggedIn: false,
+    isLoggedIn: true,
     user: { id: 1, name: "Eric" }
   };
   render() {
     return (
       <div>
         {this.state.isLoggedIn ? (
-          <NavBar user={this.state.user} background={"white"} />
+          <NavBar user={this.state.user} background={"white"} textColor={"black-text"} />
         ) : (
-          <NavBarCust user={this.state.user} />
+          <NavBarCust user={this.state.user} background={"white black-text"} />
         )}
         <Main />
         <Foot />

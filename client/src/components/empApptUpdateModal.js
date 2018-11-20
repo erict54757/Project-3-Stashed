@@ -95,7 +95,7 @@ class EmpApptUpdateModal extends Component {
       >
 
         <Row>
-          <Input  className="black-text" label="First Name" name="firstName" value={this.state.firstName}
+          <Input l={6} s={12} className="black-text" label="First Name" name="firstName" placeholder={this.props.firstName} value={this.state.firstName}
             onChange={this.handleInputChange}>
             <Icon>account_circle</Icon>
           </Input>
@@ -103,12 +103,12 @@ class EmpApptUpdateModal extends Component {
 
 
 
-          <Input  l={6} s={12}
+          <Input
             label="Last Name"
             type="text"
             className="form-control"
             name="lastName"
-            placeholder={this.props.lastName}
+
             value={this.state.lastName}
             onChange={this.handleInputChange}
           >
@@ -117,7 +117,7 @@ class EmpApptUpdateModal extends Component {
         </Row>
         <Row>
           <Input l={6} s={12}
-            label="Current Appointment Date"  className="black-text" type='date'
+            label="Current Appointment Date" className="black-text" type='date'
             name="date"
             placeholder={this.state.date}
             value={this.state.date}
@@ -160,20 +160,20 @@ class EmpApptUpdateModal extends Component {
           ><Icon>location_on</Icon>
           </Input>
         </Row>
-<Row>
-        <Input l={6}s={12}
-          label="City"
-          type="text"
-          className="form-control"
-          name="city"
-          placeholder={this.props.city}
-          value={this.state.city}
-          onChange={this.handleInputChange}
-        ><Icon>business</Icon>
-        </Input>
+        <Row>
+          <Input l={6} s={12}
+            label="City"
+            type="text"
+            className="form-control"
+            name="city"
+            placeholder={this.props.city}
+            value={this.state.city}
+            onChange={this.handleInputChange}
+          ><Icon>business</Icon>
+          </Input>
 
 
-      
+
           <Icon>business</Icon><Dropdown
             trigger={<Button
               id="inputState"
@@ -342,9 +342,9 @@ class EmpApptUpdateModal extends Component {
           </Dropdown>
 
 
-</Row>
-<Row>
-          <Input l={6}s={12}
+        </Row>
+        <Row>
+          <Input l={6} s={12}
             label="ZipCode"
             type="text"
             className="form-control"
@@ -355,8 +355,8 @@ class EmpApptUpdateModal extends Component {
           ><Icon>location_on</Icon>
           </Input>
 
-</Row>
-          {/* <div className="form-row">
+        </Row>
+        {/* <div className="form-row">
                     <div className="form-group col-md-6">
 
                       <Input    l={6} s={12}
@@ -370,7 +370,7 @@ class EmpApptUpdateModal extends Component {
                       />
                     </div>
                   </div> */}
-        
+
 
       </Modal>
     );

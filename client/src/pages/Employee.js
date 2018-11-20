@@ -25,12 +25,12 @@ class Employee extends Component {
         {(this.state.isLoggedIn && this.state.isEmployee) ||
         (this.state.isAdmin && this.state.isLoggedIn) ? (
           [
-            <NavBar user={this.state.user} background={"black"} />,
+            <NavBar user={this.state.user} background={"black"} textColor={"white-text"} />,
             <PortalContainer user={this.state.user} />,
             <PortalFooter user={this.state.user} />
           ]
         ) : (
-          <Customer background={"white"} />
+          <Customer background={"white"} textColor={"black-text"} />
         )}
       </div>
     );
