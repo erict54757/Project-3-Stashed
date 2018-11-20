@@ -15,6 +15,7 @@ class ManagerPortal extends Component {
     employee: [],
     date: moment().format("DD MMMM, YYYY"),
     Appointments: [],
+    appt: [],
     Customers: [],
     filtered: []
   };
@@ -49,6 +50,16 @@ class ManagerPortal extends Component {
       .catch(err => console.log(err));
   };
 
+  changeAppointmentsById = appt => {
+    this.setState({ appt: appt });
+  };
+
+  deleteAppointment = id => {
+    API.deleteAppointment(id)
+      .then(res => this.loadAppointments())
+      .catch(err => console.log(err));
+  };
+
   handleInputChange = event => {
     event.preventDefault();
     // Getting the value and name of the input which triggered the change
@@ -75,7 +86,7 @@ class ManagerPortal extends Component {
         >
           <ul id="tabs-swipe-demo" className="tabs black white-text">
             <li className="tab col s3">
-              <a className="active white-text" href="#employeeInfo">
+              <a className="white-text" href="#employeeInfo">
                 Employee Information
               </a>
             </li>
@@ -185,20 +196,29 @@ class ManagerPortal extends Component {
                     </Col>
                   </Row>
 
-
                   <Row className="center">
                     <Col s={12} m={12} className="lighten-4 black-text">
                       {filteredAppointments.length ? (
                         <ul className="collection with-header">
                           {filteredAppointments.map(appointment => (
-                            <li className="collection-item" key={appointment.id}>
+                            <li
+                              className="collection-item"
+                              key={appointment.id}
+                            >
                               <div>
-                                {appointment.CustomerId}{" "}{appointment.date}{" "}{appointment.time}
-                                
+                                {appointment.CustomerId}{" "}{appointment.date}{" "}
+                                {appointment.time}
+                                <a
+                                  href={"/appointments/" + appointment.id}
+                                  onClick={() =>
+                                    this.deleteAppointment(appointment.id)
+                                  }
+                                  className="secondary-content"
+                                >
                                   <i className="material-icons red-text">
                                     clear
                                   </i>
-                                
+                                </a>
                               </div>
                             </li>
                           ))}
