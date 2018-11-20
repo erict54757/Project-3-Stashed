@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./App.css";
 // import SignUpModal from "./components/SignUpModal";
-// import NavBarCust from "./components/NavBarCust"
 // import NavBar from "./components/NavBar";
 // import Main from "./components/Main";
 // import Navbar from "react-materialize/lib/Navbar";
