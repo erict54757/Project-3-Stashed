@@ -11,11 +11,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err));
   },
-  // findOne: function(req, res) {
-  //   db.Employee.findOne({ where: { id: req.params.id } })
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.json(err));
-  // },
   delete: function(req, res) {
     db.Employee.destroy({ where: { id: req.params.id } })
       .then(dbModel => res.json(dbModel))
