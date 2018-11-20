@@ -29,10 +29,9 @@ class Main extends Component {
           <div className="container">
             <div className="row">
               <div className="col s12 center">
-                <h5 className="header black-text text-lighten-3 light m-5 ">
-                  Make A New Appointment.
-                </h5>
-                <NewAppointment customerId="2" />
+              {/* =========================================================================== */}
+                
+                <NewAppointment customerId="1" />
               </div>
             </div>
           </div>

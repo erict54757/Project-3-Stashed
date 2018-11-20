@@ -11,11 +11,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err));
   },
-  findAllById: function(req, res) {
-    db.Appointment.findAll({ where: { id: req.params.id } })
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.json(err));
-  },
   delete: function(req, res) {
     db.Appointment.destroy({ where: { id: req.params.id } })
       .then(dbModel => res.json(dbModel))

@@ -9,7 +9,6 @@ router
   // "/api/appoints/:id"
   router
   .route("/:id")
-  .get(appointmentController.findAllById)
   .delete(appointmentController.delete);
 
 module.exports = router;
