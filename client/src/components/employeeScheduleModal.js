@@ -66,7 +66,7 @@ class EmployeeScheduleModal extends Component {
             className="modalDrop"
           >
 
-            <option value="8AM">"8:00AM</option>
+            <option value="8AM">8:00AM</option>
 
             <option value="9AM">9:00AM</option>
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown, Input, Icon, Row, } from "react-materialize";
+import { Modal, Button, Input, Icon, Row, } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "./empApptUpdateModal.css"

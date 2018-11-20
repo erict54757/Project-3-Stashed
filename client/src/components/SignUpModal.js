@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
-import { Modal, Button, NavItem, Dropdown, Input } from "react-materialize";
+import { Modal, Button,Input } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";

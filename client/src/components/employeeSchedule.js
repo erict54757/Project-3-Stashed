@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from "react";
 import { Row,  Col,  Icon, Input,  } from "react-materialize";
-import Moment from 'react-moment';
 import moment from "moment"
 import EmployeeScheduleModal from "./employeeScheduleModal";
 // import { Link, Route } from "react-router-dom";
@@ -46,16 +45,16 @@ class EmployeeSchedule extends React.Component {
       .catch(err => console.log(err));
   };
 
- getAppointments=event=> {
-    API.getAppointments()
-    .then(res=>this.setState({
-      Appointments: res.data
-    }))
-  }
+//  getAppointments=event=> {
+//     API.getAppointments()
+//     .then(res=>this.setState({
+//       Appointments: res.data
+//     }))
+//   }
 
 
 
-  componentWillMount() {
+  componentDidMount() {
 
     API.getCustomers()
       .then(res =>
@@ -70,9 +69,9 @@ class EmployeeSchedule extends React.Component {
       )
       .catch(err => console.log(err));
   };
-  componentDidMount(){
-    console.log(this.state.Appointments)
-  }
+  // componentDidMount(){
+  //   console.log(this.state.Appointments)
+  // }
 
   render() {
     console.log(this.state.Appointments)

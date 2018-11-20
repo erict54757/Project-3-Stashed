@@ -5,7 +5,6 @@ import ManagerPortalModal from "./managerPortalModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import Moment from "react-moment";
 import moment from "moment";
 import API from "../utils/API";
 

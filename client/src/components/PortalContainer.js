@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Row, Col, Tab, Tabs } from "react-materialize";
+import {Tab, Tabs } from "react-materialize";
 import EmployeeSchedule from "./employeeSchedule";
-import NewAppointment from "./newAppointment";
+
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
