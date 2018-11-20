@@ -45,7 +45,7 @@ class EmployeeSchedule extends React.Component {
 
 
 
-  componentDWillMount() {
+  componentWillMount() {
 
     API.getCustomers()
       .then(res =>
