@@ -31,9 +31,7 @@ export default {
   getAppointments: function() {
     return axios.get("/api/appointments");
   },
-  getAppointmentsById: function(id) {
-    return axios.get("/api/appointments" + id);
-  },
+
   //deletes an appointment with a given id
   deleteAppointment: function(id) {
     return axios.delete("/api/appointment/" + id);

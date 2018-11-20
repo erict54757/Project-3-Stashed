@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
-// import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
@@ -50,10 +50,6 @@ class ManagerPortal extends Component {
       .catch(err => console.log(err));
   };
 
-  changeAppointmentsById = appt => {
-    this.setState({ appt: appt });
-  };
-
   deleteAppointment = id => {
     API.deleteAppointment(id)
       .then(res => this.loadAppointments())
@@ -75,7 +71,10 @@ class ManagerPortal extends Component {
 
   render() {
     const filteredAppointments = this.state.Appointments.filter(appointment => {
-      return appointment.date === this.state.date;
+      return (
+        appointment.date === this.state.date &&
+        appointment.EmployeeId === this.state.employee.id
+      );
     });
 
     return (
@@ -122,13 +121,14 @@ class ManagerPortal extends Component {
                           href={"/employees/" + employee.id}
                         >
                           {employee.first_name} {employee.last_name}
-                          <a
-                            href={"/employees/" + employee.id}
-                            onClick={() => this.deleteEmployee(employee.id)}
-                            className="secondary-content"
-                          >
-                            <i className="material-icons red-text">clear</i>
-                          </a>
+                          <Link to={"/delete/" + employee.id}>
+                            <span
+                              onClick={() => this.deleteEmployee(employee.id)}
+                              className="secondary-content"
+                            >
+                              <i className="material-icons red-text">clear</i>
+                            </span>
+                          </Link>
                         </div>
                       </li>
                     ))}
@@ -206,19 +206,20 @@ class ManagerPortal extends Component {
                               key={appointment.id}
                             >
                               <div>
-                                {appointment.CustomerId}{" "}{appointment.date}{" "}
+                                {appointment.CustomerId} {appointment.date}{" "}
                                 {appointment.time}
-                                <a
-                                  href={"/appointments/" + appointment.id}
-                                  onClick={() =>
-                                    this.deleteAppointment(appointment.id)
-                                  }
-                                  className="secondary-content"
-                                >
-                                  <i className="material-icons red-text">
-                                    clear
-                                  </i>
-                                </a>
+                                <Link to={"/delete/" + appointment.id}>
+                                  <span
+                                    onClick={() =>
+                                      this.deleteAppointment(appointment.id)
+                                    }
+                                    className="secondary-content"
+                                  >
+                                    <i className="material-icons red-text">
+                                      clear
+                                    </i>
+                                  </span>
+                                </Link>
                               </div>
                             </li>
                           ))}
