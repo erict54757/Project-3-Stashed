@@ -31,9 +31,6 @@ module.exports = function(sequelize, DataTypes) {
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [1, 2]
-      }
     },
     zip: {
       type: DataTypes.INTEGER,
@@ -68,7 +65,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Customer.associate = function(models) {
-    Customer.hasMany(models.Appointment, {});
+    Customer.hasMany(models.Appointment, {onDelete: "cascade"});
   };
 
   Customer.generateHash = function(password) {

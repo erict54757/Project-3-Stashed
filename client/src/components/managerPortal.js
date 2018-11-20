@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
-import { Link, Router } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
@@ -11,13 +11,13 @@ import API from "../utils/API";
 
 class ManagerPortal extends Component {
   state = {
-    employees: [],
-    employee: [],
     date: moment().format("DD MMMM, YYYY"),
     Appointments: [],
     appt: [],
     Customers: [],
-    filtered: []
+    filtered: [],
+    employees: [],
+    employee: []
   };
 
   componentDidMount() {
@@ -37,7 +37,9 @@ class ManagerPortal extends Component {
 
   deleteEmployee = id => {
     API.deleteEmployee(id)
-      .then(res => this.loadEmployees())
+      .then(res => {
+        this.loadEmployees();
+      })
       .catch(err => console.log(err));
   };
 
@@ -76,7 +78,6 @@ class ManagerPortal extends Component {
         appointment.EmployeeId === this.state.employee.id
       );
     });
-
     return (
       <div className="container">
         <div
@@ -121,14 +122,12 @@ class ManagerPortal extends Component {
                           href={"/employees/" + employee.id}
                         >
                           {employee.first_name} {employee.last_name}
-                          <Link to={"/delete/" + employee.id}>
-                            <span
-                              onClick={() => this.deleteEmployee(employee.id)}
-                              className="secondary-content"
-                            >
-                              <i className="material-icons red-text">clear</i>
-                            </span>
-                          </Link>
+                          <span
+                            onClick={() => this.deleteEmployee(employee.id)}
+                            className="secondary-content"
+                          >
+                            <i className="material-icons red-text">clear</i>
+                          </span>
                         </div>
                       </li>
                     ))}
@@ -181,7 +180,7 @@ class ManagerPortal extends Component {
                       <h4>Employee Schedule</h4>
                     </Col>
 
-                    <Col className="inputDate">
+                    <Col className="date">
                       {" "}
                       <Input
                         className="center "
@@ -208,18 +207,17 @@ class ManagerPortal extends Component {
                               <div>
                                 {appointment.CustomerId} {appointment.date}{" "}
                                 {appointment.time}
-                                <Link to={"/delete/" + appointment.id}>
-                                  <span
-                                    onClick={() =>
-                                      this.deleteAppointment(appointment.id)
-                                    }
-                                    className="secondary-content"
-                                  >
-                                    <i className="material-icons red-text">
-                                      clear
-                                    </i>
-                                  </span>
-                                </Link>
+                                <span
+                                
+                                  onClick={() =>
+                                    this.deleteAppointment(appointment.id)
+                                  }
+                                  className="secondary-content"
+                                >
+                                  <i className="material-icons red-text">
+                                    clear
+                                  </i>
+                                </span>
                               </div>
                             </li>
                           ))}

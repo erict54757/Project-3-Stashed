@@ -11,7 +11,7 @@ import Foot from "../components/Foot";
 
 class Customer extends Component {
   state = {
-    isLoggedIn: true,
+    isLoggedIn: false,
     user: { id: 1, name: "Eric" }
   };
   render() {

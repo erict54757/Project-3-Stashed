@@ -72,7 +72,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   
     Employee.associate = function(models) {
-      Employee.hasMany(models.Appointment, {});
+      Employee.hasMany(models.Appointment);
     };
   
     Employee.generateHash = function(password) {
