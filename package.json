@@ -29,6 +29,7 @@
     "react-dom": "^16.6.1",
     "react-materialize": "^2.4.8",
     "react-scripts": "^2.1.1",
+    "sass": "^1.15.1",
     "sequelize": "^4.41.2"
   }
 }
