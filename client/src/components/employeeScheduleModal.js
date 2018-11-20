@@ -30,7 +30,7 @@ class EmployeeScheduleModal extends Component {
         >
           <Row>
             <Input s={6} className="black-text" label="First Name">
-              <Icon>account_circle</Icon>
+              <Icon>date_range</Icon>
             </Input>
 
             <Input className="black-text" s={6} placeholder="Last Name">
