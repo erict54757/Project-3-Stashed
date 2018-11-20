@@ -1,20 +1,27 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel } from "react-materialize";
+import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
 // import { Link } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
+import Moment from "react-moment";
+import moment from "moment";
 import API from "../utils/API";
 
 class ManagerPortal extends Component {
   state = {
     employees: [],
-    employee: []
+    employee: [],
+    date: moment().format("DD MMMM, YYYY"),
+    Appointments: [],
+    Customers: [],
+    filtered: []
   };
 
   componentDidMount() {
     this.loadEmployees();
+    this.loadAppointments();
   }
 
   loadEmployees = () => {
@@ -33,7 +40,33 @@ class ManagerPortal extends Component {
       .catch(err => console.log(err));
   };
 
+  // Updating employees appointments
+  // ====================================================================
+
+  loadAppointments = () => {
+    API.getAppointments()
+      .then(res => this.setState({ Appointments: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  handleInputChange = event => {
+    event.preventDefault();
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+    console.log(this.state.filtered);
+    // Updating the input's state
+    this.setState({
+      ...this.state,
+      [name]: value
+    });
+  };
+
   render() {
+    const filteredAppointments = this.state.Appointments.filter(appointment => {
+      return appointment.date === this.state.date;
+    });
+
     return (
       <div className="container">
         <div
@@ -69,7 +102,7 @@ class ManagerPortal extends Component {
                 {this.state.employees.length ? (
                   <ul className="collection with-header">
                     <li className="collection-header blue white-text">
-                      <h4>Employees</h4>
+                      <h5>Employees</h5>
                     </li>
                     {this.state.employees.map(employee => (
                       <li className="collection-item" key={employee.id}>
@@ -103,7 +136,7 @@ class ManagerPortal extends Component {
                 <CardPanel>
                   {this.state.employee ? (
                     <div>
-                      <h4>Employee Information</h4>
+                      <h5>Employee Information</h5>
                       <p>
                         Name: {this.state.employee.first_name}{" "}
                         {this.state.employee.last_name}
@@ -132,7 +165,49 @@ class ManagerPortal extends Component {
                 className="lighten-4 black-text"
               >
                 <CardPanel>
-                  <h4>Employee Schedule</h4>
+                  <Row>
+                    <Col>
+                      <h4>Employee Schedule</h4>
+                    </Col>
+
+                    <Col className="inputDate">
+                      {" "}
+                      <Input
+                        className="center "
+                        name="date"
+                        type="date"
+                        placeholder={this.state.date}
+                        value={this.state.date}
+                        onChange={this.handleInputChange}
+                      >
+                        <Icon>date_range</Icon>
+                      </Input>
+                    </Col>
+                  </Row>
+
+
+                  <Row className="center">
+                    <Col s={12} m={12} className="lighten-4 black-text">
+                      {filteredAppointments.length ? (
+                        <ul className="collection with-header">
+                          {filteredAppointments.map(appointment => (
+                            <li className="collection-item" key={appointment.id}>
+                              <div>
+                                {appointment.CustomerId}{" "}{appointment.date}{" "}{appointment.time}
+                                
+                                  <i className="material-icons red-text">
+                                    clear
+                                  </i>
+                                
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <h5>No Schedule to Display</h5>
+                      )}
+                    </Col>
+                  </Row>
                 </CardPanel>
               </Col>
             </Row>

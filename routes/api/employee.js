@@ -11,6 +11,5 @@ router
 router
   .route("/:id")
   .delete(employeeController.delete);
-//   .get(employeeController.findOne);
 
 module.exports = router;
