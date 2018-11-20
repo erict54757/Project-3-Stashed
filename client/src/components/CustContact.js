@@ -38,7 +38,7 @@ class CustContact extends Component {
                 name="text"
                 placeholder="Message"
                 id="message"
-                maxlength="140"
+                maxLength="140"
                 rows="7"
               />
               <span
