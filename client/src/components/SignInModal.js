@@ -4,25 +4,36 @@ import { Modal, Button } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import "./SignInModal.css"
+import "./SignInModal.css";
 class SignInModal extends Component {
+  initialstate = {
+    isLoggedIn: false,
+    isAdmin: false,
+    isEmployee: false,
+    isCustomer: false,
+    employees: [],
+    customers: []
+  };
+
+  state = this.initialstate;
+
   render() {
     return (
       <Modal
-        actions={<div><Button
-          type="button"
-          id="userLogin"
-          className="modal-close btn  blue"
-        >
-          Close
-      </Button><Button
-            id="sign-in"
-            type="button"
-            className="btn  blue"
-          >
-            Login
-      </Button>
-        </div>}
+        actions={
+          <div>
+            <Button
+              type="button"
+              id="userLogin"
+              className="modal-close btn  blue"
+            >
+              Close
+            </Button>
+            <Button id="sign-in" type="button" className="btn  blue">
+              Login
+            </Button>
+          </div>
+        }
         id="account-info"
         role="dialog"
         header="Sign-In"
@@ -46,8 +57,6 @@ class SignInModal extends Component {
                 </div>
               </form>
             </div>
-
-
           </div>
         </div>
       </Modal>
