@@ -22,7 +22,7 @@ class NavBar extends Component {
 
         <NavItem>
 
-          <WelcomeMat name={this.props.user.name} />
+          <WelcomeMat name={this.props.user.name} textColor={this.props.textColor}  />
         </NavItem>
 
         <NavItem>
