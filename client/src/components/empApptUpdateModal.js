@@ -125,6 +125,42 @@ class EmpApptUpdateModal extends Component {
             <Icon>date_range</Icon></Input>
 
 
+
+          <Input
+            name="time"
+            s={12} l={6}
+            type="select"
+            onChange={this.handleInputChange}
+            className="modalDrop"
+          >
+
+            <option value="8AM">"8:00AM</option>
+
+            <option value="9AM">9:00AM</option>
+
+            <option value="10AM">10:00AM</option>
+
+            <option value="11AM">11:00AM</option>
+
+            <option value="12PM">12:00PM</option>
+
+            <option value="1PM">1:00PM</option>
+
+            <option value="2PM">2:00PM</option>
+
+            <option value="3PM">3:00PM</option>
+
+            <option value="4PM">4:00PM</option>
+
+            <option value="5PM">5:00PM</option>
+
+            <option value="6PM">6:00PM</option>
+
+
+
+          </Input>
+        </Row>
+        <Row>
           <Input l={6} s={12}
             label="Email"
             type="email"
@@ -136,9 +172,6 @@ class EmpApptUpdateModal extends Component {
           ><Icon>email</Icon>
           </Input>
 
-        </Row>
-        <Row>
-
           <Input l={6} s={12}
             label="Telephone"
             name="telephone"
@@ -147,6 +180,10 @@ class EmpApptUpdateModal extends Component {
             onChange={this.handleInputChange}
           ><Icon>phone</Icon>
           </Input>
+        </Row>
+        <Row>
+
+
 
 
           <Input l={6} s={12}
@@ -159,8 +196,7 @@ class EmpApptUpdateModal extends Component {
             onChange={this.handleInputChange}
           ><Icon>location_on</Icon>
           </Input>
-        </Row>
-        <Row>
+
           <Input l={6} s={12}
             label="City"
             type="text"
@@ -171,179 +207,127 @@ class EmpApptUpdateModal extends Component {
             onChange={this.handleInputChange}
           ><Icon>business</Icon>
           </Input>
-
-
-
-          <Icon>business</Icon><Dropdown
-            trigger={<Button
-              id="inputState"
-              label="State"
-              type="text"
-              className="form-control"
-              name="state"
-              placeholder={this.state.state}
-              onChange={this.handleDrop}
-            >State</Button>}
-
-
-          >
-            <NavItem
-              value={"dfajkljkfsda"}>Alabama</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="AK">Alaska</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="AZ">Arizona</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="AR">Arkansas</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="CA">California</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="CO">Colorado</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="CT"> Connecticut </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="DE"> Delaware </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="DC"> District Of Columbia </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="FL"> Florida </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="GA"> Georgia </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="HI"> Hawaii </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="ID"> Idaho </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="IL"> Illinois </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="IN"> Indiana </NavItem>
-            <NavItem
-              divider />
-            <NavItem value="IA"> Iowa</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="KS">Kansas</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="KY">Kentucky</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="LA">Louisiana</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="ME">Maine</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="MD">Maryland</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="MA">Massachusetts</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="MI">Michigan</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="MN">Minnesota</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="MS">Mississippi</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="MO">Missouri</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="MT">Montana</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="NE">Nebraska</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="NV">Nevada</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="NH">New Hampshire</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="NJ">New Jersey</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="NM">New Mexico</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="NY">New York</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="NC">North Carolina</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="ND">North Dakota</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="OH">Ohio</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="OK">Oklahoma</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="OR">Oregon</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="PA">Pennsylvania</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="RI">Rhode Island</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="SC">South Carolina</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="SD">South Dakata</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="TN">Tennessee</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="TX">Texas</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="UT">Utah</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="VT">Vermont</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="VA">Virginia</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="WA">Washington</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="WV">West Virginia</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="WI">Wisconsin</NavItem>
-            <NavItem
-              divider />
-            <NavItem value="WY">Wyoming</NavItem>
-          </Dropdown>
-
-
         </Row>
         <Row>
+
+
+
+
+
+          <Input
+            name="state"
+            s={12} l={6}
+            type="select"
+            onChange={this.handleInputChange}
+            className="modalDrop"
+          >
+
+            <option
+              value="AL">Alabama</option>
+
+            <option value="AK">Alaska</option>
+
+            <option value="AZ">Arizona</option>
+
+            <option value="AR">Arkansas</option>
+
+            <option value="CA">California</option>
+
+            <option value="CO">Colorado</option>
+
+            <option value="CT"> Connecticut </option>
+
+            <option value="DE"> Delaware </option>
+
+            <option value="DC"> District Of Columbia </option>
+
+            <option value="FL"> Florida </option>
+
+            <option value="GA"> Georgia </option>
+
+            <option value="HI"> Hawaii </option>
+
+            <option value="ID"> Idaho </option>
+
+            <option value="IL"> Illinois </option>
+
+            <option value="IN"> Indiana </option>
+
+            <option value="IA"> Iowa</option>
+
+            <option value="KS">Kansas</option>
+
+            <option value="KY">Kentucky</option>
+
+            <option value="LA">Louisiana</option>
+
+            <option value="ME">Maine</option>
+
+            <option value="MD">Maryland</option>
+
+            <option value="MA">Massachusetts</option>
+
+            <option value="MI">Michigan</option>
+
+            <option value="MN">Minnesota</option>
+
+            <option value="MS">Mississippi</option>
+
+            <option value="MO">Missouri</option>
+
+            <option value="MT">Montana</option>
+
+            <option value="NE">Nebraska</option>
+
+            <option value="NV">Nevada</option>
+
+            <option value="NH">New Hampshire</option>
+
+            <option value="NJ">New Jersey</option>
+
+            <option value="NM">New Mexico</option>
+
+            <option value="NY">New York</option>
+
+            <option value="NC">North Carolina</option>
+
+            <option value="ND">North Dakota</option>
+
+            <option value="OH">Ohio</option>
+
+            <option value="OK">Oklahoma</option>
+
+            <option value="OR">Oregon</option>
+
+            <option value="PA">Pennsylvania</option>
+
+            <option value="RI">Rhode Island</option>
+
+            <option value="SC">South Carolina</option>
+
+            <option value="SD">South Dakata</option>
+
+            <option value="TN">Tennessee</option>
+
+            <option value="TX">Texas</option>
+
+            <option value="UT">Utah</option>
+
+            <option value="VT">Vermont</option>
+
+            <option value="VA">Virginia</option>
+
+            <option value="WA">Washington</option>
+
+            <option value="WV">West Virginia</option>
+
+            <option value="WI">Wisconsin</option>
+
+            <option value="WY">Wyoming</option>
+
+          </Input>
+
+
           <Input l={6} s={12}
             label="ZipCode"
             type="text"
@@ -354,8 +338,8 @@ class EmpApptUpdateModal extends Component {
             onChange={this.handleInputChange}
           ><Icon>location_on</Icon>
           </Input>
-
         </Row>
+
         {/* <div className="form-row">
                     <div className="form-group col-md-6">
 
