@@ -23,7 +23,7 @@ export default {
   },
   // Gets info of Customer
   getCustomers: function() {
-    return axios.get("/api/customer");
+    return axios.get("/api/customers");
   },
   saveAppointment: function(appointmentData) {
     return axios.post("/api/appointments", appointmentData);
@@ -37,6 +37,6 @@ export default {
   },
   // sends updated customer data and corresponding appointment data. must update both customer and appointment
   updateCustomer: function(customerData) {
-    return axios.put("/api/update/customer", customerData);
+    return axios.put("/api/customers/" + id, customerData);
   }
 };

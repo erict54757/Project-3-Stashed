@@ -17,6 +17,23 @@ class SignInModal extends Component {
 
   state = this.initialstate;
 
+  componentDidMount() {
+    this.loadEmployees();
+    this.loadCustomers();
+  }
+
+  loadEmployees = () => {
+    API.getEmployees()
+      .then(res => this.setState({ employees: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  loadCustomers = () => {
+    API.getCustomers()
+      .then(res => this.setState({ customers: res.data }))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Modal
