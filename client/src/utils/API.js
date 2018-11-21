@@ -23,20 +23,22 @@ export default {
   },
   // Gets info of Customer
   getCustomers: function() {
-    return axios.get("/api/Customer");
+    return axios.get("/api/customers");
   },
+  // sends updated customer data and corresponding appointment data. must update both customer and appointment
+  updateCustomer: function(customerData) {
+    return axios.put("/api/customers", customerData);
+  },
+  // Saves an appointment to the database
   saveAppointment: function(appointmentData) {
     return axios.post("/api/appointments", appointmentData);
   },
+  // Gets all appointments
   getAppointments: function() {
     return axios.get("/api/appointments");
   },
   //deletes an appointment with a given id
   deleteAppointment: function(id) {
     return axios.delete("/api/appointments/" + id);
-  },
-  // sends updated customer data and corresponding appointment data. must update both customer and appointment
-  updateCustomer: function(customerData) {
-    return axios.put("/api/update/customer", customerData);
-  }
+  }  
 };
