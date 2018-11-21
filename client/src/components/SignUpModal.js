@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
-import { Modal, Button, NavItem, Dropdown, Input } from "react-materialize";
+import {
+  Modal,
+  Button,
+  NavItem,
+  Dropdown,
+  Input,
+  Row
+} from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -46,249 +53,231 @@ class SignUpModal extends Component {
 
   render() {
     return (
-      <Modal
-        id="account-signUp"
-        role="dialog"
-        header="Create Your Account"
-        trigger={<Button className="btn blue">Sign Up</Button>}
-      >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-body">
-              <form id="create-form">
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label for="inputFirst">First Name</label>
-                    <input
-                      value={this.state.firstName}
-                      onChange={this.handleInputChange}
-                      className="form-control"
-                      name="firstName"
-                      placeholder="John"
-                    />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label for="inputLast">Last Name</label>
-                    <input
-                      value={this.state.lastName}
-                      onChange={this.handleInputChange}
-                      className="form-control"
-                      name="lastName"
-                      placeholder="Doe"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label for="inputEmail">Email</label>
-                    <input
-                      value={this.state.email}
-                      onChange={this.handleInputChange}
-                      className="form-control"
-                      name="email"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label for="inputPhone">Phone</label>
-
-                    <input
-                      value={this.state.phone}
-                      onChange={this.handleInputChange}
-                      className="form-control"
-                      name="phone"
-                      placeholder="4155551234"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label for="inputStreet">Street</label>
-                  <input
-                    value={this.state.street}
-                    onChange={this.handleInputChange}
-                    className="form-control"
-                    name="street"
-                    placeholder="1234 Your St"
-                  />
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input
-                      value={this.state.city}
-                      onChange={this.handleInputChange}
-                      className="form-control"
-                      name="city"
-                      placeholder="Your City"
-                    />
-                  </div>
-                  <div className="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <input
-                      value={this.state.state}
-                      onChange={this.handleInputChange}
-                      className="form-control"
-                      name="state"
-                      placeholder="Your State"
-                    />
-
-                 <Input
-            name="state"
-            s={12} l={6}
-            type="select"
-            onChange={this.handleInputChange}
-            className="modalDrop"
-          >
-
-            <option
-              value="AL">Alabama</option>
-
-            <option value="AK">Alaska</option>
-
-            <option value="AZ">Arizona</option>
-
-            <option value="AR">Arkansas</option>
-
-            <option value="CA">California</option>
-
-            <option value="CO">Colorado</option>
-
-            <option value="CT"> Connecticut </option>
-
-            <option value="DE"> Delaware </option>
-
-            <option value="DC"> District Of Columbia </option>
-
-            <option value="FL"> Florida </option>
-
-            <option value="GA"> Georgia </option>
-
-            <option value="HI"> Hawaii </option>
-
-            <option value="ID"> Idaho </option>
-
-            <option value="IL"> Illinois </option>
-
-            <option value="IN"> Indiana </option>
-
-            <option value="IA"> Iowa</option>
-
-            <option value="KS">Kansas</option>
-
-            <option value="KY">Kentucky</option>
-
-            <option value="LA">Louisiana</option>
-
-            <option value="ME">Maine</option>
-
-            <option value="MD">Maryland</option>
-
-            <option value="MA">Massachusetts</option>
-
-            <option value="MI">Michigan</option>
-
-            <option value="MN">Minnesota</option>
-
-            <option value="MS">Mississippi</option>
-
-            <option value="MO">Missouri</option>
-
-            <option value="MT">Montana</option>
-
-            <option value="NE">Nebraska</option>
-
-            <option value="NV">Nevada</option>
-
-            <option value="NH">New Hampshire</option>
-
-            <option value="NJ">New Jersey</option>
-
-            <option value="NM">New Mexico</option>
-
-            <option value="NY">New York</option>
-
-            <option value="NC">North Carolina</option>
-
-            <option value="ND">North Dakota</option>
-
-            <option value="OH">Ohio</option>
-
-            <option value="OK">Oklahoma</option>
-
-            <option value="OR">Oregon</option>
-
-            <option value="PA">Pennsylvania</option>
-
-            <option value="RI">Rhode Island</option>
-
-            <option value="SC">South Carolina</option>
-
-            <option value="SD">South Dakata</option>
-
-            <option value="TN">Tennessee</option>
-
-            <option value="TX">Texas</option>
-
-            <option value="UT">Utah</option>
-
-            <option value="VT">Vermont</option>
-
-            <option value="VA">Virginia</option>
-
-            <option value="WA">Washington</option>
-
-            <option value="WV">West Virginia</option>
-
-            <option value="WI">Wisconsin</option>
-
-            <option value="WY">Wyoming</option>
-
-          </Input>
-
-                    <div className="form-group col-md-2">
-                      <label for="inputZip">Zip</label>
-                      <input
-                        value={this.state.zip}
-                        onChange={this.handleInputChange}
-                        className="form-control"
-                        name="zip"
-                        placeholder="12567"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label for="inputPassword">Password</label>
-                      <input
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        className="form-control"
-                        name="password"
-                        placeholder="password"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="">
-                    <Button
-                      type="submit"
-                      id="add-account"
-                      className="btn modal-close blue"
-                      onClick={this.handleFormSubmit}
-                    >
-                      Submit
-                    </Button>
-                  </div>
-                </div>
-              </form>
+      <div>
+        <Modal
+          id="account-signUp"
+          role="dialog"
+          header="Create Your Account"
+          trigger={<Button className="btn blue">Sign Up</Button>}
+          actions={
+            <div>
+              <Button
+                style={{ marginLeft: "5px" }}
+                type="submit"
+                waves="light"
+                id="add-account"
+                className="btn modal-close blue"
+                onClick={this.handleFormSubmit}
+              >
+                Submit
+              </Button>
+              <Button className="blue" modal="close" waves="light">
+                Close
+              </Button>
             </div>
-          </div>
-        </div>
-      </Modal>
+          }
+        >
+          <Row>
+            <Input
+              m={6}
+              s={12}
+              label="First Name"
+              value={this.state.firstName}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="firstName"
+              placeholder="John"
+            />
+
+            <Input
+              m={6}
+              s={12}
+              label="Last Name"
+              value={this.state.lastName}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="lastName"
+              placeholder="Doe"
+            />
+
+            <Input
+              m={12}
+              s={12}
+              label="Address"
+              value={this.state.street}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="street"
+              placeholder="123 Rocky Rd."
+            />
+
+            <Input
+              m={4}
+              s={12}
+              label="City"
+              value={this.state.city}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="city"
+              placeholder="City"
+            />
+
+            <Input
+              m={4}
+              s={12}
+              name="state"
+              type="select"
+              onChange={this.handleInputChange}
+              className="modalDrop"
+            >
+              <option value="AL">Alabama</option>
+
+              <option value="AK">Alaska</option>
+
+              <option value="AZ">Arizona</option>
+
+              <option value="AR">Arkansas</option>
+
+              <option value="CA">California</option>
+
+              <option value="CO">Colorado</option>
+
+              <option value="CT"> Connecticut </option>
+
+              <option value="DE"> Delaware </option>
+
+              <option value="DC"> District Of Columbia </option>
+
+              <option value="FL"> Florida </option>
+
+              <option value="GA"> Georgia </option>
+
+              <option value="HI"> Hawaii </option>
+
+              <option value="ID"> Idaho </option>
+
+              <option value="IL"> Illinois </option>
+
+              <option value="IN"> Indiana </option>
+
+              <option value="IA"> Iowa</option>
+
+              <option value="KS">Kansas</option>
+
+              <option value="KY">Kentucky</option>
+
+              <option value="LA">Louisiana</option>
+
+              <option value="ME">Maine</option>
+
+              <option value="MD">Maryland</option>
+
+              <option value="MA">Massachusetts</option>
+
+              <option value="MI">Michigan</option>
+
+              <option value="MN">Minnesota</option>
+
+              <option value="MS">Mississippi</option>
+
+              <option value="MO">Missouri</option>
+
+              <option value="MT">Montana</option>
+
+              <option value="NE">Nebraska</option>
+
+              <option value="NV">Nevada</option>
+
+              <option value="NH">New Hampshire</option>
+
+              <option value="NJ">New Jersey</option>
+
+              <option value="NM">New Mexico</option>
+
+              <option value="NY">New York</option>
+
+              <option value="NC">North Carolina</option>
+
+              <option value="ND">North Dakota</option>
+
+              <option value="OH">Ohio</option>
+
+              <option value="OK">Oklahoma</option>
+
+              <option value="OR">Oregon</option>
+
+              <option value="PA">Pennsylvania</option>
+
+              <option value="RI">Rhode Island</option>
+
+              <option value="SC">South Carolina</option>
+
+              <option value="SD">South Dakata</option>
+
+              <option value="TN">Tennessee</option>
+
+              <option value="TX">Texas</option>
+
+              <option value="UT">Utah</option>
+
+              <option value="VT">Vermont</option>
+
+              <option value="VA">Virginia</option>
+
+              <option value="WA">Washington</option>
+
+              <option value="WV">West Virginia</option>
+
+              <option value="WI">Wisconsin</option>
+
+              <option value="WY">Wyoming</option>
+            </Input>
+
+            <Input
+              m={4}
+              s={12}
+              label="Zip"
+              value={this.state.zip}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="zip"
+              placeholder="12567"
+            />
+
+            <Input
+              m={6}
+              s={12}
+              label="E-Mail"
+              value={this.state.email}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="email"
+              placeholder="johndoe@email.com"
+            />
+
+            <Input
+              m={6}
+              s={12}
+              label="Phone"
+              value={this.state.phone}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="phone"
+              placeholder="704-123-4567"
+            />
+            <Input
+              m={12}
+              s={12}
+              label="Password"
+              value={this.state.password}
+              onChange={this.handleInputChange}
+              className="form-control"
+              name="password"
+              placeholder="password"
+            />
+          </Row>
+        </Modal>
+      </div>
     );
   }
 }
