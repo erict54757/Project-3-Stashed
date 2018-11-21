@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Navbar, NavItem } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";

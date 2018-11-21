@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Col, } from "react-materialize";
 import "jquery";
 // import { Link, Route } from "react-router-dom";
