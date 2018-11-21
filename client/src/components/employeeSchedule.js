@@ -55,11 +55,11 @@ class EmployeeSchedule extends React.Component {
 
   componentDidMount() {
 
-    API.getCustomers()
-      .then(res =>
-        this.setState({ Customers: res.data })
+    // API.getCustomers()
+    //   .then(res =>
+    //     this.setState({ Customers: res.data })
 
-      )
+    //   )
 
     API.getAppointments()
       .then(res =>

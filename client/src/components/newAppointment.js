@@ -94,6 +94,7 @@ class NewAppointment extends Component {
 
                   </Input>
 
+                {/* <span><Icon>access_time</Icon></span> */}
                 <Input
                   name="time"
                   s={12} l={6}
@@ -126,7 +127,7 @@ class NewAppointment extends Component {
 
 
 
-                </Input><Icon>access_time</Icon>
+              </Input>  
 
 
               </Row>
