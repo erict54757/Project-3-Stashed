@@ -24,7 +24,7 @@ class EmployeeScheduleModal extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state);
-    API.saveEmployee({
+    API.saveCustomer({
       first_name: this.state.firstName,
       last_name: this.state.lastName,
       street: this.state.street,
@@ -33,8 +33,7 @@ class EmployeeScheduleModal extends Component {
       zip: this.state.zip,
       email: this.state.email,
       phone: this.state.phone,
-      account_key: this.state.password,
-      isAdmin: this.state.isAdmin
+      account_key: this.state.password
     })
       .then(res => console.log(res))
       .catch(err => console.log(err));
