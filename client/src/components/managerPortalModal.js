@@ -77,14 +77,16 @@ class ManagerPortalModal extends Component {
         >
           <Row>
             <Input
-              s={6}
+            m={6}
+              s={12}
               label="First Name"
               value={this.state.firstName}
               onChange={this.handleInputChange}
               name="firstName"
             />
             <Input
-              s={6}
+            m={6}
+              s={12}
               label="Last Name"
               value={this.state.lastName}
               onChange={this.handleInputChange}
@@ -92,6 +94,7 @@ class ManagerPortalModal extends Component {
             />
             <Input
               label="Address"
+              m={12}
               s={12}
               value={this.state.street}
               onChange={this.handleInputChange}
@@ -99,7 +102,8 @@ class ManagerPortalModal extends Component {
             />
             <Input
               label="City"
-              s={4}
+              m={4}
+              s={12}
               value={this.state.city}
               onChange={this.handleInputChange}
               name="city"
@@ -107,7 +111,7 @@ class ManagerPortalModal extends Component {
 
             <Input
               name="state"
-              s={12} l={6}
+              s={12} m={4}
               type="select"
               onChange={this.handleInputChange}
               className="modalDrop"
@@ -269,23 +273,26 @@ class ManagerPortalModal extends Component {
             </Input>
 
             <Input
+            m={4}
+            s={12}
               label="Zip Code"
-              s={4}
               value={this.state.zip}
               onChange={this.handleInputChange}
               name="zip"
             />
             <Input
+            m={6}
+            s={12}
               type="email"
               label="Email"
-              s={6}
               value={this.state.email}
               onChange={this.handleInputChange}
               name="email"
             />
             <Input
+            m={6}
+            s={12}
               label="Phone"
-              s={6}
               value={this.state.phone}
               onChange={this.handleInputChange}
               name="phone"
