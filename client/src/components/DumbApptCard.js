@@ -3,7 +3,7 @@ import {  Card, Button} from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import EmpApptUpdateModal from "./empApptUpdateModal.js"
+import EmpApptUpdateModal from "./EmpApptUpdateModal.js"
 const Appointment = props=> (
     
     
@@ -19,6 +19,7 @@ const Appointment = props=> (
         <Button style={{marginBottom:"10px"}} className="red" value={props.id} >X
          </Button> 
          < EmpApptUpdateModal
+         key={props.all.id}
          firstName={props.all.firstName}
          lastName={props.all.lastName}
          id={props.all.id}
