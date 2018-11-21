@@ -37,25 +37,40 @@ class EmployeeScheduleModal extends Component {
       email: this.state.email,
       phone: this.state.phone,
       account_key: this.state.password
-    })
+    }).then(
+      API.saveCustomer({
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
+        telephone: this.state.telephone,
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
+        email: this.state.email,
+        phone: this.state.phone,
+        account_key: this.state.password
+      })
+
+
+    )
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
-  onKeyUp = (target, e) => {
-    if (e.keyCode === 13) {
-      switch (target) {
-        case "firstName":
-          this.lastName.focus();
-          break
-        case "lastName":
-          this.firstName.focus();
-          break
-        default:
-          this.firstName.focus();
+  // onKeyUp = (target, e) => {
+  //   if (e.keyCode === 13) {
+  //     switch (target) {
+  //       case "firstName":
+  //         this.lastName.focus();
+  //         break
+  //       case "lastName":
+  //         this.firstName.focus();
+  //         break
+  //       default:
+  //         this.firstName.focus();
 
-      }
-    }
-  }
+  //     }
+  //   }
+  // }
 
   render() {
     return (
@@ -88,8 +103,8 @@ class EmployeeScheduleModal extends Component {
               name="firstName" 
               type="text"
               onChange={this.handleInputChange}
-              ref={input => {this.firstName = input}}
-              onKeyUp={this.onKeyUp.bind(this, "firstName")}
+              // ref={input => {this.firstName = input}}
+              // onKeyUp={this.onKeyUp.bind(this, "firstName")}
              
             >
               <Icon>date_range</Icon>
@@ -99,8 +114,9 @@ class EmployeeScheduleModal extends Component {
               name="lastName"
               type="text"
               onChange={this.handleInputChange}
-              ref={input => {this.lastName = input}}
-              onKeyUp={this.onKeyUp.bind(this,"lastName")}>
+              // ref={input => {this.lastName = input}}
+              // onKeyUp={this.onKeyUp.bind(this,"lastName")}
+              >
               <Icon>account_circle</Icon>
             </Input>
 
