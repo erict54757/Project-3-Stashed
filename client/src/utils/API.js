@@ -23,7 +23,7 @@ export default {
   },
   // Gets info of Customer
   getCustomers: function() {
-    return axios.get("/api/customer");
+    return axios.get("/api/Customer");
   },
   saveAppointment: function(appointmentData) {
     return axios.post("/api/appointments", appointmentData);
