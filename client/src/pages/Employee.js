@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Navbar, NavItem } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -25,9 +24,9 @@ class Employee extends Component {
         {(this.state.isLoggedIn && this.state.isEmployee) ||
         (this.state.isAdmin && this.state.isLoggedIn) ? (
           [
-            <NavBar user={this.state.user} background={"black"} textColor={"white-text"} />,
-            <PortalContainer user={this.state.user} />,
-            <PortalFooter user={this.state.user} />
+            <NavBar key={"1"} user={this.state.user} background={"black"} textColor={"white-text"} />,
+            <PortalContainer user={this.state.user} key={"2"} />,
+            <PortalFooter user={this.state.user} key={"3"} />
           ]
         ) : (
           <Customer background={"white"} textColor={"black-text"} />

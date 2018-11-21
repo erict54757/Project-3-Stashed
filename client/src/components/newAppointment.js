@@ -55,7 +55,7 @@ class NewAppointment extends Component {
         id=""
         role="dialog"
         header="Make A New Appointment"
-        trigger={<Button className="blue waves-effect waves-light makeAppointment"
+        trigger={<Button className="blue waves-effect waves-light makeAppointment z-depth-5"
         ><h5>Make An Appointment</h5></Button>}
       >
         <div className="container">
@@ -88,7 +88,7 @@ class NewAppointment extends Component {
                   className="modalDrop "
                 >
   {this.state.employees.map(employee => (
-                  <option value={employee.id}>{employee.firstName} {employee.lastname}</option>
+                  <option key={employee.id} value={employee.id}>{employee.firstName} {employee.lastname}</option>
                 
     ))}
 
@@ -125,8 +125,8 @@ class NewAppointment extends Component {
                   <option value="6:00PM">6:00PM</option>
 
 
-<Icon>access_time</Icon>
-                </Input>
+
+                </Input><Icon>access_time</Icon>
 
 
               </Row>
