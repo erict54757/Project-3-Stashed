@@ -12,8 +12,7 @@ class EmployeeScheduleModal extends Component {
     zip: "",
     email: "",
     phone: "",
-    password: "barber18",
-    isAdmin: false
+    password: "barber18"
   };
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -37,8 +36,7 @@ class EmployeeScheduleModal extends Component {
       zip: this.state.zip,
       email: this.state.email,
       phone: this.state.phone,
-      account_key: this.state.password,
-      isAdmin: this.state.isAdmin
+      account_key: this.state.password
     })
       .then(res => console.log(res))
       .catch(err => console.log(err));

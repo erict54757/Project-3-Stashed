@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Icon, Input, } from "react-materialize";
 import moment from "moment"
-import EmployeeScheduleModal from "./EmployeeScheduleModal";
+import EmployeeScheduleModal from "./employeeScheduleModal";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import Appointment from "./DumbApptCard";
