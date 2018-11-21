@@ -3,7 +3,7 @@ import {  Card, Button} from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import EmpApptUpdateModal from "./empApptUpdateModal"
+import EmpApptUpdateModal from "./empApptUpdateModal.js"
 const Appointment = props=> (
     
     

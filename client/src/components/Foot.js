@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import {Footer} from "react-materialize";
+import React from 'react';
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
@@ -28,13 +27,13 @@ class Foot extends React.Component {
               <h5 className="black-text center">Connect</h5>
               <div className="center col s12">
                 <div className=" col l4 s4 ">
-                  <a href="" style={{fontSize: "40px"}} className="fa fa-facebook" />
+                  <a href="https://facebook.com" style={{fontSize: "40px"}} className="fa fa-facebook" ><div></div></a>
                 </div>
                 <div className=" col l4 s4">
-                  <a href="" style={{fontSize: "40px"}} className="fa fa-twitter" />
+                  <a href="https://twitter.com" style={{fontSize: "40px"}} className="fa fa-twitter"><div></div></a>
                 </div>
                 <div className=" col l4 s4">
-                  <a href="" style={{fontSize: "40px"}} className="fa fa-youtube" />
+                  <a href="https://youtube.com" style={{fontSize: "40px"}} className="fa fa-youtube" ><div></div></a>
                 </div>
               </div>
             </div>

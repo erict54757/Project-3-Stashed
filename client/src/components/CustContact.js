@@ -17,7 +17,7 @@ class CustContact extends Component {
           </h3>
           <h4 className="center">Contact Me</h4>
 
-          <form
+          <div
             className="col l12 m12 s12 center formEmail"
             role="form"
             action="https://postmail.invotes.com/send"
@@ -38,13 +38,13 @@ class CustContact extends Component {
                 name="text"
                 placeholder="Message"
                 id="message"
-                maxlength="140"
+                maxLength="140"
                 rows="7"
               />
               <span
                 id="contact"
                 className="section scrollspy"
-                className="help-block"
+               
               >
                 <p id="characterLeft" className="help-block ">
                   You have reached the limit
@@ -78,7 +78,7 @@ class CustContact extends Component {
                 type="text"
                 name="reply_to"
                 placeholder="Your Email"
-              />{" "}
+              />
             </div>
 
             <div className="form-group">
@@ -90,10 +90,7 @@ class CustContact extends Component {
               />
             </div>
 
-            {/* <!-- to split your message into 160 chars */}
-            {/* for an sms gateway -->
-          <!-- <input type="hidden"
-                        name="sms_format" value="true" /> --> */}
+           
 
             <input
               className="btn waves-effect waves-blue blue"
@@ -101,7 +98,7 @@ class CustContact extends Component {
               type="submit"
               value="Send"
             />
-          </form>
+          </div>
         </Row>
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
-import { Modal, Button, NavItem, Dropdown, Input } from "react-materialize";
+import { Modal, Button, Input } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -55,10 +55,10 @@ class SignUpModal extends Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-body">
-              <form id="create-form">
+              <form >
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="inputFirst">First Name</label>
+                    <label>First Name</label>
                     <input
                       value={this.state.firstName}
                       onChange={this.handleInputChange}
@@ -68,7 +68,7 @@ class SignUpModal extends Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <label for="inputLast">Last Name</label>
+                    <label>Last Name</label>
                     <input
                       value={this.state.lastName}
                       onChange={this.handleInputChange}
@@ -81,7 +81,7 @@ class SignUpModal extends Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="inputEmail">Email</label>
+                    <label >Email</label>
                     <input
                       value={this.state.email}
                       onChange={this.handleInputChange}
@@ -91,7 +91,7 @@ class SignUpModal extends Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <label for="inputPhone">Phone</label>
+                    <label>Phone</label>
 
                     <input
                       value={this.state.phone}
@@ -104,7 +104,7 @@ class SignUpModal extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label for="inputStreet">Street</label>
+                  <label>Street</label>
                   <input
                     value={this.state.street}
                     onChange={this.handleInputChange}
@@ -116,7 +116,7 @@ class SignUpModal extends Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="inputCity">City</label>
+                    <label>City</label>
                     <input
                       value={this.state.city}
                       onChange={this.handleInputChange}
@@ -126,7 +126,7 @@ class SignUpModal extends Component {
                     />
                   </div>
                   <div className="form-group col-md-4">
-                    <label for="inputState">State</label>
+                    <label>State</label>
                     <input
                       value={this.state.state}
                       onChange={this.handleInputChange}
@@ -135,121 +135,121 @@ class SignUpModal extends Component {
                       placeholder="Your State"
                     />
 
-                 <Input
-            name="state"
-            s={12} l={6}
-            type="select"
-            onChange={this.handleInputChange}
-            className="modalDrop"
-          >
+                    <Input
+                      name="state"
+                      s={12} l={6}
+                      type="select"
+                      onChange={this.handleInputChange}
+                      className="modalDrop"
+                    >
 
-            <option
-              value="AL">Alabama</option>
+                      <option
+                        value="AL">Alabama</option>
 
-            <option value="AK">Alaska</option>
+                      <option value="AK">Alaska</option>
 
-            <option value="AZ">Arizona</option>
+                      <option value="AZ">Arizona</option>
 
-            <option value="AR">Arkansas</option>
+                      <option value="AR">Arkansas</option>
 
-            <option value="CA">California</option>
+                      <option value="CA">California</option>
 
-            <option value="CO">Colorado</option>
+                      <option value="CO">Colorado</option>
 
-            <option value="CT"> Connecticut </option>
+                      <option value="CT"> Connecticut </option>
 
-            <option value="DE"> Delaware </option>
+                      <option value="DE"> Delaware </option>
 
-            <option value="DC"> District Of Columbia </option>
+                      <option value="DC"> District Of Columbia </option>
 
-            <option value="FL"> Florida </option>
+                      <option value="FL"> Florida </option>
 
-            <option value="GA"> Georgia </option>
+                      <option value="GA"> Georgia </option>
 
-            <option value="HI"> Hawaii </option>
+                      <option value="HI"> Hawaii </option>
 
-            <option value="ID"> Idaho </option>
+                      <option value="ID"> Idaho </option>
 
-            <option value="IL"> Illinois </option>
+                      <option value="IL"> Illinois </option>
 
-            <option value="IN"> Indiana </option>
+                      <option value="IN"> Indiana </option>
 
-            <option value="IA"> Iowa</option>
+                      <option value="IA"> Iowa</option>
 
-            <option value="KS">Kansas</option>
+                      <option value="KS">Kansas</option>
 
-            <option value="KY">Kentucky</option>
+                      <option value="KY">Kentucky</option>
 
-            <option value="LA">Louisiana</option>
+                      <option value="LA">Louisiana</option>
 
-            <option value="ME">Maine</option>
+                      <option value="ME">Maine</option>
 
-            <option value="MD">Maryland</option>
+                      <option value="MD">Maryland</option>
 
-            <option value="MA">Massachusetts</option>
+                      <option value="MA">Massachusetts</option>
 
-            <option value="MI">Michigan</option>
+                      <option value="MI">Michigan</option>
 
-            <option value="MN">Minnesota</option>
+                      <option value="MN">Minnesota</option>
 
-            <option value="MS">Mississippi</option>
+                      <option value="MS">Mississippi</option>
 
-            <option value="MO">Missouri</option>
+                      <option value="MO">Missouri</option>
 
-            <option value="MT">Montana</option>
+                      <option value="MT">Montana</option>
 
-            <option value="NE">Nebraska</option>
+                      <option value="NE">Nebraska</option>
 
-            <option value="NV">Nevada</option>
+                      <option value="NV">Nevada</option>
 
-            <option value="NH">New Hampshire</option>
+                      <option value="NH">New Hampshire</option>
 
-            <option value="NJ">New Jersey</option>
+                      <option value="NJ">New Jersey</option>
 
-            <option value="NM">New Mexico</option>
+                      <option value="NM">New Mexico</option>
 
-            <option value="NY">New York</option>
+                      <option value="NY">New York</option>
 
-            <option value="NC">North Carolina</option>
+                      <option value="NC">North Carolina</option>
 
-            <option value="ND">North Dakota</option>
+                      <option value="ND">North Dakota</option>
 
-            <option value="OH">Ohio</option>
+                      <option value="OH">Ohio</option>
 
-            <option value="OK">Oklahoma</option>
+                      <option value="OK">Oklahoma</option>
 
-            <option value="OR">Oregon</option>
+                      <option value="OR">Oregon</option>
 
-            <option value="PA">Pennsylvania</option>
+                      <option value="PA">Pennsylvania</option>
 
-            <option value="RI">Rhode Island</option>
+                      <option value="RI">Rhode Island</option>
 
-            <option value="SC">South Carolina</option>
+                      <option value="SC">South Carolina</option>
 
-            <option value="SD">South Dakata</option>
+                      <option value="SD">South Dakata</option>
 
-            <option value="TN">Tennessee</option>
+                      <option value="TN">Tennessee</option>
 
-            <option value="TX">Texas</option>
+                      <option value="TX">Texas</option>
 
-            <option value="UT">Utah</option>
+                      <option value="UT">Utah</option>
 
-            <option value="VT">Vermont</option>
+                      <option value="VT">Vermont</option>
 
-            <option value="VA">Virginia</option>
+                      <option value="VA">Virginia</option>
 
-            <option value="WA">Washington</option>
+                      <option value="WA">Washington</option>
 
-            <option value="WV">West Virginia</option>
+                      <option value="WV">West Virginia</option>
 
-            <option value="WI">Wisconsin</option>
+                      <option value="WI">Wisconsin</option>
 
-            <option value="WY">Wyoming</option>
+                      <option value="WY">Wyoming</option>
 
-          </Input>
+                    </Input>
 
                     <div className="form-group col-md-2">
-                      <label for="inputZip">Zip</label>
+                      <label>Zip</label>
                       <input
                         value={this.state.zip}
                         onChange={this.handleInputChange}
@@ -262,7 +262,7 @@ class SignUpModal extends Component {
 
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <label for="inputPassword">Password</label>
+                      <label>Password</label>
                       <input
                         value={this.state.password}
                         onChange={this.handleInputChange}
@@ -276,7 +276,6 @@ class SignUpModal extends Component {
                   <div className="">
                     <Button
                       type="submit"
-                      id="add-account"
                       className="btn modal-close blue"
                       onClick={this.handleFormSubmit}
                     >

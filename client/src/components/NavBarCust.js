@@ -18,7 +18,7 @@ class NavBarCust extends Component {
               style={({ height: "auto", width: "110px", padding: "5px"})}
               src={logo}
               alt="logo"
-              srcset=""
+             
     />}  
     right role="navigation">
       

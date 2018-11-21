@@ -33,15 +33,15 @@ class SignInModal extends Component {
             <div className="modal-body">
               <form>
                 <div className="form-group">
-                  <label for="inputAccount">Email</label>
-                  <input type="text" className="form-control" id="email" />
+                  <label>Email</label>
+                  <input type="text" className="form-control" />
                 </div>
                 <div className="form-group">
-                  <label for="inputAccount">Password (min 8 characters)</label>
+                  <label>Password (min 8 characters)</label>
                   <input
                     type="password"
                     className="form-control"
-                    id="account_password"
+                   
                   />
                 </div>
               </form>
