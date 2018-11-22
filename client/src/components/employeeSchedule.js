@@ -13,9 +13,9 @@ import API from "../utils/API"
 
 
 class EmployeeSchedule extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.deleteAppointment=this.deleteAppointment
+    this.deleteAppointment = this.deleteAppointment
   }
   state = {
     date: moment().format("DD MMMM, YYYY"),
@@ -129,9 +129,9 @@ class EmployeeSchedule extends React.Component {
   deleteAppointment = id => {
     API.deleteAppointment(id)
       .then(API.getAppointments()
-      .then(res => this.setState({
-        Appointments: res.data
-      })))
+        .then(res => this.setState({
+          Appointments: res.data
+        })))
       .catch(err => console.log(err));
   };
 
@@ -189,8 +189,9 @@ class EmployeeSchedule extends React.Component {
               <EmployeeScheduleModal />
             </Col>
           </Row>
+          <Row>
           <Col className="inputDate ">
-            {" "}
+           
             <Input
               className="center "
               name="date"
@@ -201,7 +202,7 @@ class EmployeeSchedule extends React.Component {
             >
               <Icon>date_range</Icon>
             </Input>
-          </Col>
+          </Col></Row>
         </Row>
 
         <Row
@@ -212,7 +213,7 @@ class EmployeeSchedule extends React.Component {
             filteredAppointments.map(appointment => (
               <div className="col s12 m6 l4" key={appointment.id}>
                 <Appointment
-                delete={this.deleteAppointment}
+                  delete={this.deleteAppointment}
                   customer={this.state.Customers.find(Customer => Customer.id === appointment.id)}
                   key={appointment.id}
                   all={appointment}
@@ -224,8 +225,8 @@ class EmployeeSchedule extends React.Component {
               </div>
             ))
           ) : (
-            <h3>No Scheduled Appointments For This Day</h3>
-          )}
+              <h3>No Scheduled Appointments For This Day</h3>
+            )}
         </Row>
       </div>
     );

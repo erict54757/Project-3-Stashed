@@ -13,7 +13,7 @@ module.exports = {
   },
   delete: function(req, res) {
     db.Appointment.destroy({ where: { id: req.params.id } })
-      .then(console.log("hello")
+      .then(console.log("Destroyed")
       
         )
       .catch(err => res.json(err));

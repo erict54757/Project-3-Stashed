@@ -22,21 +22,6 @@ class EmpApptUpdateModal extends Component {
     date: this.props.date
   };
 
-  handleDrop = event => {
-    // event.preventDefault()
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-
-
-    // Updating the input's state
-    this.setState({
-
-      [name]: value
-    });
-    console.log(this.state.state)
-
-  };
   handleInputChange = event => {
     event.preventDefault()
     // Getting the value and name of the input which triggered the change
@@ -66,16 +51,23 @@ class EmpApptUpdateModal extends Component {
       zip: this.state.zip,
       street: this.state.street,
       time: this.state.time,
-      date: this.state.date
+      date: this.state.date,
+      password: this.state.password,
+      isAdmin: false
 
     })
-      .then(res => console.log("updated"))
+
+    API.updateAppointment({
+      date: this.state.date,
+      time: this.state.time,
+      CustomerId: this.props.customerId,
+      EmployeeId: this.state.employeeId
+    })
+
+      .then(res => console.log(res + "updated"))
       .catch(err => console.log(err));
 
   };
-
-
-
   render() {
     return (
       <Modal
@@ -100,9 +92,6 @@ class EmpApptUpdateModal extends Component {
             <Icon>account_circle</Icon>
           </Input>
 
-
-
-
           <Input l={6} s={12}
             label="Last Name"
             type="text"
@@ -123,8 +112,6 @@ class EmpApptUpdateModal extends Component {
             defaultValue={this.state.date}
             onChange={this.handleInputChange} >
             <Icon>date_range</Icon></Input>
-
-
 
           <Input
             name="time"
@@ -183,9 +170,6 @@ class EmpApptUpdateModal extends Component {
         </Row>
         <Row>
 
-
-
-
           <Input l={6} s={12}
             label="Street"
             type="text"
@@ -209,10 +193,6 @@ class EmpApptUpdateModal extends Component {
           </Input>
         </Row>
         <Row>
-
-
-
-
 
           <Input
             name="state"
@@ -341,17 +321,17 @@ class EmpApptUpdateModal extends Component {
           ><Icon>location_on</Icon>
           </Input>
         </Row>
-<Row>
-      
-                      <Input    l={6} s={12}
-                        label="Password"
-                        type="password"
-                        placeholder={this.props.password}
-                        defaultValue={this.state.password}
-                        onChange={this.handleInputChange}
-                      />
-                      </Row>
-               
+        <Row>
+
+          <Input l={6} s={12}
+            label="Password"
+            type="text"
+            placeholder={this.props.password}
+            defaultValue={this.state.password}
+            onChange={this.handleInputChange}
+          />
+        </Row>
+
 
 
       </Modal>
