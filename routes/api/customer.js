@@ -6,7 +6,4 @@ router.route("/")
   .post(customerController.create)
   .get(customerController.findAll);
 
-  router.route("/api/customers")
-  .post(customerController.create)
-
 module.exports = router;
