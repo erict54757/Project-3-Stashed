@@ -16,7 +16,11 @@ class Customer extends Component {
     return (
       <div>
         {this.state.isLoggedIn ? (
-          <NavBar user={this.state.user} background={"white"} textColor={"black-text"} />
+          <NavBar
+            user={this.state.user}
+            background={"white"}
+            textColor={"black-text"}
+          />
         ) : (
           <NavBarCust user={this.state.user} background={"white black-text"} />
         )}

@@ -2,18 +2,22 @@ import React, { Component } from "react";
 import { Row, Input, Button, Icon, Modal } from "react-materialize";
 import API from "../utils/API";
 import "jquery";
-import moment from "moment"
+import moment from "moment";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./NewAppointment.css";
-import { deflateRaw } from "zlib";
+// import { deflateRaw } from "zlib";
 
 class NewAppointment extends Component {
   state = {
     date: moment().format("DD MMMM, YYYY"),
     time: "",
     employeeId: "",
-    employees: [{id:1,firstName:"Eric", lastname:"Taft"},{id:2,firstName:"Nicole", lastname:"Barry"},{id:3,firstName:"Drew", lastname:"Gallowitch"}]
+    employees: [
+      { id: 1, firstName: "Eric", lastname: "Taft" },
+      { id: 2, firstName: "Nicole", lastname: "Barry" },
+      { id: 3, firstName: "Drew", lastname: "Gallowitch" }
+    ]
   };
 
   handleInputChange = event => {
@@ -43,27 +47,27 @@ class NewAppointment extends Component {
 
   render() {
     return (
-
       <Modal
-        actions={<Button
-          className="btn blue lighten-1 "
-          onClick={this.handleSubmit}
-        >
-          Save Appointment
-      </Button>
+        actions={
+          <Button className="btn blue lighten-1 " onClick={this.handleSubmit}>
+            Save Appointment
+          </Button>
         }
         id=""
         role="dialog"
         header="Make A New Appointment"
-        trigger={<Button className="blue waves-effect waves-light makeAppointment z-depth-5"
-        ><h5>Make An Appointment</h5></Button>}
+        trigger={
+          <Button className="blue waves-effect waves-light makeAppointment z-depth-5">
+            <h5>Make An Appointment</h5>
+          </Button>
+        }
       >
         <div className="container">
           <div className="row">
             <form>
               <Row>
-              <Input
-                  s={12} 
+                <Input
+                  s={12}
                   className="black-text"
                   type="date"
                   name="date"
@@ -73,36 +77,34 @@ class NewAppointment extends Component {
                 >
                   <Icon>date_range</Icon>
                 </Input>
-              {/* <Icon>account_circle</Icon> */}
-               
+                {/* <Icon>account_circle</Icon> */}
               </Row>
               <Row>
-              <Input
+                <Input
                   name="employeeId"
                   l={6}
                   s={12}
                   label="Choose An Employee"
-                  //  l={6}
                   type="select"
                   onChange={this.handleInputChange}
                   className="modalDrop "
                 >
-  {this.state.employees.map(employee => (
-                  <option key={employee.id} value={employee.id}>{employee.firstName} {employee.lastname}</option>
-                
-    ))}
-
-                  </Input>
+                  {this.state.employees.map(employee => (
+                    <option key={employee.id} value={employee.id}>
+                      {employee.firstName} {employee.lastname}
+                    </option>
+                  ))}
+                </Input>
 
                 {/* <span><Icon>access_time</Icon></span> */}
                 <Input
                   name="time"
-                  s={12} l={6}
+                  s={12}
+                  l={6}
                   type="select"
                   onChange={this.handleInputChange}
                   className="modalDrop "
                 >
-
                   <option value="8:00AM">8:00AM</option>
 
                   <option value="9:00AM">9:00AM</option>
@@ -131,8 +133,6 @@ class NewAppointment extends Component {
 
 
               </Row>
-
-
             </form>
           </div>
         </div>
