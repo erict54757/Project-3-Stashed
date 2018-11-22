@@ -15,8 +15,7 @@ class EmployeeScheduleModal extends Component {
     zip: "",
     email: "",
     phone: "",
-    password: "barber18",
-    isAdmin: false
+    password: "barber18"
   };
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -40,8 +39,7 @@ class EmployeeScheduleModal extends Component {
       street: this.state.street,
       time: this.state.time,
       date: this.state.date,
-      password: this.state.password,
-      isAdmin: false
+      password: this.state.password
     })
     .then(API.saveAppointment({
       EmployeeId: this.state.EmployeeId,
