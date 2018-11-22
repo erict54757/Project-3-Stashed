@@ -23,3 +23,14 @@
    border-top-right-radius: 5px;
    padding: 1%;
 }
+.employeePortal{
+  padding-bottom: 180px;
+
+}
+.footer{
+  width: 100%;
+  margin-top: 60px;
+  position: absolute;
+  bottom: 0;
+
+}

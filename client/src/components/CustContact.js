@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, } from "react-materialize";
+import { Row,Input } from "react-materialize";
 
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -11,14 +11,15 @@ class CustContact extends Component {
   render() {
     return (
       <div className="container ">
-        <Row>
+        <Row
+        className="center">
           <h3>
             <i className="mdi-content-send brown-text" />
           </h3>
-          <h4 className="center">Contact Me</h4>
+          <h4 className="center">Contact Us</h4>
 
           <div
-            className="col l12 m12 s12 center formEmail"
+            className="col l8 m8 s12 offset-l2 offset-m2 center formEmail"
             role="form"
             action="https://postmail.invotes.com/send"
             method="post"
@@ -57,9 +58,7 @@ class CustContact extends Component {
               name="access_token"
               value="eqhitskqjijhat94ecddwtzc"
             />
-            {/* <!-- return urls can be fully qualified -OR-
-                 start with / for root relative -OR-
-                 start with . for url relative --> */}
+        
             <input
               type="hidden"
               name="success_url"
@@ -72,23 +71,24 @@ class CustContact extends Component {
             />
 
             {/* <!-- set the reply-to address --> */}
-            <div className="form-group">
-              <input
+        <Row>
+              <Input
+              s={6}
                 className="rounded form-control"
                 type="text"
                 name="reply_to"
                 placeholder="Your Email"
               />
-            </div>
+         
 
-            <div className="form-group">
-              <input
+              <Input
+              s={6}
                 className="rounded form-control"
                 type="text"
                 name="extra_phone_number"
                 placeholder="Phone Number"
               />
-            </div>
+          </Row>
 
            
 

@@ -13,8 +13,8 @@ const Appointment = props => (
 
   >
 
-    <h5>{props.firstName} {props.lastName}</h5>
-    <div >At {props.time}</div>
+    <h4>{props.firstName} {props.lastName}</h4>
+    <h5 >At {props.time}</h5>
     <Button style={{ marginBottom: "10px" }} className="red" value={props.id}
       onClick={props.delete}
     >X
