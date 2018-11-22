@@ -13,9 +13,13 @@ module.exports = {
   },
   delete: function(req, res) {
     db.Appointment.destroy({ where: { id: req.params.id } })
+<<<<<<< HEAD
       .then(console.log("Destroyed")
       
         )
+=======
+      .then(dbModel ==> res.json(dbModel))
+>>>>>>> 0add048dac9b1ce1f8eab3bbd2fe977410a584a0
       .catch(err => res.json(err));
   }
 };
