@@ -207,7 +207,6 @@ class ManagerPortal extends Component {
                                 {appointment.CustomerId} {appointment.date}{" "}
                                 {appointment.time}
                                 <span
-                                
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)
                                   }

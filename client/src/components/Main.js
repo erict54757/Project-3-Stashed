@@ -6,9 +6,11 @@ import background3 from "../Images/background3.jpg";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
+import MapContainer from "./GoogleMapComponent/Map";
 import NewAppointment from "./newAppointment";
 import CustContact from "./CustContact";
 import "./Main.css";
+
 class Main extends Component {
   render() {
     return (
@@ -28,14 +30,17 @@ class Main extends Component {
         <div className="parallax-container valign-wrapper appoint">
           <div className="container">
             <div className="row">
-              <div className="col s12 center">
-              {/* =========================================================================== */}
-                
+              <div className="col s4 center">
                 <NewAppointment customerId="1" />
+              </div>
+              <div className="col s8 center">
+              <MapContainer />
               </div>
             </div>
           </div>
         </div>
+        
+
         <h4 className="header center grey-text text-lighten-3 light special">
           Specializing In Classic Cuts.
         </h4>

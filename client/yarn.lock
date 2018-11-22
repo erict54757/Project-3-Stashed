@@ -3565,6 +3565,11 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
+google-maps-react@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/google-maps-react/-/google-maps-react-2.0.2.tgz#e03fbba032fe570fb38744bf9cd10b946c591cae"
+  integrity sha512-6cYauGwt22haDUrWxKQ6yoNOqjiuxHo8YYcmb+aBvNICokdXmZOUB6Ah4vD5VexMVlrwP2PFqA/D8sHpEB52KA==
+
 got@^6.7.1:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/got/-/got-6.7.1.tgz#240cd05785a9a18e561dc1b44b41c763ef1e8db0"
@@ -6705,6 +6710,7 @@ react-moment@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.8.3.tgz#68b5add7145c736b8a737d55c4ed31fbcbcfe1eb"
   integrity sha512-9wFd3tS44D5NPjuDUGv7qinXKIE50wy2TsOJEUn3pNVO2z7edc1hsjKF5Ol2w7I7qmWd3X1h52/y5H/Ufi7xIA==
+
 react-router-dom@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.3.1.tgz#4c2619fc24c4fa87c9fd18f4fb4a43fe63fbd5c6"
