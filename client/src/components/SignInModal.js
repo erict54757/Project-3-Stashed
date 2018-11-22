@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-materialize";
+import API from "../utils/API";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -66,11 +67,7 @@ class SignInModal extends Component {
                 </div>
                 <div className="form-group">
                   <label>Password (min 8 characters)</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                   
-                  />
+                  <input type="password" className="form-control" />
                 </div>
               </form>
             </div>

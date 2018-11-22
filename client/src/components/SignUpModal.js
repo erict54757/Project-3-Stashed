@@ -58,11 +58,13 @@ class SignUpModal extends Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-body">
-              <form >
+              <form>
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label>First Name</label>
                     <input
+                      s={12}
+                      m={6}
                       value={this.state.firstName}
                       onChange={this.handleInputChange}
                       name="firstName"
@@ -72,6 +74,8 @@ class SignUpModal extends Component {
                   <div className="form-group col-md-6">
                     <label>Last Name</label>
                     <input
+                      s={12}
+                      m={6}
                       value={this.state.lastName}
                       onChange={this.handleInputChange}
                       name="lastName"
@@ -82,8 +86,10 @@ class SignUpModal extends Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label >Email</label>
+                    <label>Email</label>
                     <input
+                      s={12}
+                      m={6}
                       value={this.state.email}
                       onChange={this.handleInputChange}
                       name="email"
@@ -91,13 +97,12 @@ class SignUpModal extends Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-<<<<<<< HEAD
                     <label for="inputPhone">Phone</label>
-=======
                     <label>Phone</label>
 
->>>>>>> afe2b8397f2c42226217ad8c28c829158ed637ba
                     <input
+                      s={12}
+                      m={6}
                       value={this.state.phone}
                       onChange={this.handleInputChange}
                       name="phone"
@@ -109,6 +114,8 @@ class SignUpModal extends Component {
                 <div className="form-group">
                   <label>Street</label>
                   <input
+                    s={12}
+                    m={6}
                     value={this.state.street}
                     onChange={this.handleInputChange}
                     name="street"
@@ -120,6 +127,8 @@ class SignUpModal extends Component {
                   <div className="form-group col-md-6">
                     <label>City</label>
                     <input
+                      s={12}
+                      m={4}
                       value={this.state.city}
                       onChange={this.handleInputChange}
                       name="city"
@@ -128,26 +137,14 @@ class SignUpModal extends Component {
                   </div>
                   <div className="form-group col-md-4">
                     <label>State</label>
-                    <input
-                      value={this.state.state}
-                      onChange={this.handleInputChange}
-                      name="state"
-                      placeholder="Your State"
-                    />
-
                     <Input
                       name="state"
-<<<<<<< HEAD
                       s={12}
-                      l={6}
-=======
-                      s={12} l={6}
->>>>>>> afe2b8397f2c42226217ad8c28c829158ed637ba
+                      m={4}
                       type="select"
                       onChange={this.handleInputChange}
                       className="modalDrop"
                     >
-<<<<<<< HEAD
                       <option value="AL">Alabama</option>
 
                       <option value="AK">Alaska</option>
@@ -249,117 +246,13 @@ class SignUpModal extends Component {
                       <option value="WI">Wisconsin</option>
 
                       <option value="WY">Wyoming</option>
-=======
-
-                      <option
-                        value="AL">Alabama</option>
-
-                      <option value="AK">Alaska</option>
-
-                      <option value="AZ">Arizona</option>
-
-                      <option value="AR">Arkansas</option>
-
-                      <option value="CA">California</option>
-
-                      <option value="CO">Colorado</option>
-
-                      <option value="CT"> Connecticut </option>
-
-                      <option value="DE"> Delaware </option>
-
-                      <option value="DC"> District Of Columbia </option>
-
-                      <option value="FL"> Florida </option>
-
-                      <option value="GA"> Georgia </option>
-
-                      <option value="HI"> Hawaii </option>
-
-                      <option value="ID"> Idaho </option>
-
-                      <option value="IL"> Illinois </option>
-
-                      <option value="IN"> Indiana </option>
-
-                      <option value="IA"> Iowa</option>
-
-                      <option value="KS">Kansas</option>
-
-                      <option value="KY">Kentucky</option>
-
-                      <option value="LA">Louisiana</option>
-
-                      <option value="ME">Maine</option>
-
-                      <option value="MD">Maryland</option>
-
-                      <option value="MA">Massachusetts</option>
-
-                      <option value="MI">Michigan</option>
-
-                      <option value="MN">Minnesota</option>
-
-                      <option value="MS">Mississippi</option>
-
-                      <option value="MO">Missouri</option>
-
-                      <option value="MT">Montana</option>
-
-                      <option value="NE">Nebraska</option>
-
-                      <option value="NV">Nevada</option>
-
-                      <option value="NH">New Hampshire</option>
-
-                      <option value="NJ">New Jersey</option>
-
-                      <option value="NM">New Mexico</option>
-
-                      <option value="NY">New York</option>
-
-                      <option value="NC">North Carolina</option>
-
-                      <option value="ND">North Dakota</option>
-
-                      <option value="OH">Ohio</option>
-
-                      <option value="OK">Oklahoma</option>
-
-                      <option value="OR">Oregon</option>
-
-                      <option value="PA">Pennsylvania</option>
-
-                      <option value="RI">Rhode Island</option>
-
-                      <option value="SC">South Carolina</option>
-
-                      <option value="SD">South Dakata</option>
-
-                      <option value="TN">Tennessee</option>
-
-                      <option value="TX">Texas</option>
-
-                      <option value="UT">Utah</option>
-
-                      <option value="VT">Vermont</option>
-
-                      <option value="VA">Virginia</option>
-
-                      <option value="WA">Washington</option>
-
-                      <option value="WV">West Virginia</option>
-
-                      <option value="WI">Wisconsin</option>
-
-                      <option value="WY">Wyoming</option>
-
->>>>>>> afe2b8397f2c42226217ad8c28c829158ed637ba
                     </Input>
 
                     <div className="form-group col-md-2">
                       <label>Zip</label>
                       <input
+                        s={12}
+                        m={4}
                         value={this.state.zip}
                         onChange={this.handleInputChange}
                         className="form-control"
