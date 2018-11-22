@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
-import {
-  Modal,
-  Button,
-  NavItem,
-  Dropdown,
-  Input,
-  Row
-} from "react-materialize";
+import { Modal, Button, Input, Row } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -56,105 +49,6 @@ class SignUpModal extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <Modal
-        id="account-signUp"
-        role="dialog"
-        header="Create Your Account"
-        trigger={<Button className="btn blue">Sign Up</Button>}
-      >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-body">
-              <form>
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label>First Name</label>
-                    <input
-                      s={12}
-                      m={6}
-                      value={this.state.firstName}
-                      onChange={this.handleInputChange}
-                      name="firstName"
-                      placeholder="John"
-                    />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label>Last Name</label>
-                    <input
-                      s={12}
-                      m={6}
-                      value={this.state.lastName}
-                      onChange={this.handleInputChange}
-                      name="lastName"
-                      placeholder="Doe"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label>Email</label>
-                    <input
-                      s={12}
-                      m={6}
-                      value={this.state.email}
-                      onChange={this.handleInputChange}
-                      name="email"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label for="inputPhone">Phone</label>
-                    <label>Phone</label>
-
-                    <input
-                      s={12}
-                      m={6}
-                      value={this.state.phone}
-                      onChange={this.handleInputChange}
-                      name="phone"
-                      placeholder="4155551234"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label>Street</label>
-                  <input
-                    s={12}
-                    m={6}
-                    value={this.state.street}
-                    onChange={this.handleInputChange}
-                    name="street"
-                    placeholder="1234 Your St"
-                  />
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label>City</label>
-                    <input
-                      s={12}
-                      m={4}
-                      value={this.state.city}
-                      onChange={this.handleInputChange}
-                      name="city"
-                      placeholder="Your City"
-                    />
-                  </div>
-                  <div className="form-group col-md-4">
-                    <label>State</label>
-                    <Input
-                      name="state"
-                      s={12}
-                      m={4}
-                      type="select"
-                      onChange={this.handleInputChange}
-                      className="modalDrop"
-                    >
-                      <option value="AL">Alabama</option>
-=======
       <div>
         <Modal
           id="account-signUp"
@@ -212,7 +106,6 @@ class SignUpModal extends Component {
               name="street"
               placeholder="123 Rocky Rd."
             />
->>>>>>> 7bcf7ef3d039d910615150b7d11d3ade649b5be2
 
             <Input
               m={4}
@@ -329,31 +222,12 @@ class SignUpModal extends Component {
 
               <option value="WA">Washington</option>
 
-<<<<<<< HEAD
-                      <option value="WY">Wyoming</option>
-                    </Input>
-
-                    <div className="form-group col-md-2">
-                      <label>Zip</label>
-                      <input
-                        s={12}
-                        m={4}
-                        value={this.state.zip}
-                        onChange={this.handleInputChange}
-                        className="form-control"
-                        name="zip"
-                        placeholder="12567"
-                      />
-                    </div>
-                  </div>
-=======
               <option value="WV">West Virginia</option>
 
               <option value="WI">Wisconsin</option>
 
               <option value="WY">Wyoming</option>
             </Input>
->>>>>>> 7bcf7ef3d039d910615150b7d11d3ade649b5be2
 
             <Input
               m={4}
