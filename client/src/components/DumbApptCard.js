@@ -4,7 +4,7 @@ import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 
-import EmpApptUpdateModal from "./EmpApptUpdateModal.js"
+import EmpApptUpdateModal from "./empApptUpdateModal.js"
 const Appointment = props => (
 
 
