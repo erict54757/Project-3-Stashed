@@ -6,6 +6,7 @@ import "materialize-css/dist/css/materialize.css";
 import EmpApptUpdateModal from "./empApptUpdateModal.js"
 import EmployeeSchedule from "./employeeSchedule"
 import API from "../utils/API"
+import "./DumbApptCard.css"
 
 // function deleteAppointment (id){
 //   API.deleteAppointment(id)
@@ -21,7 +22,7 @@ class Appointment extends Component {
 
 
       <Card
-        className="blue-grey darken-1"
+        className="blue-grey darken-1 cardBody z-depth-5"
         textClassName="white-text"
 
       >
