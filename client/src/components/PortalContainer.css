@@ -13,3 +13,13 @@
   .tabs .indicator {
    background-color: black;
 }
+.employeePortal{
+  min-height: 500px;
+  border-radius: 5px;
+}
+.title{
+   height: auto;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   padding: 1%;
+}

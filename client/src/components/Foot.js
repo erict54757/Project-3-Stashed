@@ -2,7 +2,7 @@ import React from 'react';
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-
+import { Link } from "react-router-dom";
 class Foot extends React.Component {
   render() {
     return (
@@ -41,9 +41,9 @@ class Foot extends React.Component {
         </div>
         <div className="footer-copyright">
           <div className="container center">
-            <a className="black-text text-lighten-3 modal-trigger" href="#Employee">
-              Employee Login
-            </a>
+            <Link className="black-text text-lighten-3" to="/Employee">
+              Employee
+            </Link>
           </div>
         </div>
       </div>

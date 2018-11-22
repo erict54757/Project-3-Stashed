@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Row, Modal, Button, Input, Icon, } from "react-materialize";
 import "./employeeScheduleModal.css"
 import API from "../utils/API"
+
 class EmployeeScheduleModal extends Component {
   state = {
+    CustomerId: 2,
+    EmployeeId: 1,
     firstName: "",
     lastName: "",
     street: "",
@@ -12,7 +15,8 @@ class EmployeeScheduleModal extends Component {
     zip: "",
     email: "",
     phone: "",
-    password: "barber18"
+    password: "barber18",
+    isAdmin: false
   };
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -22,37 +26,22 @@ class EmployeeScheduleModal extends Component {
   };
 
   handleFormSubmit = event => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(this.state);
     API.saveAppointment({
-      first_name: this.state.firstName,
-      last_name: this.state.lastName,
-      telephone: this.state.telephone,
+      EmployeeId: this.state.EmployeeId,
+      CustomerId: this.state.CustomerId,
       date: this.state.date,
-      time: this.state.time,
-      street: this.state.street,
-      city: this.state.city,
-      state: this.state.state,
-      zip: this.state.zip,
-      email: this.state.email,
-      phone: this.state.phone,
-      account_key: this.state.password
-    }).then(
-      API.saveCustomer({
-        first_name: this.state.firstName,
-        last_name: this.state.lastName,
-        telephone: this.state.telephone,
-        street: this.state.street,
-        city: this.state.city,
-        state: this.state.state,
-        zip: this.state.zip,
-        email: this.state.email,
-        phone: this.state.phone,
-        account_key: this.state.password
-      })
-
-
-    )
+      time: this.state.time
+     
+    })
+    .then(API.saveCustomer({
+      EmployeeId: this.state.EmployeeId,
+      CustomerId: this.state.CustomerId,
+      date: this.state.date,
+      time: this.state.time
+     
+    }))
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
@@ -85,6 +74,7 @@ class EmployeeScheduleModal extends Component {
                 type="button"
                 id="employeeSave"
                 className="modal-close btn  blue"
+                onClick={this.handleFormSubmit}
               >Create</Button>
               <Button className="blue " modal="close" waves="light">
                 Close
@@ -103,7 +93,7 @@ class EmployeeScheduleModal extends Component {
               name="firstName" 
               type="text"
               onChange={this.handleInputChange}
-              // ref={input => {this.firstName = input}}
+              // ref={(input) => {this.firstName = input}}
               // onKeyUp={this.onKeyUp.bind(this, "firstName")}
              
             >
@@ -114,7 +104,7 @@ class EmployeeScheduleModal extends Component {
               name="lastName"
               type="text"
               onChange={this.handleInputChange}
-              // ref={input => {this.lastName = input}}
+              // ref={(input) => {this.lastName = input}}
               // onKeyUp={this.onKeyUp.bind(this,"lastName")}
               >
               <Icon>account_circle</Icon>

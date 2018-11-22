@@ -51,11 +51,12 @@ class ManagerPortalModal extends Component {
           header="New Employee Information"
           fixedFooter
           trigger={
-            <Button className="blue">
+            <Button className="blue"
+            style={{marginTop: "10px" }}>
               Add Employee
-              <Icon className="blue" left>
+              {/* <Icon className="blue" left>
                 add
-              </Icon>
+              </Icon> */}
             </Button>
           }
           actions={

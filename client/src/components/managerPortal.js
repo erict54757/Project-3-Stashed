@@ -7,6 +7,7 @@ import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import moment from "moment";
 import API from "../utils/API";
+import "./managerPortal.css"
 
 class ManagerPortal extends Component {
   state = {
@@ -78,12 +79,12 @@ class ManagerPortal extends Component {
       );
     });
     return (
-      <div className="container">
+      <div className="container ">
         <div
-          className="row z-depth-5"
+          className="row z-depth-5 manager"
           style={{ marginTop: "25px", marginBottom: "25px" }}
         >
-          <ul id="tabs-swipe-demo" className="tabs black white-text">
+          <ul id="tabs-swipe-demo" className="tabs black white-text managerTabs z-depth-5">
             <li className="tab col s3">
               <a className="white-text" href="#employeeInfo">
                 Employee Information
@@ -145,7 +146,7 @@ class ManagerPortal extends Component {
                 <CardPanel>
                   {this.state.employee ? (
                     <div>
-                      <h5>Employee Information</h5>
+                      <h4>Employee Information</h4>
                       <p>
                         Name: {this.state.employee.first_name}{" "}
                         {this.state.employee.last_name}
@@ -175,9 +176,9 @@ class ManagerPortal extends Component {
               >
                 <CardPanel>
                   <Row>
-                    <Col>
+                    
                       <h4>Employee Schedule</h4>
-                    </Col>
+                    
 
                     <Col className="date">
                       {" "}
