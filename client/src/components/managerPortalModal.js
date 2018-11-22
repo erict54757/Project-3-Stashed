@@ -12,7 +12,8 @@ class ManagerPortalModal extends Component {
     zip: "",
     email: "",
     phone: "",
-    password: "barber18"
+    password: "barber18",
+    isAdmin: false
   };
 
   state = this.initialState;

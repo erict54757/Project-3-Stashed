@@ -185,7 +185,7 @@ class EmployeeSchedule extends React.Component {
             filteredAppointments.map(appointment => (
               <div className="col s12 m6 l4" key={appointment.id}>
                 <Appointment
-                  customer={this.state.Customers.find(
+                  customer={this.state.Customers.filter(
                     Customer => Customer.id === appointment.id
                   )}
                   key={appointment.id}
