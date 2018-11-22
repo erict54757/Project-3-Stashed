@@ -3,6 +3,7 @@ import { Card, Button } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
+
 import EmpApptUpdateModal from "./EmpApptUpdateModal.js"
 const Appointment = props => (
 
@@ -19,12 +20,10 @@ const Appointment = props => (
       onClick={props.delete}
     >X
          </Button>
-    {/* <ApptDeleteBtn
-        key={props.all.id}
-        id={props.all.id}
-        /> */}
+  
     < EmpApptUpdateModal
       key={props.all.phone}
+
       firstName={props.all.firstName}
       lastName={props.all.lastName}
       id={props.all.id}
@@ -41,5 +40,7 @@ const Appointment = props => (
 
 
 
+
 );
 export default Appointment
+
