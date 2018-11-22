@@ -22,21 +22,6 @@ class EmpApptUpdateModal extends Component {
     date: this.props.date
   };
 
-  handleDrop = event => {
-    // event.preventDefault()
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-
-
-    // Updating the input's state
-    this.setState({
-
-      [name]: value
-    });
-    console.log(this.state.state)
-
-  };
   handleInputChange = event => {
     event.preventDefault()
     // Getting the value and name of the input which triggered the change
@@ -57,25 +42,29 @@ class EmpApptUpdateModal extends Component {
 
     API.updateCustomer({
       id: this.state.id,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
       email: this.state.email,
       telephone: this.state.telephone,
       state: this.state.state,
       city: this.state.city,
       zip: this.state.zip,
-      street: this.state.street,
-      time: this.state.time,
-      date: this.state.date
+      street: this.state.street
+    }).then(res => console.log(res + "updated customer"))	
+      .catch(err => console.log(err));	
 
+
+    API.updateAppointment({
+      date: this.state.date,
+      time: this.state.time,
+      CustomerId: this.props.customerId,
+      EmployeeId: this.state.employeeId
     })
-      .then(res => console.log("updated"))
+
+      .then(res => console.log(res + "updated appointment"))
       .catch(err => console.log(err));
 
   };
-
-
-
   render() {
     return (
       <Modal
@@ -100,10 +89,7 @@ class EmpApptUpdateModal extends Component {
             <Icon>account_circle</Icon>
           </Input>
 
-
-
-
-          <Input
+          <Input l={6} s={12}
             label="Last Name"
             type="text"
             className="form-control"
@@ -123,8 +109,6 @@ class EmpApptUpdateModal extends Component {
             defaultValue={this.state.date}
             onChange={this.handleInputChange} >
             <Icon>date_range</Icon></Input>
-
-
 
           <Input
             name="time"
@@ -183,9 +167,6 @@ class EmpApptUpdateModal extends Component {
         </Row>
         <Row>
 
-
-
-
           <Input l={6} s={12}
             label="Street"
             type="text"
@@ -210,12 +191,9 @@ class EmpApptUpdateModal extends Component {
         </Row>
         <Row>
 
-
-
-
-
           <Input
             name="state"
+            label="State"
             s={12} l={6}
             type="select"
             onChange={this.handleInputChange}
@@ -340,21 +318,17 @@ class EmpApptUpdateModal extends Component {
           ><Icon>location_on</Icon>
           </Input>
         </Row>
+        <Row>
 
-        {/* <div className="form-row">
-                    <div className="form-group col-md-6">
+          <Input l={6} s={12}
+            label="Password"
+            type="text"
+            placeholder={this.props.password}
+            defaultValue={this.state.password}
+            onChange={this.handleInputChange}
+          />
+        </Row>
 
-                      <Input    l={6} s={12}
-                        label=""
-                        type="password"
-                        className="form-control"
-                        id="inputPassword"
-                        placeholder={this.props.password}
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                      />
-                    </div>
-                  </div> */}
 
 
       </Modal>

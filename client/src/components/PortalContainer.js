@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {Tab, Tabs } from "react-materialize";
 import EmployeeSchedule from "./employeeSchedule";
 
 // import { Link, Route } from "react-router-dom";
@@ -11,18 +10,11 @@ import "./PortalContainer.css";
 class PortalContainer extends Component {
   render() {
     return (
-      <div className="container">
-        <div className=" row z-depth-5" style={{ marginTop: "25px" }}>
-          <Tabs style={{ color: "black" }} className="white-text z-depth-1">
-            <Tab
-              className="blue rounded white-text"
-              title="Employee Information"
-            />
-            <Tab
-              className="blue rounded white-text"
-              title="Employee Schedule"
-            />
-          </Tabs>
+      <div className="container employeePortal rounded">
+        <div className=" row z-depth-5 employeePortal" style={{ marginTop: "25px" }}>
+          <h3 s={12} className="white-text black z-depth-4 center rounded title">
+            Upcoming Appointments
+          </h3>
           {/*  insert the appropriate manager component here */}
           <EmployeeSchedule />
         </div>
