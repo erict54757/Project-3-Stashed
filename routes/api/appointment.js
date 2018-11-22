@@ -6,6 +6,13 @@ router
   .post(appointmentController.create)
   .get(appointmentController.findAll)
 
+  //delete this before push
+  router
+  .route("/api/appointments")
+  .post(appointmentController.create)
+  router
+  .route("/api/appointments/:id")
+  .delete(appointmentController.delete);
   // "/api/appoints/:id"
   router
   .route("/:id")

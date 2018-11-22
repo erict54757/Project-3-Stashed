@@ -12,8 +12,11 @@ import "./employeeSchedule.css"
 import API from "../utils/API"
 
 
-
 class EmployeeSchedule extends React.Component {
+  constructor(props){
+    super(props)
+    this.deleteAppointment=this.deleteAppointment
+  }
   state = {
     date: moment().format("DD MMMM, YYYY"),
     Appointments: [{ id: 1, time: "8:30", firstName: "eric", lastName: "taft", email: "erict54757@gmail.com", telephone: "7153799917", date: "20 November, 2018" },
@@ -41,9 +44,13 @@ class EmployeeSchedule extends React.Component {
   };
   deleteAppointment = id => {
     API.deleteAppointment(id)
-      .then(res => this.getAppointments())
+      .then(API.getAppointments()
+      .then(res => this.setState({
+        Appointments: res.data
+      })))
       .catch(err => console.log(err));
   };
+
 
   getAppointments = () => {
     API.getAppointments()
@@ -118,7 +125,7 @@ class EmployeeSchedule extends React.Component {
             filteredAppointments.map(appointment => (
               <div className="col s12 m6 l4" key={appointment.id} >
                 <Appointment
-                delete={this.deleteAppointment(appointment.id)}
+                delete={this.deleteAppointment}
                   customer={this.state.Customers.find(Customer => Customer.id === appointment.id)}
                   key={appointment.id}
                   all={appointment}
