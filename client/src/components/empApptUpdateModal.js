@@ -95,7 +95,7 @@ class EmpApptUpdateModal extends Component {
       >
 
         <Row>
-          <Input l={6} s={12} className="black-text" label="First Name" name="firstName" placeholder={this.props.firstName} value={this.state.firstName}
+          <Input l={6} s={12} className="black-text" label="First Name" name="firstName" placeholder={this.props.firstName} defaultValue={this.state.firstName}
             onChange={this.handleInputChange}>
             <Icon>account_circle</Icon>
           </Input>
@@ -109,7 +109,7 @@ class EmpApptUpdateModal extends Component {
             className="form-control"
             name="lastName"
 
-            value={this.state.lastName}
+            defaultValue={this.state.lastName}
             onChange={this.handleInputChange}
           >
             <Icon>account_circle</Icon>
@@ -120,7 +120,7 @@ class EmpApptUpdateModal extends Component {
             label="Current Appointment Date" className="black-text" type='date'
             name="date"
             placeholder={this.state.date}
-            value={this.state.date}
+            defaultValue={this.state.date}
             onChange={this.handleInputChange} >
             <Icon>date_range</Icon></Input>
 
@@ -167,7 +167,7 @@ class EmpApptUpdateModal extends Component {
             className="form-control"
             name="email"
             placeholder={this.props.email}
-            value={this.state.email}
+            defaultValue={this.state.email}
             onChange={this.handleInputChange}
           ><Icon>email</Icon>
           </Input>
@@ -176,7 +176,7 @@ class EmpApptUpdateModal extends Component {
             label="Telephone"
             name="telephone"
             placeholder={this.props.telephone}
-            value={this.state.telephone}
+            defaultValue={this.state.telephone}
             onChange={this.handleInputChange}
           ><Icon>phone</Icon>
           </Input>
@@ -192,7 +192,7 @@ class EmpApptUpdateModal extends Component {
             className="form-control"
             name="street"
             placeholder={this.props.street}
-            value={this.state.street}
+            defaultValue={this.state.street}
             onChange={this.handleInputChange}
           ><Icon>location_on</Icon>
           </Input>
@@ -203,7 +203,7 @@ class EmpApptUpdateModal extends Component {
             className="form-control"
             name="city"
             placeholder={this.props.city}
-            value={this.state.city}
+            defaultValue={this.state.city}
             onChange={this.handleInputChange}
           ><Icon>business</Icon>
           </Input>
@@ -219,6 +219,7 @@ class EmpApptUpdateModal extends Component {
             s={12} l={6}
             type="select"
             onChange={this.handleInputChange}
+            defaultValue={this.state.state}
             className="modalDrop"
           >
 
@@ -334,7 +335,7 @@ class EmpApptUpdateModal extends Component {
             className="form-control"
             name="zip"
             placeholder="12567"
-            value={this.state.zip}
+            defaultValue={this.state.zip}
             onChange={this.handleInputChange}
           ><Icon>location_on</Icon>
           </Input>

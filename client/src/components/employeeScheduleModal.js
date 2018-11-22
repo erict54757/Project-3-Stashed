@@ -1,7 +1,44 @@
 import React, { Component } from 'react';
 import { Row, Modal, Button, Input, Icon,} from "react-materialize";
 import "./employeeScheduleModal.css"
+import API from "../utils/API"
 class EmployeeScheduleModal extends Component {
+  state = {
+    firstName: "",
+    lastName: "",
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    email: "",
+    phone: "",
+    password: "barber18"
+  };
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
+    API.saveCustomer({
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      street: this.state.street,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
+      email: this.state.email,
+      phone: this.state.phone,
+      account_key: this.state.password
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div>
@@ -29,11 +66,14 @@ class EmployeeScheduleModal extends Component {
           }
         >
           <Row>
-            <Input s={6} className="black-text" label="First Name">
+            <Input s={6} className="black-text" label="First Name"
+            onChange={this.handleInputChange}
+            >
               <Icon>date_range</Icon>
             </Input>
 
-            <Input className="black-text" s={6} placeholder="Last Name">
+            <Input className="black-text" s={6} placeholder="Last Name"
+            onChange={this.handleInputChange}>
               <Icon>account_circle</Icon>
             </Input>
 
@@ -43,6 +83,7 @@ class EmployeeScheduleModal extends Component {
               label="Telephone"
               validate
               type="tel"
+              onChange={this.handleInputChange}
             >
               <Icon>phone</Icon>
             </Input>
@@ -53,7 +94,7 @@ class EmployeeScheduleModal extends Component {
               type="date"
               label="Select Date"
               defaultValue="2"
-              onChange={function (e, value) { }}
+              onChange={this.handleInputChange}
             >
               <Icon>date_range</Icon>
             </Input>

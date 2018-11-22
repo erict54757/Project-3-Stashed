@@ -57,7 +57,7 @@ class NewAppointment extends Component {
         role="dialog"
         header="Make A New Appointment"
         trigger={
-          <Button className="blue waves-effect waves-light makeAppointment">
+          <Button className="blue waves-effect waves-light makeAppointment z-depth-5">
             <h5>Make An Appointment</h5>
           </Button>
         }
