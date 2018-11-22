@@ -1,6 +1,6 @@
 # BarberShop WebPage And Appointment Handling
 
- A React/Node/Express/Passport application is meant to provide small-businesses an App with the same style, responsivness and utility that larger corporate hair salons have. Yet, The App is still best suited for sole-propreitor establishments in that the way to schedule appointments allows you to schedule appointments with a specific stylist. The admin page allows the administrator to view employees and their schedules. The employee page allows employees to make New Appointments and handle existing ones. 
+ This React/Node/Express/Passport application is meant to provide a small-businesses an App with the same style, responsivness and utility that larger corporate hair salons have. Yet, The App is still best suited for sole-propreitor establishments as the App allows you to schedule appointments with a specific stylist, leaving the customer a more personalized experience. The admin page allows the administrator to view employees and their schedules. The employee page allows employees to make new appointments and handle existing ones. 
 
 
 ## Create-React-App 
