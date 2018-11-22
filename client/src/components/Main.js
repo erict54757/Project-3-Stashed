@@ -12,6 +12,10 @@ import CustContact from "./CustContact";
 import "./Main.css";
 
 class Main extends Component {
+  state = {
+    isLoggedIn: false
+  };
+
   render() {
     return (
       <div>
@@ -30,8 +34,12 @@ class Main extends Component {
         <div className="parallax-container valign-wrapper appoint">
           <div className="container">
             <div className="row">
-              <div className="col s4 center">
-                <NewAppointment customerId="1" />
+              <div className="col s12 center" style={{ height: "300px" }}>
+                {this.state.isLoggedIn ? (
+                  <NewAppointment customerId="1" />
+                ) : (
+                  <div />
+                )}
               </div>
               <div className="col s8 center">
               <MapContainer />

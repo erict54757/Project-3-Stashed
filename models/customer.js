@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     state: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     zip: {
       type: DataTypes.INTEGER,
@@ -44,6 +44,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
+        isEmail: true,
         len: [1, 100]
       }
     },

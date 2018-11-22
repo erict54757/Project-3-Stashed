@@ -1,20 +1,13 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
-import {
-  Modal,
-  Button,
-  NavItem,
-  Dropdown,
-  Input,
-  Row
-} from "react-materialize";
+import { Modal, Button, Input, Row } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import "./SignUpModal.css";
 class SignUpModal extends Component {
-  state = {
+  initialstate = {
     firstName: "",
     lastName: "",
     street: "",
@@ -25,6 +18,8 @@ class SignUpModal extends Component {
     phone: "",
     password: ""
   };
+
+  state = this.initialstate;
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -48,6 +43,7 @@ class SignUpModal extends Component {
       account_key: this.state.password
     })
       .then(res => console.log(res))
+      .then(res => this.setState(this.initialstate))
       .catch(err => console.log(err));
   };
 

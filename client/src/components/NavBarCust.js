@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Navbar, NavItem } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -7,27 +7,30 @@ import "materialize-css/dist/css/materialize.css";
 import logo from "../Images/logo.jpg";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
-import "./NavBarCust.css"
-
+import "./NavBarCust.css";
 
 class NavBarCust extends Component {
   render() {
     return (
-      <Navbar id="navBarCust"
-       style={{height: "80px"}} className={this.props.background} brand={ <img
-              style={({ height: "auto", width: "110px", padding: "5px"})}
-              src={logo}
-              alt="logo"
-             
-    />}  
-    right role="navigation">
-      
+      <Navbar
+        id="navBarCust"
+        style={{ height: "80px" }}
+        className={this.props.background}
+        brand={
+          <img
+            style={{ height: "auto", width: "110px", padding: "5px" }}
+            src={logo}
+            alt="logo"
+          />
+        }
+        right
+        role="navigation"
+      >
         <NavItem>
-         
-          <SignInModal/>
+          <SignInModal />
         </NavItem>
         <NavItem>
-          <SignUpModal/>
+          <SignUpModal />
         </NavItem>
       </Navbar>
     );

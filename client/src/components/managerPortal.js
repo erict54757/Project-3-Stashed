@@ -39,6 +39,9 @@ class ManagerPortal extends Component {
       .then(res => {
         this.loadEmployees();
       })
+      .then(res => {
+        this.setState({ employee: [] });
+      })
       .catch(err => console.log(err));
   };
 

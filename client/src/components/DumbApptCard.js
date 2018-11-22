@@ -4,7 +4,6 @@ import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import EmpApptUpdateModal from "./empApptUpdateModal.js";
-
 const Appointment = props => (
   <Card className="blue-grey darken-1" textClassName="white-text">
     <h5>
@@ -16,7 +15,6 @@ const Appointment = props => (
       X
     </Button>
     <EmpApptUpdateModal
-      key={props.all.id}
       firstName={props.all.firstName}
       lastName={props.all.lastName}
       id={props.all.id}
