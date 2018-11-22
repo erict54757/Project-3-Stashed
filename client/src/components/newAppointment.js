@@ -96,6 +96,7 @@ class NewAppointment extends Component {
                   ))}
                 </Input>
 
+                {/* <span><Icon>access_time</Icon></span> */}
                 <Input
                   name="time"
                   s={12}
@@ -125,8 +126,12 @@ class NewAppointment extends Component {
                   <option value="5:00PM">5:00PM</option>
 
                   <option value="6:00PM">6:00PM</option>
-                </Input>
-                <Icon>access_time</Icon>
+
+
+
+              </Input>  
+
+
               </Row>
             </form>
           </div>

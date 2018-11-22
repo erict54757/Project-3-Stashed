@@ -57,8 +57,8 @@ class EmpApptUpdateModal extends Component {
 
     API.updateCustomer({
       id: this.state.id,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
       email: this.state.email,
       telephone: this.state.telephone,
       state: this.state.state,
@@ -103,7 +103,7 @@ class EmpApptUpdateModal extends Component {
 
 
 
-          <Input
+          <Input l={6} s={12}
             label="Last Name"
             type="text"
             className="form-control"
@@ -216,6 +216,7 @@ class EmpApptUpdateModal extends Component {
 
           <Input
             name="state"
+            label="State"
             s={12} l={6}
             type="select"
             onChange={this.handleInputChange}
@@ -340,21 +341,17 @@ class EmpApptUpdateModal extends Component {
           ><Icon>location_on</Icon>
           </Input>
         </Row>
-
-        {/* <div className="form-row">
-                    <div className="form-group col-md-6">
-
+<Row>
+      
                       <Input    l={6} s={12}
-                        label=""
+                        label="Password"
                         type="password"
-                        className="form-control"
-                        id="inputPassword"
                         placeholder={this.props.password}
-                        value={this.state.password}
+                        defaultValue={this.state.password}
                         onChange={this.handleInputChange}
                       />
-                    </div>
-                  </div> */}
+                      </Row>
+               
 
 
       </Modal>

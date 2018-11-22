@@ -6,5 +6,4 @@ router.route("/")
   .post(customerController.create)
   .get(customerController.findAll);
 
-
 module.exports = router;
