@@ -49,13 +49,10 @@ class EmpApptUpdateModal extends Component {
       state: this.state.state,
       city: this.state.city,
       zip: this.state.zip,
-      street: this.state.street,
-      time: this.state.time,
-      date: this.state.date,
-      password: this.state.password,
-      isAdmin: false
+      street: this.state.street
+    }).then(res => console.log(res + "updated customer"))	
+      .catch(err => console.log(err));	
 
-    })
 
     API.updateAppointment({
       date: this.state.date,
@@ -64,7 +61,7 @@ class EmpApptUpdateModal extends Component {
       EmployeeId: this.state.employeeId
     })
 
-      .then(res => console.log(res + "updated"))
+      .then(res => console.log(res + "updated appointment"))
       .catch(err => console.log(err));
 
   };
