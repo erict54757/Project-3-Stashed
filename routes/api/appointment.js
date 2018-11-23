@@ -6,8 +6,8 @@ router
   .post(appointmentController.create)
   .get(appointmentController.findAll)
 
-  // "/api/appoints/:id"
-  router
+// "/api/appointments/:id"
+router
   .route("/:id")
   .delete(appointmentController.delete);
 

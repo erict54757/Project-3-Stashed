@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Row, Modal, Button, Input, Icon,} from "react-materialize";
+import { Row, Modal, Button, Input, Icon, } from "react-materialize";
 import "./employeeScheduleModal.css"
 import API from "../utils/API"
+
 class EmployeeScheduleModal extends Component {
   state = {
+    CustomerId: 2,
+    EmployeeId: 1,
     firstName: "",
     lastName: "",
     street: "",
@@ -22,84 +25,103 @@ class EmployeeScheduleModal extends Component {
   };
 
   handleFormSubmit = event => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(this.state);
     API.saveCustomer({
+      id: this.state.id,
       first_name: this.state.firstName,
       last_name: this.state.lastName,
-      street: this.state.street,
-      city: this.state.city,
-      state: this.state.state,
-      zip: this.state.zip,
       email: this.state.email,
-      phone: this.state.phone,
-      account_key: this.state.password
+      telephone: this.state.telephone,
+      state: this.state.state,
+      city: this.state.city,
+      zip: this.state.zip,
+      street: this.state.street,
+      time: this.state.time,
+      date: this.state.date,
+      password: this.state.password
     })
+    .then(API.saveAppointment({
+      EmployeeId: this.state.EmployeeId,
+      CustomerId: this.state.CustomerId,
+      date: this.state.date,
+      time: this.state.time
+     
+    }))
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
+  // onKeyUp = (target, e) => {
+  //   if (e.keyCode === 13) {
+  //     switch (target) {
+  //       case "firstName":
+  //         this.lastName.focus();
+  //         break
+  //       case "lastName":
+  //         this.firstName.focus();
+  //         break
+  //       default:
+  //         this.firstName.focus();
+
+  //     }
+  //   }
+  // }
 
   render() {
     return (
-      <div>
+     
         <Modal
           header="New Appointment Information"
 
           actions={
-           <div>
+            <div>
               <Button
                 waves="light"
                 type="button"
                 id="employeeSave"
                 className="modal-close btn  blue"
+                onClick={this.handleFormSubmit}
               >Create</Button>
-              <Button  className="blue " modal="close" waves="light">
+              <Button className="blue " modal="close" waves="light">
                 Close
               </Button>
-         </div>
+            </div>
           }
-          
+
           trigger={
             <Button className="blue addAppointment">
               Add Appointment
             </Button>
           }
         >
-          <Row>
-            <Input s={6} className="black-text" label="First Name"
-            onChange={this.handleInputChange}
-            >
-              <Icon>date_range</Icon>
-            </Input>
-
-            <Input className="black-text" s={6} placeholder="Last Name"
+       <Row>
+          <Input l={6} s={12} className="black-text" label="First Name" name="firstName" placeholder={this.props.firstName} defaultValue={this.state.firstName}
             onChange={this.handleInputChange}>
-              <Icon>account_circle</Icon>
-            </Input>
+            <Icon>account_circle</Icon>
+          </Input>
 
-            <Input
-              s={6}
-              className="black-text"
-              label="Telephone"
-              validate
-              type="tel"
-              onChange={this.handleInputChange}
-            >
-              <Icon>phone</Icon>
-            </Input>
+          <Input l={6} s={12}
+            label="Last Name"
+            type="text"
+            className="form-control"
+            name="lastName"
 
-            <Input
-              s={6}
-              className="black-text"
-              type="date"
-              label="Select Date"
-              defaultValue="2"
-              onChange={this.handleInputChange}
-            >
-              <Icon>date_range</Icon>
-            </Input>
+            defaultValue={this.state.lastName}
+            onChange={this.handleInputChange}
+          >
+            <Icon>account_circle</Icon>
+          </Input>
+        </Row>
+        <Row>
+          <Input l={6} s={12}
+            label="Current Appointment Date" className="black-text" type='date'
+            name="date"
+            placeholder={this.state.date}
+            defaultValue={this.state.date}
+            onChange={this.handleInputChange} >
+            <Icon>date_range</Icon></Input>
 
-            <Input
+          <Input
             name="time"
             s={12} l={6}
             type="select"
@@ -107,7 +129,7 @@ class EmployeeScheduleModal extends Component {
             className="modalDrop"
           >
 
-            <option value="8AM">8:00AM</option>
+            <option value="8AM">"8:00AM</option>
 
             <option value="9AM">9:00AM</option>
 
@@ -132,9 +154,195 @@ class EmployeeScheduleModal extends Component {
 
 
           </Input>
-          </Row>
-        </Modal>
-      </div>
+        </Row>
+        <Row>
+          <Input l={6} s={12}
+            label="Email"
+            type="email"
+            className="form-control"
+            name="email"
+            placeholder={this.props.email}
+            defaultValue={this.state.email}
+            onChange={this.handleInputChange}
+          ><Icon>email</Icon>
+          </Input>
+
+          <Input l={6} s={12}
+            label="Telephone"
+            name="telephone"
+            placeholder={this.props.telephone}
+            defaultValue={this.state.telephone}
+            onChange={this.handleInputChange}
+          ><Icon>phone</Icon>
+          </Input>
+        </Row>
+        <Row>
+
+          <Input l={6} s={12}
+            label="Street"
+            type="text"
+            className="form-control"
+            name="street"
+            placeholder={this.props.street}
+            defaultValue={this.state.street}
+            onChange={this.handleInputChange}
+          ><Icon>location_on</Icon>
+          </Input>
+
+          <Input l={6} s={12}
+            label="City"
+            type="text"
+            className="form-control"
+            name="city"
+            placeholder={this.props.city}
+            defaultValue={this.state.city}
+            onChange={this.handleInputChange}
+          ><Icon>business</Icon>
+          </Input>
+        </Row>
+        <Row>
+
+          <Input
+            name="state"
+            label="State"
+            s={12} l={6}
+            type="select"
+            onChange={this.handleInputChange}
+            defaultValue={this.state.state}
+            className="modalDrop"
+          >
+
+            <option
+              value="AL">Alabama</option>
+
+            <option value="AK">Alaska</option>
+
+            <option value="AZ">Arizona</option>
+
+            <option value="AR">Arkansas</option>
+
+            <option value="CA">California</option>
+
+            <option value="CO">Colorado</option>
+
+            <option value="CT"> Connecticut </option>
+
+            <option value="DE"> Delaware </option>
+
+            <option value="DC"> District Of Columbia </option>
+
+            <option value="FL"> Florida </option>
+
+            <option value="GA"> Georgia </option>
+
+            <option value="HI"> Hawaii </option>
+
+            <option value="ID"> Idaho </option>
+
+            <option value="IL"> Illinois </option>
+
+            <option value="IN"> Indiana </option>
+
+            <option value="IA"> Iowa</option>
+
+            <option value="KS">Kansas</option>
+
+            <option value="KY">Kentucky</option>
+
+            <option value="LA">Louisiana</option>
+
+            <option value="ME">Maine</option>
+
+            <option value="MD">Maryland</option>
+
+            <option value="MA">Massachusetts</option>
+
+            <option value="MI">Michigan</option>
+
+            <option value="MN">Minnesota</option>
+
+            <option value="MS">Mississippi</option>
+
+            <option value="MO">Missouri</option>
+
+            <option value="MT">Montana</option>
+
+            <option value="NE">Nebraska</option>
+
+            <option value="NV">Nevada</option>
+
+            <option value="NH">New Hampshire</option>
+
+            <option value="NJ">New Jersey</option>
+
+            <option value="NM">New Mexico</option>
+
+            <option value="NY">New York</option>
+
+            <option value="NC">North Carolina</option>
+
+            <option value="ND">North Dakota</option>
+
+            <option value="OH">Ohio</option>
+
+            <option value="OK">Oklahoma</option>
+
+            <option value="OR">Oregon</option>
+
+            <option value="PA">Pennsylvania</option>
+
+            <option value="RI">Rhode Island</option>
+
+            <option value="SC">South Carolina</option>
+
+            <option value="SD">South Dakata</option>
+
+            <option value="TN">Tennessee</option>
+
+            <option value="TX">Texas</option>
+
+            <option value="UT">Utah</option>
+
+            <option value="VT">Vermont</option>
+
+            <option value="VA">Virginia</option>
+
+            <option value="WA">Washington</option>
+
+            <option value="WV">West Virginia</option>
+
+            <option value="WI">Wisconsin</option>
+
+            <option value="WY">Wyoming</option>
+
+          </Input>
+
+
+          <Input l={6} s={12}
+            label="ZipCode"
+            type="text"
+            className="form-control"
+            name="zip"
+            placeholder="12567"
+            defaultValue={this.state.zip}
+            onChange={this.handleInputChange}
+          ><Icon>location_on</Icon>
+          </Input>
+        </Row>
+        <Row>
+
+          <Input l={6} s={12}
+            label="Password"
+            type="text"
+            placeholder="Barber18"
+            defaultValue={this.state.password}
+            onChange={this.handleInputChange}
+          />
+        </Row>
+
+
+
+      </Modal>
     );
   }
 }

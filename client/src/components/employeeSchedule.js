@@ -7,11 +7,16 @@ import "jquery";
 import Appointment from "./DumbApptCard";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
-import "./employeeScheduleModal.css";
-import "./employeeSchedule.css";
-import API from "../utils/API";
+import "./employeeScheduleModal.css"
+import "./employeeSchedule.css"
+import API from "../utils/API"
+
 
 class EmployeeSchedule extends React.Component {
+  constructor(props) {
+    super(props)
+    this.deleteAppointment = this.deleteAppointment
+  }
   state = {
     date: moment().format("DD MMMM, YYYY"),
     Appointments: [
@@ -122,27 +127,46 @@ class EmployeeSchedule extends React.Component {
     });
   };
   deleteAppointment = id => {
-    API.deleteEmployee(id)
-      .then(res => this.loadAppointments())
+    API.deleteAppointment(id)
+      .then(API.getAppointments()
       .catch(err => console.log(err));
   };
 
+
   getAppointments = () => {
-    API.getAppointments().then(res =>
-      this.setState({
+    API.getAppointments()
+      .then(res => this.setState({
         Appointments: res.data
-      })
-    );
+      }))
+  };
+
+
+  componentWillMount() {
+
+    // API.getCustomers()
+    //   .then(res =>
+    //     this.setState({ Customers: res.data })
+    //   )
+    // API.getAppointments()
+    //   .then(res =>
+    //     this.setState({ Appointments: res.data })
+    //   )
+    //   .catch(err => console.log(err));
   };
 
   componentDidMount() {
-    API.getCustomers().then(res => this.setState({ Customers: res.data }));
+    // API.getCustomers()
+    //   .then(res =>
+    //     this.setState({ Customers: res.data })
+    //   )
 
-    API.getAppointments()
-      .then(res => this.setState({ Appointments: res.data }))
+    // API.getAppointments()
+    //   .then(res =>
+    //     this.setState({ Appointments: res.data })
+    //   )
+    //   .catch(err => console.log(err));
+  };
 
-      .catch(err => console.log(err));
-  }
 
   // componentDidMount(){
   //   console.log(this.state.Appointments)
@@ -162,8 +186,9 @@ class EmployeeSchedule extends React.Component {
               <EmployeeScheduleModal />
             </Col>
           </Row>
+          <Row>
           <Col className="inputDate ">
-            {" "}
+           
             <Input
               className="center "
               name="date"
@@ -174,7 +199,7 @@ class EmployeeSchedule extends React.Component {
             >
               <Icon>date_range</Icon>
             </Input>
-          </Col>
+          </Col></Row>
         </Row>
 
         <Row
@@ -185,9 +210,8 @@ class EmployeeSchedule extends React.Component {
             filteredAppointments.map(appointment => (
               <div className="col s12 m6 l4" key={appointment.id}>
                 <Appointment
-                  customer={this.state.Customers.filter(
-                    Customer => Customer.id === appointment.id
-                  )}
+                  delete={this.deleteAppointment}
+                  customer={this.state.Customers.find(Customer => Customer.id === appointment.id)}
                   key={appointment.id}
                   all={appointment}
                   id={appointment.id}
@@ -198,8 +222,8 @@ class EmployeeSchedule extends React.Component {
               </div>
             ))
           ) : (
-            <h3>No Scheduled Appointments For This Day</h3>
-          )}
+              <h3>No Scheduled Appointments For This Day</h3>
+            )}
         </Row>
       </div>
     );
