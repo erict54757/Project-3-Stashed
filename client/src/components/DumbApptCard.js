@@ -4,6 +4,7 @@ import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
 import EmpApptUpdateModal from "./empApptUpdateModal.js";
+
 const Appointment = props => (
   <Card className="blue-grey darken-1" textClassName="white-text">
     <h5>

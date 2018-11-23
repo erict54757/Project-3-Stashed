@@ -13,7 +13,7 @@ import "./Main.css";
 
 class Main extends Component {
   state = {
-    isLoggedIn: false
+    isLoggedIn: true
   };
 
   render() {
@@ -34,16 +34,17 @@ class Main extends Component {
         <div className="parallax-container valign-wrapper appoint">
           <div className="container">
             <div className="row">
-              <div className="col s12 center" style={{ height: "300px" }}>
+            <div className="col s8 center">
+              <MapContainer />
+              </div>
+              <div className="col s4 center" style={{ height: "300px" }}>
                 {this.state.isLoggedIn ? (
                   <NewAppointment customerId="1" />
                 ) : (
                   <div />
                 )}
               </div>
-              <div className="col s8 center">
-              <MapContainer />
-              </div>
+              
             </div>
           </div>
         </div>
