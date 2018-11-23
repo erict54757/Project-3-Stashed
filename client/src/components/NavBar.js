@@ -24,7 +24,7 @@ class NavBar extends Component {
           <WelcomeMat name={this.props.user.name} textColor={this.props.textColor}  />
         </NavItem>
 
-        <NavItem>
+        <NavItem style={{height: "100%"}}>
           <LogoutButton
             id={this.props.user.id}
           />
