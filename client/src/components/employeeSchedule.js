@@ -130,7 +130,11 @@ class EmployeeSchedule extends React.Component {
   deleteAppointment = id => {
     API.deleteAppointment(id)
       .then(API.getAppointments())
+<<<<<<< HEAD
       .catch(err => console.log(err))
+=======
+      .catch(err => console.log(err));
+>>>>>>> 1114f56f5432e0dcf0a00b6748a4061be6884166
   };
 
 
@@ -180,10 +184,10 @@ class EmployeeSchedule extends React.Component {
     });
 
     return (
-      <div>
-        <Row>
+      <div >
+       <div className="container">
           <Row>
-            <Col>
+            <Col className="addCol">
               <EmployeeScheduleModal />
             </Col>
           </Row>
@@ -201,8 +205,8 @@ class EmployeeSchedule extends React.Component {
               <Icon>date_range</Icon>
             </Input>
           </Col></Row>
-        </Row>
-
+        
+</div>
         <Row
           className="center"
           style={{ paddingLeft: "3%", paddingRight: "3%" }}
@@ -223,7 +227,7 @@ class EmployeeSchedule extends React.Component {
               </div>
             ))
           ) : (
-              <h3>No Scheduled Appointments For This Day</h3>
+            <div className="container">   <h3>No Scheduled Appointments For This Day</h3></div>
             )}
         </Row>
       </div>
