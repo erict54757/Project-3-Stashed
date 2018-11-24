@@ -1,4 +1,4 @@
-# BarberShop WebPage And Appointment Handling
+# BarberShop WebApplication
 
  This React/Node/Express/Passport application is meant to provide a small-businesses an App with the same style, responsivness and utility that larger corporate hair salons have. Yet, The App is still best suited for sole-propreitor establishments as the App allows you to schedule appointments with a specific stylist, leaving the customer a more personalized experience. The admin page allows the administrator to view employees and their schedules. The employee page allows employees to make new appointments and handle existing ones. 
 
@@ -29,6 +29,20 @@ Your app should now be running on <http://localhost:3000>. The Express server sh
 ##Prerequisites 
 You will want to modify the the Node Mail Server to send emails to the correct email. Additionally, you will want to remove the links for the three background pictures and the logo all in the customer page and replace with your own. Headings for each image can also be easily changed to suit your establishment. 
 
+## Usage
+
+## Customer Page
+
+## Employee Page
+
+## Admin Page
+* Employee Information Tab
+Populating on the left side of the page, the list of employees. In the center exists the currently selected employee's Information. 
+Clicking on the Add Employee button will bring up a modal that allows entry of a new employee. 
+
+* Employee Schedule Tab
+
+
 ## Deployment (Heroku)
 
 To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
@@ -37,10 +51,10 @@ To deploy, simply add and commit your changes, and push to Heroku. As is, the NP
 
 Please read [CONTRIBUTING.md](#) for details on our code of conduct, and the process for submitting pull requests to us.
 
-##Authors
-Nicole Barry
-Andrew Gallowitch
-Eric Taft
+## Authors
+* Nicole Barry
+* Andrew Gallowitch
+* Eric Taft
 
 ## Built With
 

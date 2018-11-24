@@ -7,6 +7,9 @@
     border-top-right-radius: 5px;
     padding-bottom: 1%
 }
+.card-panel{
+    border-radius: 5px; 
+}
 .tabs .indicator {
     background-color: rgb(33, 150, 243)
  }
