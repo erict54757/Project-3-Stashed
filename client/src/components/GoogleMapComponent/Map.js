@@ -19,7 +19,7 @@ state = {
       <Map
       google={window.google}
         zoom={14}
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: "10%" }}
       >
         <Marker
           name={"Charlotte Barber & Beard"}

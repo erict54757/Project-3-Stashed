@@ -130,11 +130,7 @@ class EmployeeSchedule extends React.Component {
   deleteAppointment = id => {
     API.deleteAppointment(id)
       .then(API.getAppointments())
-<<<<<<< HEAD
-      .catch(err => console.log(err))
-=======
       .catch(err => console.log(err));
->>>>>>> 1114f56f5432e0dcf0a00b6748a4061be6884166
   };
 
 
