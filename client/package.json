@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@mapbox/polyline": "^1.0.0",
     "axios": "^0.18.0",
     "google-maps-react": "^2.0.2",
     "jquery": "^3.3.1",
@@ -13,8 +14,11 @@
     "react-google-maps": "^9.4.5",
     "react-materialize": "^2.4.8",
     "react-moment": "^0.8.3",
+    "react-native": "^0.57.5",
+    "react-native-maps": "^0.22.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "recompose": "^0.30.0"
   },
   "scripts": {
     "start": "react-scripts start",
