@@ -17,7 +17,7 @@ class PortalFooter extends Component {
       return(
   
   
-  <div   className='black footer'
+  <div   className='black footer page-footer'
   >
   
   <div className="container">

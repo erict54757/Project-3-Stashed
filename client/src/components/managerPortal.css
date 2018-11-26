@@ -9,6 +9,7 @@
 }
 .card-panel{
     border-radius: 5px; 
+   
 }
 .tabs .indicator {
     background-color: rgb(33, 150, 243)
@@ -21,3 +22,12 @@
      border-bottom-left-radius: 5px;
      border-bottom-right-radius: 5px;
  }
+ @media screen and (min-width:630px){
+ .with-header{
+margin-left: 5px;
+ }
+ #employeeSchedule{
+     margin-left: -50px;
+     margin-right: 50px;
+ }
+}
