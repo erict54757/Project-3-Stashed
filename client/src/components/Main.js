@@ -30,7 +30,7 @@ class Main extends Component {
         <div className="parallax-container valign-wrapper appoint">
           <div className="container fluid">
             <div className="row fluid">
-              {this.state.isLoggedIn ? (
+              {this.props.token ? (
                 <div>
                   <div
                     className="col m4 s12 center"

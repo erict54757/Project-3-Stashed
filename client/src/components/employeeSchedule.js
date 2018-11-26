@@ -47,14 +47,6 @@ class EmployeeSchedule extends React.Component {
       .catch(err => console.log(err));
   };
 
-  getAppointments = () => {
-    API.getAppointments().then(res =>
-      this.setState({
-        Appointments: res.data
-      })
-    );
-  };
-
   componentDidMount() {
     this.getAppointments();
     this.getCustomers();
@@ -64,6 +56,8 @@ class EmployeeSchedule extends React.Component {
     const filteredAppointments = this.state.appointments.filter(appointment => {
       return appointment.date === this.state.date;
     });
+
+    console.log(this.state);
 
     return (
       <div className="container">
