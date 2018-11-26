@@ -26,7 +26,7 @@ class Main extends Component {
         </div>
         <Parallax imageSrc={background1} />
 
-        <div className="parallax-container valign-wrapper appoint">
+        <div className="parallax-container valign-wrapper appoint white">
           <div className="container fluid">
             <div className="row fluid">
               {this.props.token ? (
@@ -98,9 +98,10 @@ class Main extends Component {
           Specializing In Classic Cuts.
         </h4>
         <Parallax imageSrc={background2} />
+        <div className="parallax-container valign-wrapper appoint white">
 
         <CustContact />
-
+</div>
         <Parallax imageSrc={background3} />
       </div>
     );
