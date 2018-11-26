@@ -49,7 +49,7 @@ To deploy, simply add and commit your changes, and push to Heroku. As is, the NP
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](#) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/erict54757/Project-3/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 * Nicole Barry

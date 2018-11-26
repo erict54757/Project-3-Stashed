@@ -35,7 +35,7 @@ class CustContact extends Component {
             </div>
             <div className="form-group">
               <textarea
-                className="rounded form-control"
+              
                 name="text"
                 placeholder="Message"
                 id="message"

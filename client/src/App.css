@@ -6007,7 +6007,9 @@ input[type=range]:focus::-ms-fill-upper {
   .tap-target-wrapper.open .tap-target-wave::after {
     visibility: visible;
     animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-    transition: opacity .3s, transform .3s, visibility 0s 1s; }
+    transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s; }
 
 .tap-target {
   position: absolute;
@@ -6042,7 +6044,9 @@ input[type=range]:focus::-ms-fill-upper {
     transition: transform .3s; }
   .tap-target-wave::after {
     visibility: hidden;
-    transition: opacity .3s, transform .3s, visibility 0s;
+    transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
     z-index: -1; }
 
 .tap-target-origin {
@@ -6902,8 +6906,8 @@ body {
 
 .footer {
   width: 100%;
-  margin-top: 60px;
-  position: absolute;
+  margin-top: 180px;
+  position: relative;
   bottom: 0; }
 
 h4 {
