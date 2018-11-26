@@ -56,9 +56,6 @@ class ManagerPortalModal extends Component {
           trigger={
             <Button className="blue" style={{ marginTop: "10px" }}>
               Add Employee
-              <Icon className="blue" left>
-                add
-              </Icon>
             </Button>
           }
           actions={
@@ -72,7 +69,7 @@ class ManagerPortalModal extends Component {
               >
                 Save
               </Button>
-              <Button className="blue" modal="close" waves="light">
+              <Button className="blue" modal="close" waves="light" style={{ marginLeft: "5px" }}>
                 Close
               </Button>
             </div>

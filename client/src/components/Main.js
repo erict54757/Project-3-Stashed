@@ -18,7 +18,7 @@ class Main extends Component {
           <h1 className="header center grey-text text-lighten-3">
             Charlotte Barber & Beard
           </h1>
-          <div className="row center">
+          <div className="row center index-banner">
             <h4 className="header col s12 grey-text text-lighten-3 light">
               A Cut Above The Rest.
             </h4>
@@ -41,6 +41,9 @@ class Main extends Component {
                     <Map />
                   </div>
                   <div className="col m4 s12 center">
+                  <h5 className="header center black-text text-lighten-3">
+            Charlotte Barber & Beard
+          </h5>
                     
                     <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
                     <p>Phone: (704) 595-7795</p>
@@ -64,13 +67,15 @@ class Main extends Component {
               ) : (
                 <div>
                   <div
-                    className="col sm s12 center"
+                    className="col m6 s12 center"
                     style={{ marginTop: "10px" }}
                   >
                     <Map />
                   </div>
-                  <div className="col m6 s12 center">
-                    
+                  <div className="col m6 s12 center" style={{ marginTop: "20px" }}>
+                  <h5 className="header center black-text text-lighten-3">
+            Charlotte Barber & Beard
+          </h5>
                     <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
                     <p>Phone: (704) 595-7795</p>
                     <p>
@@ -94,7 +99,7 @@ class Main extends Component {
             </div>
           </div>
         </div>
-        <h4 className="header center grey-text text-lighten-3 light special">
+        <h4 className=" index-banner header center grey-text text-lighten-3 light special">
           Specializing In Classic Cuts.
         </h4>
         <Parallax imageSrc={background2} />

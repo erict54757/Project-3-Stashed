@@ -82,9 +82,9 @@ class ManagerPortal extends Component {
       );
     });
     return (
-      <div className="container ">
+      <div className="container white">
         <div
-          className="row z-depth-5 manager"
+          className="row z-depth-5 manager white"
           style={{ marginTop: "25px", marginBottom: "25px" }}
         >
           <ul id="tabs-swipe-demo" className="tabs black white-text managerTabs z-depth-5">
@@ -114,24 +114,25 @@ class ManagerPortal extends Component {
                 className="lighten-4 black-text"
               >
                 {this.state.employees.length ? (
-                  <ul className="collection with-header">
-                    <li className="collection-header blue white-text">
-                      <h5>Employees</h5>
+                  <ul className="collection with-header center">
+                    <li className="collection-header blue white-text center">
+                      <h5 className="center">Employees</h5>
                     </li>
                     {this.state.employees.map(employee => (
                       <li className="collection-item" key={employee.id}>
                         <div
+                        className="left"
                           onClick={() => this.changeEmployee(employee)}
                           href={"/employees/" + employee.id}
                         >
                           {employee.first_name} {employee.last_name}
                           <span
-                            onClick={() => this.deleteEmployee(employee.id)}
+                          
                             className="secondary-content"
-                          >
-                            <i className="material-icons red-text">clear</i>
-                          </span>
-                        </div>
+                          > </span></div>
+                          <button onClick={() => this.deleteEmployee(employee.id)}>  <i className="material-icons red-text right" >clear</i></button>
+                         
+                        
                       </li>
                     ))}
                   </ul>
@@ -146,7 +147,7 @@ class ManagerPortal extends Component {
                 id="employeeInfo"
                 className="lighten-4 black-text"
               >
-                <CardPanel>
+                <CardPanel className="z-depth-2">
                   {this.state.employee ? (
                     <div>
                       <h4>Employee Information</h4>

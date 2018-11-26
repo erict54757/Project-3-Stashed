@@ -13,3 +13,11 @@
 .tabs .indicator {
     background-color: rgb(33, 150, 243)
  }
+ .collection-header, .collection {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+ }
+ .collection-item, .collection{
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
+ }
