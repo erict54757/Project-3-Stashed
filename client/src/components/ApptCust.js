@@ -3,7 +3,7 @@ import { Col, } from "react-materialize";
 import "jquery";
 // import { Link, Route } from "react-router-dom";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import Appointment from "./DumbApptCard"
 
 

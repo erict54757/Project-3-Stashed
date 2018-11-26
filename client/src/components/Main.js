@@ -5,7 +5,6 @@ import background2 from "../Images/background2.jpg";
 import background3 from "../Images/background3.jpg";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
 import Map from "./GoogleMapComponent/Map";
 import NewAppointment from "./newAppointment";
 import CustContact from "./CustContact";
@@ -17,7 +16,7 @@ class Main extends Component {
       <div>
         <div id="index-banner" className="parallax-container">
           <h1 className="header center grey-text text-lighten-3">
-            The HairCuttery
+            Charlotte Barber & Beard
           </h1>
           <div className="row center">
             <h4 className="header col s12 grey-text text-lighten-3 light">
@@ -42,7 +41,7 @@ class Main extends Component {
                     <Map />
                   </div>
                   <div className="col m4 s12 center">
-                    <h4>Charlotte Barber & Beard</h4>
+                    
                     <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
                     <p>Phone: (704) 595-7795</p>
                     <p>
@@ -71,7 +70,7 @@ class Main extends Component {
                     <Map />
                   </div>
                   <div className="col m6 s12 center">
-                    <h4>Charlotte Barber & Beard</h4>
+                    
                     <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
                     <p>Phone: (704) 595-7795</p>
                     <p>

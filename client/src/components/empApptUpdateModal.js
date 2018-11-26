@@ -4,11 +4,13 @@ import { Modal, Button, Input, Icon, Row } from "react-materialize";
 import "jquery";
 import "./empApptUpdateModal.css";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
-import API from "../utils/API";
+
+
+import API from "../utils/API"
+
 class EmpApptUpdateModal extends Component {
   state = {
-    id: this.props.id,
+    id: this.props.custId,
     time: this.props.time,
     firstName: this.props.firstName,
     lastName: this.props.lastName,
@@ -50,18 +52,17 @@ class EmpApptUpdateModal extends Component {
       zip: this.state.zip,
       street: this.state.street
     })
-      .then(res => console.log(res + "updated customer"))
+      .then(res => this.props.getAppointments())
       .catch(err => console.log(err));
 
-    // API.updateAppointment({
-    //   date: this.state.date,
-    //   time: this.state.time,
-    //   CustomerId: this.props.customerId,
-    //   EmployeeId: this.state.employeeId
-    // })
-
-    //   .then(res => console.log(res + "updated appointment"))
-    //   .catch(err => console.log(err));
+    API.updateAppointment(this.props.apptId, {
+      date: this.state.date,
+      time: this.state.time,
+      CustomerId: this.state.id,
+      EmployeeId: this.props.empId
+    })
+      .then(res => this.props.getCustomers())
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -137,27 +138,27 @@ class EmpApptUpdateModal extends Component {
             onChange={this.handleInputChange}
             className="modalDrop"
           >
-            <option value="8AM">8:00AM</option>
+            <option value="8:00AM">8:00AM</option>
 
-            <option value="9AM">9:00AM</option>
+            <option value="9:00AM">9:00AM</option>
 
-            <option value="10AM">10:00AM</option>
+            <option value="10:00AM">10:00AM</option>
 
-            <option value="11AM">11:00AM</option>
+            <option value="11:00AM">11:00AM</option>
 
-            <option value="12PM">12:00PM</option>
+            <option value="12:00PM">12:00PM</option>
 
-            <option value="1PM">1:00PM</option>
+            <option value="1:00PM">1:00PM</option>
 
-            <option value="2PM">2:00PM</option>
+            <option value="2:00PM">2:00PM</option>
 
-            <option value="3PM">3:00PM</option>
+            <option value="3:00PM">3:00PM</option>
 
-            <option value="4PM">4:00PM</option>
+            <option value="4:00PM">4:00PM</option>
 
-            <option value="5PM">5:00PM</option>
+            <option value="5:00PM">5:00PM</option>
 
-            <option value="6PM">6:00PM</option>
+            <option value="6:00PM">6:00PM</option>
           </Input>
 
           <Input
@@ -333,8 +334,8 @@ class EmpApptUpdateModal extends Component {
             s={12}
             label="Telephone"
             name="telephone"
-            placeholder={this.props.telephone}
-            defaultValue={this.state.telephone}
+            placeholder={this.props.phone}
+            defaultValue={this.state.phone}
             onChange={this.handleInputChange}
           >
             <Icon>phone</Icon>

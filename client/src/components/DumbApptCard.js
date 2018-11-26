@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Card, Button, Row, Col } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
-import EmpApptUpdateModal from "./empApptUpdateModal.js";
-// import EmployeeSchedule from "./employeeSchedule"
-import API from "../utils/API";
-import "./DumbApptCard.css";
+
+
+import EmpApptUpdateModal from "./empApptUpdateModal.js"
+import EmployeeSchedule from "./employeeSchedule"
+import API from "../utils/API"
+import "./DumbApptCard.css"
+
 
 class Appointment extends Component {
   componentDidMount() {
@@ -53,7 +55,7 @@ class Appointment extends Component {
                 key={customer.id}
                 firstName={customer.first_name}
                 lastName={customer.last_name}
-                id={customer.id}
+                custId={customer.id}
                 time={this.props.time}
                 date={this.props.date}
                 email={customer.email}
@@ -62,6 +64,10 @@ class Appointment extends Component {
                 state={customer.state}
                 zip={customer.zip}
                 phone={customer.phone}
+                apptId={this.props.id}
+                empId={this.props.EmpId}
+                getAppointments={this.props.getAppointments}
+                getCustomers={this.props.getCustomers}
               />
             ))}
           </Col>
