@@ -15,29 +15,29 @@ import "./DumbApptCard.css"
 // };
 
 class Appointment extends Component {
-  
- 
   render() {
     return (
-
-
       <Card
         className="blue-grey darken-1 cardBody z-depth-5"
         textClassName="white-text"
-
       >
-
-        <h4>{this.props.firstName} {this.props.lastName}</h4>
-        <h5 >At {this.props.time}</h5>
-        <Button style={{ marginBottom: "10px" }} className="red" value={this.props.id}
-          onClick={(e) => this.props.delete(e.target.value)}
-        >X
-         </Button>
+        <h4>
+          {this.props.firstName} {this.props.lastName}
+        </h4>
+        <h5>At {this.props.time}</h5>
+        <Button
+          style={{ marginBottom: "10px" }}
+          className="red"
+          value={this.props.id}
+          onClick={e => this.props.delete(e.target.value)}
+        >
+          X
+        </Button>
         {/* <ApptDeleteBtn
         key={this.props.all.id}
         id={this.props.all.id}
         /> */}
-        < EmpApptUpdateModal
+        <EmpApptUpdateModal
           key={this.props.all.phone}
           firstName={this.props.all.firstName}
           lastName={this.props.all.lastName}
@@ -52,10 +52,7 @@ class Appointment extends Component {
           telephone={this.props.customer.telephone}
         />
       </Card>
-
-
-    )
+    );
   }
-
-};
-export default Appointment
+}
+export default Appointment;

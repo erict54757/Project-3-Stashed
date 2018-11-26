@@ -126,6 +126,7 @@ class EmployeeSchedule extends React.Component {
       [name]: value
     });
   };
+
   deleteAppointment = id => {
     API.deleteAppointment(id)
       .then(API.getAppointments())
