@@ -9,15 +9,24 @@ import "./NewAppointment.css";
 // import { deflateRaw } from "zlib";
 
 class NewAppointment extends Component {
-  state = {
+  initilstate = {
     date: moment().format("DD MMMM, YYYY"),
     time: "",
     employeeId: "",
-    employees: [
-      { id: 1, firstName: "Eric", lastname: "Taft" },
-      { id: 2, firstName: "Nicole", lastname: "Barry" },
-      { id: 3, firstName: "Drew", lastname: "Gallowitch" }
-    ]
+    employees: []
+  };
+
+  state = this.initilstate;
+
+  componentDidMount() {
+    this.loadEmployees();
+  }
+
+  loadEmployees = () => {
+    API.getEmployees()
+      .then(res => this.setState({ employees: res.data }))
+      .then(res => console.log(this.state.employees))
+      .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
@@ -27,7 +36,6 @@ class NewAppointment extends Component {
 
     // Updating the input's state
     this.setState({
-      ...this.state,
       [name]: value
     });
   };
@@ -42,6 +50,7 @@ class NewAppointment extends Component {
       EmployeeId: this.state.employeeId
     })
       .then(res => console.log(res))
+      .then(res => this.setState(this.initilstate))
       .catch(err => console.log(err));
   };
 
@@ -49,9 +58,19 @@ class NewAppointment extends Component {
     return (
       <Modal
         actions={
-          <Button className="btn blue lighten-1 " onClick={this.handleSubmit}>
-            Save Appointment
-          </Button>
+          <div>
+            <Button
+              style={{ marginLeft: "5px" }}
+              className="btn blue lighten-1 "
+              modal="close"
+              onClick={this.handleSubmit}
+            >
+              Save Appointment
+            </Button>
+            <Button className="blue" modal="close" waves="light">
+              Close
+            </Button>
+          </div>
         }
         id=""
         role="dialog"
@@ -84,10 +103,10 @@ class NewAppointment extends Component {
                   name="employeeId"
                   l={6}
                   s={12}
-                  label="Choose An Employee"
+                  label="Choose an Employee"
                   type="select"
                   onChange={this.handleInputChange}
-                  className="modalDrop "
+                  className="modalDrop"
                 >
                   {this.state.employees.map(employee => (
                     <option key={employee.id} value={employee.id}>
@@ -99,6 +118,7 @@ class NewAppointment extends Component {
                 {/* <span><Icon>access_time</Icon></span> */}
                 <Input
                   name="time"
+                  label="Choose a Time"
                   s={12}
                   l={6}
                   type="select"
@@ -126,12 +146,7 @@ class NewAppointment extends Component {
                   <option value="5:00PM">5:00PM</option>
 
                   <option value="6:00PM">6:00PM</option>
-
-
-
-              </Input>  
-
-
+                </Input>
               </Row>
             </form>
           </div>

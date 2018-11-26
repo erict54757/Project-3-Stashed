@@ -13,7 +13,7 @@ class EmpApptUpdateModal extends Component {
     firstName: this.props.firstName,
     lastName: this.props.lastName,
     email: this.props.email,
-    telephone: this.props.telephone,
+    phone: this.props.phone,
     state: this.props.state,
     city: this.props.city,
     zip: this.props.zip,
@@ -29,21 +29,22 @@ class EmpApptUpdateModal extends Component {
 
     // Updating the input's state
     this.setState({
-      ...this.state,
       [name]: value
     });
     console.log(this.state.state);
   };
+
   handleUpdateCustomer = event => {
     event.preventDefault();
+    this.updateCustomer(this.state.id);
+  };
 
-    console.log(this.state);
-
-    API.updateCustomer(this.state.id, {
+  updateCustomer = id => {
+    API.updateCustomer(id, {
       first_name: this.state.firstName,
       last_name: this.state.lastName,
       email: this.state.email,
-      phone: this.state.telephone,
+      phone: this.state.phone,
       state: this.state.state,
       city: this.state.city,
       zip: this.state.zip,
@@ -62,6 +63,7 @@ class EmpApptUpdateModal extends Component {
     //   .then(res => console.log(res + "updated appointment"))
     //   .catch(err => console.log(err));
   };
+
   render() {
     return (
       <Modal
@@ -185,7 +187,6 @@ class EmpApptUpdateModal extends Component {
           >
             <Icon>business</Icon>
           </Input>
-
           <Input
             name="state"
             label="State"
