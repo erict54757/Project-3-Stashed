@@ -9,6 +9,7 @@ router
 // "/api/appointments/:id"
 router
   .route("/:id")
-  .delete(appointmentController.delete);
+  .delete(appointmentController.delete)
+  .put(appointmentController.update);
 
 module.exports = router;
