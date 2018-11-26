@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 
 import NavBar from "../components/NavBar";
 import PortalContainer from "../components/PortalContainer";

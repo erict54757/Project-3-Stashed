@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Card, Button, Row, Col } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
-import EmpApptUpdateModal from "./empApptUpdateModal.js";
-// import EmployeeSchedule from "./employeeSchedule"
-import API from "../utils/API";
-import "./DumbApptCard.css";
+
+
+import EmpApptUpdateModal from "./empApptUpdateModal.js"
+import EmployeeSchedule from "./employeeSchedule"
+import API from "../utils/API"
+import "./DumbApptCard.css"
+
 
 class Appointment extends Component {
   componentDidMount() {

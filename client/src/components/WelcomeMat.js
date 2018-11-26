@@ -1,7 +1,7 @@
 import React from "react";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 
 const WelcomeMat = props=> (
 
