@@ -4,7 +4,7 @@ import API from "../utils/API";
 import "jquery";
 import moment from "moment";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import "./NewAppointment.css";
 // import { deflateRaw } from "zlib";
 

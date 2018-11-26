@@ -6,7 +6,9 @@ import {
   Redirect
 } from "react-router-dom";
 import "./App.css";
+
 import Auth from "./utils/auth";
+
 import Customer from "./pages/Customer";
 import Employee from "./pages/Employee";
 import Admin from "./pages/Admin";

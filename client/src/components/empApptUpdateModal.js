@@ -4,8 +4,10 @@ import { Modal, Button, Input, Icon, Row } from "react-materialize";
 import "jquery";
 import "./empApptUpdateModal.css";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
-import API from "../utils/API";
+
+
+import API from "../utils/API"
+
 class EmpApptUpdateModal extends Component {
   state = {
     id: this.props.id,
@@ -52,33 +54,40 @@ class EmpApptUpdateModal extends Component {
     })
       .then(res => console.log(res + "updated customer"))
       .catch(err => console.log(err));
-  };
 
-  updateAppointment = id => {
-    API.updateAppointment(id, {
-      date: this.state.date,
-      time: this.state.time
-    })
-      .then(res => console.log(res + "updated appointment"))
-      .catch(err => console.log(err));
+    // API.updateAppointment({
+    //   date: this.state.date,
+    //   time: this.state.time,
+    //   CustomerId: this.props.customerId,
+    //   EmployeeId: this.state.employeeId
+    // })
+
+    //   .then(res => console.log(res + "updated appointment"))
+    //   .catch(err => console.log(err));
   };
 
   render() {
     return (
       <Modal
         actions={
-          <Button type="button" className="modal-close btn  blue">
-            Update
-          </Button>
+          <div>
+            <Button
+              style={{ marginLeft: "5px" }}
+              type="button"
+              className="modal-close btn  blue"
+              onClick={this.handleUpdateCustomer}
+            >
+              Update
+            </Button>
+            <Button className="blue" modal="close" waves="light">
+              Close
+            </Button>
+          </div>
         }
         id=""
         role="dialog"
         header="Update Customer Information"
-        trigger={
-          <Button className="blue" onClick={this.handleUpdateCustomer}>
-            Update
-          </Button>
-        }
+        trigger={<Button className="blue">Update</Button>}
       >
         <Row>
           <Input
@@ -95,7 +104,7 @@ class EmpApptUpdateModal extends Component {
           </Input>
 
           <Input
-            l={6}
+            m={6}
             s={12}
             label="Last Name"
             type="text"
@@ -106,12 +115,11 @@ class EmpApptUpdateModal extends Component {
           >
             <Icon>account_circle</Icon>
           </Input>
-        </Row>
-        <Row>
+
           <Input
-            l={6}
+            m={6}
             s={12}
-            label="Current Appointment Date"
+            label="New Appointment Date"
             className="black-text"
             type="date"
             name="date"
@@ -124,8 +132,9 @@ class EmpApptUpdateModal extends Component {
 
           <Input
             name="time"
+            m={6}
             s={12}
-            l={6}
+            label="New Appointment Time"
             type="select"
             onChange={this.handleInputChange}
             className="modalDrop"
@@ -152,37 +161,9 @@ class EmpApptUpdateModal extends Component {
 
             <option value="6PM">6:00PM</option>
           </Input>
-        </Row>
-        <Row>
-          <Input
-            l={6}
-            s={12}
-            label="Email"
-            type="email"
-            className="form-control"
-            name="email"
-            placeholder={this.props.email}
-            defaultValue={this.state.email}
-            onChange={this.handleInputChange}
-          >
-            <Icon>email</Icon>
-          </Input>
 
           <Input
-            l={6}
-            s={12}
-            label="Telephone"
-            name="telephone"
-            placeholder={this.props.phone}
-            defaultValue={this.state.phone}
-            onChange={this.handleInputChange}
-          >
-            <Icon>phone</Icon>
-          </Input>
-        </Row>
-        <Row>
-          <Input
-            l={6}
+            l={12}
             s={12}
             label="Street"
             type="text"
@@ -196,7 +177,7 @@ class EmpApptUpdateModal extends Component {
           </Input>
 
           <Input
-            l={6}
+            m={4}
             s={12}
             label="City"
             type="text"
@@ -208,13 +189,11 @@ class EmpApptUpdateModal extends Component {
           >
             <Icon>business</Icon>
           </Input>
-        </Row>
-        <Row>
           <Input
             name="state"
             label="State"
             s={12}
-            l={6}
+            l={4}
             type="select"
             onChange={this.handleInputChange}
             defaultValue={this.state.state}
@@ -324,7 +303,7 @@ class EmpApptUpdateModal extends Component {
           </Input>
 
           <Input
-            l={6}
+            l={4}
             s={12}
             label="ZipCode"
             type="text"
@@ -336,17 +315,32 @@ class EmpApptUpdateModal extends Component {
           >
             <Icon>location_on</Icon>
           </Input>
-        </Row>
-        <Row>
+
+          <Input
+            m={6}
+            s={12}
+            label="Email"
+            type="email"
+            className="form-control"
+            name="email"
+            placeholder={this.props.email}
+            defaultValue={this.state.email}
+            onChange={this.handleInputChange}
+          >
+            <Icon>email</Icon>
+          </Input>
+
           <Input
             l={6}
             s={12}
-            label="Password"
-            type="text"
-            placeholder={this.props.password}
-            defaultValue={this.state.password}
+            label="Telephone"
+            name="telephone"
+            placeholder={this.props.telephone}
+            defaultValue={this.state.telephone}
             onChange={this.handleInputChange}
-          />
+          >
+            <Icon>phone</Icon>
+          </Input>
         </Row>
       </Modal>
     );

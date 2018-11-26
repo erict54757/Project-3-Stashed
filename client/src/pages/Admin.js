@@ -2,7 +2,8 @@ import React, { Component } from "react";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+import "./Admin.css"
+
 
 import NavBar from "../components/NavBar";
 import ManagerPortal from "../components/managerPortal";
@@ -20,7 +21,7 @@ class Admin extends Component {
   };
   render() {
     return (
-      <div>
+      <div >
         {(this.state.isLoggedIn && this.state.isAdmin) ||
         (this.state.isAdmin && this.state.isLoggedIn) ? (
           [

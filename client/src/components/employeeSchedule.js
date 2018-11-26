@@ -6,10 +6,13 @@ import EmployeeScheduleModal from "./employeeScheduleModal";
 import "jquery";
 import Appointment from "./DumbApptCard";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
-import "./employeeScheduleModal.css";
-import "./employeeSchedule.css";
-import API from "../utils/API";
+
+
+import "./employeeScheduleModal.css"
+import "./employeeSchedule.css"
+import API from "../utils/API"
+
+
 
 class EmployeeSchedule extends React.Component {
   state = {

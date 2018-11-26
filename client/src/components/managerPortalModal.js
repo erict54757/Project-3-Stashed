@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Modal, Button, Input } from "react-materialize";
+import { Row, Modal, Button, Input, Icon } from "react-materialize";
 import API from "../utils/API";
 
 class ManagerPortalModal extends Component {
@@ -56,9 +56,9 @@ class ManagerPortalModal extends Component {
           trigger={
             <Button className="blue" style={{ marginTop: "10px" }}>
               Add Employee
-              {/* <Icon className="blue" left>
+              <Icon className="blue" left>
                 add
-              </Icon> */}
+              </Icon>
             </Button>
           }
           actions={
