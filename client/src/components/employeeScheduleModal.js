@@ -41,10 +41,10 @@ class EmployeeScheduleModal extends Component {
       street: this.state.street,
       time: this.state.time,
       date: this.state.date,
-      password: this.state.password
+      account_key: this.state.password
     })
       .then(res => this.setState({ CustomerId: res.data.id }))
-      .then(() => this.saveAppointment)
+      .then(() => this.saveAppointment())
       .catch(err => console.log(err));
   };
 

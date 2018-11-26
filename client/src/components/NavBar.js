@@ -30,7 +30,7 @@ class NavBar extends Component {
         </NavItem>
 
         <NavItem>
-          <LogoutButton id={this.props.id} />
+          <LogoutButton token={this.props.token} />
         </NavItem>
       </Navbar>
     );
