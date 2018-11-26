@@ -1,3 +1,74 @@
-h4{
-    color:red;
+
+// Colors
+@import "./components/components/color";
+
+// Variables;
+@import "./components/components/variables";
+
+// Reset
+@import "./components/components/normalize";
+
+// components
+@import "./components/components/global";
+@import "./components/components/badges";
+@import "./components/components/icons-material-design";
+@import "./components/components/grid";
+@import "./components/components/navbar";
+@import "./components/components/typography";
+@import "./components/components/transitions";
+@import "./components/components/cards";
+@import "./components/components/toast";
+@import "./components/components/tabs";
+@import "./components/components/tooltip";
+@import "./components/components/buttons";
+@import "./components/components/dropdown";
+@import "./components/components/waves";
+@import "./components/components/modal";
+@import "./components/components/collapsible";
+@import "./components/components/chips";
+@import "./components/components/materialbox";
+@import "./components/components/forms/forms";
+@import "./components/components/table_of_contents";
+@import "./components/components/sideNav";
+@import "./components/components/preloader";
+@import "./components/components/slider";
+@import "./components/components/carousel";
+@import "./components/components/tapTarget";
+@import "./components/components/pulse";
+@import "./components/components/date_picker/default";
+@import "./components/components/date_picker/default.date";
+@import "./components/components/date_picker/default.time";
+
+
+html {
+  position: relative;
+  min-height: 100%;
+  background-color: #f6f8fa;
+  
 }
+
+body {
+  /* Margin bottom by footer height */
+  min-height: 100%;
+  margin-bottom: 40px;
+  
+ 
+
+}
+#root{
+  min-height: 860px;
+}
+.footer{
+  width: 100%;
+  margin-top: 60px;
+  position: absolute;
+  bottom: 0;
+
+}
+
+
+  h4{
+    text-align: center;
+
+  }
+ 

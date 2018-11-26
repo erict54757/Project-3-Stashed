@@ -1,30 +1,28 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import NavBar from "../components/NavBar";
 import NavBarCust from "../components/NavBarCust";
 import Main from "../components/Main";
 import Foot from "../components/Foot";
 
 class Customer extends Component {
-  state = {
-    isLoggedIn: false,
-    user: { id: 1, name: "Eric" }
-  };
   render() {
     return (
       <div>
-        {this.state.isLoggedIn ? (
+        {this.props.token ? (
           <NavBar
-            user={this.state.user}
+            name={this.props.name}
+            id={this.props.id}
             background={"white"}
             textColor={"black-text"}
           />
         ) : (
-          <NavBarCust user={this.state.user} background={"white black-text"} />
+          <NavBarCust background={"white black-text"} />
         )}
-        <Main />
+        <Main token={this.props.token} id={this.props.id} />
         <Foot />
       </div>
     );

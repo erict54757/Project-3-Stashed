@@ -4,7 +4,7 @@ import { Modal, Button, Input, Row } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import "./SignUpModal.css";
 class SignUpModal extends Component {
   initialstate = {
@@ -255,6 +255,7 @@ class SignUpModal extends Component {
               m={6}
               s={12}
               label="Phone"
+              type="text"
               value={this.state.phone}
               onChange={this.handleInputChange}
               className="form-control"
@@ -265,11 +266,12 @@ class SignUpModal extends Component {
               m={12}
               s={12}
               label="Password"
+              type="password"
               value={this.state.password}
               onChange={this.handleInputChange}
               className="form-control"
               name="password"
-              placeholder="password"
+              placeholder="Password"
             />
           </Row>
         </Modal>

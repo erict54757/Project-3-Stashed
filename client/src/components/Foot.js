@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import { Link } from "react-router-dom";
 class Foot extends React.Component {
   render() {
@@ -27,23 +27,34 @@ class Foot extends React.Component {
               <h5 className="black-text center">Connect</h5>
               <div className="center col s12">
                 <div className=" col l4 s4 ">
-                  <a href="https://facebook.com" style={{fontSize: "40px"}} className="fa fa-facebook" ><div></div></a>
+                  <a
+                    href="https://facebook.com"
+                    style={{ fontSize: "40px" }}
+                    className="fa fa-facebook"
+                  >
+                    <div />
+                  </a>
                 </div>
                 <div className=" col l4 s4">
-                  <a href="https://twitter.com" style={{fontSize: "40px"}} className="fa fa-twitter"><div></div></a>
+                  <a
+                    href="https://twitter.com"
+                    style={{ fontSize: "40px" }}
+                    className="fa fa-twitter"
+                  >
+                    <div />
+                  </a>
                 </div>
                 <div className=" col l4 s4">
-                  <a href="https://youtube.com" style={{fontSize: "40px"}} className="fa fa-youtube" ><div></div></a>
+                  <a
+                    href="https://youtube.com"
+                    style={{ fontSize: "40px" }}
+                    className="fa fa-youtube"
+                  >
+                    <div />
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="footer-copyright">
-          <div className="container center">
-            <Link className="black-text text-lighten-3" to="/Employee">
-              Employee
-            </Link>
           </div>
         </div>
       </div>

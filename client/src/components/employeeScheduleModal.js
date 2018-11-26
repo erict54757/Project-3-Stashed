@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Row, Modal, Button, Input, Icon, } from "react-materialize";
-import "./employeeScheduleModal.css"
-import API from "../utils/API"
+import React, { Component } from "react";
+import { Row, Modal, Button, Input, Icon } from "react-materialize";
+import "./employeeScheduleModal.css";
+import API from "../utils/API";
 
 class EmployeeScheduleModal extends Component {
   state = {
-    CustomerId: 2,
-    EmployeeId: 1,
+    CustomerId: "",
+    EmployeeId: this.props.id,
     firstName: "",
     lastName: "",
     street: "",
@@ -15,8 +15,11 @@ class EmployeeScheduleModal extends Component {
     zip: "",
     email: "",
     phone: "",
-    password: "barber18"
+    password: "barber18",
+    time: "",
+    date: ""
   };
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -25,14 +28,13 @@ class EmployeeScheduleModal extends Component {
   };
 
   handleFormSubmit = event => {
-    // event.preventDefault();
+    event.preventDefault();
     console.log(this.state);
     API.saveCustomer({
-      id: this.state.id,
       first_name: this.state.firstName,
       last_name: this.state.lastName,
       email: this.state.email,
-      telephone: this.state.telephone,
+      phone: this.state.phone,
       state: this.state.state,
       city: this.state.city,
       zip: this.state.zip,
@@ -41,71 +43,66 @@ class EmployeeScheduleModal extends Component {
       date: this.state.date,
       password: this.state.password
     })
-    .then(API.saveAppointment({
+      .then(res => this.setState({ CustomerId: res.data.id }))
+      .then(() => this.saveAppointment)
+      .catch(err => console.log(err));
+  };
+
+  saveAppointment = () => {
+    API.saveAppointment({
       EmployeeId: this.state.EmployeeId,
       CustomerId: this.state.CustomerId,
       date: this.state.date,
       time: this.state.time
-     
-    }))
+    })
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
-  // onKeyUp = (target, e) => {
-  //   if (e.keyCode === 13) {
-  //     switch (target) {
-  //       case "firstName":
-  //         this.lastName.focus();
-  //         break
-  //       case "lastName":
-  //         this.firstName.focus();
-  //         break
-  //       default:
-  //         this.firstName.focus();
-
-  //     }
-  //   }
-  // }
 
   render() {
     return (
-     
-        <Modal
-          header="New Appointment Information"
-
-          actions={
-            <div>
-              <Button
-                waves="light"
-                type="button"
-                id="employeeSave"
-                className="modal-close btn  blue"
-                onClick={this.handleFormSubmit}
-              >Create</Button>
-              <Button className="blue " modal="close" waves="light">
-                Close
-              </Button>
-            </div>
-          }
-
-          trigger={
-            <Button className="blue addAppointment">
-              Add Appointment
+      <Modal
+        header="New Appointment Information"
+        actions={
+          <div>
+            <Button
+              waves="light"
+              type="button"
+              id="employeeSave"
+              className="modal-close btn  blue"
+              onClick={this.handleFormSubmit}
+            >
+              Create
             </Button>
-          }
-        >
-       <Row>
-          <Input l={6} s={12} className="black-text" label="First Name" name="firstName" placeholder={this.props.firstName} defaultValue={this.state.firstName}
-            onChange={this.handleInputChange}>
+            <Button className="blue " modal="close" waves="light">
+              Close
+            </Button>
+          </div>
+        }
+        trigger={
+          <Button className="blue addAppointment">Add Appointment</Button>
+        }
+      >
+        <Row>
+          <Input
+            l={6}
+            s={12}
+            className="black-text"
+            label="First Name"
+            name="firstName"
+            defaultValue={this.state.firstName}
+            onChange={this.handleInputChange}
+          >
             <Icon>account_circle</Icon>
           </Input>
 
-          <Input l={6} s={12}
+          <Input
+            l={6}
+            s={12}
             label="Last Name"
             type="text"
             className="form-control"
             name="lastName"
-
             defaultValue={this.state.lastName}
             onChange={this.handleInputChange}
           >
@@ -113,23 +110,28 @@ class EmployeeScheduleModal extends Component {
           </Input>
         </Row>
         <Row>
-          <Input l={6} s={12}
-            label="Current Appointment Date" className="black-text" type='date'
+          <Input
+            l={6}
+            s={12}
+            label="Current Appointment Date"
+            className="black-text"
+            type="date"
             name="date"
-            placeholder={this.state.date}
             defaultValue={this.state.date}
-            onChange={this.handleInputChange} >
-            <Icon>date_range</Icon></Input>
+            onChange={this.handleInputChange}
+          >
+            <Icon>date_range</Icon>
+          </Input>
 
           <Input
             name="time"
-            s={12} l={6}
+            s={12}
+            l={6}
             type="select"
             onChange={this.handleInputChange}
             className="modalDrop"
           >
-
-            <option value="8AM">"8:00AM</option>
+            <option value="8AM">8:00AM</option>
 
             <option value="9AM">9:00AM</option>
 
@@ -150,70 +152,72 @@ class EmployeeScheduleModal extends Component {
             <option value="5PM">5:00PM</option>
 
             <option value="6PM">6:00PM</option>
-
-
-
           </Input>
         </Row>
         <Row>
-          <Input l={6} s={12}
+          <Input
+            l={6}
+            s={12}
             label="Email"
             type="email"
             className="form-control"
             name="email"
-            placeholder={this.props.email}
             defaultValue={this.state.email}
             onChange={this.handleInputChange}
-          ><Icon>email</Icon>
+          >
+            <Icon>email</Icon>
           </Input>
 
-          <Input l={6} s={12}
-            label="Telephone"
-            name="telephone"
-            placeholder={this.props.telephone}
-            defaultValue={this.state.telephone}
+          <Input
+            l={6}
+            s={12}
+            label="Phone"
+            name="phone"
+            defaultValue={this.state.phone}
             onChange={this.handleInputChange}
-          ><Icon>phone</Icon>
+          >
+            <Icon>phone</Icon>
           </Input>
         </Row>
         <Row>
-
-          <Input l={6} s={12}
+          <Input
+            l={6}
+            s={12}
             label="Street"
             type="text"
             className="form-control"
             name="street"
-            placeholder={this.props.street}
             defaultValue={this.state.street}
             onChange={this.handleInputChange}
-          ><Icon>location_on</Icon>
+          >
+            <Icon>location_on</Icon>
           </Input>
 
-          <Input l={6} s={12}
+          <Input
+            l={6}
+            s={12}
             label="City"
             type="text"
             className="form-control"
             name="city"
-            placeholder={this.props.city}
             defaultValue={this.state.city}
             onChange={this.handleInputChange}
-          ><Icon>business</Icon>
+          >
+            <Icon>business</Icon>
           </Input>
         </Row>
         <Row>
-
           <Input
             name="state"
             label="State"
-            s={12} l={6}
+            s={12}
+            l={6}
             type="select"
             onChange={this.handleInputChange}
             defaultValue={this.state.state}
             className="modalDrop"
           >
-
-            <option
-              value="AL">Alabama</option>
+            <option value="AL">Alabama</option>
 
             <option value="AK">Alaska</option>
 
@@ -314,24 +318,25 @@ class EmployeeScheduleModal extends Component {
             <option value="WI">Wisconsin</option>
 
             <option value="WY">Wyoming</option>
-
           </Input>
 
-
-          <Input l={6} s={12}
+          <Input
+            l={6}
+            s={12}
             label="ZipCode"
             type="text"
             className="form-control"
             name="zip"
-            placeholder="12567"
             defaultValue={this.state.zip}
             onChange={this.handleInputChange}
-          ><Icon>location_on</Icon>
+          >
+            <Icon>location_on</Icon>
           </Input>
         </Row>
         <Row>
-
-          <Input l={6} s={12}
+          <Input
+            l={6}
+            s={12}
             label="Password"
             type="text"
             placeholder="Barber18"
@@ -339,9 +344,6 @@ class EmployeeScheduleModal extends Component {
             onChange={this.handleInputChange}
           />
         </Row>
-
-
-
       </Modal>
     );
   }

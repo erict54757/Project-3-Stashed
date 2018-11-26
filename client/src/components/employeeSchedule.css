@@ -29,9 +29,24 @@
         
         position: relative;
         top: 0px;
-        left: 5%;
-       
+        left: 0;
+         width:100%;
+        
        
     }
+    .input-field{
+        width:100%;
+    }
+    .addAppointment{
+        position: relative;
+        top: 0px;
+        left: 0px;
+        margin-bottom: 10px;
+        width:100%;
+       
+      }
+      .addCol{
+          width: 100%;
+      }
 
   }

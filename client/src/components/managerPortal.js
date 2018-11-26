@@ -4,7 +4,7 @@ import ManagerPortalModal from "./managerPortalModal";
 // import { Link } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import moment from "moment";
 import API from "../utils/API";
 import "./managerPortal.css"
@@ -178,14 +178,17 @@ class ManagerPortal extends Component {
                 className="lighten-4 black-text"
               >
                 <CardPanel>
-                  <Row>
+                  <Row className="center">
                     
                       <h4>Employee Schedule</h4>
-                    
+                   
 
-                    <Col className="date">
-                      {" "}
+                    <Col className="date center"
+                        s={12} 
+                    > <Col s={1} m={2} l={2}></Col>
+                    
                       <Input
+                      s={12} l={8}
                         className="center "
                         name="date"
                         type="date"
@@ -194,8 +197,9 @@ class ManagerPortal extends Component {
                         onChange={this.handleInputChange}
                       >
                         <Icon>date_range</Icon>
-                      </Input>
+                      </Input> <Col s={1} m={2} l={2}></Col>
                     </Col>
+                   
                   </Row>
 
                   <Row className="center">
