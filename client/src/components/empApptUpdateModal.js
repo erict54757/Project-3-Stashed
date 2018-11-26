@@ -4,9 +4,7 @@ import { Modal, Button, Input, Icon, Row } from "react-materialize";
 import "jquery";
 import "./empApptUpdateModal.css";
 import "materialize-css/dist/js/materialize.js";
-
-
-import API from "../utils/API"
+import API from "../utils/API";
 
 class EmpApptUpdateModal extends Component {
   state = {
