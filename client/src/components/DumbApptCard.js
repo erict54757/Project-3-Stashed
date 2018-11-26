@@ -55,7 +55,7 @@ class Appointment extends Component {
                 key={customer.id}
                 firstName={customer.first_name}
                 lastName={customer.last_name}
-                id={customer.id}
+                custId={customer.id}
                 time={this.props.time}
                 date={this.props.date}
                 email={customer.email}
@@ -64,6 +64,10 @@ class Appointment extends Component {
                 state={customer.state}
                 zip={customer.zip}
                 phone={customer.phone}
+                apptId={this.props.id}
+                empId={this.props.EmpId}
+                getAppointments={this.props.getAppointments}
+                getCustomers={this.props.getCustomers}
               />
             ))}
           </Col>
