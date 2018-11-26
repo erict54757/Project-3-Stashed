@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
+import "./Admin.css"
 
 
 import NavBar from "../components/NavBar";
@@ -20,7 +21,7 @@ class Admin extends Component {
   };
   render() {
     return (
-      <div>
+      <div >
         {(this.state.isLoggedIn && this.state.isAdmin) ||
         (this.state.isAdmin && this.state.isLoggedIn) ? (
           [
