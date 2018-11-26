@@ -1,33 +1,40 @@
 import React, { Component } from "react";
-import { Navbar, NavItem } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
+<<<<<<< HEAD
 import "materialize-css/dist/css/materialize.css";
+=======
+>>>>>>> e10a4ab974c4aca1db5b406cd57543f4d69ef7b9
 
 import NavBar from "../components/NavBar";
 import PortalContainer from "../components/PortalContainer";
 import PortalFooter from "../components/PortalFooter";
-import Customer from "../pages/Customer"
-
-
+import Customer from "../pages/Customer";
 
 class Employee extends Component {
-  state = {
-    isEmployee: true,
-    isLoggedIn: true,
-    user: {
-      id: 1,
-      name: "Eric"
-    }
-  };
   render() {
     return (
       <div>
-        {this.state.isLoggedIn && this.state.isEmployee || this.state.isAdmin && this.state.isLoggedIn ? [<NavBar user={this.state.user} background={"black"} />, <PortalContainer user={this.state.user} />,
-        <PortalFooter user={this.state.user} />] : <Customer background={"white"} />}
+        <NavBar
+          key={"1"}
+          token={this.props.token}
+          name={this.props.name}
+          id={this.props.id}
+          background={"black"}
+          textColor={"white-text"}
+        />
+
+        <PortalContainer
+          token={this.props.token}
+          name={this.props.name}
+          id={this.props.id}
+          key={"2"}
+        />
+
+        <PortalFooter />
       </div>
     );
   }
 }
-export default Employee
+export default Employee;

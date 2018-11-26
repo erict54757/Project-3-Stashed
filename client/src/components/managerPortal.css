@@ -1,0 +1,15 @@
+.manager{
+    min-height: 500px;
+    border-radius: 5px; 
+}
+.managerTabs{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-bottom: 1%
+}
+.card-panel{
+    border-radius: 5px; 
+}
+.tabs .indicator {
+    background-color: rgb(33, 150, 243)
+ }

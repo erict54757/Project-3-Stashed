@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import { Modal, Button, NavItem, Dropdown, Input, Icon, Row, } from "react-materialize";
+import { Modal, Button, Input, Icon, Row } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
+import "./empApptUpdateModal.css";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
-import "./empApptUpdateModal.css"
-import API from "../utils/API"
-class EmpApptUpdateModal extends Component {
+import API from "../utils/API";
 
+class EmpApptUpdateModal extends Component {
   state = {
-    id: this.props.id,
+    id: this.props.custId,
     time: this.props.time,
     firstName: this.props.firstName,
     lastName: this.props.lastName,
     email: this.props.email,
-    telephone: this.props.telephone,
+    phone: this.props.phone,
     state: this.props.state,
     city: this.props.city,
     zip: this.props.zip,
@@ -22,377 +21,324 @@ class EmpApptUpdateModal extends Component {
     date: this.props.date
   };
 
-  handleDrop = event => {
-    event.preventDefault()
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-
-
-    // Updating the input's state
-    this.setState({
-      ...this.state,
-      [name]: value
-    });
-    console.log(this.state.state)
-
-  };
   handleInputChange = event => {
-    event.preventDefault()
+    event.preventDefault();
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
 
-
     // Updating the input's state
     this.setState({
-      ...this.state,
       [name]: value
     });
-    console.log(this.state.state)
-
+    console.log(this.state.state);
   };
+
   handleUpdateCustomer = event => {
     event.preventDefault();
+    this.updateCustomer(this.state.id);
+  };
 
-    API.updateCustomer({
-      id: this.state.id,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
+  updateCustomer = id => {
+    API.updateCustomer(id, {
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
       email: this.state.email,
-      telephone: this.state.telephone,
+      phone: this.state.phone,
       state: this.state.state,
       city: this.state.city,
       zip: this.state.zip,
-      street: this.state.street,
-      time: this.state.time,
-      date: this.state.date
-
+      street: this.state.street
     })
-      .then(res => console.log("updated"))
+      .then(res => this.props.getAppointments())
       .catch(err => console.log(err));
 
+    API.updateAppointment(this.props.apptId, {
+      date: this.state.date,
+      time: this.state.time,
+      CustomerId: this.state.id,
+      EmployeeId: this.props.empId
+    })
+      .then(res => this.props.getCustomers())
+      .catch(err => console.log(err));
   };
-
-
 
   render() {
     return (
       <Modal
-        actions={<div><Button
-          type="button"
-          className="modal-close btn  blue"
-        >
-          Update
-    </Button>
-        </div>}
+        actions={
+          <div>
+            <Button
+              style={{ marginLeft: "5px" }}
+              type="button"
+              className="modal-close btn  blue"
+              onClick={this.handleUpdateCustomer}
+            >
+              Update
+            </Button>
+            <Button className="blue" modal="close" waves="light">
+              Close
+            </Button>
+          </div>
+        }
         id=""
         role="dialog"
         header="Update Customer Information"
-        trigger={<Button className="blue"
-          onClick={this.handleUpdateCustomer}
-        >Update</Button>}
+        trigger={<Button className="blue">Update</Button>}
       >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-body">
-              <form id="create-form">
-<Row>
-                
-                    <Input
-                    l={6} s={12}
-                      label="First Name"
-                      type="text"
-                      className="form-control"
-                      name="firstName"
-                      value={this.state.firstName}
-                      onChange={this.handleInputChange}
-                    />
-               
-                 
+        <Row>
+          <Input
+            l={6}
+            s={12}
+            className="black-text"
+            label="First Name"
+            name="firstName"
+            placeholder={this.props.firstName}
+            defaultValue={this.state.firstName}
+            onChange={this.handleInputChange}
+          >
+            <Icon>account_circle</Icon>
+          </Input>
 
-                    <Input   s={12} l={6}
-                      label="Last Name"
-                      type="text"
-                      className="form-control"
-                      name="lastName"
-                      placeholder={this.props.lastName}
-                      value={this.state.lastName}
-                      onChange={this.handleInputChange}
-                    /></Row>
-               
+          <Input
+            m={6}
+            s={12}
+            label="Last Name"
+            type="text"
+            className="form-control"
+            name="lastName"
+            defaultValue={this.state.lastName}
+            onChange={this.handleInputChange}
+          >
+            <Icon>account_circle</Icon>
+          </Input>
 
-                <Input
-                  label="Current Appointment Date" s={6} className="black-text" type='date'
-                  name="date"
-                  placeholder={this.state.date}
-                  value={this.state.date}
-                  onChange={this.handleInputChange} ><Icon>date_range</Icon></Input>
+          <Input
+            m={6}
+            s={12}
+            label="New Appointment Date"
+            className="black-text"
+            type="date"
+            name="date"
+            placeholder={this.state.date}
+            defaultValue={this.state.date}
+            onChange={this.handleInputChange}
+          >
+            <Icon>date_range</Icon>
+          </Input>
 
-                <div className="form-row">
-                  <div className="form-group col-md-6">
+          <Input
+            name="time"
+            m={6}
+            s={12}
+            label="New Appointment Time"
+            type="select"
+            onChange={this.handleInputChange}
+            className="modalDrop"
+          >
+            <option value="8:00AM">8:00AM</option>
 
-                    <Input
-                      label="Email"
-                      type="email"
-                      className="form-control"
-                      name="email"
-                      placeholder={this.props.email}
-                      value={this.state.email}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <div className="form-group col-md-6">
+            <option value="9:00AM">9:00AM</option>
 
+            <option value="10:00AM">10:00AM</option>
 
-                    <Input
-                      label="Telephone"
-                      type="text"
-                      className="form-control"
-                      name="telephone"
-                      placeholder={this.props.telephone}
-                      value={this.state.telephone}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                </div>
+            <option value="11:00AM">11:00AM</option>
 
-                <div className="form-group">
+            <option value="12:00PM">12:00PM</option>
 
-                  <Input
-                    label="Street"
-                    type="text"
-                    className="form-control"
-                    name="street"
-                    placeholder={this.props.street}
-                    value={this.state.street}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
+            <option value="1:00PM">1:00PM</option>
 
-                <div className="form-row">
-                  <div className="form-group col-md-6">
+            <option value="2:00PM">2:00PM</option>
 
-                    <Input
-                      label="City"
-                      type="text"
-                      className="form-control"
-                      name="city"
-                      placeholder={this.props.city}
-                      value={this.state.city}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <div className="form-group col-md-4">
+            <option value="3:00PM">3:00PM</option>
 
+            <option value="4:00PM">4:00PM</option>
 
-                    <Dropdown
-                      trigger={<Button
-                        id="inputState"
-                        label="State"
-                        type="text"
-                        className="form-control"
-                        name="state"
-                        placeholder={this.state.state}
+            <option value="5:00PM">5:00PM</option>
 
-                      />}
-                      data-target={NavItem}
-                      onClick={this.handleDrop}
-                    >
-                      <NavItem onClick={this.handleInputChange}
-                        value={"dfajkljkfsda"}>Alabama</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="AK">Alaska</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="AZ">Arizona</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="AR">Arkansas</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="CA">California</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="CO">Colorado</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="CT"> Connecticut </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="DE"> Delaware </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="DC"> District Of Columbia </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="FL"> Florida </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="GA"> Georgia </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="HI"> Hawaii </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="ID"> Idaho </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="IL"> Illinois </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="IN"> Indiana </NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="IA"> Iowa</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="KS">Kansas</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="KY">Kentucky</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="LA">Louisiana</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="ME">Maine</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="MD">Maryland</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="MA">Massachusetts</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="MI">Michigan</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="MN">Minnesota</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="MS">Mississippi</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="MO">Missouri</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="MT">Montana</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="NE">Nebraska</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="NV">Nevada</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="NH">New Hampshire</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="NJ">New Jersey</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="NM">New Mexico</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="NY">New York</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="NC">North Carolina</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="ND">North Dakota</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="OH">Ohio</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="OK">Oklahoma</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="OR">Oregon</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="PA">Pennsylvania</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="RI">Rhode Island</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="SC">South Carolina</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="SD">South Dakata</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="TN">Tennessee</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="TX">Texas</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="UT">Utah</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="VT">Vermont</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="VA">Virginia</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="WA">Washington</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="WV">West Virginia</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="WI">Wisconsin</NavItem>
-                      <NavItem
-                        divider />
-                      <NavItem value="WY">Wyoming</NavItem>
-                    </Dropdown>
+            <option value="6:00PM">6:00PM</option>
+          </Input>
 
-                    <div className="form-group col-md-2">
+          <Input
+            l={12}
+            s={12}
+            label="Street"
+            type="text"
+            className="form-control"
+            name="street"
+            placeholder={this.props.street}
+            defaultValue={this.state.street}
+            onChange={this.handleInputChange}
+          >
+            <Icon>location_on</Icon>
+          </Input>
 
-                      <Input
-                        label="ZipCode"
-                        type="text"
-                        className="form-control"
-                        name="zip"
-                        placeholder="12567"
-                        value={this.state.zip}
-                        onChange={this.handleInputChange}
-                      />
-                    </div>
-                  </div>
+          <Input
+            m={4}
+            s={12}
+            label="City"
+            type="text"
+            className="form-control"
+            name="city"
+            placeholder={this.props.city}
+            defaultValue={this.state.city}
+            onChange={this.handleInputChange}
+          >
+            <Icon>business</Icon>
+          </Input>
+          <Input
+            name="state"
+            label="State"
+            s={12}
+            l={4}
+            type="select"
+            onChange={this.handleInputChange}
+            defaultValue={this.state.state}
+            className="modalDrop"
+          >
+            <option value="AL">Alabama</option>
 
-                  {/* <div className="form-row">
-                    <div className="form-group col-md-6">
+            <option value="AK">Alaska</option>
 
-                      <Input
-                        label=""
-                        type="password"
-                        className="form-control"
-                        id="inputPassword"
-                        placeholder={this.props.password}
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                      />
-                    </div>
-                  </div> */}
+            <option value="AZ">Arizona</option>
 
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
+            <option value="AR">Arkansas</option>
 
-                    </div>
-                  </div>
+            <option value="CA">California</option>
 
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+            <option value="CO">Colorado</option>
+
+            <option value="CT"> Connecticut </option>
+
+            <option value="DE"> Delaware </option>
+
+            <option value="DC"> District Of Columbia </option>
+
+            <option value="FL"> Florida </option>
+
+            <option value="GA"> Georgia </option>
+
+            <option value="HI"> Hawaii </option>
+
+            <option value="ID"> Idaho </option>
+
+            <option value="IL"> Illinois </option>
+
+            <option value="IN"> Indiana </option>
+
+            <option value="IA"> Iowa</option>
+
+            <option value="KS">Kansas</option>
+
+            <option value="KY">Kentucky</option>
+
+            <option value="LA">Louisiana</option>
+
+            <option value="ME">Maine</option>
+
+            <option value="MD">Maryland</option>
+
+            <option value="MA">Massachusetts</option>
+
+            <option value="MI">Michigan</option>
+
+            <option value="MN">Minnesota</option>
+
+            <option value="MS">Mississippi</option>
+
+            <option value="MO">Missouri</option>
+
+            <option value="MT">Montana</option>
+
+            <option value="NE">Nebraska</option>
+
+            <option value="NV">Nevada</option>
+
+            <option value="NH">New Hampshire</option>
+
+            <option value="NJ">New Jersey</option>
+
+            <option value="NM">New Mexico</option>
+
+            <option value="NY">New York</option>
+
+            <option value="NC">North Carolina</option>
+
+            <option value="ND">North Dakota</option>
+
+            <option value="OH">Ohio</option>
+
+            <option value="OK">Oklahoma</option>
+
+            <option value="OR">Oregon</option>
+
+            <option value="PA">Pennsylvania</option>
+
+            <option value="RI">Rhode Island</option>
+
+            <option value="SC">South Carolina</option>
+
+            <option value="SD">South Dakata</option>
+
+            <option value="TN">Tennessee</option>
+
+            <option value="TX">Texas</option>
+
+            <option value="UT">Utah</option>
+
+            <option value="VT">Vermont</option>
+
+            <option value="VA">Virginia</option>
+
+            <option value="WA">Washington</option>
+
+            <option value="WV">West Virginia</option>
+
+            <option value="WI">Wisconsin</option>
+
+            <option value="WY">Wyoming</option>
+          </Input>
+
+          <Input
+            l={4}
+            s={12}
+            label="ZipCode"
+            type="text"
+            className="form-control"
+            name="zip"
+            placeholder="12567"
+            defaultValue={this.state.zip}
+            onChange={this.handleInputChange}
+          >
+            <Icon>location_on</Icon>
+          </Input>
+
+          <Input
+            m={6}
+            s={12}
+            label="Email"
+            type="email"
+            className="form-control"
+            name="email"
+            placeholder={this.props.email}
+            defaultValue={this.state.email}
+            onChange={this.handleInputChange}
+          >
+            <Icon>email</Icon>
+          </Input>
+
+          <Input
+            l={6}
+            s={12}
+            label="Telephone"
+            name="telephone"
+            placeholder={this.props.phone}
+            defaultValue={this.state.phone}
+            onChange={this.handleInputChange}
+          >
+            <Icon>phone</Icon>
+          </Input>
+        </Row>
       </Modal>
     );
   }

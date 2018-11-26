@@ -7,15 +7,10 @@ module.exports = {
       .catch(err => res.json(err));
   },
   findAll: function(req, res) {
-    db.Employee.findAll()
+    db.Employee.findAll({ where: { isAdmin: false } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err));
   },
-  // findOne: function(req, res) {
-  //   db.Employee.findOne({ where: { id: req.params.id } })
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.json(err));
-  // },
   delete: function(req, res) {
     db.Employee.destroy({ where: { id: req.params.id } })
       .then(dbModel => res.json(dbModel))

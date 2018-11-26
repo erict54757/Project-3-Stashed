@@ -1,114 +1,113 @@
-import React, { Component } from 'react';
-import { Row,  Col,  Icon, Input,  } from "react-materialize";
-import Moment from 'react-moment';
-import moment from "moment"
+import React from "react";
+import { Row, Col, Icon, Input } from "react-materialize";
+import moment from "moment";
 import EmployeeScheduleModal from "./employeeScheduleModal";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import Appointment from "./DumbApptCard";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
-import "./employeeScheduleModal.css"
-import "./employeeSchedule.css"
-import API from "../utils/API"
-
-
+import "./employeeScheduleModal.css";
+import "./employeeSchedule.css";
+import API from "../utils/API";
 
 class EmployeeSchedule extends React.Component {
   state = {
     date: moment().format("DD MMMM, YYYY"),
-    Appointments: [{ id: 1, time: "8:30", firstName: "eric", lastName: "taft", email: "erict54757@gmail.com", telephone: 7153799917, date: "20 November, 2018" },
-    { id: 2, time: "9:30", firstName: "Lisa", lastName: "something", telephone: 7154449917, date: "19 November, 2018" },
-    { id: 3, time: "10:30", firstName: "Gerry", lastName: "harding", telephone: 7153799934, date: "19 November, 2018" },
-    { id: 4, time: "11:30", firstName: "Harry", lastName: "french", telephone: 5555559917, date: "19 November, 2018" }],
-    Customers: [{ id: 1, time: "8:30", firstName: "eric", lastName: "taft", email: "erict54757@gmail.com", telephone: 7153799917, street: "9518 grove hill dr", city: "charlotte", state: "nc", zip: 28262, password: "password", date: "01/01/2019" },
-    { id: 3, time: "10:30", firstName: "Gerry", lastName: "something else", email: "Gerry@gmail.com", telephone: 7153799934, street: "9544 grove hill dr", city: "charlottesville", state: "va", zip: 28262, password: "password", date: "01/03/2019" },
-    { id: 2, time: "9:30", firstName: "Lisa", lastName: "something", email: "lisa@gmail.com", telephone: 7154449917, street: "9500 grove hill dr", city: "chetek", state: "wi", zip: 54757, password: "password", date: "01/02/2019" },
-    { id: 4, time: "11:30", firstName: "Harry", lastName: "something more", email: "harry54757@gmail.com", telephone: 5555559917, street: "9533 grove hill dr", city: "Eau claire", state: "wi", zip: 54705, password: "password", date: "01/04/2019" }],
-    filtered: []
-
+    appointments: [],
+    customers: []
   };
+
+  getAppointments = () => {
+    API.getAppointments()
+      .then(res => this.setState({ appointments: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  getCustomers = () => {
+    API.getCustomers()
+      .then(res => this.setState({ customers: res.data }))
+      .catch(err => console.log(err));
+  };
+
   handleInputChange = event => {
-    event.preventDefault()
+    event.preventDefault();
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
-    console.log(this.state.filtered)
     // Updating the input's state
     this.setState({
-      ...this.state,
       [name]: value
     });
-
-
   };
 
-
+  deleteAppointment = id => {
+    API.deleteAppointment(id)
+      .then(res => this.getAppointments())
+      .catch(err => console.log(err));
+  };
 
   componentDidMount() {
-
-    // API.getCustomers()
-    //   .then(res =>
-    //     this.setState({ Customers: res.data })
-    //   )
-    //   .then(
-    //     API.getAppointments()
-    //       .then(res =>
-    //         this.setState({ Appointments: res.data })
-    //       )
-    //   )
-    //   .catch(err => console.log(err));
-   
-    
-
-  };
+    this.getAppointments();
+    this.getCustomers();
+  }
 
   render() {
-    const filteredAppointments = this.state.Appointments.filter(appointment => {
-      return appointment.date === this.state.date
-    })
+    const filteredAppointments = this.state.appointments.filter(appointment => {
+      return appointment.date === this.state.date;
+    });
+
+    console.log(this.state);
 
     return (
-
-      <div>
-
-        <Row >
-          <Row >
-            <Col>
-              <EmployeeScheduleModal />
-
-            </Col>
-          </Row>
-          <Col className="inputDate "> <Input
-            className="center "
-            name="date" type='date' placeholder={this.state.date}
-            value={this.state.date}
-            onChange={this.handleInputChange} >
-            <Icon>date_range</Icon></Input>
+      <div className="container">
+        <Row>
+          <Col className="addCol">
+            <EmployeeScheduleModal
+              id={this.props.id}
+              getAppointments={this.getAppointments}
+              getCustomers={this.getCustomers}
+            />
           </Col>
-
+        </Row>
+        <Row>
+          <Col className="inputDate ">
+            <Input
+              className="center "
+              name="date"
+              type="date"
+              placeholder={this.state.date}
+              value={this.state.date}
+              onChange={this.handleInputChange}
+            >
+              <Icon>date_range</Icon>
+            </Input>
+          </Col>
         </Row>
 
-
-        <Row className="center"
-          style={{ paddingLeft: "3%", paddingRight: "3%" }}>
+        <Row
+          className="center"
+          style={{ paddingLeft: "3%", paddingRight: "3%" }}
+        >
           {filteredAppointments.length ? (
             filteredAppointments.map(appointment => (
-              <div className="col s12 m6 l4" >
+              <div className="col s12 m6 l4" key={appointment.id}>
                 <Appointment
-                  customer={this.state.Customers.find(Customer => Customer.id === appointment.id)}
-                  key={appointment.id}
-                  all={appointment}
+                  customers={this.state.customers}
                   id={appointment.id}
+                  CustId={appointment.CustomerId}
+                  EmpId={appointment.EmployeeId}
                   time={appointment.time}
-                  firstName={appointment.firstName}
-                  lastName={appointment.lastName}
+                  date={appointment.date}
+                  getAppointments={this.getAppointments}
+                  getCustomers={this.getCustomers}
                 />
               </div>
             ))
-          ) : (<h3>No Scheduled Appointments For This Day</h3>)
-          }
-
+          ) : (
+            <div className="container">
+              <h3>No Scheduled Appointments For This Day</h3>
+            </div>
+          )}
         </Row>
       </div>
     );

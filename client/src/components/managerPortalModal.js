@@ -3,7 +3,7 @@ import { Row, Modal, Button, Input, Icon } from "react-materialize";
 import API from "../utils/API";
 
 class ManagerPortalModal extends Component {
-  state = {
+  initialState = {
     firstName: "",
     lastName: "",
     street: "",
@@ -15,6 +15,8 @@ class ManagerPortalModal extends Component {
     password: "barber18",
     isAdmin: false
   };
+
+  state = this.initialState;
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -39,6 +41,7 @@ class ManagerPortalModal extends Component {
       isAdmin: this.state.isAdmin
     })
       .then(res => this.props.loadEmployees())
+      .then(res => this.setState(this.initialState))
       .catch(err => console.log(err));
   };
 
@@ -51,7 +54,7 @@ class ManagerPortalModal extends Component {
           header="New Employee Information"
           fixedFooter
           trigger={
-            <Button className="blue">
+            <Button className="blue" style={{ marginTop: "10px" }}>
               Add Employee
               <Icon className="blue" left>
                 add
@@ -69,7 +72,7 @@ class ManagerPortalModal extends Component {
               >
                 Save
               </Button>
-              <Button className="blue" flat modal="close" waves="light">
+              <Button className="blue" modal="close" waves="light">
                 Close
               </Button>
             </div>
@@ -77,14 +80,16 @@ class ManagerPortalModal extends Component {
         >
           <Row>
             <Input
-              s={6}
+              m={6}
+              s={12}
               label="First Name"
               value={this.state.firstName}
               onChange={this.handleInputChange}
               name="firstName"
             />
             <Input
-              s={6}
+              m={6}
+              s={12}
               label="Last Name"
               value={this.state.lastName}
               onChange={this.handleInputChange}
@@ -92,6 +97,7 @@ class ManagerPortalModal extends Component {
             />
             <Input
               label="Address"
+              m={12}
               s={12}
               value={this.state.street}
               onChange={this.handleInputChange}
@@ -99,36 +105,96 @@ class ManagerPortalModal extends Component {
             />
             <Input
               label="City"
-              s={4}
+              m={4}
+              s={12}
               value={this.state.city}
               onChange={this.handleInputChange}
               name="city"
             />
+
             <Input
               label="State"
-              s={4}
-              value={this.state.state}
-              onChange={this.handleInputChange}
               name="state"
-            />
+              s={12}
+              m={4}
+              type="select"
+              onChange={this.handleInputChange}
+              className="modalDrop"
+            >
+              <option value="Al">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT"> Connecticut </option>
+              <option value="DE"> Delaware </option>
+              <option value="DC"> District Of Columbia </option>
+              <option value="FL"> Florida </option>
+              <option value="GA"> Georgia </option>
+              <option value="HI"> Hawaii </option>
+              <option value="ID"> Idaho </option>
+              <option value="IL"> Illinois </option>
+              <option value="IN"> Indiana </option>
+              <option value="IA"> Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakata</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </Input>
+
             <Input
+              m={4}
+              s={12}
               label="Zip Code"
-              s={4}
               value={this.state.zip}
               onChange={this.handleInputChange}
               name="zip"
             />
             <Input
+              m={6}
+              s={12}
               type="email"
               label="Email"
-              s={6}
               value={this.state.email}
               onChange={this.handleInputChange}
               name="email"
             />
             <Input
+              m={6}
+              s={12}
               label="Phone"
-              s={6}
               value={this.state.phone}
               onChange={this.handleInputChange}
               name="phone"
