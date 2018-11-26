@@ -26,7 +26,10 @@ class Admin extends Component {
         (this.state.isAdmin && this.state.isLoggedIn) ? (
           [
             <NavBar user={this.state.user} background={"black"} />,
-            <ManagerPortal user={this.state.user} />,
+            <ManagerPortal
+              user={this.state.user}
+              isLoggedIn={this.state.isLoggedIn}
+            />,
             <PortalFooter user={this.state.user} />
           ]
         ) : (

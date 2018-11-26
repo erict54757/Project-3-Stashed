@@ -11,10 +11,6 @@ import CustContact from "./CustContact";
 import "./Main.css";
 
 class Main extends Component {
-  state = {
-    isLoggedIn: true
-  };
-
   render() {
     return (
       <div>
@@ -33,10 +29,13 @@ class Main extends Component {
         <div className="parallax-container valign-wrapper appoint">
           <div className="container fluid">
             <div className="row fluid">
-              {this.state.isLoggedIn ? (
+              {this.props.token ? (
                 <div>
-                  <div className="col m4 s12 center" style={{ height: "200px" }}>
-                    <NewAppointment customerId="1" />
+                  <div
+                    className="col m4 s12 center"
+                    style={{ height: "200px" }}
+                  >
+                    <NewAppointment customerId={this.props.id} />
                   </div>
                   <div className="col m4 s12 center">
                     <Map />

@@ -10,27 +10,25 @@ import PortalFooter from "../components/PortalFooter";
 import Customer from "../pages/Customer";
 
 class Employee extends Component {
-  state = {
-    isEmployee: true,
-    isLoggedIn: true,
-    user: {
-      id: 1,
-      name: "Eric"
-    }
-  };
   render() {
     return (
       <div>
-        {(this.state.isLoggedIn && this.state.isEmployee) ||
-        (this.state.isAdmin && this.state.isLoggedIn) ? (
-          [
-            <NavBar key={"1"} user={this.state.user} background={"black"} textColor={"white-text"} />,
-            <PortalContainer user={this.state.user} key={"2"} />,
-            <PortalFooter user={this.state.user} key={"3"} />
-          ]
-        ) : (
-          <Customer background={"white"} textColor={"black-text"} />
-        )}
+        <NavBar
+          key={"1"}
+          name={this.props.name}
+          id={this.props.id}
+          background={"black"}
+          textColor={"white-text"}
+        />
+
+        <PortalContainer
+          token={this.props.token}
+          name={this.props.name}
+          id={this.props.id}
+          key={"2"}
+        />
+
+        <PortalFooter />
       </div>
     );
   }
