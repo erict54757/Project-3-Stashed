@@ -6,12 +6,14 @@ import background3 from "../Images/background3.jpg";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
+import Map from "./GoogleMapComponent/Map";
 import NewAppointment from "./newAppointment";
 import CustContact from "./CustContact";
 import "./Main.css";
+
 class Main extends Component {
   state = {
-    isLoggedIn: false
+    isLoggedIn: true
   };
 
   render() {
@@ -30,15 +32,67 @@ class Main extends Component {
         <Parallax imageSrc={background1} />
 
         <div className="parallax-container valign-wrapper appoint">
-          <div className="container">
-            <div className="row">
-              <div className="col s12 center" style={{ height: "300px" }}>
-                {this.state.isLoggedIn ? (
-                  <NewAppointment customerId="1" />
-                ) : (
-                  <div />
-                )}
-              </div>
+          <div className="container fluid">
+            <div className="row fluid">
+              {this.state.isLoggedIn ? (
+                <div>
+                  <div className="col m4 s12 center" style={{ height: "200px" }}>
+                    <NewAppointment customerId="1" />
+                  </div>
+                  <div className="col m4 s12 center">
+                    <Map />
+                  </div>
+                  <div className="col m4 s12 center">
+                    <h4>Charlotte Barber & Beard</h4>
+                    <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
+                    <p>Phone: (704) 595-7795</p>
+                    <p>
+                      Hours:
+                      <p>
+                        <strong>Sunday-Monday</strong>
+                        {"  "}Closed
+                      </p>
+                      <p>
+                        <strong>Tuesday-Friday</strong>
+                        {"  "}10AM-6PM
+                      </p>
+                      <p>
+                        <strong>Saturday</strong>
+                        {"  "}9AM-4PM
+                      </p>
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div
+                    className="col sm s12 center"
+                    style={{ marginTop: "10px" }}
+                  >
+                    <Map />
+                  </div>
+                  <div className="col m6 s12 center">
+                    <h4>Charlotte Barber & Beard</h4>
+                    <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
+                    <p>Phone: (704) 595-7795</p>
+                    <p>
+                      Hours:
+                      <p>
+                        <strong>Sunday-Monday</strong>
+                        {"  "}Closed
+                      </p>
+                      <p>
+                        <strong>Tuesday-Friday</strong>
+                        {"  "}10AM-6PM
+                      </p>
+                      <p>
+                        <strong>Saturday</strong>
+                        {"  "}9AM-4PM
+                      </p>
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
