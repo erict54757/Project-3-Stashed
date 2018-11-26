@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Modal, Button, Input } from "react-materialize";
+import { Row, Modal, Button, Input, Icon } from "react-materialize";
 import API from "../utils/API";
 
 class ManagerPortalModal extends Component {
