@@ -5,7 +5,7 @@ import background2 from "../Images/background2.jpg";
 import background3 from "../Images/background3.jpg";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import NewAppointment from "./newAppointment";
 import CustContact from "./CustContact";
 import "./Main.css";

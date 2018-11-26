@@ -4,7 +4,7 @@ import ManagerPortalModal from "./managerPortalModal";
 // import { Link } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import moment from "moment";
 import API from "../utils/API";
 import "./managerPortal.css"

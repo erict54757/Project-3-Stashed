@@ -4,7 +4,7 @@ import API from "../utils/API";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "materialize-css/dist/css/materialize.css";
+
 import "./SignInModal.css";
 class SignInModal extends Component {
   initialstate = {
