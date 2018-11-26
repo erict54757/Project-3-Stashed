@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
-
 import NavBar from "../components/NavBar";
 import PortalContainer from "../components/PortalContainer";
 import PortalFooter from "../components/PortalFooter";
@@ -15,6 +14,7 @@ class Employee extends Component {
       <div>
         <NavBar
           key={"1"}
+          token={this.props.token}
           name={this.props.name}
           id={this.props.id}
           background={"black"}

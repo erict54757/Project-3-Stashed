@@ -15,6 +15,7 @@ class Customer extends Component {
         {this.props.token ? (
           <NavBar
             name={this.props.name}
+            token={this.props.token}
             id={this.props.id}
             background={"white"}
             textColor={"black-text"}

@@ -3,12 +3,10 @@ import { Card, Button, Row, Col } from "react-materialize";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
-
-import EmpApptUpdateModal from "./empApptUpdateModal.js"
-import EmployeeSchedule from "./employeeSchedule"
-import API from "../utils/API"
-import "./DumbApptCard.css"
-
+import EmpApptUpdateModal from "./empApptUpdateModal.js";
+import EmployeeSchedule from "./employeeSchedule";
+import API from "../utils/API";
+import "./DumbApptCard.css";
 
 class Appointment extends Component {
   componentDidMount() {
@@ -39,7 +37,6 @@ class Appointment extends Component {
 
         <h5>At {this.props.time}</h5>
         <Row>
-          <Col s={2} />
           <Col s={3}>
             <Button
               className="red"
@@ -49,7 +46,7 @@ class Appointment extends Component {
               X
             </Button>
           </Col>
-          <Col s={5}>
+          <Col s={8}>
             {filterCustomer.map(customer => (
               <EmpApptUpdateModal
                 key={customer.id}
@@ -71,7 +68,6 @@ class Appointment extends Component {
               />
             ))}
           </Col>
-          <Col s={2} />
         </Row>
       </Card>
     );
