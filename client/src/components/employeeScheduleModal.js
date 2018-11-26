@@ -45,6 +45,8 @@ class EmployeeScheduleModal extends Component {
     })
       .then(res => this.setState({ CustomerId: res.data.id }))
       .then(() => this.saveAppointment())
+      .then(() => this.props.getAppointments())
+      .then(() => this.props.getCustomers())
       .catch(err => console.log(err));
   };
 

@@ -37,7 +37,7 @@ class Appointment extends Component {
 
         <h5>At {this.props.time}</h5>
         <Row>
-          <Col s={2}>
+          <Col s={3}>
             <Button
               className="red"
               value={this.props.id}
@@ -46,7 +46,6 @@ class Appointment extends Component {
               X
             </Button>
           </Col>
-          <Col s={2} />
           <Col s={8}>
             {filterCustomer.map(customer => (
               <EmpApptUpdateModal
