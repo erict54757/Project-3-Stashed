@@ -6,8 +6,6 @@ import EmployeeScheduleModal from "./employeeScheduleModal";
 import "jquery";
 import Appointment from "./DumbApptCard";
 import "materialize-css/dist/js/materialize.js";
-
-
 import "./employeeScheduleModal.css"
 import "./employeeSchedule.css"
 import API from "../utils/API"
@@ -66,7 +64,7 @@ class EmployeeSchedule extends React.Component {
       <div className="container">
         <Row>
           <Col className="addCol">
-            <EmployeeScheduleModal id={this.props.id} />
+            <EmployeeScheduleModal id={this.props.id}/>
           </Col>
         </Row>
         <Row>
@@ -95,9 +93,11 @@ class EmployeeSchedule extends React.Component {
                   customers={this.state.customers}
                   id={appointment.id}
                   CustId={appointment.CustomerId}
+                  EmpId={appointment.EmployeeId}
                   time={appointment.time}
                   date={appointment.date}
                   getAppointments={this.getAppointments}
+                  getCustomers={this.getCustomers}
                 />
               </div>
             ))
