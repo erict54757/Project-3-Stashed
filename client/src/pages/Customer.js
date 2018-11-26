@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "materialize-css/dist/css/materialize.css";
@@ -8,27 +9,20 @@ import Main from "../components/Main";
 import Foot from "../components/Foot";
 
 class Customer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: props.isLoggedIn,
-      user: props.user
-    };
-  }
-
   render() {
     return (
       <div>
-        {this.props.isLoggedIn ? (
+        {this.props.token ? (
           <NavBar
-            user={this.props.user}
+            name={this.props.name}
+            id={this.props.id}
             background={"white"}
             textColor={"black-text"}
           />
         ) : (
           <NavBarCust background={"white black-text"} />
         )}
-        <Main isLoggedIn={this.props.isLoggedIn} user={this.props.user} />
+        <Main token={this.props.token} id={this.props.id} />
         <Foot />
       </div>
     );

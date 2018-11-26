@@ -59,10 +59,12 @@ class SignInModal extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response.token);
+        console.log(response);
         // Server returns "JWT ...", so we need to split off the token
         const token = response.token.split(" ")[1];
-        Auth.login(token);
+        const name = response.name;
+        const id = response.id;
+        Auth.login(token, name, id);
       })
       .catch(error => console.error("Error:", error));
   };

@@ -40,7 +40,12 @@ app.post("/login", (req, res) => {
 
           if (password === user.account_key) {
             const token = jwt.sign(user.toJSON(), process.env.CHAT_JWT_SECRET);
-            res.json({ success: true, token: "CJWT " + token });
+            res.json({
+              success: true,
+              token: "CJWT " + token,
+              name: user.first_name,
+              id: user.id
+            });
           } else {
             res.status(401).send({
               success: false,
@@ -62,7 +67,12 @@ app.post("/login", (req, res) => {
 
           if (password === user.account_key) {
             const token = jwt.sign(user.toJSON(), process.env.CHAT_JWT_SECRET);
-            res.json({ success: true, token: "EJWT " + token });
+            res.json({
+              success: true,
+              token: "EJWT " + token,
+              name: user.first_name,
+              id: user.id
+            });
           } else {
             res.status(401).send({
               success: false,

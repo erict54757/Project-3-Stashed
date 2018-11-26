@@ -33,6 +33,7 @@ class EmpApptUpdateModal extends Component {
     });
     console.log(this.state.state);
   };
+
   handleUpdateCustomer = event => {
     event.preventDefault();
     this.updateCustomer(this.state.id);
@@ -58,7 +59,6 @@ class EmpApptUpdateModal extends Component {
       date: this.state.date,
       time: this.state.time
     })
-
       .then(res => console.log(res + "updated appointment"))
       .catch(err => console.log(err));
   };

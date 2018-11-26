@@ -8,13 +8,6 @@ import "materialize-css/dist/css/materialize.css";
 import "./PortalContainer.css";
 
 class PortalContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: props.user
-    };
-  }
-
   render() {
     return (
       <div className="container employeePortal rounded">
@@ -29,7 +22,7 @@ class PortalContainer extends Component {
             Upcoming Appointments
           </h3>
           {/*  insert the appropriate manager component here */}
-          <EmployeeSchedule user={this.props.user} />
+          <EmployeeSchedule name={this.props.name} id={this.props.id} />
         </div>
       </div>
     );

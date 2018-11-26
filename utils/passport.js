@@ -24,7 +24,7 @@ passport.use(
         }
 
         case "employee": {
-          db.Employee.findOne({ where: { id: jwt_payload.id } })
+          db.Employee.findOne({ where: { id: jwt_payload.id } }) 
             .then(user => {
               if (!user) return done(null, false);
 

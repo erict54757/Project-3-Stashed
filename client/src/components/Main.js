@@ -12,11 +12,6 @@ import "./Main.css";
 // import API from "../utils/API";
 
 class Main extends Component {
-  state = {
-    isLoggedIn: this.props.isLoggedIn,
-    user: this.props.user
-  };
-
   render() {
     return (
       <div>
@@ -36,8 +31,8 @@ class Main extends Component {
           <div className="container">
             <div className="row">
               <div className="col s12 center" style={{ height: "300px" }}>
-                {this.props.isLoggedIn ? (
-                  <NewAppointment customerId={this.props.user.id} />
+                {this.props.token ? (
+                  <NewAppointment customerId={this.props.id} />
                 ) : (
                   <div />
                 )}

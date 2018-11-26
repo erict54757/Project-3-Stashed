@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import "./App.css";
 import Auth from "./utils/auth";
 import Customer from "./pages/Customer";
@@ -8,7 +13,9 @@ import Admin from "./pages/Admin";
 
 class App extends React.Component {
   state = {
-    token: Auth.getToken()
+    token: Auth.getToken(),
+    name: Auth.getName(),
+    id: Auth.getId()
   };
 
   componentDidMount() {
@@ -27,33 +34,34 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              component={() => (
-                <Customer
-                  isLoggedIn={this.state.isLoggedIn}
-                  user={this.state.user}
-                />
-              )}
+              component={Customer}
+              token={this.state.token}
+              name={this.state.name}
+              id={this.state.id}
             />
-            <Route
+            <PrivateRoute
               exact
               path="/employee"
-              component={() => (
-                <Employee
-                  isLoggedIn={this.state.isLoggedIn}
-                  user={this.state.user}
-                />
-              )}
+              component={Employee}
+              token={this.state.token}
+              name={this.state.name}
+              id={this.state.id}
             />
-            <Route exact path="/admin" component={Admin} />
-            <Route
+            <PrivateRoute
+              exact
+              path="/admin"
+              component={Admin}
+              token={this.state.token}
+              name={this.state.name}
+              id={this.state.id}
+            />
+            <PrivateRoute
               exact
               path="/customer"
-              component={() => (
-                <Customer
-                  isLoggedIn={this.state.isLoggedIn}
-                  user={this.state.user}
-                />
-              )}
+              component={Customer}
+              token={this.state.token}
+              name={this.state.name}
+              id={this.state.id}
             />
           </Switch>
         </div>
@@ -61,5 +69,23 @@ class App extends React.Component {
     );
   }
 }
+
+const PrivateRoute = ({ component: Component, token, name, id, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      token ? (
+        <Component {...props} token={token} name={name} id={id} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/",
+            state: { from: props.location }
+          }}
+        />
+      )
+    }
+  />
+);
 
 export default App;
