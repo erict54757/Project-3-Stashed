@@ -41,6 +41,20 @@ class EmployeeSchedule extends React.Component {
     });
   };
 
+  deleteAppointment = id => {
+    API.deleteAppointment(id)
+      .then(res => this.getAppointments())
+      .catch(err => console.log(err));
+  };
+
+  getAppointments = () => {
+    API.getAppointments().then(res =>
+      this.setState({
+        Appointments: res.data
+      })
+    );
+  };
+
   componentDidMount() {
     this.getAppointments();
     this.getCustomers();
