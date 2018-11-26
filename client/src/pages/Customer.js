@@ -8,23 +8,27 @@ import Main from "../components/Main";
 import Foot from "../components/Foot";
 
 class Customer extends Component {
-  state = {
-    isLoggedIn: false,
-    user: { id: 1, name: "Eric" }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: props.isLoggedIn,
+      user: props.user
+    };
+  }
+
   render() {
     return (
       <div>
-        {this.state.isLoggedIn ? (
+        {this.props.isLoggedIn ? (
           <NavBar
-            user={this.state.user}
+            user={this.props.user}
             background={"white"}
             textColor={"black-text"}
           />
         ) : (
-          <NavBarCust user={this.state.user} background={"white black-text"} />
+          <NavBarCust background={"white black-text"} />
         )}
-        <Main />
+        <Main isLoggedIn={this.props.isLoggedIn} user={this.props.user} />
         <Foot />
       </div>
     );
