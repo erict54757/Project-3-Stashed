@@ -24,15 +24,13 @@ class Appointment extends Component {
       customer => customer.id === this.props.CustId
     );
 
-    console.log(filterCustomer);
-
     return (
       <Card
         className="blue-grey darken-1 cardBody z-depth-5"
         textClassName="white-text"
       >
         {filterCustomer.map(customer => (
-          <h4>
+          <h4 key={customer.id}>
             {customer.first_name} {customer.last_name}
           </h4>
         ))}

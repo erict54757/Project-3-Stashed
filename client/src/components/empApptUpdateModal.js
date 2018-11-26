@@ -151,7 +151,6 @@ class EmpApptUpdateModal extends Component {
             <option value="5PM">5:00PM</option>
 
             <option value="6PM">6:00PM</option>
-            <Icon>email</Icon>
           </Input>
         </Row>
         <Row>

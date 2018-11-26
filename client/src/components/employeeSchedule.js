@@ -18,23 +18,15 @@ class EmployeeSchedule extends React.Component {
     customers: []
   };
 
-  deleteAppointment = id => {
-    API.deleteAppointment(id)
-      .then(res => this.getAppointments())
-      .catch(err => console.log(err));
-  };
-
   getAppointments = () => {
     API.getAppointments()
       .then(res => this.setState({ appointments: res.data }))
-      .then(res => console.log("state after appt", this.state))
       .catch(err => console.log(err));
   };
 
   getCustomers = () => {
     API.getCustomers()
       .then(res => this.setState({ customers: res.data }))
-      .then(res => console.log("state after cust", this.state))
       .catch(err => console.log(err));
   };
 
@@ -59,15 +51,11 @@ class EmployeeSchedule extends React.Component {
       return appointment.date === this.state.date;
     });
 
-    setTimeout(() => {
-      console.log(filteredAppointments);
-    }, 2000);
-
     return (
       <div className="container">
         <Row>
           <Col className="addCol">
-            <EmployeeScheduleModal />
+            <EmployeeScheduleModal id={this.props.id} />
           </Col>
         </Row>
         <Row>
@@ -91,10 +79,9 @@ class EmployeeSchedule extends React.Component {
         >
           {filteredAppointments.length ? (
             filteredAppointments.map(appointment => (
-              <div className="col s12 m6 l4">
+              <div className="col s12 m6 l4" key={appointment.id}>
                 <Appointment
                   customers={this.state.customers}
-                  key={appointment.id}
                   id={appointment.id}
                   CustId={appointment.CustomerId}
                   time={appointment.time}
