@@ -12,12 +12,12 @@ class Foot extends React.Component {
             <div className="col l6 s12">
               <h5 className="black-text center">Company Bio</h5>
               <p className="grey-text text-darken-3 ">
-                The HairCuttery Barbershop & Co. is a classic upscale
+                The Charlotte Barber & Beard. is a classic upscale
                 barbershop. We offer a variety of services, catering to
-                everyone. The HairCuttery is a gentleman's shop, reminiscent of
+                everyone. The Charlotte Barber & Beard is a gentleman's shop, reminiscent of
                 the classic barbershop. We are striving to bring the memories
                 back, with solely the clientele in mind. People pay for quality
-                - The HairCuttery is where you will get it. We are barbers who
+                - The Charlotte Barber & Beard is where you will get it. We are barbers who
                 love our craft, providing top notch service that helps men Stay
                 Sharp..
               </p>
