@@ -14,7 +14,9 @@ class PortalFooter extends Component {
         <div className="container">
           <div className="row">
             <div className="col l6 s12 center">
-              <h5 style={{marginTop: "20px"}} class="white-text">Charlotte Barber & Beard</h5>
+              <h5 style={{ marginTop: "20px" }} class="white-text">
+                Charlotte Barber & Beard
+              </h5>
             </div>
             <div className="col l6 s12 center">
               <img

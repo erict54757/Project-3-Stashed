@@ -17,13 +17,21 @@ class ManagerPortal extends Component {
     Customers: [],
     filtered: [],
     employees: [],
-    employee: []
+    employee: [],
+    custName: ""
   };
 
   componentDidMount() {
     this.loadEmployees();
     this.loadAppointments();
+    this.getCustomers();
   }
+
+  getCustomers = () => {
+    API.getCustomers()
+      .then(res => this.setState({ Customers: res.data }))
+      .catch(err => console.log(err));
+  };
 
   loadEmployees = () => {
     API.getEmployees()
@@ -74,6 +82,18 @@ class ManagerPortal extends Component {
     });
   };
 
+  getCustomerName = id => {
+    let custName = "";
+    API.getCustomerName(id)
+      .then(res => {
+        custName = res.data.first_name;
+      })
+      .then(() => {
+        return custName;
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     const filteredAppointments = this.state.Appointments.filter(appointment => {
       return (
@@ -81,6 +101,9 @@ class ManagerPortal extends Component {
         appointment.EmployeeId === this.state.employee.id
       );
     });
+
+    console.log(this.getCustomerName("6"));
+
     return (
       <div className="container white">
         <div
@@ -223,8 +246,21 @@ class ManagerPortal extends Component {
                               key={appointment.id}
                             >
                               <div>
+<<<<<<< HEAD
                                 {appointment.Customer.first_name} {appointment.date}{" "}
                                 {appointment.time}
+=======
+                                {this.state.Customers.filter(customer => {
+                                  return customer.id === appointment.CustomerId;
+                                }).map(cust => (
+                                  <div>
+                                    {cust.first_name} {cust.last_name}
+                                  </div>
+                                ))}
+                                <div>
+                                  {appointment.date} {appointment.time}
+                                </div>
+>>>>>>> 7ecc3eca9c050216057ceecf60fd8161229fcba8
                                 <span
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)
