@@ -1,10 +1,12 @@
 class Auth {
   static onAuthChangeCallback = null;
 
-  static login(token, name, id) {
+  static login(token, name, id, isEmp, isCust) {
     localStorage.setItem("token", token);
     localStorage.setItem("name", name);
     localStorage.setItem("id", id);
+    localStorage.setItem("isEmp", isEmp);
+    localStorage.setItem("isCust", isCust);
     if (Auth.onAuthChangeCallback) Auth.onAuthChangeCallback(token);
   }
 
@@ -12,6 +14,8 @@ class Auth {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
     localStorage.removeItem("id");
+    localStorage.removeItem("isEmp");
+    localStorage.removeItem("isCust");
     if (Auth.onAuthChangeCallback) Auth.onAuthChangeCallback(false);
   }
 
@@ -25,6 +29,14 @@ class Auth {
 
   static getId() {
     return localStorage.getItem("id");
+  }
+
+  static getIsEmp() {
+    return localStorage.getItem("isEmp");
+  }
+
+  static getIsCust() {
+    return localStorage.getItem("isCust");
   }
 
   static isAuthenticated() {

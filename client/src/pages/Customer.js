@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+import Auth from "../utils/auth";
+import { Redirect } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
@@ -9,21 +10,54 @@ import Main from "../components/Main";
 import Foot from "../components/Foot";
 
 class Customer extends Component {
+  state = {
+    token: Auth.getToken(),
+    name: Auth.getName(),
+    id: Auth.getId(),
+    isEmp: Auth.getIsEmp(),
+    isCust: Auth.getIsCust()
+  };
+
   render() {
+    console.log(this.state);
+    if (
+      this.state.token &&
+      this.state.isEmp === "true" &&
+      this.state.name === "Admin"
+    ) {
+      return <Redirect to="/admin" />;
+    }
+    if (this.state.token && this.state.isEmp === "true") {
+      return <Redirect to="/employee" />;
+    }
     return (
       <div>
-        {this.props.token ? (
+        {this.state.token ? (
           <NavBar
-            name={this.props.name}
-            token={this.props.token}
-            id={this.props.id}
+            name={this.state.name}
+            token={this.state.token}
+            id={this.state.id}
+            isEmp={this.state.isEmp}
+            isCust={this.state.isCust}
             background={"white"}
             textColor={"black-text"}
           />
         ) : (
-          <NavBarCust background={"white black-text"} />
+          <NavBarCust
+            background={"white black-text"}
+            name={this.state.name}
+            token={this.state.token}
+            id={this.state.id}
+            isEmp={this.state.isEmp}
+            isCust={this.state.isCust}
+          />
         )}
-        <Main token={this.props.token} id={this.props.id} />
+        <Main
+          token={this.state.token}
+          id={this.state.id}
+          isEmp={this.state.isEmp}
+          isCust={this.state.isCust}
+        />
         <Foot />
       </div>
     );

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Footer } from "react-materialize";
-// import { Link, Route } from "react-router-dom";
+
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
@@ -14,7 +13,7 @@ class PortalFooter extends Component {
         <div className="container">
           <div className="row">
             <div className="col l6 s12 center">
-              <h5 style={{ marginTop: "20px" }} class="white-text">
+              <h5 style={{ marginTop: "20px" }} className="white-text">
                 Charlotte Barber & Beard
               </h5>
             </div>
