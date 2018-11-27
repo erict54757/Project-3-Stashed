@@ -56,9 +56,6 @@ class ManagerPortalModal extends Component {
           trigger={
             <Button className="blue" style={{ marginTop: "10px" }}>
               Add Employee
-              <Icon className="blue" left>
-                add
-              </Icon>
             </Button>
           }
           actions={
@@ -72,7 +69,7 @@ class ManagerPortalModal extends Component {
               >
                 Save
               </Button>
-              <Button className="blue" modal="close" waves="light">
+              <Button className="blue" modal="close" waves="light" style={{ marginLeft: "5px" }}>
                 Close
               </Button>
             </div>
@@ -86,7 +83,9 @@ class ManagerPortalModal extends Component {
               value={this.state.firstName}
               onChange={this.handleInputChange}
               name="firstName"
-            />
+            >
+            <Icon>account_circle</Icon>
+            </Input>
             <Input
               m={6}
               s={12}
@@ -94,7 +93,9 @@ class ManagerPortalModal extends Component {
               value={this.state.lastName}
               onChange={this.handleInputChange}
               name="lastName"
-            />
+            >
+            <Icon>account_circle</Icon>
+            </Input>
             <Input
               label="Address"
               m={12}
@@ -102,7 +103,10 @@ class ManagerPortalModal extends Component {
               value={this.state.street}
               onChange={this.handleInputChange}
               name="street"
-            />
+            >
+            <Icon>location_on</Icon>
+            </Input>
+
             <Input
               label="City"
               m={4}
@@ -110,7 +114,9 @@ class ManagerPortalModal extends Component {
               value={this.state.city}
               onChange={this.handleInputChange}
               name="city"
-            />
+            >
+            <Icon>business</Icon>
+            </Input>
 
             <Input
               label="State"
@@ -181,7 +187,9 @@ class ManagerPortalModal extends Component {
               value={this.state.zip}
               onChange={this.handleInputChange}
               name="zip"
-            />
+            >
+            <Icon>location_on</Icon>
+            </Input>
             <Input
               m={6}
               s={12}
@@ -190,7 +198,9 @@ class ManagerPortalModal extends Component {
               value={this.state.email}
               onChange={this.handleInputChange}
               name="email"
-            />
+            >
+            <Icon>email</Icon>
+            </Input>
             <Input
               m={6}
               s={12}
@@ -198,7 +208,9 @@ class ManagerPortalModal extends Component {
               value={this.state.phone}
               onChange={this.handleInputChange}
               name="phone"
-            />
+            >
+            <Icon>phone</Icon>
+            </Input>
           </Row>
         </Modal>
       </div>

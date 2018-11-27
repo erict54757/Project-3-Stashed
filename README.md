@@ -26,19 +26,20 @@ yarn start
 
 Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-##Prerequisites 
+## Prerequisites 
 You will want to modify the the Node Mail Server to send emails to the correct email. Additionally, you will want to remove the links for the three background pictures and the logo all in the customer page and replace with your own. Headings for each image can also be easily changed to suit your establishment. 
 
 ## Usage
 
 ## Customer Page
+The landing page is a standard business static site. Allows you to find contact information and location. Signing up, allows you to make an appointment with a barber of your choice that 
 
 ## Employee Page
 
 ## Admin Page
 * Employee Information Tab
 Populating on the left side of the page, the list of employees. In the center exists the currently selected employee's Information. 
-Clicking on the Add Employee button will bring up a modal that allows entry of a new employee. 
+Clicking on the Add Employee button will bring up a modal that allows entry of a new employee. The red x button next to the Employee will remove that employee. 
 
 * Employee Schedule Tab
 
@@ -49,7 +50,7 @@ To deploy, simply add and commit your changes, and push to Heroku. As is, the NP
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](#) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/erict54757/Project-3/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 * Nicole Barry

@@ -1,39 +1,52 @@
 import React, { Component } from "react";
-// import { Link, Route } from "react-router-dom";
+import Auth from "../utils/auth";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "./Admin.css"
-
-
+import "./Admin.css";
+import { Redirect } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import ManagerPortal from "../components/managerPortal";
 import PortalFooter from "../components/PortalFooter";
-import Customer from "../pages/Customer";
 
 class Admin extends Component {
   state = {
-    isAdmin: true,
-    isLoggedIn: true,
-    user: {
-      id: 1,
-      name: "Eric"
-    }
+    token: Auth.getToken(),
+    name: Auth.getName(),
+    id: Auth.getId(),
+    isEmp: Auth.getIsEmp(),
+    isCust: Auth.getIsCust()
   };
+
   render() {
     return (
-      <div >
-        {(this.state.isLoggedIn && this.state.isAdmin) ||
-        (this.state.isAdmin && this.state.isLoggedIn) ? (
+      <div>
+        {this.state.token &&
+        this.state.isEmp === "true" &&
+        this.state.name === "Admin" ? (
           [
-            <NavBar user={this.state.user} background={"black"} />,
-            <ManagerPortal
-              user={this.state.user}
-              isLoggedIn={this.state.isLoggedIn}
+            <NavBar
+              key={"1"}
+              token={this.state.token}
+              name={this.state.name}
+              id={this.state.id}
+              background={"black"}
+              textColor={"white-text"}
             />,
-            <PortalFooter user={this.state.user} />
+            <ManagerPortal
+              key={"2"}
+              name={this.state.name}
+              id={this.state.id}
+              token={this.state.token}
+            />,
+            <PortalFooter key={"3"} />
           ]
         ) : (
-          <Customer background={"white"} />
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: this.props.location }
+            }}
+          />
         )}
       </div>
     );

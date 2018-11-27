@@ -17,9 +17,8 @@ module.exports = {
       .catch(err => res.json(err));
   },
   update: function(req, res) {
-    db.Customer
-      .update(req.body, { where: { id: req.params.id }})
+    db.Customer.update(req.body, { where: { id: req.params.id } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
+  }
 };

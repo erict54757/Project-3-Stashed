@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
-// import { Link } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
 import moment from "moment";
 import API from "../utils/API";
-import "./managerPortal.css"
+import "./managerPortal.css";
 
 class ManagerPortal extends Component {
   state = {
@@ -17,13 +16,21 @@ class ManagerPortal extends Component {
     Customers: [],
     filtered: [],
     employees: [],
-    employee: []
+    employee: [],
+    custName: ""
   };
 
   componentDidMount() {
     this.loadEmployees();
     this.loadAppointments();
+    this.getCustomers();
   }
+
+  getCustomers = () => {
+    API.getCustomers()
+      .then(res => this.setState({ Customers: res.data }))
+      .catch(err => console.log(err));
+  };
 
   loadEmployees = () => {
     API.getEmployees()
@@ -81,13 +88,17 @@ class ManagerPortal extends Component {
         appointment.EmployeeId === this.state.employee.id
       );
     });
+
     return (
-      <div className="container ">
+      <div className="container white">
         <div
-          className="row z-depth-5 manager"
+          className="row z-depth-5 manager white"
           style={{ marginTop: "25px", marginBottom: "25px" }}
         >
-          <ul id="tabs-swipe-demo" className="tabs black white-text managerTabs z-depth-5">
+          <ul
+            id="tabs-swipe-demo"
+            className="tabs black white-text managerTabs z-depth-5"
+          >
             <li className="tab col s3">
               <a className="white-text" href="#employeeInfo">
                 Employee Information
@@ -109,34 +120,46 @@ class ManagerPortal extends Component {
             <Row>
               <Col
                 s={12}
-                m={3}
-                style={{ marginLeft: "5px" }}
-                className="lighten-4 black-text"
+                m={4}
+                className="lighten-4 black-text center employeeList"
               >
                 {this.state.employees.length ? (
-                  <ul className="collection with-header">
-                    <li className="collection-header blue white-text">
-                      <h5>Employees</h5>
+                  <ul className="collection with-header center  z-depth-1 ">
+                    <li className="collection-header blue white-text center">
+                      <h5 className="center">Employees</h5>
                     </li>
                     {this.state.employees.map(employee => (
-                      <li className="collection-item" key={employee.id}>
+                      <li
+                        className="collection-item col s12"
+                        style={{ padding: "0" }}
+                        key={employee.id}
+                      >
                         <div
+                          style={{ fontSize: "1.3rem", marginTop: "7px" }}
+                          className="left"
                           onClick={() => this.changeEmployee(employee)}
                           href={"/employees/" + employee.id}
                         >
                           {employee.first_name} {employee.last_name}
-                          <span
-                            onClick={() => this.deleteEmployee(employee.id)}
-                            className="secondary-content"
-                          >
-                            <i className="material-icons red-text">clear</i>
-                          </span>
+                          <span className="secondary-content"> </span>
                         </div>
+                        <span
+                          style={{ marginRight: "10px" }}
+                          waves="light"
+                          className="material-icons red-text right"
+                          onClick={() => this.deleteEmployee(employee.id)}
+                        >
+                         <i className="material-icons red-text">
+                                    clear
+                                  </i>
+                        </span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p>No Employees to Display</p>
+                  <p style={{ marginLeft: "5px" }} className="left">
+                    No Employees to Display
+                  </p>
                 )}
               </Col>
 
@@ -145,28 +168,29 @@ class ManagerPortal extends Component {
                 m={8}
                 id="employeeInfo"
                 className="lighten-4 black-text"
+                
               >
-                <CardPanel>
+                <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
                   {this.state.employee ? (
                     <div>
                       <h4>Employee Information</h4>
-                      <p>
+                      <h5>
                         Name: {this.state.employee.first_name}{" "}
                         {this.state.employee.last_name}
-                      </p>
-                      <p>Phone: {this.state.employee.phone}</p>
-                      <p>E-Mail: {this.state.employee.email}</p>
-                      <p>
+                      </h5>
+                      <h5>Phone: {this.state.employee.phone}</h5>
+                      <h5>E-Mail: {this.state.employee.email}</h5>
+                      <h5>
                         Address: {this.state.employee.street}{" "}
                         {this.state.employee.city} {this.state.employee.state}
-                      </p>
+                      </h5>
                     </div>
                   ) : (
                     <div>
-                      <p>Name:</p>
-                      <p>Phone:</p>
-                      <p>E-Mail:</p>
-                      <p>Address:</p>
+                      <h5>Name:</h5>
+                      <h5>Phone:</h5>
+                      <h5>E-Mail:</h5>
+                      <h5>Address:</h5>
                     </div>
                   )}
                 </CardPanel>
@@ -177,18 +201,16 @@ class ManagerPortal extends Component {
                 id="employeeSchedule"
                 className="lighten-4 black-text"
               >
-                <CardPanel>
-                  <Row className="center">
-                    
-                      <h4>Employee Schedule</h4>
-                   
+                <CardPanel className="z-depth-2 employeeSchedule" style={{ marginRight: "10px" }}>
+                  <Row className="employeeSchedule">
+                    <h4>Employee Schedule</h4>
 
-                    <Col className="date center"
-                        s={12} 
-                    > <Col s={1} m={2} l={2}></Col>
-                    
+                    <Col className="date center" s={12}>
+                      {" "}
+                      <Col s={1} m={2} l={2} />
                       <Input
-                      s={12} l={8}
+                        s={12}
+                        l={8}
                         className="center "
                         name="date"
                         type="date"
@@ -197,13 +219,13 @@ class ManagerPortal extends Component {
                         onChange={this.handleInputChange}
                       >
                         <Icon>date_range</Icon>
-                      </Input> <Col s={1} m={2} l={2}></Col>
+                      </Input>{" "}
+                      <Col s={1} m={2} l={2} />
                     </Col>
-                   
                   </Row>
 
                   <Row className="center">
-                    <Col s={12} m={12} className="lighten-4 black-text">
+                    <Col s={12} className="lighten-4 black-text ">
                       {filteredAppointments.length ? (
                         <ul className="collection with-header">
                           {filteredAppointments.map(appointment => (
@@ -211,10 +233,19 @@ class ManagerPortal extends Component {
                               className="collection-item"
                               key={appointment.id}
                             >
-                              <div>
-                                {appointment.CustomerId} {appointment.date}{" "}
-                                {appointment.time}
+                              <div className="row">
+                                {this.state.Customers.filter(customer => {
+                                  return customer.id === appointment.CustomerId;
+                                }).map(cust => (
+                                  <div className="col m4 s12" style={{ fontSize: "1.3rem" }}>
+                                    {cust.first_name} {cust.last_name}
+                                  </div>
+                                ))}
+                                <div className="col m6 s12" style={{ fontSize: "1.3rem" }}>
+                                  {appointment.date} {appointment.time}
+                                </div>
                                 <span
+                                className="col m2 s12"
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)
                                   }

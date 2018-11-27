@@ -43,5 +43,8 @@ export default {
   //deletes an appointment with a given id
   deleteAppointment: function(id) {
     return axios.delete("/api/appointments/" + id);
+  },
+  sendEmail: function(emailData) {
+    return axios.post("/api/sendEmail", emailData);
   }
 };
