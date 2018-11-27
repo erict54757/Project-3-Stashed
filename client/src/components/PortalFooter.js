@@ -30,12 +30,12 @@ class PortalFooter extends Component {
       />
     </div>
     <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">The HairCuttery</h5>
+                  <h5 class="white-text">Charlotte Barber & Beard</h5>
                   <ul>
-                    <li className="white-text">555 Node JS Ave</li>
-                    <li className="white-text">Charlotte, NC 28262</li>
+                    <li className="white-text">1200 The Plaza Suite B</li>
+                    <li className="white-text">Charlotte, NC 28205</li>
                     <li className="white-text"
-                    type="telephone">715-555-5555</li>
+                    type="telephone">(704) 595-7795</li>
                 
                   </ul>
                 </div>
