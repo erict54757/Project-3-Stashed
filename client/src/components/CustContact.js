@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Row,Input, Button } from "react-materialize";
+import { Row, Input, Button } from "react-materialize";
 
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import API from "../utils/API"
+import API from "../utils/API";
 import "./CustContact.css";
 
 function validate(email, message,subject, phoneNumber) {
@@ -18,8 +18,8 @@ function validate(email, message,subject, phoneNumber) {
 }
 
 class CustContact extends Component {
-  constructor(){
-  super()
+  constructor() {
+    super();
 
   this.state = {
    
@@ -88,13 +88,10 @@ sendEmail= (event)=>{
   API.sendEmail(event,
     {email: this.state.email,
       phoneNumber: this.state.phoneNumber,
-      subject:this.state.subject,
-      message:this.state.message}
-      )
-  .then(
-   this.resetState());
-  
-}
+      subject: this.state.subject,
+      message: this.state.message
+    }).then(this.resetState());
+  };
   render() {
   //   const { email, message,subject,phoneNumber } = this.state;
   //   const isEnabled =
@@ -116,13 +113,13 @@ sendEmail= (event)=>{
   
     return (
       <div className="container ">
-        <Row
-        className="center">
+        <Row className="center">
           <h3>
             <i className="mdi-content-send brown-text" />
           </h3>
           <h4 className="center">Contact Us</h4>
 
+<<<<<<< HEAD
           <div
             className="col l8 m8 s12 offset-l2 offset-m2 center formEmail"
             
@@ -130,6 +127,13 @@ sendEmail= (event)=>{
        
               <input s={12}
                  className={shouldMarkError('subject') ? "error" : ""}
+=======
+          <div className="col l8 m8 s12 offset-l2 offset-m2 center formEmail">
+            <div className="form-group">
+              <Input
+                s={12}
+                className="rounded form-control"
+>>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 type="text"
                 name="subject"
                 value={this.state.subject}
@@ -138,10 +142,17 @@ sendEmail= (event)=>{
                 onBlur={this.handleBlur('subject')}
                 placeholder="Subject"
               />
+<<<<<<< HEAD
             
     
               <textarea className={shouldMarkError('message') ? "error" : ""}
               value={this.state.message}
+=======
+            </div>
+            <div className="form-group">
+              <textarea
+                value={this.state.message}
+>>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 name="message"
                 type="text"
                 placeholder="Message"
@@ -150,24 +161,23 @@ sendEmail= (event)=>{
                 onBlur={this.handleBlur('message')}
                 onChange={this.handleInputChange}
               />
-              <span
-             
-                className="section scrollspy"
-               
-              >
+              <span className="section scrollspy">
                 <p id="characterLeft" className="help-block ">
-                  You have {140-this.state.message.length} characters left.
+                  You have {140 - this.state.message.length} characters left.
                 </p>
               </span>
            
 
-      
-
             {/* <!-- set the reply-to address --> */}
-        <Row>
+            <Row>
               <Input
+<<<<<<< HEAD
               s={6}
                 className={shouldMarkError('email') ? "error" : "rounded form-control"}
+=======
+                s={6}
+                className="rounded form-control"
+>>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 type="email"
                 name="email"
                 placeholder="Your Email"
@@ -175,11 +185,15 @@ sendEmail= (event)=>{
                 onChange={this.handleInputChange}
                 onBlur={this.handleBlur('email')}
               />
-         
 
               <Input
+<<<<<<< HEAD
               s={6}
               className={shouldMarkError('phoneNumber') ? "error" : "rounded form-control"}
+=======
+                s={6}
+                className="rounded form-control"
+>>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
@@ -187,9 +201,7 @@ sendEmail= (event)=>{
                 onBlur={this.handleBlur('phoneNumber')}
                 onChange={this.handleInputChange}
               />
-          </Row>
-
-           
+            </Row>
 
             <Button
               className="btn waves-effect waves-blue blue"
@@ -197,7 +209,9 @@ sendEmail= (event)=>{
               name="Submit"
               disabled={isDisabled}
               onClick={this.handleSendEmail}
-            >Submit</Button>
+            >
+              Submit
+            </Button>
           </div>
         </Row>
       </div>

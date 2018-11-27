@@ -60,14 +60,18 @@ class NewAppointment extends Component {
         actions={
           <div>
             <Button
-              style={{ marginLeft: "5px" }}
               className="btn blue lighten-1 "
               modal="close"
               onClick={this.handleSubmit}
             >
               Save Appointment
             </Button>
-            <Button className="blue" modal="close" waves="light">
+            <Button
+              style={{ marginLeft: "5px" }}
+              className="blue"
+              modal="close"
+              waves="light"
+            >
               Close
             </Button>
           </div>

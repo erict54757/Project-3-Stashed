@@ -81,13 +81,7 @@ class SignInModal extends Component {
       <Modal
         actions={
           <div>
-            <Button
-              type="button"
-              id="userLogin"
-              className="modal-close btn  blue"
-            >
-              Close
-            </Button>
+            
             <Button
               id="sign-in"
               type="button"
@@ -95,6 +89,13 @@ class SignInModal extends Component {
               onClick={this.handleFormSubmit}
             >
               Login
+            </Button>
+            <Button
+              type="button"
+              id="userLogin"
+              className="modal-close btn  blue"
+            >
+              Close
             </Button>
           </div>
         }

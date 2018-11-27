@@ -15,7 +15,7 @@ class EmployeeScheduleModal extends Component {
     zip: "",
     email: "",
     phone: "",
-    password: "barber18",
+    password: "customer18",
     time: "",
     date: ""
   };
@@ -76,7 +76,12 @@ class EmployeeScheduleModal extends Component {
             >
               Create
             </Button>
-            <Button className="blue " modal="close" waves="light">
+            <Button
+              style={{ marginLeft: "5px" }}
+              className="blue "
+              modal="close"
+              waves="light"
+            >
               Close
             </Button>
           </div>
@@ -87,7 +92,7 @@ class EmployeeScheduleModal extends Component {
       >
         <Row>
           <Input
-            l={6}
+            m={6}
             s={12}
             className="black-text"
             label="First Name"
@@ -99,7 +104,7 @@ class EmployeeScheduleModal extends Component {
           </Input>
 
           <Input
-            l={6}
+            m={6}
             s={12}
             label="Last Name"
             type="text"
@@ -110,12 +115,11 @@ class EmployeeScheduleModal extends Component {
           >
             <Icon>account_circle</Icon>
           </Input>
-        </Row>
-        <Row>
+
           <Input
-            l={6}
+            m={6}
             s={12}
-            label="Current Appointment Date"
+            label="Appointment Date"
             className="black-text"
             type="date"
             name="date"
@@ -126,9 +130,9 @@ class EmployeeScheduleModal extends Component {
           </Input>
 
           <Input
-            name="time"
-            s={12}
+            m={12}
             l={6}
+            name="time"
             type="select"
             onChange={this.handleInputChange}
             className="modalDrop"
@@ -155,35 +159,8 @@ class EmployeeScheduleModal extends Component {
 
             <option value="6PM">6:00PM</option>
           </Input>
-        </Row>
-        <Row>
           <Input
-            l={6}
-            s={12}
-            label="Email"
-            type="email"
-            className="form-control"
-            name="email"
-            defaultValue={this.state.email}
-            onChange={this.handleInputChange}
-          >
-            <Icon>email</Icon>
-          </Input>
-
-          <Input
-            l={6}
-            s={12}
-            label="Phone"
-            name="phone"
-            defaultValue={this.state.phone}
-            onChange={this.handleInputChange}
-          >
-            <Icon>phone</Icon>
-          </Input>
-        </Row>
-        <Row>
-          <Input
-            l={6}
+            m={12}
             s={12}
             label="Street"
             type="text"
@@ -194,9 +171,8 @@ class EmployeeScheduleModal extends Component {
           >
             <Icon>location_on</Icon>
           </Input>
-
           <Input
-            l={6}
+            m={4}
             s={12}
             label="City"
             type="text"
@@ -207,13 +183,11 @@ class EmployeeScheduleModal extends Component {
           >
             <Icon>business</Icon>
           </Input>
-        </Row>
-        <Row>
           <Input
+            m={4}
+            s={12}
             name="state"
             label="State"
-            s={12}
-            l={6}
             type="select"
             onChange={this.handleInputChange}
             defaultValue={this.state.state}
@@ -321,9 +295,8 @@ class EmployeeScheduleModal extends Component {
 
             <option value="WY">Wyoming</option>
           </Input>
-
           <Input
-            l={6}
+            m={4}
             s={12}
             label="ZipCode"
             type="text"
@@ -334,17 +307,30 @@ class EmployeeScheduleModal extends Component {
           >
             <Icon>location_on</Icon>
           </Input>
-        </Row>
-        <Row>
+
           <Input
-            l={6}
+            m={6}
             s={12}
-            label="Password"
-            type="text"
-            placeholder="Barber18"
-            defaultValue={this.state.password}
+            label="Email"
+            type="email"
+            className="form-control"
+            name="email"
+            defaultValue={this.state.email}
             onChange={this.handleInputChange}
-          />
+          >
+            <Icon>email</Icon>
+          </Input>
+
+          <Input
+            m={6}
+            s={12}
+            label="Phone"
+            name="phone"
+            defaultValue={this.state.phone}
+            onChange={this.handleInputChange}
+          >
+            <Icon>phone</Icon>
+          </Input>
         </Row>
       </Modal>
     );
