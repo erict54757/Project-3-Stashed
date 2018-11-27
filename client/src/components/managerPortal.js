@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel, Input, Icon, Button } from "react-materialize";
+import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
-// import { Link } from "react-router-dom";
+
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
@@ -82,18 +82,6 @@ class ManagerPortal extends Component {
     });
   };
 
-  getCustomerName = id => {
-    let custName = "";
-    API.getCustomerName(id)
-      .then(res => {
-        custName = res.data.first_name;
-      })
-      .then(() => {
-        return custName;
-      })
-      .catch(err => console.log(err));
-  };
-
   render() {
     const filteredAppointments = this.state.Appointments.filter(appointment => {
       return (
@@ -101,8 +89,6 @@ class ManagerPortal extends Component {
         appointment.EmployeeId === this.state.employee.id
       );
     });
-
-    console.log(this.getCustomerName("6"));
 
     return (
       <div className="container white">

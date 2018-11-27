@@ -48,7 +48,7 @@ class NewAppointment extends Component {
       EmployeeId: this.state.employeeId
     })
       .then(res => console.log(res))
-      .then(res => this.setState(this.initilstate))
+      .then(res => this.setState(this.initialstate))
       .catch(err => console.log(err));
   };
 
