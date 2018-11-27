@@ -4,9 +4,7 @@ import API from "../utils/API";
 import "jquery";
 import moment from "moment";
 import "materialize-css/dist/js/materialize.js";
-
 import "./NewAppointment.css";
-// import { deflateRaw } from "zlib";
 
 class NewAppointment extends Component {
   initilstate = {
@@ -113,13 +111,12 @@ class NewAppointment extends Component {
                   className="modalDrop"
                 >
                   {this.state.employees.map(employee => (
-                    <option key={employee.id} value={employee.id}>
-                      {employee.firstName} {employee.lastname}
+                    <option id="name" key={employee.id} value={employee.id}>
+                      {employee.first_name} {employee.last_name}
                     </option>
                   ))}
                 </Input>
 
-                {/* <span><Icon>access_time</Icon></span> */}
                 <Input
                   name="time"
                   label="Choose a Time"
