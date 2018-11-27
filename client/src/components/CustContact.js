@@ -59,7 +59,6 @@ sendEmail= (event)=>{
    this.resetState());
   
 }
-
   render() {
     return (
       <div className="container ">
