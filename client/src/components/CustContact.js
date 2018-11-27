@@ -4,17 +4,23 @@ import { Row, Input, Button } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-
+import API from "../utils/API";
 import "./CustContact.css";
 
 class CustContact extends Component {
-  state = {
-    subject: "",
-    message: "",
-    email: "",
-    phoneNumber: ""
-  };
+  constructor() {
+    super();
 
+    this.state = {
+      subject: "",
+      message: "",
+      email: "",
+      phoneNumber: ""
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSendEmail = this.handleSendEmail.bind(this);
+  }
   handleInputChange = event => {
     event.preventDefault();
     // Getting the value and name of the input which triggered the change
@@ -27,8 +33,24 @@ class CustContact extends Component {
     });
   };
   handleSendEmail = event => {
-    event.preventDefault();
-    // this.sendEmail(this.state);
+    // event.preventDefault();
+    this.sendEmail(this.state);
+  };
+  resetState = () => {
+    this.setState({
+      subject: "",
+      message: "",
+      email: "",
+      phoneNumber: ""
+    });
+  };
+  sendEmail = event => {
+    API.sendEmail(event, {
+      email: this.state.email,
+      phoneNumber: this.state.phoneNumber,
+      subject: this.state.subject,
+      message: this.state.message
+    }).then(this.resetState());
   };
   render() {
     return (
@@ -78,6 +100,7 @@ class CustContact extends Component {
                 type="email"
                 name="email"
                 placeholder="Your Email"
+                value={this.state.email}
                 onChange={this.handleInputChange}
               />
 
@@ -87,6 +110,7 @@ class CustContact extends Component {
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
+                value={this.state.phoneNumber}
                 onChange={this.handleInputChange}
               />
             </Row>

@@ -4,10 +4,10 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const path = require("path");
-
+const nodemailer = require ("nodemailer")
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+//  const app.post require ("./routes/nodemailer/nodmailer.js") // trying to figure out the best way to import nodemailer instead of in server
 const db = require("./models");
 const passport = require("./utils/passport");
 const routes = require("./routes");
@@ -25,6 +25,47 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 
+app.post("/api/sendEmail", (req,res)=>{
+  
+nodemailer.createTestAccount((err,account) =>{
+  const htmlEmail =`
+  <h3>Contact Details<h3>
+  <ul>
+  <li>email:${req.body.email}</li>
+  <li>Phone Number:${req.body.phoneNumber}</li>
+  </ul>
+  <h3>Message<h3>
+  <p>${req.body.message}</p>
+  `
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'zcfazcezslhhk5ns@ethereal.email',
+        pass: 'cfYHFnaERfDWRtrNRd'
+    }
+});
+
+const mailOptions = {
+  from: req.body.email, // sender address
+  to: 'zcfazcezslhhk5ns@ethereal.email', // list of receivers
+  subject: req.body.subject, // Subject line
+  text: req.body.message,
+  html: htmlEmail// plain text body
+};
+transporter.sendMail(mailOptions, (res, err, info) =>{
+  if(err){
+    return console.log(err)
+  }
+
+res.json
+  console.log("message sent: %s", info.message)
+  console.log("Message URL: %s", nodemailer.getTestMessageUrl(info))
+})
+
+})
+})
+//nodemailer above
 app.post("/login", (req, res) => {
   const { email, password, type } = req.body;
 

@@ -22,4 +22,9 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  // sendEmail: function(req, res) {
+  //   console.log(req.body)
+  //   .then(something => res.json(something))
+  //   .catch(err => res.status(422).json(err));
+  // }
 };
