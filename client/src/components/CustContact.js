@@ -119,7 +119,6 @@ sendEmail= (event)=>{
           </h3>
           <h4 className="center">Contact Us</h4>
 
-<<<<<<< HEAD
           <div
             className="col l8 m8 s12 offset-l2 offset-m2 center formEmail"
             
@@ -127,13 +126,6 @@ sendEmail= (event)=>{
        
               <input s={12}
                  className={shouldMarkError('subject') ? "error" : ""}
-=======
-          <div className="col l8 m8 s12 offset-l2 offset-m2 center formEmail">
-            <div className="form-group">
-              <Input
-                s={12}
-                className="rounded form-control"
->>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 type="text"
                 name="subject"
                 value={this.state.subject}
@@ -142,17 +134,10 @@ sendEmail= (event)=>{
                 onBlur={this.handleBlur('subject')}
                 placeholder="Subject"
               />
-<<<<<<< HEAD
             
     
               <textarea className={shouldMarkError('message') ? "error" : ""}
               value={this.state.message}
-=======
-            </div>
-            <div className="form-group">
-              <textarea
-                value={this.state.message}
->>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 name="message"
                 type="text"
                 placeholder="Message"
@@ -171,13 +156,8 @@ sendEmail= (event)=>{
             {/* <!-- set the reply-to address --> */}
             <Row>
               <Input
-<<<<<<< HEAD
               s={6}
                 className={shouldMarkError('email') ? "error" : "rounded form-control"}
-=======
-                s={6}
-                className="rounded form-control"
->>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 type="email"
                 name="email"
                 placeholder="Your Email"
@@ -187,13 +167,8 @@ sendEmail= (event)=>{
               />
 
               <Input
-<<<<<<< HEAD
               s={6}
               className={shouldMarkError('phoneNumber') ? "error" : "rounded form-control"}
-=======
-                s={6}
-                className="rounded form-control"
->>>>>>> 5e9eb7ecde2a58c5c30cf2217eeef1bf92ba5d99
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
