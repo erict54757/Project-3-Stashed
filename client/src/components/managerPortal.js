@@ -223,7 +223,7 @@ class ManagerPortal extends Component {
                               key={appointment.id}
                             >
                               <div>
-                                {appointment.CustomerId} {appointment.date}{" "}
+                                {appointment.Customer.first_name} {appointment.date}{" "}
                                 {appointment.time}
                                 <span
                                   onClick={() =>
