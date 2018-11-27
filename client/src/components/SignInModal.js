@@ -2,25 +2,20 @@ import React, { Component } from "react";
 import { Modal, Button, Row, Input } from "react-materialize";
 import API from "../utils/API";
 import Auth from "../utils/auth";
-// import { Link, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
 import "./SignInModal.css";
 class SignInModal extends Component {
-  initialstate = {
+  state = {
     email: "",
     password: "",
     type: "",
-    isLoggedIn: false,
-    isAdmin: false,
-    isEmployee: false,
-    isCustomer: false,
     employees: [],
-    customers: []
+    customers: [],
+    loggedIn: ""
   };
-
-  state = this.initialstate;
 
   componentDidMount() {
     this.loadEmployees();
@@ -64,8 +59,11 @@ class SignInModal extends Component {
         const token = response.token.split(" ")[1];
         const name = response.name;
         const id = response.id;
-        Auth.login(token, name, id);
+        const isEmp = response.isEmp;
+        const isCust = response.isCust;
+        Auth.login(token, name, id, isEmp, isCust);
       })
+      .then(res => this.setState({ loggedIn: "1" }))
       .catch(error => console.error("Error:", error));
   };
 
@@ -77,15 +75,17 @@ class SignInModal extends Component {
   };
 
   render() {
+    if (this.state.loggedIn === "1") {
+      return <Redirect to="/customer" />;
+    }
     return (
       <Modal
         actions={
           <div>
-            
             <Button
               id="sign-in"
               type="button"
-              className="btn  blue"
+              className="btn  blue modal-close"
               onClick={this.handleFormSubmit}
             >
               Login

@@ -4,7 +4,7 @@ import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
 import EmpApptUpdateModal from "./empApptUpdateModal.js";
-import EmployeeSchedule from "./employeeSchedule";
+
 import API from "../utils/API";
 import "./DumbApptCard.css";
 

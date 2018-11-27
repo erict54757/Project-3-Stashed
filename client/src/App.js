@@ -17,7 +17,9 @@ class App extends React.Component {
   state = {
     token: Auth.getToken(),
     name: Auth.getName(),
-    id: Auth.getId()
+    id: Auth.getId(),
+    isEmp: Auth.getIsEmp(),
+    isCust: Auth.getIsCust()
   };
 
   componentDidMount() {
@@ -33,37 +35,24 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route
-              exact
-              path="/"
-              component={Customer}
-              token={this.state.token}
-              name={this.state.name}
-              id={this.state.id}
-            />
+            <Route exact path="/" render={() => <Customer />} />
             <PrivateRoute
               exact
               path="/employee"
               component={Employee}
               token={this.state.token}
-              name={this.state.name}
-              id={this.state.id}
             />
             <PrivateRoute
               exact
               path="/admin"
               component={Admin}
               token={this.state.token}
-              name={this.state.name}
-              id={this.state.id}
             />
             <PrivateRoute
               exact
               path="/customer"
               component={Customer}
               token={this.state.token}
-              name={this.state.name}
-              id={this.state.id}
             />
           </Switch>
         </div>
@@ -72,12 +61,17 @@ class App extends React.Component {
   }
 }
 
-const PrivateRoute = ({ component: Component, token, name, id, ...rest }) => (
+const PrivateRoute = ({
+  component: Component,
+  token,
+
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props =>
       token ? (
-        <Component {...props} token={token} name={name} id={id} />
+        <Component {...props} token={token} />
       ) : (
         <Redirect
           to={{
