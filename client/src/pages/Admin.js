@@ -1,34 +1,52 @@
 import React, { Component } from "react";
-// import { Link, Route } from "react-router-dom";
+import Auth from "../utils/auth";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import "./Admin.css";
-
+import { Redirect } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import ManagerPortal from "../components/managerPortal";
 import PortalFooter from "../components/PortalFooter";
-import Customer from "../pages/Customer";
 
 class Admin extends Component {
+  state = {
+    token: Auth.getToken(),
+    name: Auth.getName(),
+    id: Auth.getId(),
+    isEmp: Auth.getIsEmp(),
+    isCust: Auth.getIsCust()
+  };
+
   render() {
     return (
       <div>
-        {this.props.token && this.props.name === "Admin" ? (
+        {this.state.token &&
+        this.state.isEmp === "true" &&
+        this.state.name === "Admin" ? (
           [
             <NavBar
-              name={this.props.name}
-              id={this.props.id}
+              key={"1"}
+              token={this.state.token}
+              name={this.state.name}
+              id={this.state.id}
               background={"black"}
+              textColor={"white-text"}
             />,
             <ManagerPortal
-              name={this.props.name}
-              id={this.props.id}
-              token={this.props.token}
+              key={"2"}
+              name={this.state.name}
+              id={this.state.id}
+              token={this.state.token}
             />,
-            <PortalFooter />
+            <PortalFooter key={"3"} />
           ]
         ) : (
-          <Customer token={this.props.token} background={"white"} />
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: this.props.location }
+            }}
+          />
         )}
       </div>
     );
