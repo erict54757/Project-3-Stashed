@@ -246,10 +246,6 @@ class ManagerPortal extends Component {
                               key={appointment.id}
                             >
                               <div>
-<<<<<<< HEAD
-                                {appointment.Customer.first_name} {appointment.date}{" "}
-                                {appointment.time}
-=======
                                 {this.state.Customers.filter(customer => {
                                   return customer.id === appointment.CustomerId;
                                 }).map(cust => (
@@ -260,7 +256,6 @@ class ManagerPortal extends Component {
                                 <div>
                                   {appointment.date} {appointment.time}
                                 </div>
->>>>>>> 7ecc3eca9c050216057ceecf60fd8161229fcba8
                                 <span
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)
