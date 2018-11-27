@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
-<<<<<<< HEAD
-=======
-
->>>>>>> f47668f1a5208d1007a1a9dab52bad4c1362580a
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
