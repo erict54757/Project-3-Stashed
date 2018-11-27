@@ -6894,7 +6894,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 html {
   position: relative;
   min-height: 100%;
-  background-color: #f6f8fa; }
+  }
 
 body {
   /* Margin bottom by footer height */
