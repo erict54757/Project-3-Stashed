@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
+<<<<<<< HEAD
+=======
 
+>>>>>>> f47668f1a5208d1007a1a9dab52bad4c1362580a
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
@@ -150,7 +153,9 @@ class ManagerPortal extends Component {
                           className="material-icons red-text right"
                           onClick={() => this.deleteEmployee(employee.id)}
                         >
-                          X
+                         <i className="material-icons red-text">
+                                    clear
+                                  </i>
                         </span>
                       </li>
                     ))}
@@ -164,11 +169,12 @@ class ManagerPortal extends Component {
 
               <Col
                 s={12}
-                m={7}
+                m={8}
                 id="employeeInfo"
                 className="lighten-4 black-text"
+                
               >
-                <CardPanel className="z-depth-2">
+                <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
                   {this.state.employee ? (
                     <div>
                       <h4>Employee Information</h4>
@@ -195,11 +201,11 @@ class ManagerPortal extends Component {
               </Col>
               <Col
                 s={12}
-                m={7}
+                m={8}
                 id="employeeSchedule"
                 className="lighten-4 black-text"
               >
-                <CardPanel className="z-depth-2 employeeSchedule">
+                <CardPanel className="z-depth-2 employeeSchedule" style={{ marginRight: "10px" }}>
                   <Row className="employeeSchedule">
                     <h4>Employee Schedule</h4>
 
@@ -231,18 +237,19 @@ class ManagerPortal extends Component {
                               className="collection-item"
                               key={appointment.id}
                             >
-                              <div>
+                              <div className="row">
                                 {this.state.Customers.filter(customer => {
                                   return customer.id === appointment.CustomerId;
                                 }).map(cust => (
-                                  <div>
+                                  <div className="col m4 s12" style={{ fontSize: "1.3rem" }}>
                                     {cust.first_name} {cust.last_name}
                                   </div>
                                 ))}
-                                <div>
+                                <div className="col m6 s12" style={{ fontSize: "1.3rem" }}>
                                   {appointment.date} {appointment.time}
                                 </div>
                                 <span
+                                className="col m2 s12"
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)
                                   }
