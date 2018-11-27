@@ -20,15 +20,5 @@ module.exports = {
     db.Customer.update(req.body, { where: { id: req.params.id } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  findOne: function(req, res) {
-    db.Customer.findOne({ where: { id: req.params.id } })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.json(err));
   }
-  // sendEmail: function(req, res) {
-  //   console.log(req.body)
-  //   .then(something => res.json(something))
-  //   .catch(err => res.status(422).json(err));
-  // }
 };

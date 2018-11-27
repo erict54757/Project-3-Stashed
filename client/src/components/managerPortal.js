@@ -159,9 +159,9 @@ class ManagerPortal extends Component {
                           <span className="secondary-content"> </span>
                         </div>
                         <span
+                          style={{ marginRight: "10px" }}
                           waves="light"
                           className="material-icons red-text right"
-                          style={{ marginRight: "10px" }}
                           onClick={() => this.deleteEmployee(employee.id)}
                         >
                           X
@@ -209,12 +209,12 @@ class ManagerPortal extends Component {
               </Col>
               <Col
                 s={12}
-                m={8}
+                m={7}
                 id="employeeSchedule"
                 className="lighten-4 black-text"
               >
                 <CardPanel className="z-depth-2 employeeSchedule">
-                  <Row className="center employeeSchedule">
+                  <Row className="employeeSchedule">
                     <h4>Employee Schedule</h4>
 
                     <Col className="date center" s={12}>

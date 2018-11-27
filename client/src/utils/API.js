@@ -25,9 +25,6 @@ export default {
   getCustomers: function() {
     return axios.get("/api/customers");
   },
-  getCustomerName: function(id) {
-    return axios.get("/api/customers/" + id);
-  },
   // sends updated customer data and corresponding appointment data. must update both customer and appointment
   updateCustomer: function(id, customerData) {
     return axios.put("/api/customers/" + id, customerData);
