@@ -58,7 +58,6 @@ class SignUpModal extends Component {
           actions={
             <div>
               <Button
-                style={{ marginLeft: "5px" }}
                 type="submit"
                 waves="light"
                 id="add-account"
@@ -67,7 +66,7 @@ class SignUpModal extends Component {
               >
                 Submit
               </Button>
-              <Button className="blue" modal="close" waves="light">
+              <Button style={{ marginLeft: "5px" }} className="blue" modal="close" waves="light">
                 Close
               </Button>
             </div>
