@@ -1,7 +1,7 @@
 .error { border: 2px solid red; 
     border-bottom-color: red;
     box-shadow: red;
-    -moz-user-focus: inherit;
+   background-color: red
     
 
 }
