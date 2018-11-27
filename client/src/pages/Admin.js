@@ -2,8 +2,7 @@ import React, { Component } from "react";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-import "./Admin.css"
-
+import "./Admin.css";
 
 import NavBar from "../components/NavBar";
 import ManagerPortal from "../components/managerPortal";
@@ -11,29 +10,25 @@ import PortalFooter from "../components/PortalFooter";
 import Customer from "../pages/Customer";
 
 class Admin extends Component {
-  state = {
-    isAdmin: true,
-    isLoggedIn: true,
-    user: {
-      id: 1,
-      name: "Eric"
-    }
-  };
   render() {
     return (
-      <div >
-        {(this.state.isLoggedIn && this.state.isAdmin) ||
-        (this.state.isAdmin && this.state.isLoggedIn) ? (
+      <div>
+        {this.props.token && this.props.name === "Admin" ? (
           [
-            <NavBar user={this.state.user} background={"black"} />,
-            <ManagerPortal
-              user={this.state.user}
-              isLoggedIn={this.state.isLoggedIn}
+            <NavBar
+              name={this.props.name}
+              id={this.props.id}
+              background={"black"}
             />,
-            <PortalFooter user={this.state.user} />
+            <ManagerPortal
+              name={this.props.name}
+              id={this.props.id}
+              token={this.props.token}
+            />,
+            <PortalFooter />
           ]
         ) : (
-          <Customer background={"white"} />
+          <Customer token={this.props.token} background={"white"} />
         )}
       </div>
     );
