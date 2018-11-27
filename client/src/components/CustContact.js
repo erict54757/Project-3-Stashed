@@ -7,13 +7,13 @@ import "materialize-css/dist/js/materialize.js";
 import API from "../utils/API";
 import "./CustContact.css";
 
-function validate(email, message,subject, phoneNumber) {
+function validate(subject, message,email, phoneNumber) {
   // true means invalid, so our conditions got reversed
   return {
-    email: email.length === 0,
-    phoneNumber: phoneNumber.length === 0,
-    message: message.length === 0,
     subject: subject.length === 0,
+   message: message.length === 0,
+     phoneNumber: phoneNumber.length === 0,
+    email: email.length === 0
   };
 }
 
@@ -31,8 +31,8 @@ class CustContact extends Component {
      
     }, subject:"",
     message:"",
-    email:"",
     phoneNumber:"",
+    email:""
 };
 
 
@@ -60,7 +60,7 @@ handleInputChange = event => {
 handleSendEmail = event => {
   if (!this.canBeSubmitted()) {
    
-    const { email, message,phoneNumber, subject } = this.state;
+    const {subject, message,email,  phoneNumber } = this.state;
     alert(`Signed up with email: ${email} subject: ${subject}`);
     return;
   } this.sendEmail(this.state);
@@ -75,13 +75,15 @@ resetState= ()=>{
   this.setState({
       subject:"",
       message:"",
-      email:"",
       phoneNumber:"",
+      email:""
+      ,
      touched: {
-      email:false,
+       subject:false,
       message:false,
-      phoneNumber:false,
-      subject:false}
+      email:false,
+      phoneNumber:false
+      }
 
 })}
 sendEmail= (event)=>{
@@ -157,7 +159,7 @@ sendEmail= (event)=>{
             <Row>
               <Input
               s={6}
-                className={shouldMarkError('email') ? "error" : "rounded form-control"}
+                className={shouldMarkError('email') ? "error" : ""}
                 type="email"
                 name="email"
                 placeholder="Your Email"
@@ -168,7 +170,7 @@ sendEmail= (event)=>{
 
               <Input
               s={6}
-              className={shouldMarkError('phoneNumber') ? "error" : "rounded form-control"}
+              className={shouldMarkError('phoneNumber') ? "error" : ""}
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
