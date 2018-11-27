@@ -82,18 +82,6 @@ class ManagerPortal extends Component {
     });
   };
 
-  getCustomerName = id => {
-    let custName = "";
-    API.getCustomerName(id)
-      .then(res => {
-        custName = res.data.first_name;
-      })
-      .then(() => {
-        return custName;
-      })
-      .catch(err => console.log(err));
-  };
-
   render() {
     const filteredAppointments = this.state.Appointments.filter(appointment => {
       return (
@@ -101,8 +89,6 @@ class ManagerPortal extends Component {
         appointment.EmployeeId === this.state.employee.id
       );
     });
-
-    console.log(this.getCustomerName("6"));
 
     return (
       <div className="container white">
@@ -164,7 +150,9 @@ class ManagerPortal extends Component {
                           className="material-icons red-text right"
                           onClick={() => this.deleteEmployee(employee.id)}
                         >
-                          X
+                         <i className="material-icons red-text">
+                                    clear
+                                  </i>
                         </span>
                       </li>
                     ))}
@@ -178,11 +166,12 @@ class ManagerPortal extends Component {
 
               <Col
                 s={12}
-                m={7}
+                m={8}
                 id="employeeInfo"
                 className="lighten-4 black-text"
+                
               >
-                <CardPanel className="z-depth-2">
+                <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
                   {this.state.employee ? (
                     <div>
                       <h4>Employee Information</h4>
@@ -209,11 +198,11 @@ class ManagerPortal extends Component {
               </Col>
               <Col
                 s={12}
-                m={7}
+                m={8}
                 id="employeeSchedule"
                 className="lighten-4 black-text"
               >
-                <CardPanel className="z-depth-2 employeeSchedule">
+                <CardPanel className="z-depth-2 employeeSchedule" style={{ marginRight: "10px" }}>
                   <Row className="employeeSchedule">
                     <h4>Employee Schedule</h4>
 
@@ -245,18 +234,19 @@ class ManagerPortal extends Component {
                               className="collection-item"
                               key={appointment.id}
                             >
-                              <div>
+                              <div className="row">
                                 {this.state.Customers.filter(customer => {
                                   return customer.id === appointment.CustomerId;
                                 }).map(cust => (
-                                  <div>
+                                  <div className="col m4 s12" style={{ fontSize: "1.3rem" }}>
                                     {cust.first_name} {cust.last_name}
                                   </div>
                                 ))}
-                                <div>
+                                <div className="col m6 s12" style={{ fontSize: "1.3rem" }}>
                                   {appointment.date} {appointment.time}
                                 </div>
                                 <span
+                                className="col m2 s12"
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)
                                   }
