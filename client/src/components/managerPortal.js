@@ -7,7 +7,7 @@ import "materialize-css/dist/js/materialize.js";
 
 import moment from "moment";
 import API from "../utils/API";
-import "./managerPortal.css"
+import "./managerPortal.css";
 
 class ManagerPortal extends Component {
   state = {
@@ -17,13 +17,21 @@ class ManagerPortal extends Component {
     Customers: [],
     filtered: [],
     employees: [],
-    employee: []
+    employee: [],
+    custName: ""
   };
 
   componentDidMount() {
     this.loadEmployees();
     this.loadAppointments();
+    this.getCustomers();
   }
+
+  getCustomers = () => {
+    API.getCustomers()
+      .then(res => this.setState({ Customers: res.data }))
+      .catch(err => console.log(err));
+  };
 
   loadEmployees = () => {
     API.getEmployees()
@@ -74,6 +82,18 @@ class ManagerPortal extends Component {
     });
   };
 
+  getCustomerName = id => {
+    let custName = "";
+    API.getCustomerName(id)
+      .then(res => {
+        custName = res.data.first_name;
+      })
+      .then(() => {
+        return custName;
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     const filteredAppointments = this.state.Appointments.filter(appointment => {
       return (
@@ -81,13 +101,19 @@ class ManagerPortal extends Component {
         appointment.EmployeeId === this.state.employee.id
       );
     });
+
+    console.log(this.getCustomerName("6"));
+
     return (
       <div className="container white">
         <div
           className="row z-depth-5 manager white"
           style={{ marginTop: "25px", marginBottom: "25px" }}
         >
-          <ul id="tabs-swipe-demo" className="tabs black white-text managerTabs z-depth-5">
+          <ul
+            id="tabs-swipe-demo"
+            className="tabs black white-text managerTabs z-depth-5"
+          >
             <li className="tab col s3">
               <a className="white-text" href="#employeeInfo">
                 Employee Information
@@ -110,7 +136,6 @@ class ManagerPortal extends Component {
               <Col
                 s={12}
                 m={4}
-               
                 className="lighten-4 black-text center employeeList"
               >
                 {this.state.employees.length ? (
@@ -119,26 +144,35 @@ class ManagerPortal extends Component {
                       <h5 className="center">Employees</h5>
                     </li>
                     {this.state.employees.map(employee => (
-                      <li className="collection-item col s12" style={{padding: "0"}} key={employee.id}>
+                      <li
+                        className="collection-item col s12"
+                        style={{ padding: "0" }}
+                        key={employee.id}
+                      >
                         <div
-                        style={{fontSize: "1.3rem", marginTop: "7px"}}
-                        className="left"
+                          style={{ fontSize: "1.3rem", marginTop: "7px" }}
+                          className="left"
                           onClick={() => this.changeEmployee(employee)}
                           href={"/employees/" + employee.id}
                         >
                           {employee.first_name} {employee.last_name}
-                          <span
-                          
-                            className="secondary-content"
-                          > </span></div>
-                            <Button waves="light" className="material-icons red-text right"  onClick={() => this.deleteEmployee(employee.id)}>X</Button>
-                         
-                        
+                          <span className="secondary-content"> </span>
+                        </div>
+                        <span
+                          waves="light"
+                          className="material-icons red-text right"
+                          style={{ marginRight: "10px" }}
+                          onClick={() => this.deleteEmployee(employee.id)}
+                        >
+                          X
+                        </span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p style={{marginLeft: "5px"}} className="left">No Employees to Display</p>
+                  <p style={{ marginLeft: "5px" }} className="left">
+                    No Employees to Display
+                  </p>
                 )}
               </Col>
 
@@ -179,18 +213,16 @@ class ManagerPortal extends Component {
                 id="employeeSchedule"
                 className="lighten-4 black-text"
               >
-                <CardPanel  className="z-depth-2 employeeSchedule">
+                <CardPanel className="z-depth-2 employeeSchedule">
                   <Row className="center employeeSchedule">
-                    
-                      <h4>Employee Schedule</h4>
-                   
+                    <h4>Employee Schedule</h4>
 
-                    <Col className="date center"
-                        s={12} 
-                    > <Col s={1} m={2} l={2}></Col>
-                    
+                    <Col className="date center" s={12}>
+                      {" "}
+                      <Col s={1} m={2} l={2} />
                       <Input
-                      s={12} l={8}
+                        s={12}
+                        l={8}
                         className="center "
                         name="date"
                         type="date"
@@ -199,13 +231,13 @@ class ManagerPortal extends Component {
                         onChange={this.handleInputChange}
                       >
                         <Icon>date_range</Icon>
-                      </Input> <Col s={1} m={2} l={2}></Col>
+                      </Input>{" "}
+                      <Col s={1} m={2} l={2} />
                     </Col>
-                   
                   </Row>
 
                   <Row className="center">
-                    <Col s={12}  className="lighten-4 black-text ">
+                    <Col s={12} className="lighten-4 black-text ">
                       {filteredAppointments.length ? (
                         <ul className="collection with-header">
                           {filteredAppointments.map(appointment => (
@@ -214,8 +246,16 @@ class ManagerPortal extends Component {
                               key={appointment.id}
                             >
                               <div>
-                                {appointment.CustomerId} {appointment.date}{" "}
-                                {appointment.time}
+                                {this.state.Customers.filter(customer => {
+                                  return customer.id === appointment.CustomerId;
+                                }).map(cust => (
+                                  <div>
+                                    {cust.first_name} {cust.last_name}
+                                  </div>
+                                ))}
+                                <div>
+                                  {appointment.date} {appointment.time}
+                                </div>
                                 <span
                                   onClick={() =>
                                     this.deleteAppointment(appointment.id)

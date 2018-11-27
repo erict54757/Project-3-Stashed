@@ -25,6 +25,9 @@ export default {
   getCustomers: function() {
     return axios.get("/api/customers");
   },
+  getCustomerName: function(id) {
+    return axios.get("/api/customers/" + id);
+  },
   // sends updated customer data and corresponding appointment data. must update both customer and appointment
   updateCustomer: function(id, customerData) {
     return axios.put("/api/customers/" + id, customerData);
@@ -44,7 +47,7 @@ export default {
   deleteAppointment: function(id) {
     return axios.delete("/api/appointments/" + id);
   },
-  sendEmail: function(emailData){
+  sendEmail: function(emailData) {
     return axios.post("/api/sendEmail", emailData);
   }
 };
