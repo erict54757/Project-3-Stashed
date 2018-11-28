@@ -19,10 +19,8 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "@mapbox/polyline": "^1.0.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "google-maps-react": "^2.0.2",
+    "express": "^4.16.3",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
@@ -36,7 +34,6 @@
     "react-dom": "^16.6.1",
     "react-google-maps": "^9.4.5",
     "react-materialize": "^2.4.8",
-    "react-native": "^0.57.5",
     "react-scripts": "^2.1.1",
     "sass": "^1.15.1",
     "sequelize": "^4.41.2"
