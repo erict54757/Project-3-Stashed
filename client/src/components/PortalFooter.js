@@ -24,7 +24,7 @@ class PortalFooter extends Component {
   <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Charlotte Barber & Beard </h5>
                 <ul>
-                  <li className="white-text">Address: 1200 The Plaza Suite B</li>
+                  <li className="white-text">1200 The Plaza Suite B</li>
                   <li className="white-text">Charlotte, NC 28205</li>
                   <li className="white-text"
                   type="telephone">(704) 595-7795</li>
