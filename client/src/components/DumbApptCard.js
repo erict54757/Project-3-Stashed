@@ -26,7 +26,7 @@ class Appointment extends Component {
 
     return (
       <Card
-        className="blue-grey darken-1 cardBody z-depth-5"
+        className="blue-grey darken-1 cardBody z-depth-5 col s12"
         textClassName="white-text"
       >
         {filterCustomer.map(customer => (

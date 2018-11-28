@@ -91,7 +91,7 @@ class EmployeeSchedule extends React.Component {
         >
           {filteredAppointments.length ? (
             filteredAppointments.map(appointment => (
-              <div className="col s12 m6 l4" key={appointment.id}>
+              <div className="col s12 m6 l4 center" key={appointment.id}>
                 <Appointment
                   customers={this.state.customers}
                   id={appointment.id}
