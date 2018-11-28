@@ -137,27 +137,27 @@ class EmployeeScheduleModal extends Component {
             onChange={this.handleInputChange}
             className="modalDrop"
           >
-            <option value="8AM">8:00AM</option>
+            <option value="8:00AM">8:00AM</option>
 
-            <option value="9AM">9:00AM</option>
+            <option value="9:00AM">9:00AM</option>
 
-            <option value="10AM">10:00AM</option>
+            <option value="10:00AM">10:00AM</option>
 
-            <option value="11AM">11:00AM</option>
+            <option value="11:00AM">11:00AM</option>
 
-            <option value="12PM">12:00PM</option>
+            <option value="12:00PM">12:00PM</option>
 
-            <option value="1PM">1:00PM</option>
+            <option value="1:00PM">1:00PM</option>
 
-            <option value="2PM">2:00PM</option>
+            <option value="2:00PM">2:00PM</option>
 
-            <option value="3PM">3:00PM</option>
+            <option value="3:00PM">3:00PM</option>
 
-            <option value="4PM">4:00PM</option>
+            <option value="4:00PM">4:00PM</option>
 
-            <option value="5PM">5:00PM</option>
+            <option value="5:00PM">5:00PM</option>
 
-            <option value="6PM">6:00PM</option>
+            <option value="6:00PM">6:00PM</option>
           </Input>
           <Input
             m={12}
