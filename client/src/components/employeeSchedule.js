@@ -83,7 +83,7 @@ class EmployeeSchedule extends React.Component {
             </Input>
           </Col>
         </Row>
-
+<div>
         <Row
           className="center"
           style={{ paddingLeft: "3%", paddingRight: "3%" }}
@@ -109,6 +109,7 @@ class EmployeeSchedule extends React.Component {
             </div>
           )}
         </Row>
+        </div>
       </div>
     );
   }
