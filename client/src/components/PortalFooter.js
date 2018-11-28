@@ -36,8 +36,9 @@ class PortalFooter extends Component {
         
   
 </div>
-    )
+    
     );
   }
 }
+
 export default PortalFooter;
