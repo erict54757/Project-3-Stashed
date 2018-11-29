@@ -1,20 +1,27 @@
-.index-banner{ 
-    position: absolute;
+#index-banner{
     height: 250px;
     width: 100%;
-    top: 1000px;
+    top: 30%;
    
-   
+    position: absolute;
 
 }
 
 .special{
-    width: 100%;
-    top: 45%;
- position: absolute;
+position: absolute;
+top: 165%;     
+left: 50%;
+transform: translate(-50%, -50%);
+ }
 
-}
-
- .appoint{
+.appoint{
     height: 33%;
-} 
+}
+@media screen and (max-width: 603px){
+    .special{
+        position: absolute;
+        top: 205%;     
+        left: 50%;
+        transform: translate(-50%, -50%);
+         }
+}
