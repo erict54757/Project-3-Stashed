@@ -123,7 +123,7 @@ sendEmail= (event)=>{
           >
            
               <Input s={12}
-              className={shouldMarkError('subject') ? "red lighten-2" : ""}
+              className={shouldMarkError('subject') ? "invalid error lighten-2" : ""}
                 type="text"
                 name="subject"
                 value={this.state.subject}
@@ -137,7 +137,7 @@ sendEmail= (event)=>{
        
               <textarea className="col s12"
               value={this.state.message}
-              className={shouldMarkError('message') ? "red lighten-2" : ""}
+              className={shouldMarkError('message') ? "invalid" : ""}
                 name="message"
                 type="text"
                 placeholder="Message"
@@ -158,7 +158,7 @@ sendEmail= (event)=>{
      
               <Input
               s={6}
-              className={shouldMarkError('email') ? "red lighten-2" : ""}
+              className={shouldMarkError('email') ? "invalid" : ""}
                 type="email"
                 name="email"
                 placeholder="Your Email"
@@ -169,7 +169,7 @@ sendEmail= (event)=>{
 
               <Input
               s={6}
-              className={shouldMarkError('phoneNumber') ? "red lighten-2" : ""}
+              className={shouldMarkError('phoneNumber') ? "invalid" : ""}
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"

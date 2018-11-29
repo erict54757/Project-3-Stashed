@@ -127,7 +127,7 @@ class SignUpModal extends Component {
               value={this.state.firstName}
               onChange={this.handleInputChange}
               onBlur={this.handleBlur('firstName')}
-              className={shouldMarkError('firstName') ? "error red lighten-2" : ""}
+              className={shouldMarkError('firstName') ? "error invalid" : ""}
               name="firstName"
               placeholder="John"
             > 
@@ -142,7 +142,7 @@ class SignUpModal extends Component {
               value={this.state.lastName}
               onBlur={this.handleBlur('lastName')}
               onChange={this.handleInputChange}
-              className={shouldMarkError('lastName') ? "error red lighten-2" : ""}
+              className={shouldMarkError('lastName') ? "error invalid" : ""}
               name="lastName"
               placeholder="Doe"
             >      
@@ -157,7 +157,7 @@ class SignUpModal extends Component {
               value={this.state.street}
               onChange={this.handleInputChange}
               onBlur={this.handleBlur('street')}
-              className={shouldMarkError('street') ? "error red lighten-2" : ""}
+              className={shouldMarkError('street') ? "error invalid" : ""}
               name="street"
               placeholder="123 Rocky Rd."
             >   
@@ -172,7 +172,7 @@ class SignUpModal extends Component {
               value={this.state.city}
               onChange={this.handleInputChange}
               onBlur={this.handleBlur('city')}
-              className={shouldMarkError('city') ? "error red lighten-2" : ""}
+              className={shouldMarkError('city') ? "error invalid" : ""}
               name="city"
               placeholder="City"
             >  
@@ -186,7 +186,7 @@ class SignUpModal extends Component {
               type="select"
               onChange={this.handleInputChange}
               onBlur={this.handleBlur('state')}
-              className={shouldMarkError('state') ? "error red lighten-2" : "modalDrop"}
+              className={shouldMarkError('state') ? "error invalid" : "modalDrop"}
             >
               <option value="AL">Alabama</option>
 
@@ -300,7 +300,7 @@ class SignUpModal extends Component {
               maxLength="5"
               onChange={this.handleInputChange}
               onBlur={this.handleBlur('zip')}
-              className={shouldMarkError('zip') ? "error red lighten-2" : ""}
+              className={shouldMarkError('zip') ? "error invalid" : ""}
               name="zip"
               placeholder="12567"
             >    

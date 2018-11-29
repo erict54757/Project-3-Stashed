@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel, Input, Icon } from "react-materialize";
+import { Row, Col, CardPanel, Input, Icon, Tab, Tabs } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -99,21 +99,51 @@ class ManagerPortal extends Component {
           className="row z-depth-5 manager white"
           style={{ marginTop: "25px", marginBottom: "25px" }}
         >
-          <ul
-            id="tabs-swipe-demo"
-            className="tabs black white-text managerTabs z-depth-5"
+          <Tabs
+           
+            className="  white-text managerTabs z-depth-5"
           >
-            <li className="tab col s3">
-              <a className="white-text" href="#employeeInfo">
-                Employee Information
-              </a>
-            </li>
-            <li className="tab col s3">
-              <a className="white-text" href="#employeeSchedule">
-                Employee Schedule
-              </a>
-            </li>
-          </ul>
+            
+              <Tab className="white-text" title="Employee Information" href="#employeeInfo">
+                Employee Information     <div
+               
+               id="employeeInfo"
+               className="col s12 m8 lighten-4 black-text"
+               
+             >
+               <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
+                 {this.state.employee ? (
+                   <div>
+                     <h4>Employee Information</h4>
+                     <h5>
+                       Name: {this.state.employee.first_name}{" "}
+                       {this.state.employee.last_name}
+                     </h5>
+                     <h5>Phone: {this.state.employee.phone}</h5>
+                     <h5>E-Mail: {this.state.employee.email}</h5>
+                     <h5>
+                       Address: {this.state.employee.street}{" "}
+                       {this.state.employee.city} {this.state.employee.state}
+                     </h5>
+                   </div>
+                 ) : (
+                   <div>
+                     <h5>Name:</h5>
+                     <h5>Phone:</h5>
+                     <h5>E-Mail:</h5>
+                     <h5>Address:</h5>
+                   </div>
+                 )}
+               </CardPanel>
+             </div>
+              </Tab>
+            
+            
+              <Tab className="white-text" title="Employee Schedule" href="#employeeSchedule">
+                Employee Schedule</Tab>
+            
+            
+          </Tabs>
           <div>
             <Row>
               <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
@@ -167,11 +197,10 @@ class ManagerPortal extends Component {
                 )}
               </Col>
 
-              <Col
-                s={12}
-                m={8}
+              <div
+               
                 id="employeeInfo"
-                className="lighten-4 black-text"
+                className="col s12 m8 lighten-4 black-text"
                 
               >
                 <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
@@ -198,7 +227,7 @@ class ManagerPortal extends Component {
                     </div>
                   )}
                 </CardPanel>
-              </Col>
+              </div>
               <Col
                 s={12}
                 m={8}

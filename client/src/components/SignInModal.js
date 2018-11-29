@@ -145,7 +145,7 @@ class SignInModal extends Component {
                 <div className="form-group">
                   <Row>
                     <Input
-                    className={shouldMarkError('type') ? "error red lighten-2" : "filled-in"}
+                    className={shouldMarkError('type') ? "error invalid" : "filled-in"}
                       name="type"
                       type="radio"
                       value="customer"
@@ -154,7 +154,7 @@ class SignInModal extends Component {
                       onBlur={this.handleBlur('type')}
                     />
                     <Input
-                    className={shouldMarkError('type') ? "error red lighten-2" : ""}
+                    className={shouldMarkError('type') ? "error invalid" : ""}
                       name="type"
                       type="radio"
                       value="employee"
@@ -168,7 +168,7 @@ class SignInModal extends Component {
                   <label>Email</label>
                   <input
                     type="text"
-                    className={shouldMarkError('email') ? "error red lighten-2" : ""}
+                    className={shouldMarkError('email') ? "error invalid" : ""}
                     value={this.state.email}
                     name="email"
                     onChange={this.handleInputChage}
@@ -179,7 +179,7 @@ class SignInModal extends Component {
                   <label>Password</label>
                   <input
                     type="password"
-                    className={shouldMarkError('password') ? "error red lighten-2" : ""} 
+                    className={shouldMarkError('password') ? "error invalid" : ""} 
                     value={this.state.password}
                     name="password"
                     onChange={this.handleInputChage}
