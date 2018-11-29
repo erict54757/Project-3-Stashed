@@ -11,9 +11,9 @@ function validate(subject, message,email, phoneNumber) {
   // true means invalid, so our conditions got reversed
   return {
     subject: subject.length === 0,
-   message: message.length === 0,
-     phoneNumber: phoneNumber.length === 0,
-    email: email.length === 0
+   message: message.length <5,
+     phoneNumber: phoneNumber.length <9,
+    email: email.length <7
   };
 }
 
@@ -96,12 +96,7 @@ sendEmail= (event)=>{
     }).then(this.resetState());
   };
   render() {
-  //   const { email, message,subject,phoneNumber } = this.state;
-  //   const isEnabled =
-  // this.state.email.length > 0 &&
-  // this.state.message.length > 0 &&
-  // this.state.subject.length > 0 &&
-  // this.state.phoneNumber.length > 9;
+  
   const errors = validate( this.state.subject, this.state.message,this.state.email, this.state.phoneNumber);
   const isDisabled = Object.keys(errors).some(x => errors[x]);
   
@@ -128,7 +123,7 @@ sendEmail= (event)=>{
           >
        
               <input s={12}
-                 className={shouldMarkError('subject') ? "error" : ""}
+                 className={shouldMarkError('subject') ? "error red lighten-3" : ""}
                 type="text"
                 name="subject"
                 value={this.state.subject}
@@ -139,7 +134,7 @@ sendEmail= (event)=>{
               />
             
     
-              <textarea className={shouldMarkError('message') ? "error" : ""}
+              <textarea className={shouldMarkError('message') ? "error red lighten-3" : ""}
               value={this.state.message}
                 name="message"
                 type="text"
@@ -161,7 +156,7 @@ sendEmail= (event)=>{
             <Row>
               <Input
               s={6}
-                className={shouldMarkError('email') ? "error" : ""}
+                className={shouldMarkError('email') ? "error red lighten-3" : ""}
                 type="email"
                 name="email"
                 placeholder="Your Email"
@@ -172,7 +167,7 @@ sendEmail= (event)=>{
 
               <Input
               s={6}
-              className={shouldMarkError('phoneNumber') ? "error" : ""}
+              className={shouldMarkError('phoneNumber') ? "error red lighten-3" : ""}
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
