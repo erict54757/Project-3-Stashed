@@ -5,8 +5,18 @@ import Auth from "../utils/auth";
 import { Redirect } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-
 import "./SignInModal.css";
+
+function validate(type, email, password) {
+  // true means invalid, so our conditions got reversed
+  return {  
+    type: type.length===0,
+    email: email.length <7,
+    password: password.length ===0
+   
+   
+  };
+}
 class SignInModal extends Component {
   state = {
     email: "",
@@ -14,9 +24,24 @@ class SignInModal extends Component {
     type: "",
     employees: [],
     customers: [],
-    loggedIn: ""
+    loggedIn: "",
+    touched: { 
+      type:false,
+       email: false,
+      password: false
+     
+    }, 
   };
-
+  handleBlur = (field) => (evt) => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true },
+    });
+  }
+  canBeSubmitted() {
+    const errors = validate(this.state.type,this.state.email, this.state.password);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
+  }
   componentDidMount() {
     this.loadEmployees();
     this.loadCustomers();
@@ -78,6 +103,14 @@ class SignInModal extends Component {
     if (this.state.loggedIn === "1") {
       return <Redirect to="/customer" />;
     }
+  const errors = validate(this.state.type, this.state.email, this.state.password);
+  const isDisabled = Object.keys(errors).some(x => errors[x]);
+  
+  const shouldMarkError = (field) => {
+    const hasError = errors[field];
+    const shouldShow = this.state.touched[field];
+    return hasError ? shouldShow : false;
+  };
     return (
       <Modal
         actions={
@@ -86,6 +119,7 @@ class SignInModal extends Component {
               id="sign-in"
               type="button"
               className="btn  blue modal-close"
+              disabled={isDisabled}
               onClick={this.handleFormSubmit}
              
             >
@@ -112,18 +146,22 @@ class SignInModal extends Component {
                 <div className="form-group">
                   <Row>
                     <Input
+                    className={shouldMarkError('type') ? "error red lighten-3" : "filled-in"}
                       name="type"
                       type="radio"
                       value="customer"
                       label="Customer"
                       onChange={this.handleInputChage}
+                      onBlur={this.handleBlur('type')}
                     />
                     <Input
+                    className={shouldMarkError('type') ? "error red lighten-3" : ""}
                       name="type"
                       type="radio"
                       value="employee"
                       label="Employee"
                       onChange={this.handleInputChage}
+                      onBlur={this.handleBlur('type')}
                     />
                   </Row>
                 </div>
@@ -131,20 +169,22 @@ class SignInModal extends Component {
                   <label>Email</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={shouldMarkError('email') ? "error red lighten-3" : ""}
                     value={this.state.email}
                     name="email"
                     onChange={this.handleInputChage}
+                    onBlur={this.handleBlur('email')}
                   />
                 </div>
                 <div className="form-group">
                   <label>Password</label>
                   <input
                     type="password"
-                    className="form-control"
+                    className={shouldMarkError('password') ? "error red lighten-3" : ""} 
                     value={this.state.password}
                     name="password"
                     onChange={this.handleInputChage}
+                    onBlur={this.handleBlur('password')}
                   />
                 </div>
               </form>
