@@ -26,10 +26,10 @@ class NavBarCust extends Component {
         right
         role="navigation"
       >
-        <NavItem>
+        <NavItem  style={{marginTop:"8px"}}>
           <SignInModal />
         </NavItem>
-        <NavItem>
+        <NavItem style={{marginTop:"8px"}}>
           <SignUpModal />
         </NavItem>
       </Navbar>

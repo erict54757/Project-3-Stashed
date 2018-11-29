@@ -87,6 +87,7 @@ class SignInModal extends Component {
               type="button"
               className="btn  blue modal-close"
               onClick={this.handleFormSubmit}
+             
             >
               Login
             </Button>

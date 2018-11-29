@@ -22,7 +22,6 @@ class CustContact extends Component {
     super();
 
   this.state = {
-   
     touched: { 
       subject: false,
      message: false,
@@ -32,7 +31,8 @@ class CustContact extends Component {
     }, subject:"",
     message:"",
     phoneNumber:"",
-    email:""
+    email:"",
+    sent: false
 };
 
 
@@ -76,7 +76,8 @@ resetState= ()=>{
       subject:"",
       message:"",
       phoneNumber:"",
-      email:""
+      email:"",
+      sent: true
       ,
      touched: {
        subject:false,
@@ -149,9 +150,10 @@ sendEmail= (event)=>{
                 onChange={this.handleInputChange}
               />
               <span className="section scrollspy">
+              {this.state.sent ?(
                 <p id="characterLeft" className="help-block ">
-                  You have {140 - this.state.message.length} characters left.
-                </p>
+                  Thank You For Contacting Us. We Will Get Back To You As Soon As Possible.
+                </p>):(<p>You have {140 - this.state.message.length} characters left.</p>)}
               </span>
            
 

@@ -31,7 +31,7 @@ class Customer extends Component {
       return <Redirect to="/employee" />;
     }
     return (
-      <div>
+      <div style={{height: "100%"}}>
         {this.state.token ? (
           <NavBar
             name={this.state.name}
