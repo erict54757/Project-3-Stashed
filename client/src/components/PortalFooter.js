@@ -9,7 +9,9 @@ import logo from "../Images/logo.jpg";
 class PortalFooter extends Component {
   render() {
     return (
-   <div   className='black footer'
+   <div  className='black portalFooter footer'
+   
+   
 >
 
 <div className="container">

@@ -20,7 +20,10 @@ class Employee extends Component {
   render() {
     console.log(this.state.isEmp === "true");
     return (
-      <div>
+      <div style={{ minHeight: "860px",
+      position:"relative",paddingBottom:"150px"}}
+      
+      >
         {this.state.token &&
         this.state.isEmp === "true" &&
         this.state.name !== "Admin" ? (

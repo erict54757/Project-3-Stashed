@@ -19,7 +19,9 @@ class Admin extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ minHeight: "860px",
+      position:"relative",paddingBottom:"300px"}}
+      >
         {this.state.token &&
         this.state.isEmp === "true" &&
         this.state.name === "Admin" ? (

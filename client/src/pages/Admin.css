@@ -1,26 +1,23 @@
 /* html{
     background-image: linear-gradient(to bottom, #cbcdcf, #959597);
 } */
-html {
+ /* html {
     position: relative;
     min-height: 100%;
-    background-color: #f6f8fa; }
+    background-color: #f6f8fa; } 
   
-   body {
+   bodyFooter {
     
-     min-height: 100%;
+     min-height: 860px;
     margin-bottom: 40px; }
-    .App{
-      min-height: 100%;
-    } 
-    
+   
+     */
   
-   #root {
-    min-height: 860px; } 
+
   
-  .footer {
+   .portalFooter {
     width: 100%;
     margin-top: 60px;
     position: absolute;
-    bottom: 0; }
-  
+     bottom: 0; }  
+ 

@@ -19,7 +19,11 @@ class ManagerPortal extends Component {
     employee: [],
     custName: ""
   };
-
+// componentWillMount(){
+//   this.loadEmployees();
+//   this.loadAppointments();
+//   this.getCustomers();
+// }
   componentDidMount() {
     this.loadEmployees();
     this.loadAppointments();
@@ -206,7 +210,7 @@ class ManagerPortal extends Component {
                     <h4>Employee Schedule</h4>
 
                     <Col className="date center" s={12}>
-                      {" "}
+                      
                       <Col s={1} m={2} l={2} />
                       <Input
                         s={12}
@@ -219,7 +223,7 @@ class ManagerPortal extends Component {
                         onChange={this.handleInputChange}
                       >
                         <Icon>date_range</Icon>
-                      </Input>{" "}
+                      </Input>
                       <Col s={1} m={2} l={2} />
                     </Col>
                   </Row>
