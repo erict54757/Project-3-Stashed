@@ -105,7 +105,6 @@ class SignInModal extends Component {
     }
   const errors = validate(this.state.type, this.state.email, this.state.password);
   const isDisabled = Object.keys(errors).some(x => errors[x]);
-  
   const shouldMarkError = (field) => {
     const hasError = errors[field];
     const shouldShow = this.state.touched[field];
@@ -146,7 +145,7 @@ class SignInModal extends Component {
                 <div className="form-group">
                   <Row>
                     <Input
-                    className={shouldMarkError('type') ? "error red lighten-3" : "filled-in"}
+                    className={shouldMarkError('type') ? "error red lighten-2" : "filled-in"}
                       name="type"
                       type="radio"
                       value="customer"
@@ -155,7 +154,7 @@ class SignInModal extends Component {
                       onBlur={this.handleBlur('type')}
                     />
                     <Input
-                    className={shouldMarkError('type') ? "error red lighten-3" : ""}
+                    className={shouldMarkError('type') ? "error red lighten-2" : ""}
                       name="type"
                       type="radio"
                       value="employee"
@@ -169,7 +168,7 @@ class SignInModal extends Component {
                   <label>Email</label>
                   <input
                     type="text"
-                    className={shouldMarkError('email') ? "error red lighten-3" : ""}
+                    className={shouldMarkError('email') ? "error red lighten-2" : ""}
                     value={this.state.email}
                     name="email"
                     onChange={this.handleInputChage}
@@ -180,7 +179,7 @@ class SignInModal extends Component {
                   <label>Password</label>
                   <input
                     type="password"
-                    className={shouldMarkError('password') ? "error red lighten-3" : ""} 
+                    className={shouldMarkError('password') ? "error red lighten-2" : ""} 
                     value={this.state.password}
                     name="password"
                     onChange={this.handleInputChage}
