@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Input, Button } from "react-materialize";
+import { Row, Input, Button,Icon, Col} from "react-materialize";
 
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -121,9 +121,8 @@ sendEmail= (event)=>{
             className="col l8 m8 s12 offset-l2 offset-m2 center formEmail"
             
           >
-       
-              <input s={12}
-                 className={shouldMarkError('subject') ? "error red lighten-3" : ""}
+             
+              <Input s={11}
                 type="text"
                 name="subject"
                 value={this.state.subject}
@@ -131,10 +130,10 @@ sendEmail= (event)=>{
                 onChange={this.handleInputChange}
                 onBlur={this.handleBlur('subject')}
                 placeholder="Subject"
-              />
-            
+              /><i  className={shouldMarkError('subject') ? "error material-icons z-depth-5" : " invisible material-icons"}>clear</i>
+           <Row s={12}/>
     
-              <textarea className={shouldMarkError('message') ? "error red lighten-3" : ""}
+              <textarea className="col s11"
               value={this.state.message}
                 name="message"
                 type="text"
@@ -143,38 +142,37 @@ sendEmail= (event)=>{
                 rows="20"
                 onBlur={this.handleBlur('message')}
                 onChange={this.handleInputChange}
-              />
-              <span className="section scrollspy">
+              /><i  className={shouldMarkError('message') ? "error material-icons z-depth-5" : " invisible material-icons"}>clear</i>
+              <Row s={12}>
               {this.state.sent ?(
                 <p id="characterLeft" className="help-block ">
                   Thank You For Contacting Us. We Will Get Back To You As Soon As Possible.
-                </p>):(<p>You have {140 - this.state.message.length} characters left.</p>)}
-              </span>
+                </p>):(<p className={shouldMarkError('message') ? "err red-text col s11" : " black-text col s11"}>You have {140 - this.state.message.length} characters left.</p>)}
+              </Row>
            
 
             {/* <!-- set the reply-to address --> */}
-            <Row>
+            <Row className="emailValidate center">
               <Input
-              s={6}
-                className={shouldMarkError('email') ? "error red lighten-3" : ""}
+              s={5}
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 onBlur={this.handleBlur('email')}
-              />
+              /><i  className={shouldMarkError('email') ? "error material-icons z-depth-5 left" : " invisible material-icons"}>clear</i>
 
               <Input
-              s={6}
-              className={shouldMarkError('phoneNumber') ? "error red lighten-3" : ""}
+              s={5}
+              className={shouldMarkError('phoneNumber') ? "" : " right"}
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
                 value={this.state.phoneNumber}
                 onBlur={this.handleBlur('phoneNumber')}
                 onChange={this.handleInputChange}
-              />
+              /><i  className={shouldMarkError('phoneNumber') ? "error material-icons z-depth-5" : " invisible material-icons"}>clear</i>
             </Row>
 
             <Button
