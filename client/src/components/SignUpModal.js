@@ -54,19 +54,19 @@ class SignUpModal extends Component {
           id="account-signUp"
           role="dialog"
           header="Create Your Account"
-          trigger={<Button className="btn blue">Sign Up</Button>}
+          trigger={<Button className="btn blue waves-effect waves-blue">Sign Up</Button>}
           actions={
             <div>
               <Button
                 type="submit"
                 waves="light"
                 id="add-account"
-                className="btn modal-close blue"
+                className="btn modal-close blue waves-effect waves-blue"
                 onClick={this.handleFormSubmit}
               >
                 Submit
               </Button>
-              <Button style={{ marginLeft: "5px" }} className="blue" modal="close" waves="light">
+              <Button style={{ marginLeft: "5px" }} className="blue waves-effect waves-blue" modal="close" waves="light">
                 Close
               </Button>
             </div>

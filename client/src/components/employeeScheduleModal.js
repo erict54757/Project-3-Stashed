@@ -71,14 +71,14 @@ class EmployeeScheduleModal extends Component {
               waves="light"
               type="button"
               id="employeeSave"
-              className="modal-close btn  blue"
+              className="modal-close btn  blue waves-effect waves-blue"
               onClick={this.handleFormSubmit}
             >
               Create
             </Button>
             <Button
               style={{ marginLeft: "5px" }}
-              className="blue "
+              className="blue waves-effect waves-blue "
               modal="close"
               waves="light"
             >
@@ -87,7 +87,7 @@ class EmployeeScheduleModal extends Component {
           </div>
         }
         trigger={
-          <Button className="blue addAppointment">Add Appointment</Button>
+          <Button className="blue addAppointment waves-effect waves-blue">Add Appointment</Button>
         }
       >
         <Row>

@@ -118,7 +118,7 @@ class SignInModal extends Component {
             <Button
               id="sign-in"
               type="button"
-              className="btn  blue modal-close"
+              className="btn  blue modal-close waves-effect waves-blue"
               disabled={isDisabled}
               onClick={this.handleFormSubmit}
              
@@ -128,7 +128,7 @@ class SignInModal extends Component {
             <Button
               type="button"
               id="userLogin"
-              className="modal-close btn  blue"
+              className="modal-close btn  blue waves-effect waves-blue"
             >
               Close
             </Button>
@@ -137,7 +137,7 @@ class SignInModal extends Component {
         id="account-info"
         role="dialog"
         header="Sign-In"
-        trigger={<Button className="blue">Sign In</Button>}
+        trigger={<Button className="blue waves-effect waves-blue">Sign In</Button>}
       >
         <div className="modal-dialog" role="document">
           <div className="modal-content">

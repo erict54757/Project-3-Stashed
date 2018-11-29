@@ -71,7 +71,7 @@ class EmpApptUpdateModal extends Component {
             <Button
               style={{ marginLeft: "5px" }}
               type="button"
-              className="modal-close btn  blue"
+              className="modal-close btn  blue waves-effect waves-blue"
               onClick={this.handleUpdateCustomer}
             >
               Update
@@ -84,7 +84,7 @@ class EmpApptUpdateModal extends Component {
         id=""
         role="dialog"
         header="Update Customer Information"
-        trigger={<Button className="blue">Update</Button>}
+        trigger={<Button className="blue waves-effect waves-blue">Update</Button>}
       >
         <Row>
           <Input

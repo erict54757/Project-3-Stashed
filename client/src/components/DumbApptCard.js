@@ -39,7 +39,7 @@ class Appointment extends Component {
         <Row>
           <Col s={12}>
             <Button
-              className="red deleteButton"
+              className="red deleteButton waves-effect waves-red"
               value={this.props.id}
               onClick={() => this.deleteAppointment(this.props.id)}
             >

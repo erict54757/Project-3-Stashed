@@ -8,7 +8,7 @@ const LogoutButton = props => {
   return props.token ? (
     <Button
       style={{ marginTop: "20px" }}
-      className="blue"
+      className="blue waves-effect waves-blue"
       onClick={() => Auth.logout()}
     >
       Log Out
