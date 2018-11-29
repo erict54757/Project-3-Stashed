@@ -57,8 +57,8 @@ class Foot extends React.Component {
             </div>
           </div>
         </div>
-        <div class="footer-copyright">
-      <div class="container center black-text"> 
+        <div className="footer-copyright">
+      <div className="container center black-text"> 
         &copy;Copyright 2018
       </div>
     </div>
