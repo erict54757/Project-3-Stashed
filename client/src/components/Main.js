@@ -99,7 +99,7 @@ class Main extends Component {
             </div>
           </div>
         </div>
-        <h4 className=" header center grey-text text-lighten-3 light special">
+        <h4 className="special header center grey-text text-lighten-3 light ">
           Specializing In Classic Cuts.
         </h4>
         <Parallax imageSrc={background2} />
