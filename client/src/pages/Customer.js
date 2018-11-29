@@ -3,7 +3,7 @@ import Auth from "../utils/auth";
 import { Redirect } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-
+import "./Customer.css"
 import NavBar from "../components/NavBar";
 import NavBarCust from "../components/NavBarCust";
 import Main from "../components/Main";
@@ -50,6 +50,7 @@ class Customer extends Component {
             id={this.state.id}
             isEmp={this.state.isEmp}
             isCust={this.state.isCust}
+            textColor={"black-text"}
           />
         )}
         <Main

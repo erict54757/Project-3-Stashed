@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import Auth from "../utils/auth";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-
+import "./Employee.css"
 import NavBar from "../components/NavBar";
 import PortalContainer from "../components/PortalContainer";
 import PortalFooter from "../components/PortalFooter";

@@ -6885,29 +6885,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   stroke-width: 4;
   stroke-linecap: round;
   /*shape-rendering: crispEdges;*/ }
-
-html {
-  /* position: relative;
-  min-height: 100%; */
-  background-color: #f6f8fa; }
-
-/* body {
-  /* Margin bottom by footer height */
-  /* min-height: 100%;
-  margin-bottom: 40px; }
-  .App{
-    min-height: 100%;
-  } */ */
-  
-
-/* #root {
-  min-height: 860px; } */
-
-/* .footer {
-  width: 100%;
-  margin-top: 60px;
-  position: absolute;
-  bottom: 0; } */
-
 h4 {
-  text-align: center; }
+  text-align: center; 
+}
+html {
+   background-color: #f6f8fa; }
+
+
