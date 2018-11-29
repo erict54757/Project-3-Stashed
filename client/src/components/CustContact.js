@@ -121,8 +121,9 @@ sendEmail= (event)=>{
             className="col l8 m8 s12 offset-l2 offset-m2 center formEmail"
             
           >
-             
-              <Input s={11}
+           
+              <Input s={12}
+              className={shouldMarkError('subject') ? "red lighten-2" : ""}
                 type="text"
                 name="subject"
                 value={this.state.subject}
@@ -130,11 +131,13 @@ sendEmail= (event)=>{
                 onChange={this.handleInputChange}
                 onBlur={this.handleBlur('subject')}
                 placeholder="Subject"
-              /><i  className={shouldMarkError('subject') ? "error material-icons z-depth-5" : " invisible material-icons"}>clear</i>
-           <Row s={12}/>
-    
-              <textarea className="col s11"
+              />
+   
+      
+       
+              <textarea className="col s12"
               value={this.state.message}
+              className={shouldMarkError('message') ? "red lighten-2" : ""}
                 name="message"
                 type="text"
                 placeholder="Message"
@@ -142,38 +145,39 @@ sendEmail= (event)=>{
                 rows="20"
                 onBlur={this.handleBlur('message')}
                 onChange={this.handleInputChange}
-              /><i  className={shouldMarkError('message') ? "error material-icons z-depth-5" : " invisible material-icons"}>clear</i>
-              <Row s={12}>
+              />
+              
               {this.state.sent ?(
                 <p id="characterLeft" className="help-block ">
                   Thank You For Contacting Us. We Will Get Back To You As Soon As Possible.
-                </p>):(<p className={shouldMarkError('message') ? "err red-text col s11" : " black-text col s11"}>You have {140 - this.state.message.length} characters left.</p>)}
-              </Row>
+                </p>):(<p className={shouldMarkError('message') ? "err red-text col s12" : " black-text col s12"}>You have {140 - this.state.message.length} characters left.</p>)}
+              
            
 
             {/* <!-- set the reply-to address --> */}
-            <Row className="emailValidate center">
+     
               <Input
-              s={5}
+              s={6}
+              className={shouldMarkError('email') ? "red lighten-2" : ""}
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 onBlur={this.handleBlur('email')}
-              /><i  className={shouldMarkError('email') ? "error material-icons z-depth-5 left" : " invisible material-icons"}>clear</i>
+              />
 
               <Input
-              s={5}
-              className={shouldMarkError('phoneNumber') ? "" : " right"}
+              s={6}
+              className={shouldMarkError('phoneNumber') ? "red lighten-2" : ""}
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
                 value={this.state.phoneNumber}
                 onBlur={this.handleBlur('phoneNumber')}
                 onChange={this.handleInputChange}
-              /><i  className={shouldMarkError('phoneNumber') ? "error material-icons z-depth-5" : " invisible material-icons"}>clear</i>
-            </Row>
+              />
+            
 
             <Button
               className="btn waves-effect waves-blue blue"
