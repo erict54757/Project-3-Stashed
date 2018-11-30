@@ -34,15 +34,15 @@ class Main extends Component {
               {this.props.token && this.props.isCust === "true" ? (
                 <div>
                   <div
-                    className="col m4 s12 center"
+                    className="col l4 m12 s12 center"
                     style={{ height: "200px" }}
                   >
                     <NewAppointment customerId={this.props.id} />
                   </div>
-                  <div className="col m4 s12 center">
+                  <div className="col l4 m12 s12 center">
                     <Map />
                   </div>
-                  <div className="col m4 s12 center">
+                  <div className="col l4 m12 s12 center">
                     <h5 className="header center black-text text-lighten-3">
                       Charlotte Barber & Beard
                     </h5>
