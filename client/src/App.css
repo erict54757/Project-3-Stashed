@@ -1600,6 +1600,12 @@
 .transparent-text {
   color: transparent !important; }
 
+.tabs .tab a:hover {
+  color: black; }
+
+.tabs .tab a.active {
+  color: black; }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -3548,7 +3554,7 @@ small {
   overflow-y: hidden;
   height: 48px;
   width: 100%;
-  background-color: #fff;
+  background-color: black;
   margin: 0 auto;
   white-space: nowrap; }
   .tabs.tabs-transparent {
@@ -3575,7 +3581,7 @@ small {
     margin: 0;
     text-transform: uppercase; }
     .tabs .tab a {
-      color: rgba(238, 110, 115, 0.7);
+      color: rgba(66, 165, 245, 0.7);
       display: block;
       width: 100%;
       height: 100%;
@@ -3586,10 +3592,10 @@ small {
       transition: color .28s ease; }
       .tabs .tab a:hover, .tabs .tab a.active {
         background-color: transparent;
-        color: #ee6e73; }
+        color: #42A5F5; }
     .tabs .tab.disabled a,
     .tabs .tab.disabled a:hover {
-      color: rgba(238, 110, 115, 0.7);
+      color: rgba(66, 165, 245, 0.7);
       cursor: default; }
   .tabs .indicator {
     position: absolute;
@@ -6888,7 +6894,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 html {
   min-height: 100%;
-  background-color: white; }
+  background-color: #f6f8fa; }
 
 h4 {
   text-align: center; }
@@ -6897,4 +6903,12 @@ h4 {
   .modal, .modal-fixed-footer {
     width: 100%;
     height: 85%; } }
- 
+
+.tabs .tab a:hover {
+  color: white !important; }
+
+.tabs .tab a.active {
+  color: white !important; }
+
+.tabs .tab a {
+  color: white !important; }

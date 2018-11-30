@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel, Input, Icon, Tab, Tabs, } from "react-materialize";
+import { Row, Col, CardPanel, Input, Icon, Tab, Tabs,Button } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -27,7 +27,7 @@ class ManagerPortal extends Component {
     custName: "",
     employeeInfoTab: true,
     employeeScheduleTab: true,
-    active:""
+    active: ""
   };
   // componentWillMount(){
   //   this.loadEmployees();
@@ -60,7 +60,7 @@ class ManagerPortal extends Component {
     });
   };
 
- changeEmployee = employee => {
+  changeEmployee = employee => {
     this.setState({
       active: employee.id,
       employee: employee,
@@ -137,23 +137,23 @@ class ManagerPortal extends Component {
         appointment.EmployeeId === this.state.employee.id
       );
     });
-    const  appointmentResult=function(employee, filteredAppointments) {
+    const appointmentResult = function (employee, filteredAppointments) {
       if (employee && filteredAppointments) {
         return (
           <h5>
-       
+
           </h5>
         );
-      } else if (employee!==0 && filteredAppointments===0){
-        return(  <h5>
+      } else if (employee !== 0 && filteredAppointments === 0) {
+        return (<h5>
           No Appointments to Display
         </h5>);
-      }else if (employee===0 && filteredAppointments===0){
-        return(  <h5>
+      } else if (employee === 0 && filteredAppointments === 0) {
+        return (<h5>
           Select An Employee To View Appointments
         </h5>);
+      }
     }
-  }
 
     return (
       <div className="container white">
@@ -186,15 +186,15 @@ class ManagerPortal extends Component {
                           <h5 className="center black white-text">Employees</h5>
                         </li>
                         {this.state.employees.map(employee => (
-                          <li
-                          className={employee.id===this.state.active ? "collection-item col s12 left selectEmployee blue white-text" : "collection-item col s12 left"}
+                          <Button
+                            className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue z-depth-5" : "collection-item col s12 left grey lighten-3"}
                             style={{ padding: "0" }}
                             key={employee.id}
                             onClick={() => this.changeEmployee(employee)}
                           >
                             <div
                               style={{ fontSize: "1.3rem", marginTop: "7px" }}
-                              className="left"
+                              className="left black-text"
                               href={"/employees/" + employee.id}
                             >
                               {employee.first_name} {employee.last_name}
@@ -210,7 +210,7 @@ class ManagerPortal extends Component {
                                 clear
                                   </i>
                             </span>
-                          </li>
+                          </Button>
                         ))}
                       </ul>
                     ) : (
@@ -229,7 +229,9 @@ class ManagerPortal extends Component {
                     <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
                       {this.state.employee ? (
                         <div>
-                          <h4>Employee Information</h4>
+                          {this.state.employee.first_name ?
+                          (<h4>{this.state.employee.first_name} {this.state.employee.last_name}'s Information</h4>) :
+                          (<h4>Employee Information</h4>)}
                           <h5>
                             Name: {this.state.employee.first_name}{" "}
                             {this.state.employee.last_name}
@@ -276,36 +278,20 @@ class ManagerPortal extends Component {
                           <h5 className="center black white-text">Employees</h5>
                         </li>
                         {this.state.employees.map(employee => (
-                          
-                          <li
-                            className={employee.id===this.state.active ? "collection-item col s12 left selectEmployee blue white-text" : "collection-item col s12 left"}
+
+                          <Button
+                            className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue z-depth-5" : "collection-item col s12 left grey lighten-3"}
                             style={{ padding: "0" }}
                             key={employee.id}
                             onClick={() => this.changeEmployeeSchedule(employee)}
                           > <div
-                          style={{ fontSize: "1.3rem", marginTop: "7px" }}
-                          className="left"
-                         
-                          href={"/employees/" + employee.id}
-                        >
-                          {employee.first_name} {employee.last_name}
-                          <span className="secondary-content"> </span>
-                        </div>
-                            {/* <Input
-                            name="type"
-                            type="radio"
-                            label= {employee.first_name +employee.last_name}
-                            value=""
-                              style={{ fontSize: "1.3rem", marginTop: "7px" }}
-                              className="black black-text radiobg right"
-                              href={"/employees/" + employee.id}
-                              onChange={() => this.changeEmployeeSchedule(employee)}
-
-                            /> */}
-                           
-                            
-                             
-                            
+                            style={{ fontSize: "1.3rem", marginTop: "7px" }}
+                            className="left black-text"
+                            href={"/employees/" + employee.id}
+                          >
+                              {employee.first_name} {employee.last_name}
+                              <span className="secondary-content"> </span>
+                            </div>
                             <span
                               style={{ marginRight: "10px" }}
                               waves="light"
@@ -316,7 +302,7 @@ class ManagerPortal extends Component {
                                 clear
                                   </i>
                             </span>
-                          </li>
+                          </Button>
                         ))}
                       </ul>
                     ) : (
@@ -396,8 +382,8 @@ class ManagerPortal extends Component {
                           ) : (
                               <h5 className="hide"></h5>
                             )}
-                           <div>{appointmentResult(this.state.employee.length, filteredAppointments.length)}</div> 
-                              
+                          <div>{appointmentResult(this.state.employee.length, filteredAppointments.length)}</div>
+
                         </Col>
                       </Row>
                     </CardPanel>
