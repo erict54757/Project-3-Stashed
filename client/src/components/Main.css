@@ -9,19 +9,39 @@
 
 .special{
 position: absolute;
-top: 165%;     
-left: 50%;
-transform: translate(-50%, -50%);
+top: 200%;     
+left: 25%;
+        right: 25%
+
  }
 
 .appoint{
     height: 33%;
 }
+.makeAppoint{
+  margin-top: 20px;
+}
+@media screen and (max-width: 993px){
+    .makeAppoint{
+        margin-bottom: 80px;
+        margin-top: 0px;
+    }
+    .special{
+        position: absolute;
+        top: 250%;     
+        left: 25%;
+        right: 25%
+        
+         }
+}
+
 @media screen and (max-width: 603px){
     .special{
         position: absolute;
-        top: 205%;     
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 290%;     
+        left: 25%;
+        right: 25%
+        
          }
 }
+

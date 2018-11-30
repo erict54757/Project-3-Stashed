@@ -34,21 +34,21 @@ class Main extends Component {
               {this.props.token && this.props.isCust === "true" ? (
                 <div>
                   <div
-                    className="col l4 m12 s12 center"
+                    className="col l4 m12 s12 center makeAppoint"
                     style={{ height: "200px" }}
                   >
                     <NewAppointment customerId={this.props.id} />
                   </div>
-                  <div className="col l4 m12 s12 center">
+                  <div className="col l4 m6 s12 center">
                     <Map />
                   </div>
-                  <div className="col l4 m12 s12 center">
+                  <div className="col l4 m6 s12 center">
                     <h5 className="header center black-text text-lighten-3">
                       Charlotte Barber & Beard
                     </h5>
 
-                    <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
-                    <p>Phone: (704) 595-7795</p>
+                    <p> 1200 The Plaza Suite B, Charlotte, NC 28205</p>
+                    <p> (704) 595-7795</p>
                     <p>
                       Hours:
                       <p>
