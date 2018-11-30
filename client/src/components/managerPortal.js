@@ -17,7 +17,9 @@ class ManagerPortal extends Component {
     filtered: [],
     employees: [],
     employee: [],
-    custName: ""
+    custName: "",
+    employeeInfoTab:true,
+    employeeScheduleTab:true
   };
 // componentWillMount(){
 //   this.loadEmployees();
@@ -104,47 +106,8 @@ class ManagerPortal extends Component {
             className="  white-text managerTabs z-depth-5"
           >
             
-              <Tab className="white-text" title="Employee Information" href="#employeeInfo">
-                Employee Information     <div
-               
-               id="employeeInfo"
-               className="col s12 m8 lighten-4 black-text"
-               
-             >
-               <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
-                 {this.state.employee ? (
-                   <div>
-                     <h4>Employee Information</h4>
-                     <h5>
-                       Name: {this.state.employee.first_name}{" "}
-                       {this.state.employee.last_name}
-                     </h5>
-                     <h5>Phone: {this.state.employee.phone}</h5>
-                     <h5>E-Mail: {this.state.employee.email}</h5>
-                     <h5>
-                       Address: {this.state.employee.street}{" "}
-                       {this.state.employee.city} {this.state.employee.state}
-                     </h5>
-                   </div>
-                 ) : (
-                   <div>
-                     <h5>Name:</h5>
-                     <h5>Phone:</h5>
-                     <h5>E-Mail:</h5>
-                     <h5>Address:</h5>
-                   </div>
-                 )}
-               </CardPanel>
-             </div>
-              </Tab>
-            
-            
-              <Tab className="white-text" title="Employee Schedule" href="#employeeSchedule">
-                Employee Schedule</Tab>
-            
-            
-          </Tabs>
-          <div>
+              <Tab className="text-white" title="Employee Information" href="#employeeInfo" active={this.state.employeeInfoTab}>
+                <div>
             <Row>
               <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
                 <ManagerPortalModal loadEmployees={this.loadEmployees} />
@@ -227,7 +190,67 @@ class ManagerPortal extends Component {
                     </div>
                   )}
                 </CardPanel>
-              </div>
+           
+               </div>   </Row> </div>
+            
+              </Tab>
+            
+            
+              <Tab className="white-text" title="Employee Schedule" href="#employeeSchedule" active={this.state.employeeScheduleTab}>
+              <div>
+            <Row>
+              <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
+                <ManagerPortalModal loadEmployees={this.loadEmployees} />
+              </Col>
+            </Row>
+
+            <Row>
+              <Col
+                s={12}
+                m={4}
+                className="lighten-4 black-text center employeeList"
+              >
+                {this.state.employees.length ? (
+                  <ul className="collection with-header center  z-depth-1 ">
+                    <li className="collection-header blue white-text center">
+                      <h5 className="center">Employees</h5>
+                    </li>
+                    {this.state.employees.map(employee => (
+                      <li
+                        className="collection-item col s12"
+                        style={{ padding: "0" }}
+                        key={employee.id}
+                      >
+                        <div
+                          style={{ fontSize: "1.3rem", marginTop: "7px" }}
+                          className="left"
+                          onClick={() => this.changeEmployee(employee)}
+                          href={"/employees/" + employee.id}
+                        >
+                          {employee.first_name} {employee.last_name}
+                          <span className="secondary-content"> </span>
+                        </div>
+                        <span
+                          style={{ marginRight: "10px" }}
+                          waves="light"
+                          className="material-icons red-text right"
+                          onClick={() => this.deleteEmployee(employee.id)}
+                        >
+                         <i className="material-icons red-text">
+                                    clear
+                                  </i>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p style={{ marginLeft: "5px" }} className="left">
+                    No Employees to Display
+                  </p>
+                )}
+              </Col>
+
+             
               <Col
                 s={12}
                 m={8}
@@ -300,7 +323,11 @@ class ManagerPortal extends Component {
                 </CardPanel>
               </Col>
             </Row>
-          </div>
+          </div></Tab>
+            
+            
+          </Tabs>
+      
         </div>
       </div>
     );
