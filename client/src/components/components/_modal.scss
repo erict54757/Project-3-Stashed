@@ -1,5 +1,5 @@
 .modal {
-  @extend .z-depth-4;
+  @extend .z-depth-5;
 
   display: none;
   position: fixed;
@@ -7,7 +7,7 @@
   right: 0;
   background-color: #fafafa;
   padding: 0;
-  max-height: 70%;
+  max-height: 100%;
   width: 55%;
   margin: auto;
   overflow-y: auto;
@@ -61,7 +61,7 @@
 // Modal with fixed action footer
 .modal.modal-fixed-footer {
   padding: 0;
-  height: 70%;
+  height: 85%;
 
   .modal-content {
     position: absolute;
