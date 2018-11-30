@@ -6888,7 +6888,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 html {
   min-height: 100%;
-  background-color: #f6f8fa; }
+  background-color: white; }
 
 h4 {
   text-align: center; }

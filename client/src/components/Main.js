@@ -14,7 +14,7 @@ class Main extends Component {
   render() {
     console.log(this.props.isCust);
     return (
-      <div>
+      <div className="mainContain">
        
         <div id="index-banner" className="parallax-container">
           <h1 className="header center grey-text text-lighten-3">
@@ -103,13 +103,13 @@ class Main extends Component {
               )}
             </div>
           </div>
-        </div>
-      <div>   <h4 className="center grey-text text-lighten-3 light special">
+        </div>  <h4 className="center grey-text text-lighten-3 special">
           Specializing In Classic Cuts.
         </h4>
+ 
       <Parallax imageSrc={background2} /> 
        
-       </div>
+       
         <div className="parallax-container valign-wrapper appoint white">
           <CustContact />
         </div>

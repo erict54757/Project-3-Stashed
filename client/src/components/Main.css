@@ -6,12 +6,18 @@
     position: absolute;
 
 }
+.holder{
+    margin:0;
+    padding: 1%;
+}
 
 .special{
-position: absolute;
-top: 200%;     
-left: 25%;
-        right: 25%
+
+position: relative;
+top: 230px;     
+
+width: 100%;
+height: 0;
 
  }
 
@@ -26,22 +32,8 @@ left: 25%;
         margin-bottom: 80px;
         margin-top: 0px;
     }
-    .special{
-        position: absolute;
-        top: 250%;     
-        left: 25%;
-        right: 25%
-        
-         }
+   
 }
 
-@media screen and (max-width: 603px){
-    .special{
-        position: absolute;
-        top: 290%;     
-        left: 25%;
-        right: 25%
-        
-         }
-}
+
 
