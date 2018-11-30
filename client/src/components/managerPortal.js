@@ -8,7 +8,13 @@ import moment from "moment";
 import API from "../utils/API";
 import "./managerPortal.css";
 // import { not } from "ip";
-
+// const changeEmployeeSchedule =function(employee) {
+//   this.setState({
+//     employee: employee,
+//     employeeInfoTab: false,
+//     employeeScheduleTab: true
+//   });
+// };
 class ManagerPortal extends Component {
   state = {
     date: moment().format("DD MMMM, YYYY"),
@@ -20,7 +26,8 @@ class ManagerPortal extends Component {
     employee: [],
     custName: "",
     employeeInfoTab: true,
-    employeeScheduleTab: true
+    employeeScheduleTab: true,
+    active:""
   };
   // componentWillMount(){
   //   this.loadEmployees();
@@ -44,15 +51,25 @@ class ManagerPortal extends Component {
       .then(res => this.setState({ employees: res.data }))
       .catch(err => console.log(err));
   };
+  setActive = (employee) => {
+    this.setState({
+      active: employee.id,
+      employee: employee,
+      employeeInfoTab: false,
+      employeeScheduleTab: true
+    });
+  };
 
  changeEmployee = employee => {
     this.setState({
+      active: employee.id,
       employee: employee,
       employeeInfoTab: true
     });
   };
   changeEmployeeSchedule = employee => {
     this.setState({
+      active: employee.id,
       employee: employee,
       employeeInfoTab: false,
       employeeScheduleTab: true
@@ -165,19 +182,19 @@ class ManagerPortal extends Component {
                   >
                     {this.state.employees.length ? (
                       <ul className="collection with-header center  z-depth-1 ">
-                        <li className="collection-header blue white-text center">
-                          <h5 className="center">Employees</h5>
+                        <li className="collection-header black white-text center">
+                          <h5 className="center black white-text">Employees</h5>
                         </li>
                         {this.state.employees.map(employee => (
                           <li
-                            className="collection-item col s12"
+                          className={employee.id===this.state.active ? "collection-item col s12 left selectEmployee blue white-text" : "collection-item col s12 left"}
                             style={{ padding: "0" }}
                             key={employee.id}
+                            onClick={() => this.changeEmployee(employee)}
                           >
                             <div
                               style={{ fontSize: "1.3rem", marginTop: "7px" }}
                               className="left"
-                              onClick={() => this.changeEmployee(employee)}
                               href={"/employees/" + employee.id}
                             >
                               {employee.first_name} {employee.last_name}
@@ -255,27 +272,36 @@ class ManagerPortal extends Component {
                   >
                     {this.state.employees.length ? (
                       <ul className="collection with-header center  z-depth-1 ">
-                        <li className="collection-header blue white-text center">
-                          <h5 className="center">Employees</h5>
+                        <li className="collection-header black white-text center">
+                          <h5 className="center black white-text">Employees</h5>
                         </li>
                         {this.state.employees.map(employee => (
                           
                           <li
-                            className="collection-item col s12"
+                            className={employee.id===this.state.active ? "collection-item col s12 left selectEmployee blue white-text" : "collection-item col s12 left"}
                             style={{ padding: "0" }}
                             key={employee.id}
-                          >
-                            <Input
+                            onClick={() => this.changeEmployeeSchedule(employee)}
+                          > <div
+                          style={{ fontSize: "1.3rem", marginTop: "7px" }}
+                          className="left"
+                         
+                          href={"/employees/" + employee.id}
+                        >
+                          {employee.first_name} {employee.last_name}
+                          <span className="secondary-content"> </span>
+                        </div>
+                            {/* <Input
                             name="type"
                             type="radio"
                             label= {employee.first_name +employee.last_name}
-                            value="hllo"
+                            value=""
                               style={{ fontSize: "1.3rem", marginTop: "7px" }}
                               className="black black-text radiobg right"
                               href={"/employees/" + employee.id}
                               onChange={() => this.changeEmployeeSchedule(employee)}
 
-                            />
+                            /> */}
                            
                             
                              

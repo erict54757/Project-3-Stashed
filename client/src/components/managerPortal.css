@@ -1,7 +1,9 @@
 .manager{
     min-height: 500px;
     border-radius: 5px; 
+    
 }
+
 .managerTabs{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -11,8 +13,10 @@
     border-radius: 5px; 
    
 }
+
 .tabs .indicator {
     background-color: rgb(33, 150, 243)
+    
  }
  .collection-header, .collection {
     border-top-left-radius: 5px;
@@ -31,4 +35,12 @@ margin-left: 5px;
 .radiobg{
     z-index:-1;
    
+}
+.selectEmployee{
+    border: solid;
+    border-width: 1px;
+    border: 1px;
+    border-color: blue;
+
+
 }
