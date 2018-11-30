@@ -41,30 +41,12 @@
 
 
 html {
-  position: relative;
+
   min-height: 100%;
   background-color: #f6f8fa;
   
 }
 
-body {
-  /* Margin bottom by footer height */
-  min-height: 100%;
-  margin-bottom: 40px;
-  
- 
-
-}
-#root{
-  min-height: 860px;
-}
-.footer{
-  width: 100%;
-  margin-top: 60px;
-  position: absolute;
-  bottom: 0;
-
-}
 
 
   h4{

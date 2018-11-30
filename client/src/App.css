@@ -6887,23 +6887,20 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   /*shape-rendering: crispEdges;*/ }
 
 html {
-  position: relative;
-  min-height: 100%;
-  background-color: #f6f8fa; }
 
-body {
-  /* Margin bottom by footer height */
   min-height: 100%;
-  margin-bottom: 40px; }
+  background-color: #f6f8fa; } 
 
+
+/* 
 #root {
-  min-height: 860px; }
-
+  min-height: 860px; } */
+/* 
 .footer {
   width: 100%;
   margin-top: 60px;
   position: absolute;
-  bottom: 0; }
+  bottom: 0; } */
 
 h4 {
   text-align: center; }

@@ -3,6 +3,25 @@ import { Row, Modal, Button, Input, Icon } from "react-materialize";
 import "./employeeScheduleModal.css";
 import API from "../utils/API";
 
+
+function validate(firstName, lastName, street, city, state, zip, email, phone, date, time) {
+  // true means invalid, so our conditions got reversed
+  return {  
+    firstName: firstName.length===0,
+     lastName:lastName.length===0,
+      street: street.length===0,
+       city: city.length===0,
+        state: state.length===0,
+         zip: zip.length<5,
+    email: email.length <7,
+    phone: phone.length<9,
+    date: date.length===0,
+    time: time.length===0
+    
+   
+  };
+}
+
 class EmployeeScheduleModal extends Component {
   state = {
     CustomerId: "",
@@ -16,9 +35,35 @@ class EmployeeScheduleModal extends Component {
     email: "",
     phone: "",
     password: "customer18",
+    date: "",
     time: "",
-    date: ""
+    
+    touched: { 
+      firstName: false,
+      lastName: false,
+      street: false,
+      city: false,
+      state: false,
+      zip: false,
+      email: false,
+      phone: false,
+      date: false,
+      time: false
+     
+     
+    }, 
   };
+  handleBlur = (field) => (evt) => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true },
+    });
+  }
+  canBeSubmitted() {
+    const errors = validate(this.state.firstName,this.state.lastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.phone, this.state.date, this.state.time,);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
+  }
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -62,6 +107,13 @@ class EmployeeScheduleModal extends Component {
   };
 
   render() {
+    const errors = validate(this.state.firstName,this.state.lastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.phone,  this.state.date, this.state.time);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    const shouldMarkError = (field) => {
+    const hasError = errors[field];
+    const shouldShow = this.state.touched[field];
+      return hasError ? shouldShow : false;
+    };
     return (
       <Modal
         header="New Appointment Information"
@@ -70,15 +122,15 @@ class EmployeeScheduleModal extends Component {
             <Button
               waves="light"
               type="button"
-              id="employeeSave"
-              className="modal-close btn  blue waves-effect waves-blue"
+              disabled={isDisabled}
+              className="modal-close btn  blue waves-effect waves-light"
               onClick={this.handleFormSubmit}
             >
               Create
             </Button>
             <Button
               style={{ marginLeft: "5px" }}
-              className="blue waves-effect waves-blue "
+              className="blue waves-effect waves-light "
               modal="close"
               waves="light"
             >
@@ -87,16 +139,17 @@ class EmployeeScheduleModal extends Component {
           </div>
         }
         trigger={
-          <Button className="blue addAppointment waves-effect waves-blue">Add Appointment</Button>
+          <Button className="blue addAppointment waves-effect waves-light">Add Appointment</Button>
         }
       >
         <Row>
           <Input
             m={6}
             s={12}
-            className="black-text"
+            className={shouldMarkError('firstName') ? "error invalid" : ""}
             label="First Name"
             name="firstName"
+            onBlur={this.handleBlur('firstName')}
             defaultValue={this.state.firstName}
             onChange={this.handleInputChange}
           >
@@ -108,8 +161,9 @@ class EmployeeScheduleModal extends Component {
             s={12}
             label="Last Name"
             type="text"
-            className="form-control"
+            className={shouldMarkError('lastName') ? "error invalid" : ""}
             name="lastName"
+            onBlur={this.handleBlur('lastName')}
             defaultValue={this.state.lastName}
             onChange={this.handleInputChange}
           >
@@ -120,9 +174,10 @@ class EmployeeScheduleModal extends Component {
             m={6}
             s={12}
             label="Appointment Date"
-            className="black-text"
+            className={shouldMarkError('date') ? "error invalid" : "black-text"}
             type="date"
             name="date"
+            onBlur={this.handleBlur('date')}
             defaultValue={this.state.date}
             onChange={this.handleInputChange}
           >
@@ -134,8 +189,9 @@ class EmployeeScheduleModal extends Component {
             l={6}
             name="time"
             type="select"
+            onBlur={this.handleBlur('time')}
             onChange={this.handleInputChange}
-            className="modalDrop"
+            className={shouldMarkError('time') ? "error invalid" : "modalDrop"}
           >
             <option value="8:00AM">8:00AM</option>
 
@@ -164,8 +220,9 @@ class EmployeeScheduleModal extends Component {
             s={12}
             label="Street"
             type="text"
-            className="form-control"
+            className={shouldMarkError('street') ? "error invalid" : ""}
             name="street"
+            onBlur={this.handleBlur('street')}
             defaultValue={this.state.street}
             onChange={this.handleInputChange}
           >
@@ -176,8 +233,9 @@ class EmployeeScheduleModal extends Component {
             s={12}
             label="City"
             type="text"
-            className="form-control"
+            className={shouldMarkError('city') ? "error invalid" : ""}
             name="city"
+            onBlur={this.handleBlur('city')}
             defaultValue={this.state.city}
             onChange={this.handleInputChange}
           >
@@ -189,9 +247,10 @@ class EmployeeScheduleModal extends Component {
             name="state"
             label="State"
             type="select"
+            onBlur={this.handleBlur('state')}
             onChange={this.handleInputChange}
             defaultValue={this.state.state}
-            className="modalDrop"
+            className={shouldMarkError('state') ? "error invalid" : "modalDrop"}
           >
             <option value="AL">Alabama</option>
 
@@ -300,8 +359,9 @@ class EmployeeScheduleModal extends Component {
             s={12}
             label="ZipCode"
             type="text"
-            className="form-control"
+            className={shouldMarkError('zip') ? "error invalid" : ""}
             name="zip"
+            onBlur={this.handleBlur("zip")}
             defaultValue={this.state.zip}
             onChange={this.handleInputChange}
           >
@@ -313,8 +373,9 @@ class EmployeeScheduleModal extends Component {
             s={12}
             label="Email"
             type="email"
-            className="form-control"
+            className={shouldMarkError('email') ? "error invalid" : ""}
             name="email"
+            onBlur={this.handleBlur('email')}
             defaultValue={this.state.email}
             onChange={this.handleInputChange}
           >
@@ -326,6 +387,8 @@ class EmployeeScheduleModal extends Component {
             s={12}
             label="Phone"
             name="phone"
+            className={shouldMarkError('phone') ? "error invalid" : ""}
+            onBlur={this.handleBlur('phone')}
             defaultValue={this.state.phone}
             onChange={this.handleInputChange}
           >

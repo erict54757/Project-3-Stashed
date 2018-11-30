@@ -30,7 +30,7 @@ class TourModal extends Component {
         }
        
         role="dialog"
-        header="Admin, Employee, or Customer Log-In"
+        header="Admin, Employee or Customer Log-In"
         trigger={<Button className="blue">Tour The Site</Button>}
       >
         <div className="modal-dialog" role="document">

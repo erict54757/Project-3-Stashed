@@ -6,6 +6,25 @@ import "./empApptUpdateModal.css";
 import "materialize-css/dist/js/materialize.js";
 import API from "../utils/API";
 
+
+function validate(firstName, lastName, street, city, state, zip, email, phone, date, time) {
+  // true means invalid, so our conditions got reversed
+  return {  
+    firstName: firstName.length===0,
+     lastName:lastName.length===0,
+      street: street.length===0,
+       city: city.length===0,
+        state: state.length===0,
+         zip: zip.length<5,
+    email: email.length <7,
+    phone: phone.length<9,
+    date: date.length===0,
+    time: time.length===0
+    
+   
+  };
+}
+
 class EmpApptUpdateModal extends Component {
   state = {
     id: this.props.custId,
@@ -18,8 +37,34 @@ class EmpApptUpdateModal extends Component {
     city: this.props.city,
     zip: this.props.zip,
     street: this.props.street,
-    date: this.props.date
+    date: this.props.date,
+    touched: { 
+      firstName: false,
+      lastName: false,
+      street: false,
+      city: false,
+      state: false,
+      zip: false,
+      email: false,
+      phone: false,
+      date: false,
+      time: false
+     
+     
+    }, 
+   
   };
+  handleBlur = (field) => (evt) => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true },
+    });
+  }
+  canBeSubmitted() {
+    const errors = validate(this.state.firstName,this.state.lastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.phone, this.state.password);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
+  }
+
 
   handleInputChange = event => {
     event.preventDefault();
@@ -64,19 +109,29 @@ class EmpApptUpdateModal extends Component {
   };
 
   render() {
+    const errors = validate(this.state.firstName,this.state.lastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.phone, this.state.time, this.state.date);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    const shouldMarkError = (field) => {
+    const hasError = errors[field];
+    const shouldShow = this.state.touched[field];
+      return hasError ? shouldShow : false;
+    };
     return (
+      
       <Modal
         actions={
           <div>
             <Button
+            disabled={isDisabled}
               style={{ marginLeft: "5px" }}
               type="button"
-              className="modal-close btn  blue waves-effect waves-blue"
+              className="modal-close btn  blue waves-effect waves-light"
               onClick={this.handleUpdateCustomer}
             >
               Update
             </Button>
-            <Button className="blue" modal="close" waves="light">
+            <Button   style={{ marginLeft: "5px" }}
+             className="blue" modal="close" waves="light">
               Close
             </Button>
           </div>
@@ -84,15 +139,16 @@ class EmpApptUpdateModal extends Component {
         id=""
         role="dialog"
         header="Update Customer Information"
-        trigger={<Button className="blue waves-effect waves-blue">Update</Button>}
+        trigger={<Button   className="blue waves-effect waves-light">Update</Button>}
       >
         <Row>
           <Input
             l={6}
             s={12}
-            className="black-text"
+            className={shouldMarkError('firstName') ? "error invalid" : ""}
             label="First Name"
             name="firstName"
+            onBlur={this.handleBlur('firstName')}
             placeholder={this.props.firstName}
             defaultValue={this.state.firstName}
             onChange={this.handleInputChange}
@@ -105,8 +161,9 @@ class EmpApptUpdateModal extends Component {
             s={12}
             label="Last Name"
             type="text"
-            className="form-control"
+            className={shouldMarkError('lastName') ? "error invalid" : ""}
             name="lastName"
+            onBlur={this.handleBlur('lastName')}
             defaultValue={this.state.lastName}
             onChange={this.handleInputChange}
           >
@@ -117,10 +174,11 @@ class EmpApptUpdateModal extends Component {
             m={6}
             s={12}
             label="New Appointment Date"
-            className="black-text"
+            className={shouldMarkError('date') ? "error invalid" : "black-text"}
             type="date"
             name="date"
             placeholder={this.state.date}
+            onBlur={this.handleBlur('date')}
             defaultValue={this.state.date}
             onChange={this.handleInputChange}
           >
@@ -131,8 +189,10 @@ class EmpApptUpdateModal extends Component {
             name="time"
             m={6}
             s={12}
+            className={shouldMarkError('time') ? "error invalid" : "modalDrop"}
             label="New Appointment Time"
             type="select"
+            onBlur={this.handleBlur('time')}
             onChange={this.handleInputChange}
             className="modalDrop"
           >
@@ -164,9 +224,10 @@ class EmpApptUpdateModal extends Component {
             s={12}
             label="Street"
             type="text"
-            className="form-control"
+            className={shouldMarkError('street') ? "error invalid" : ""}
             name="street"
             placeholder={this.props.street}
+            onBlur={this.handleBlur('street')}
             defaultValue={this.state.street}
             onChange={this.handleInputChange}
           >
@@ -178,8 +239,9 @@ class EmpApptUpdateModal extends Component {
             s={12}
             label="City"
             type="text"
-            className="form-control"
+            className={shouldMarkError('city') ? "error invalid" : ""}
             name="city"
+            onBlur={this.handleBlur('city')}
             placeholder={this.props.city}
             defaultValue={this.state.city}
             onChange={this.handleInputChange}
@@ -192,9 +254,10 @@ class EmpApptUpdateModal extends Component {
             s={12}
             l={4}
             type="select"
+            onBlur={this.handleBlur('state')}
             onChange={this.handleInputChange}
             defaultValue={this.state.state}
-            className="modalDrop"
+            className={shouldMarkError('state') ? "error invalid" : "modalDrop"}
           >
             <option value="AL">Alabama</option>
 
@@ -304,8 +367,10 @@ class EmpApptUpdateModal extends Component {
             s={12}
             label="ZipCode"
             type="text"
-            className="form-control"
+            className={shouldMarkError('zip') ? "error invalid" : ""}
             name="zip"
+            maxLength="5"
+            onBlur={this.handleBlur('zip')}
             placeholder="12567"
             defaultValue={this.state.zip}
             onChange={this.handleInputChange}
@@ -318,8 +383,9 @@ class EmpApptUpdateModal extends Component {
             s={12}
             label="Email"
             type="email"
-            className="form-control"
+            className={shouldMarkError('email') ? "error invalid" : ""}
             name="email"
+            onBlur={this.handleBlur('email')}
             placeholder={this.props.email}
             defaultValue={this.state.email}
             onChange={this.handleInputChange}
@@ -331,7 +397,9 @@ class EmpApptUpdateModal extends Component {
             l={6}
             s={12}
             label="Telephone"
-            name="telephone"
+            className={shouldMarkError('phone') ? "error invalid" : ""}
+            name="phone"
+            onBlur={this.handleBlur('phone')}
             placeholder={this.props.phone}
             defaultValue={this.state.phone}
             onChange={this.handleInputChange}
