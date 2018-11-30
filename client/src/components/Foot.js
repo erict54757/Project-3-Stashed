@@ -2,7 +2,7 @@ import React from "react";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
-import { Link } from "react-router-dom";
+import {  } from "react-router-dom";
 class Foot extends React.Component {
   render() {
     return (

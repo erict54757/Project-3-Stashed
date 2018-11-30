@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, Row, Input,Col, Collection, CollectionItem } from "react-materialize";
+import { Modal, Button, Row, Col, Collection, CollectionItem } from "react-materialize";
 
 
 import "jquery";

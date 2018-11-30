@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, NavItem, Button } from "react-materialize";
+import { Navbar, NavItem } from "react-materialize";
 import TourModal from "./TourModal.js"
 import "jquery";
 import "materialize-css/dist/js/materialize.js";

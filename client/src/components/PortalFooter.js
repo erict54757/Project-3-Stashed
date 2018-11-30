@@ -19,12 +19,12 @@ class PortalFooter extends Component {
   <div className="col l6 s12 center">
     <h5 className="white-text">Specializing In Classic Cuts</h5>
     <img
-    style={{ height: "auto", width: "110px", padding: "5px" }}
+    style={{ height: "auto", width: "110px", padding: "5px" }} alt="logofoot"
     src={logo}
     />
   </div>
-  <div class="col l4 offset-l2 s12 center">
-                <h5 class="white-text">Charlotte Barber & Beard </h5>
+  <div className="col l4 offset-l2 s12 center">
+                <h5 className="white-text">Charlotte Barber & Beard </h5>
                 <ul>
                   <li className="white-text">1200 The Plaza Suite B</li>
                   <li className="white-text">Charlotte, NC 28205</li>

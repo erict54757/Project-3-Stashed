@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel, Input, Icon, Tab, Tabs } from "react-materialize";
+import { Row, Col, CardPanel, Input, Icon, Tab, Tabs, } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -7,7 +7,7 @@ import "materialize-css/dist/js/materialize.js";
 import moment from "moment";
 import API from "../utils/API";
 import "./managerPortal.css";
-import { not } from "ip";
+// import { not } from "ip";
 
 class ManagerPortal extends Component {
   state = {
@@ -264,16 +264,20 @@ class ManagerPortal extends Component {
                             style={{ padding: "0" }}
                             key={employee.id}
                           >
-                            <div
+                          
+                            <Input
+                            name="type"
+                            type="radio"
+                            label= {employee.first_name +employee.last_name}
+                            value={employee.first_name +employee.last_name}
                               style={{ fontSize: "1.3rem", marginTop: "7px" }}
-                              className="left"
+                              className="black black-text"
                               href={"/employees/" + employee.id}
-                              onClick={() => this.changeEmployeeSchedule(employee)}
+                              onChange={() => this.changeEmployeeSchedule(employee)}
 
-                            >
-                              {employee.first_name} {employee.last_name}
-                              <span className="secondary-content"> </span>
-                            </div>
+                            />
+                             
+                            
                             <span
                               style={{ marginRight: "10px" }}
                               waves="light"

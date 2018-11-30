@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Input, Button,Icon, Col} from "react-materialize";
+import { Row, Input, Button,} from "react-materialize";
 
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -60,8 +60,7 @@ handleInputChange = event => {
 handleSendEmail = event => {
   if (!this.canBeSubmitted()) {
    
-    const {subject, message,email,  phoneNumber } = this.state;
-    alert(`Signed up with email: ${email} subject: ${subject}`);
+   
     return;
   } this.sendEmail(this.state);
 };
@@ -138,7 +137,7 @@ sendEmail= (event)=>{
               <textarea className="col s12"
               value={this.state.message}
               className={shouldMarkError('message') ? "invalid" : ""}
-                name="message"
+                name='message'
                 type="text"
                 placeholder="Message"
                 maxLength="140"
