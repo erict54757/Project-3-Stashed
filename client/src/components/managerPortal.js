@@ -103,7 +103,7 @@ class ManagerPortal extends Component {
         >
           <Tabs
            
-            className="  white-text managerTabs z-depth-5"
+            className="white-text managerTabs z-depth-5"
           >
             
               <Tab className="text-white" title="Employee Information" href="#employeeInfo" active={this.state.employeeInfoTab}>
