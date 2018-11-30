@@ -45,7 +45,15 @@ class ManagerPortal extends Component {
   };
 
   changeEmployee = employee => {
-    this.setState({ employee: employee });
+    this.setState({ employee: employee,
+                    employeeInfoTab: true
+    });
+  };
+  changeEmployeeSchedule = employee => {
+    this.setState({ employee: employee,
+                    employeeInfoTab: false,
+                    employeeScheduleTab: true
+    });
   };
 
   deleteEmployee = id => {
@@ -84,6 +92,20 @@ class ManagerPortal extends Component {
     this.setState({
       ...this.state,
       [name]: value
+    });
+  };
+  handleDateChange = event => {
+    event.preventDefault();
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+    console.log(this.state.filtered);
+    // Updating the input's state
+    this.setState({
+      ...this.state,
+      [name]: value,
+      employeeInfoTab: false
+
     });
   };
 
@@ -223,9 +245,10 @@ class ManagerPortal extends Component {
                       >
                         <div
                           style={{ fontSize: "1.3rem", marginTop: "7px" }}
-                          className="left"
-                          onClick={() => this.changeEmployee(employee)}
+                          className="left" 
                           href={"/employees/" + employee.id}
+                          onClick={() => this.changeEmployeeSchedule(employee)}
+                         
                         >
                           {employee.first_name} {employee.last_name}
                           <span className="secondary-content"> </span>
@@ -272,7 +295,7 @@ class ManagerPortal extends Component {
                         type="date"
                         placeholder={this.state.date}
                         value={this.state.date}
-                        onChange={this.handleInputChange}
+                        onChange={this.handleDateChange}
                       >
                         <Icon>date_range</Icon>
                       </Input>
