@@ -39,3 +39,12 @@ margin-left: 5px;
 a:active,a:hover{
     color: white;
 }
+
+.deleteEmployee{
+    border-radius: 5px;
+    padding-left:15px;
+     padding-right:15px;
+     padding-bottom:5px;
+    font-size: 1.3rem;
+    
+}

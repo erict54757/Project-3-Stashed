@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel, Input, Icon, Tab, Tabs,Button } from "react-materialize";
+import { Row, Col, CardPanel, Input, Icon, Tab, Tabs, Button } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
@@ -187,9 +187,10 @@ class ManagerPortal extends Component {
                         </li>
                         {this.state.employees.map(employee => (
                           <Button
-                            className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue z-depth-5" : "collection-item col s12 left grey lighten-3"}
-                            style={{ padding: "0" }}
-                            key={employee.id}
+                          className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
+                          : "collection-item col s12 left grey lighten-2 waves-effect waves-black"}
+                          style={{borderRadius: "5px", marginTop: "5px",padding:"0" }}
+                          key={employee.id}
                             onClick={() => this.changeEmployee(employee)}
                           >
                             <div
@@ -197,20 +198,20 @@ class ManagerPortal extends Component {
                               className="left black-text"
                               href={"/employees/" + employee.id}
                             >
-                              {employee.first_name} {employee.last_name}
-                              <span className="secondary-content"> </span>
-                            </div>
-                            <span
-                              style={{ marginRight: "10px" }}
-                              waves="light"
-                              className="material-icons red-text right"
-                              onClick={() => this.deleteEmployee(employee.id)}
-                            >
-                              <i className="material-icons red-text">
-                                clear
-                                  </i>
-                            </span>
-                          </Button>
+                                {employee.first_name} {employee.last_name}
+                          
+                          </div>
+                          <span
+                            style={{ marginRight: "3px" }}
+                            waves="light"
+                            className="material-icons red-text right "
+                            onClick={() => this.deleteEmployee(employee.id)}
+                          >
+                            <Button className="red white-text z-depth-1 deleteEmployee" >
+                             X
+                                </Button>
+                          </span>
+                        </Button>
                         ))}
                       </ul>
                     ) : (
@@ -230,8 +231,8 @@ class ManagerPortal extends Component {
                       {this.state.employee ? (
                         <div>
                           {this.state.employee.first_name ?
-                          (<h4>{this.state.employee.first_name} {this.state.employee.last_name}'s Information</h4>) :
-                          (<h4>Employee Information</h4>)}
+                            (<h4>{this.state.employee.first_name} {this.state.employee.last_name}'s Information</h4>) :
+                            (<h4>Employee Information</h4>)}
                           <h5>
                             Name: {this.state.employee.first_name}{" "}
                             {this.state.employee.last_name}
@@ -279,30 +280,32 @@ class ManagerPortal extends Component {
                         </li>
                         {this.state.employees.map(employee => (
 
-                          <Button
-                            className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue z-depth-5" : "collection-item col s12 left grey lighten-3"}
-                            style={{ padding: "0" }}
-                            key={employee.id}
+                         <Button
+                          className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
+                          : "collection-item col s12 left grey lighten-2 waves-effect waves-black"}
+                          style={{borderRadius: "5px", marginTop: "5px",padding:"0" }}
+                          key={employee.id}
                             onClick={() => this.changeEmployeeSchedule(employee)}
-                          > <div
-                            style={{ fontSize: "1.3rem", marginTop: "7px" }}
-                            className="left black-text"
-                            href={"/employees/" + employee.id}
                           >
-                              {employee.first_name} {employee.last_name}
-                              <span className="secondary-content"> </span>
-                            </div>
-                            <span
-                              style={{ marginRight: "10px" }}
-                              waves="light"
-                              className="material-icons red-text right"
-                              onClick={() => this.deleteEmployee(employee.id)}
+                            <div
+                              style={{ fontSize: "1.3rem", marginTop: "7px" }}
+                              className="left black-text"
+                              href={"/employees/" + employee.id}
                             >
-                              <i className="material-icons red-text">
-                                clear
-                                  </i>
-                            </span>
-                          </Button>
+                                {employee.first_name} {employee.last_name}
+                          
+                          </div>
+                          <span
+                            style={{ marginRight: "3px" }}
+                            waves="light"
+                            className="material-icons red-text right "
+                            onClick={() => this.deleteEmployee(employee.id)}
+                          >
+                            <Button className="red white-text z-depth-1 deleteEmployee" >
+                             X
+                                </Button>
+                          </span>
+                        </Button>
                         ))}
                       </ul>
                     ) : (
