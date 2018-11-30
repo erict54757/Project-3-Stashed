@@ -45,7 +45,7 @@ class ManagerPortal extends Component {
       .catch(err => console.log(err));
   };
 
-  changeEmployee = employee => {
+ changeEmployee = employee => {
     this.setState({
       employee: employee,
       employeeInfoTab: true
@@ -259,23 +259,25 @@ class ManagerPortal extends Component {
                           <h5 className="center">Employees</h5>
                         </li>
                         {this.state.employees.map(employee => (
+                          
                           <li
                             className="collection-item col s12"
                             style={{ padding: "0" }}
                             key={employee.id}
                           >
-                          
                             <Input
                             name="type"
                             type="radio"
                             label= {employee.first_name +employee.last_name}
-                            value={employee.first_name +employee.last_name}
+                            value="hllo"
                               style={{ fontSize: "1.3rem", marginTop: "7px" }}
-                              className="black black-text"
+                              className="black black-text radiobg right"
                               href={"/employees/" + employee.id}
                               onChange={() => this.changeEmployeeSchedule(employee)}
 
                             />
+                           
+                            
                              
                             
                             <span
