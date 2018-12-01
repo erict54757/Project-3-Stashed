@@ -48,3 +48,34 @@ a:active,a:hover{
     font-size: 1.3rem;
     
 }
+.deleteAppointment{
+    border-radius: 5px;
+    padding-left:15px;
+     padding-right:15px;
+    font-size: 1.3rem;
+    margin-top: 2px
+    
+}
+.appointmentRow{
+    margin:0;
+    margin-top: 0px;
+}
+.appointmentName{
+    margin-top: 10px;
+}
+.appointmentTime{
+    margin-top: 10px;
+}
+@media screen and (max-width: 840px){
+    .appointmentTime{
+        margin-top: 0px;
+    }
+}
+@media screen and (max-width: 600px){
+    .deleteAppointment{
+        position: relative;
+        bottom: 15px;
+        right: 5px;
+        
+    }
+}

@@ -39,6 +39,9 @@ class ManagerPortal extends Component {
     this.loadAppointments();
     this.getCustomers();
   }
+  // displayDate(date){
+  //   moment().format("DD MMMM, YYYY")
+  // }
 
   getCustomers = () => {
     API.getCustomers()
@@ -186,9 +189,9 @@ class ManagerPortal extends Component {
                           <h5 className="center black white-text">Employees</h5>
                         </li>
                         {this.state.employees.map(employee => (
-                          <Button
+                          <div
                           className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
-                          : "collection-item col s12 left grey lighten-2 waves-effect waves-black"}
+                          : "collection-item col s12 left grey lighten-3 waves-effect waves-black"}
                           style={{borderRadius: "5px", marginTop: "5px",padding:"0" }}
                           key={employee.id}
                             onClick={() => this.changeEmployee(employee)}
@@ -211,7 +214,7 @@ class ManagerPortal extends Component {
                              X
                                 </Button>
                           </span>
-                        </Button>
+                        </div>
                         ))}
                       </ul>
                     ) : (
@@ -228,7 +231,7 @@ class ManagerPortal extends Component {
 
                   >
                     <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
-                      {this.state.employee ? (
+                      {this.state.employee.length!==0 ? (
                         <div>
                           {this.state.employee.first_name ?
                             (<h4>{this.state.employee.first_name} {this.state.employee.last_name}'s Information</h4>) :
@@ -245,12 +248,15 @@ class ManagerPortal extends Component {
                           </h5>
                         </div>
                       ) : (
-                          <div>
+                        <div className="row">
+                          
                             <h5>Name:</h5>
                             <h5>Phone:</h5>
                             <h5>E-Mail:</h5>
                             <h5>Address:</h5>
+                            <h5 className="col s12 center">No Employee Selected</h5>
                           </div>
+                          
                         )}
                     </CardPanel>
 
@@ -280,9 +286,9 @@ class ManagerPortal extends Component {
                         </li>
                         {this.state.employees.map(employee => (
 
-                         <Button
+                         <div
                           className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
-                          : "collection-item col s12 left grey lighten-2 waves-effect waves-black"}
+                          : "collection-item col s12 left grey lighten-3 waves-effect waves-black"}
                           style={{borderRadius: "5px", marginTop: "5px",padding:"0" }}
                           key={employee.id}
                             onClick={() => this.changeEmployeeSchedule(employee)}
@@ -305,7 +311,7 @@ class ManagerPortal extends Component {
                              X
                                 </Button>
                           </span>
-                        </Button>
+                        </div>
                         ))}
                       </ul>
                     ) : (
@@ -353,30 +359,30 @@ class ManagerPortal extends Component {
                             <ul className="collection with-header">
                               {filteredAppointments.map(appointment => (
                                 <li
-                                  className="collection-item"
+                                  className="collection-item grey lighten-3 appointmentRowContain"
                                   key={appointment.id}
                                 >
-                                  <div className="row">
+                                  <div className="row appointmentRow s12">
                                     {this.state.Customers.filter(customer => {
                                       return customer.id === appointment.CustomerId;
                                     }).map(cust => (
-                                      <div className="col m4 s12" style={{ fontSize: "1.3rem" }}>
+                                      <div className="col m4 s9 appointmentName" style={{ fontSize: "1.3rem" }}>
                                         {cust.first_name} {cust.last_name}
                                       </div>
                                     ))}
-                                    <div className="col m6 s12" style={{ fontSize: "1.3rem" }}>
-                                      {appointment.date} {appointment.time}
+                                    <div className="col m6 s9 appointmentTime" style={{ fontSize: "1.3rem" }}>
+                                    {moment(appointment.date).format("DD MMM, YYYY")} {appointment.time}
                                     </div>
                                     <span
-                                      className="col m2 s12"
+                                      className="col m2 s2 appointmentButton"
                                       onClick={() =>
                                         this.deleteAppointment(appointment.id)
                                       }
                                       className="secondary-content"
                                     >
-                                      <i className="material-icons red-text">
-                                        clear
-                                  </i>
+                                      <Button className="red white-text z-depth-1 deleteAppointment" >
+                             X
+                                </Button>
                                     </span>
                                   </div>
                                 </li>
