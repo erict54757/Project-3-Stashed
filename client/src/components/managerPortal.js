@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Row, Col, CardPanel, Input, Icon, Tab, Tabs, Button } from "react-materialize";
+import { Row, CardPanel, Input, Icon, Tab, Tabs,Col, Button, Card } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
+import DaySchedule from "./DaySchedule/Sunday"
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
@@ -8,13 +9,7 @@ import moment from "moment";
 import API from "../utils/API";
 import "./managerPortal.css";
 // import { not } from "ip";
-// const changeEmployeeSchedule =function(employee) {
-//   this.setState({
-//     employee: employee,
-//     employeeInfoTab: false,
-//     employeeScheduleTab: true
-//   });
-// };
+
 class ManagerPortal extends Component {
   state = {
     date: moment().format("DD MMMM, YYYY"),
@@ -27,25 +22,28 @@ class ManagerPortal extends Component {
     custName: "",
     employeeInfoTab: true,
     employeeScheduleTab: true,
-    active: ""
+    scheduleTab: true,
+    active: "",
+    Days: [],
+
   };
-  // componentWillMount(){
-  //   this.loadEmployees();
-  //   this.loadAppointments();
-  //   this.getCustomers();
-  // }
+
   componentDidMount() {
     this.loadEmployees();
     this.loadAppointments();
     this.getCustomers();
+    this.loadDays();
   }
-  // displayDate(date){
-  //   moment().format("DD MMMM, YYYY")
-  // }
 
   getCustomers = () => {
     API.getCustomers()
       .then(res => this.setState({ Customers: res.data }))
+      .catch(err => console.log(err));
+  };
+  loadDays = () => {
+    API.getDays()
+      .then(res => this.setState({ Days: res.data })
+        .then(console.log(this.state.Days)))
       .catch(err => console.log(err));
   };
 
@@ -54,6 +52,7 @@ class ManagerPortal extends Component {
       .then(res => this.setState({ employees: res.data }))
       .catch(err => console.log(err));
   };
+  //displaying the chosen employee
   setActive = (employee) => {
     this.setState({
       active: employee.id,
@@ -76,6 +75,15 @@ class ManagerPortal extends Component {
       employee: employee,
       employeeInfoTab: false,
       employeeScheduleTab: true
+    });
+  };
+  changeSchedule = employee => {
+    this.setState({
+      active: employee.id,
+      employee: employee,
+      employeeInfoTab: false,
+      employeeScheduleTab: false,
+      scheduleTab: true
     });
   };
 
@@ -133,13 +141,21 @@ class ManagerPortal extends Component {
   };
 
   render() {
-    console.log(this.state.employee)
+
     const filteredAppointments = this.state.Appointments.filter(appointment => {
       return (
         appointment.date === this.state.date &&
         appointment.EmployeeId === this.state.employee.id
       );
     });
+    const filteredDays = this.state.Days.filter(Day => {
+
+      return (
+        Day.EmployeeId === this.state.employee.id
+
+      );
+    });
+    console.log(filteredDays)
     const appointmentResult = function (employee, filteredAppointments) {
       if (employee && filteredAppointments) {
         return (
@@ -165,15 +181,14 @@ class ManagerPortal extends Component {
           style={{ marginTop: "25px", marginBottom: "25px" }}
         >
           <Tabs
-
             className="white-text managerTabs z-depth-5"
           >
 
-            <Tab className="text-white" title="Employee Information" href="#employeeInfo" active={this.state.employeeInfoTab}>
+            <Tab className="text-white" title="Information" href="#employeeInfo" active={this.state.employeeInfoTab}>
               <div>
                 <Row>
                   <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
-                    <ManagerPortalModal loadEmployees={this.loadEmployees} />
+                    <ManagerPortalModal loadEmployees={this.loadEmployees} loadDays={this.loadDays} />
                   </Col>
                 </Row>
 
@@ -190,10 +205,10 @@ class ManagerPortal extends Component {
                         </li>
                         {this.state.employees.map(employee => (
                           <div
-                          className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
-                          : "collection-item col s12 left grey lighten-3 waves-effect waves-black"}
-                          style={{borderRadius: "5px", marginTop: "5px",padding:"0" }}
-                          key={employee.id}
+                            className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
+                              : "collection-item col s12 left grey lighten-3 waves-effect waves-black"}
+                            style={{ borderRadius: "5px", marginTop: "5px", padding: "0" }}
+                            key={employee.id}
                             onClick={() => this.changeEmployee(employee)}
                           >
                             <div
@@ -201,20 +216,18 @@ class ManagerPortal extends Component {
                               className="left black-text"
                               href={"/employees/" + employee.id}
                             >
-                                {employee.first_name} {employee.last_name}
-                          
-                          </div>
-                          <span
-                            style={{ marginRight: "3px" }}
-                            waves="light"
-                            className="material-icons red-text right "
-                            onClick={() => this.deleteEmployee(employee.id)}
-                          >
-                            <Button className="red white-text z-depth-1 deleteEmployee" >
-                             X
+                              {employee.first_name} {employee.last_name}
+                            </div>
+                            <span
+                              style={{ marginRight: "3px" }}
+                              waves="light"
+                              className="material-icons red-text right "
+                              onClick={() => this.deleteEmployee(employee.id)}>
+                              <Button className="red white-text z-depth-1 deleteEmployee" >
+                                X
                                 </Button>
-                          </span>
-                        </div>
+                            </span>
+                          </div>
                         ))}
                       </ul>
                     ) : (
@@ -224,14 +237,10 @@ class ManagerPortal extends Component {
                       )}
                   </Col>
 
-                  <div
-
-                    id="employeeInfo"
-                    className="col s12 m8 lighten-4 black-text"
-
-                  >
+                  <div id="employeeInfo"
+                    className="col s12 m8 lighten-4 black-text">
                     <CardPanel className="z-depth-2" style={{ marginRight: "10px" }}>
-                      {this.state.employee.length!==0 ? (
+                      {this.state.employee.length !== 0 ? (
                         <div>
                           {this.state.employee.first_name ?
                             (<h4>{this.state.employee.first_name} {this.state.employee.last_name}'s Information</h4>) :
@@ -248,28 +257,26 @@ class ManagerPortal extends Component {
                           </h5>
                         </div>
                       ) : (
-                        <div className="row">
-                          
+                          <div className="row">
                             <h5>Name:</h5>
                             <h5>Phone:</h5>
                             <h5>E-Mail:</h5>
                             <h5>Address:</h5>
                             <h5 className="col s12 center">No Employee Selected</h5>
                           </div>
-                          
+
                         )}
                     </CardPanel>
-
-                  </div>   </Row> </div>
-
+                  </div>
+                </Row>
+              </div>
             </Tab>
 
-
-            <Tab className="white-text" title="Employee Schedule" href="#employeeSchedule" active={this.state.employeeScheduleTab}>
+            <Tab className="white-text" title="Appointments" href="#employeeSchedule" active={this.state.employeeScheduleTab}>
               <div>
                 <Row>
                   <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
-                    <ManagerPortalModal loadEmployees={this.loadEmployees} />
+                    <ManagerPortalModal loadEmployees={this.loadEmployees} loadDays={this.loadDays} />
                   </Col>
                 </Row>
 
@@ -286,11 +293,11 @@ class ManagerPortal extends Component {
                         </li>
                         {this.state.employees.map(employee => (
 
-                         <div
-                          className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
-                          : "collection-item col s12 left grey lighten-3 waves-effect waves-black"}
-                          style={{borderRadius: "5px", marginTop: "5px",padding:"0" }}
-                          key={employee.id}
+                          <div
+                            className={employee.id === this.state.active ? "collection-item col s12 left selectEmployee blue  waves-effect waves-black"
+                              : "collection-item col s12 left grey lighten-3 waves-effect waves-black"}
+                            style={{ borderRadius: "5px", marginTop: "5px", padding: "0" }}
+                            key={employee.id}
                             onClick={() => this.changeEmployeeSchedule(employee)}
                           >
                             <div
@@ -298,20 +305,20 @@ class ManagerPortal extends Component {
                               className="left black-text"
                               href={"/employees/" + employee.id}
                             >
-                                {employee.first_name} {employee.last_name}
-                          
-                          </div>
-                          <span
-                            style={{ marginRight: "3px" }}
-                            waves="light"
-                            className="material-icons red-text right "
-                            onClick={() => this.deleteEmployee(employee.id)}
-                          >
-                            <Button className="red white-text z-depth-1 deleteEmployee" >
-                             X
+                              {employee.first_name} {employee.last_name}
+
+                            </div>
+                            <span
+                              style={{ marginRight: "3px" }}
+                              waves="light"
+                              className="material-icons red-text right "
+                              onClick={() => this.deleteEmployee(employee.id)}
+                            >
+                              <Button className="red white-text z-depth-1 deleteEmployee" >
+                                X
                                 </Button>
-                          </span>
-                        </div>
+                            </span>
+                          </div>
                         ))}
                       </ul>
                     ) : (
@@ -371,7 +378,7 @@ class ManagerPortal extends Component {
                                       </div>
                                     ))}
                                     <div className="col m6 s9 appointmentTime" style={{ fontSize: "1.3rem" }}>
-                                    {moment(appointment.date).format("DD MMM, YYYY")} {appointment.time}
+                                      {moment(appointment.date).format("DD MMM, YYYY")} {appointment.time}
                                     </div>
                                     <span
                                       className="col m2 s2 appointmentButton"
@@ -381,7 +388,7 @@ class ManagerPortal extends Component {
                                       className="secondary-content"
                                     >
                                       <Button className="red white-text z-depth-1 deleteAppointment" >
-                             X
+                                        X
                                 </Button>
                                     </span>
                                   </div>
@@ -398,7 +405,237 @@ class ManagerPortal extends Component {
                     </CardPanel>
                   </Col>
                 </Row>
-              </div></Tab>
+              </div>
+            </Tab>
+            {/* third tab============ */}
+            <Tab className="text-white" title="Schedule" href="#schedule" active={this.state.scheduleTab}>
+              <div>
+                <Row>
+                  <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
+                    <ManagerPortalModal loadEmployees={this.loadEmployees} loadDays={this.loadDays} />
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col
+                    s={12}
+                    m={12}
+                    className="lighten-4 black-text center employeeList"
+                  >
+                    {this.state.employees.length ? (
+                      <ul className="collection with-header center  z-depth-1 ">
+                        <li className="collection-header black white-text center">
+                          <h5 className="center black white-text">Employees</h5>
+                        </li>
+                        {this.state.employees.map(employee => (
+                          <div
+                            className={employee.id === this.state.active ? "collection-item col l4 m6 s12 left selectEmployee blue  waves-effect waves-black"
+                              : "collection-item col l4 m6 s12 left grey lighten-3 waves-effect waves-black"}
+                            style={{ borderRadius: "5px", marginTop: "5px", padding: "0" }}
+                            key={employee.id}
+                            onClick={() => this.changeSchedule(employee)}
+                          >
+                            <div
+                              style={{ fontSize: "1.3rem", marginTop: "7px" }}
+                              className="left black-text"
+                              href={"/employees/" + employee.id}
+                            >
+                              {employee.first_name} {employee.last_name}
+                            </div>
+                            <span
+                              style={{ marginRight: "3px" }}
+                              waves="light"
+                              className="material-icons red-text right "
+                              onClick={() => this.deleteEmployee(employee.id)}>
+                              <Button className="red white-text z-depth-1 deleteEmployee" >
+                                X
+                                </Button>
+                            </span>
+                          </div>
+                        ))}
+                      </ul>
+                    ) : (
+                        <p style={{ marginLeft: "5px" }} className="left">
+                          No Employees to Display
+                  </p>
+                      )}
+                  </Col>
+
+                  <div
+                    className="col s12  lighten-4 black-text">
+                    <CardPanel className="z-depth-2  " >
+                      <div className="row">
+
+                        {filteredDays.map(Day => (
+                          <Card
+
+                            className={Day.Sunday === true ? "red col s12 m12 l6 center" : "green darken-2 col s12 m12 l6 center"}
+                            key="filteredDay"
+                            title={Day.Sunday === true ? "Sunday Off" : "Sunday On"}>
+                            <Row><Col s={12}>
+                              <Button waves="dark" className={Day.Sunday === false ? "left grey " : "blue darken-2 left"}>On</Button>
+                              <Button waves="dark" className={Day.Sunday === false ? "right blue darken-2 " : "grey lighten-2 right"}>Off</Button>
+                            </Col></Row>
+                            <Row>
+                              {/* Shift Start Time================================================ */}
+                              <Input
+                                name="time"
+                                label="Shift Start"
+                                m={6}
+                                s={6}
+                                l={6}
+                                type="select"
+                                onChange={this.handleInputChange}
+                                className="modalDrop grey lighten-2 blue-text"
+                              >
+                                <option value="0800">8:00AM</option>
+                                <option value="0830">8:30AM</option>
+                                <option value="0900">9:00AM</option>
+                                <option value="0930">9:30AM</option>
+                                <option value="1000">10:00AM</option>
+                                <option value="1030">10:30AM</option>
+                                <option value="1100">11:00AM</option>
+                                <option value="1130">11:30AM</option>
+                                <option value="1200">12:00PM</option>
+                                <option value="1230">12:30PM</option>
+                                <option value="1300">1:00PM</option>
+                                <option value="1330">1:30AM</option>
+                                <option value="1400">2:00PM</option>
+                                <option value="1430">2:30PM</option>
+                                <option value="1500">3:00PM</option>
+                                <option value="1530">3:30PM</option>
+                                <option value="1600">4:00PM</option>
+                                <option value="1630">4:30PM</option>
+                                <option value="1700">5:00PM</option>
+                                <option value="1730">5:30PM</option>
+                                <option value="1800">6:00PM</option>
+                                <option value="1830">6:30PM</option>
+                                <option value="1900">7:00PM</option>
+                              </Input>
+                              {/* Shift End Time ============================================ */}
+                              <Input
+                                name="time"
+                                label="Shift End"
+                                m={6}
+                                s={6}
+                                l={6}
+                                type="select"
+                                onChange={this.handleInputChange}
+                                className="modalDrop grey lighten-2 blue-text"
+                              >
+                                <option value="0800">8:00AM</option>
+                                <option value="0830">8:30AM</option>
+                                <option value="0900">9:00AM</option>
+                                <option value="0930">9:30AM</option>
+                                <option value="1000">10:00AM</option>
+                                <option value="1030">10:30AM</option>
+                                <option value="1100">11:00AM</option>
+                                <option value="1130">11:30AM</option>
+                                <option value="1200">12:00PM</option>
+                                <option value="1230">12:30PM</option>
+                                <option value="1300">1:00PM</option>
+                                <option value="1330">1:30AM</option>
+                                <option value="1400">2:00PM</option>
+                                <option value="1430">2:30PM</option>
+                                <option value="1500">3:00PM</option>
+                                <option value="1530">3:30PM</option>
+                                <option value="1600">4:00PM</option>
+                                <option value="1630">4:30PM</option>
+                                <option value="1700">5:00PM</option>
+                                <option value="1730">5:30PM</option>
+                                <option value="1800">6:00PM</option>
+                                <option value="1830">6:30PM</option>
+                                <option value="1900">7:00PM</option>
+                              </Input>
+
+
+                              {/* Lunch Start Time================================================ */}
+                              <Input
+                                name="time"
+                                label="Lunch Start"
+                                m={6}
+                                s={6}
+                                l={6}
+                                type="select"
+                                onChange={this.handleInputChange}
+                                className="modalDrop grey lighten-2 blue-text"
+                              >
+                                <option value="0000">None</option>
+                                <option value="0800">8:00AM</option>
+                                <option value="0830">8:30AM</option>
+                                <option value="0900">9:00AM</option>
+                                <option value="0930">9:30AM</option>
+                                <option value="1000">10:00AM</option>
+                                <option value="1030">10:30AM</option>
+                                <option value="1100">11:00AM</option>
+                                <option value="1130">11:30AM</option>
+                                <option value="1200">12:00PM</option>
+                                <option value="1230">12:30PM</option>
+                                <option value="1300">1:00PM</option>
+                                <option value="1330">1:30AM</option>
+                                <option value="1400">2:00PM</option>
+                                <option value="1430">2:30PM</option>
+                                <option value="1500">3:00PM</option>
+                                <option value="1530">3:30PM</option>
+                                <option value="1600">4:00PM</option>
+                                <option value="1630">4:30PM</option>
+                                <option value="1700">5:00PM</option>
+                                <option value="1730">5:30PM</option>
+                                <option value="1800">6:00PM</option>
+                                <option value="1830">6:30PM</option>
+                                <option value="1900">7:00PM</option>
+                              </Input>
+                              {/* Lunch End Time ============================================ */}
+                              <Input
+                                name="time"
+                                label="Lunch End"
+                                m={6}
+                                s={6}
+                                l={6}
+                                type="select"
+                                onChange={this.handleInputChange}
+                                className="modalDrop grey lighten-2 blue-text"
+                              >
+                                <option value="0000">None</option>
+                                <option value="0800">8:00AM</option>
+                                <option value="0830">8:30AM</option>
+                                <option value="0900">9:00AM</option>
+                                <option value="0930">9:30AM</option>
+                                <option value="1000">10:00AM</option>
+                                <option value="1030">10:30AM</option>
+                                <option value="1100">11:00AM</option>
+                                <option value="1130">11:30AM</option>
+                                <option value="1200">12:00PM</option>
+                                <option value="1230">12:30PM</option>
+                                <option value="1300">1:00PM</option>
+                                <option value="1330">1:30AM</option>
+                                <option value="1400">2:00PM</option>
+                                <option value="1430">2:30PM</option>
+                                <option value="1500">3:00PM</option>
+                                <option value="1530">3:30PM</option>
+                                <option value="1600">4:00PM</option>
+                                <option value="1630">4:30PM</option>
+                                <option value="1700">5:00PM</option>
+                                <option value="1730">5:30PM</option>
+                                <option value="1800">6:00PM</option>
+                                <option value="1830">6:30PM</option>
+                                <option value="1900">7:00PM</option>
+                              </Input>
+                              <Button waves="light" className="blue" >Save</Button>
+                            </Row>
+
+                          </Card>
+                        ))}
+                      
+                        
+                      </div>
+
+
+                    </CardPanel>
+                  </div>
+                </Row>
+              </div>
+            </Tab>
 
 
           </Tabs>

@@ -49,8 +49,6 @@ class EmpApptUpdateModal extends Component {
       phone: false,
       date: false,
       time: false
-     
-     
     }, 
    
   };

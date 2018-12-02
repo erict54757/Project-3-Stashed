@@ -40,7 +40,9 @@ class ManagerPortalModal extends Component {
       account_key: this.state.password,
       isAdmin: this.state.isAdmin
     })
+  
       .then(res => this.props.loadEmployees())
+      .then(res => this.props.loadDays())
       .then(res => this.setState(this.initialState))
       .catch(err => console.log(err));
   };
