@@ -62,9 +62,9 @@ class DaySchedule extends Component {
       .catch(err => console.log(err));
   }
 
-  componentDidMount() {
-    this.loadDayShift();
-  }
+  // componentDidMount() {
+  //   this.loadDayShift();
+  // }
   handleBlur = (field) => (evt) => {
     this.setState({
       touched: { ...this.state.touched, [field]: true },
