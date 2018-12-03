@@ -36,31 +36,31 @@ class DaySchedule extends Component {
     }
 
   }
-  loadDayShift = () => {
-    this.props.funcGet
-      .then(res => this.setState({ shiftTime: res.data })
-        .then(console.log(this.state.shiftTime)))
-      .catch(err => console.log(this.state.shiftTime));
-    console.log(this.props.funcGet)
-  }
+  // loadDayShift = () => {
+  //   this.props.funcGet
+  //     .then(res => this.setState({ shiftTime: res.data })
+  //       .then(console.log(this.state.shiftTime)))
+  //     .catch(err => console.log(this.state.shiftTime));
+  //   console.log(this.props.funcGet)
+  // }
 
-  updateDayShift = () => {
-    this.props.funcPut(this.props.EmployeeId, {
-      shiftStartTime: this.state.shiftStartTime,
-      shiftEndTime: this.state.shiftEndTime,
-      lunchStartTime: this.state.lunchStartTime,
-      lunchEndTime: this.state.lunchEndTime,
-    })
-      .then(res => this.loadDayShift())
-      .catch(err => console.log(err));
-  }
-  changeDayOnOff = () => {
-    API.changeDayOnOff(this.props.EmployeeId, {
+  // updateDayShift = () => {
+  //   this.props.funcPut(this.props.EmployeeId, {
+  //     shiftStartTime: this.state.shiftStartTime,
+  //     shiftEndTime: this.state.shiftEndTime,
+  //     lunchStartTime: this.state.lunchStartTime,
+  //     lunchEndTime: this.state.lunchEndTime,
+  //   })
+  //     .then(res => this.loadDayShift())
+  //     .catch(err => console.log(err));
+  // }
+  // changeDayOnOff = () => {
+  //   API.changeDayOnOff(this.props.EmployeeId, {
 
-    })
-      .then(res => this.loadDayShift())
-      .catch(err => console.log(err));
-  }
+  //   })
+  //     .then(res => this.loadDayShift())
+  //     .catch(err => console.log(err));
+  // }
 
   // componentDidMount() {
   //   this.loadDayShift();
@@ -104,8 +104,8 @@ class DaySchedule extends Component {
         key="filteredDay"
         title={this.props.Day === false ? this.props.off : this.props.on}>
         <Row><Col s={12}>
-          <Button waves="light" className={this.props.Day.Day === false ? "bllighten-2 left" : "left grey "}>On</Button>
-          <Button waves="light" className={this.props.Day.Day === false ? "grelightghten-2 right" : "right blue darken-2 "}>Off</Button>
+          <Button waves="light" className={this.props.Day === false ? "blue lighten-2 left" : "left grey "}>On</Button>
+          <Button waves="light" className={this.props.Day === false ? "grey lighten-2 right" : "right blue darken-2 "}>Off</Button>
         </Col></Row>
         <Row>
           {/* Shift Start Time================================================ */}
