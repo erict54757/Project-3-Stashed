@@ -2,7 +2,7 @@ const router = require("express").Router();
 const customerRoutes = require("./customer");
 const employeeRoutes = require("./employee");
 const appointmentRoutes = require("./appointment");
-const dayRoutes = require("./day");
+const dayRoutes = require("./Day");
 
 router.use("/customers", customerRoutes);
 router.use("/employees", employeeRoutes);

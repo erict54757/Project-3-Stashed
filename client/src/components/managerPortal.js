@@ -466,7 +466,7 @@ class ManagerPortal extends Component {
                     <CardPanel className="z-depth-2  " >
                       <div className="row">
 
-                        {/* {filteredDays.map(Day => (
+                        {filteredDays.map(Day => (
                         <DaySchedule
                         key="filteredDay"
                         Day={Day.Sunday}
@@ -475,7 +475,7 @@ class ManagerPortal extends Component {
                         EmployeeId={this.state.active}
                         on="Sunday On"
                         off="Sunday Off"/>
-                        ))} */}
+                        ))}
                       
                         Under Construction
                       </div>
