@@ -36,35 +36,35 @@ class DaySchedule extends Component {
     }
 
   }
-  // loadDayShift = () => {
-  //   this.props.funcGet
-  //     .then(res => this.setState({ shiftTime: res.data })
-  //       .then(console.log(this.state.shiftTime)))
-  //     .catch(err => console.log(this.state.shiftTime));
-  //   console.log(this.props.funcGet)
-  // }
+  loadDayShift = () => {
+    this.props.funcGet
+      .then(res => this.setState({ shiftTime: res.data })
+        .then(console.log(this.state.shiftTime)))
+      .catch(err => console.log(this.state.shiftTime));
+    console.log(this.props.funcGet)
+  }
 
-  // updateDayShift = () => {
-  //   this.props.funcPut(this.props.EmployeeId, {
-  //     shiftStartTime: this.state.shiftStartTime,
-  //     shiftEndTime: this.state.shiftEndTime,
-  //     lunchStartTime: this.state.lunchStartTime,
-  //     lunchEndTime: this.state.lunchEndTime,
-  //   })
-  //     .then(res => this.loadDayShift())
-  //     .catch(err => console.log(err));
-  // }
-  // changeDayOnOff = () => {
-  //   API.changeDayOnOff(this.props.EmployeeId, {
+  updateDayShift = () => {
+    this.props.funcPut(this.props.EmployeeId, {
+      shiftStartTime: this.state.shiftStartTime,
+      shiftEndTime: this.state.shiftEndTime,
+      lunchStartTime: this.state.lunchStartTime,
+      lunchEndTime: this.state.lunchEndTime,
+    })
+      .then(res => this.loadDayShift())
+      .catch(err => console.log(err));
+  }
+  changeDayOnOff = () => {
+    API.changeDayOnOff(this.props.EmployeeId, {
 
-  //   })
-  //     .then(res => this.loadDayShift())
-  //     .catch(err => console.log(err));
-  // }
+    })
+      .then(res => this.loadDayShift())
+      .catch(err => console.log(err));
+  }
 
-  // componentDidMount() {
-  //   this.loadDayShift();
-  // }
+  componentDidMount() {
+    this.loadDayShift();
+  }
   handleBlur = (field) => (evt) => {
     this.setState({
       touched: { ...this.state.touched, [field]: true },
