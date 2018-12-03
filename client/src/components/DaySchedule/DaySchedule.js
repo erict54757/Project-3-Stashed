@@ -31,26 +31,36 @@ class DaySchedule extends Component {
     lunchStartTime: false,
     lunchEndTime: false,
   }, 
+  DayOnOff:this.props.Day
    
  }
- const loadDayShift = () => {
-  this.props.funcGet()
+
+} 
+ loadDayShift = () => {
+  this.props.funcGet
     .then(res => this.setState({ shiftTime: res.data })
-      .then(console.log(this.state.Days)))
-    .catch(err => console.log(err));
+      .then(console.log(this.state.shiftTime)))
+    .catch(err => console.log(this.state.shiftTime));
+  console.log(this.props.funcGet)
 }
 
-const updateDayShift = () => {
+ updateDayShift = () => {
   this.props.funcPut(this.props.EmployeeId, {
    shiftStartTime:this.state.shiftStartTime,
    shiftEndTime:this.state.shiftEndTime,
    lunchStartTime: this.state.lunchStartTime,
    lunchEndTime: this.state.lunchEndTime,
   })
-    .then(res => this.props.getAppointments())
+    .then(res => this.loadDayShift())
     .catch(err => console.log(err));
   }
-}
+  changeDayOnOff = () => {
+    API.changeDayOnOff(this.props.EmployeeId, {
+     
+    })
+      .then(res => this.loadDayShift())
+      .catch(err => console.log(err));
+    }
 
 componentDidMount(){
   this.loadDayShift();
@@ -65,6 +75,7 @@ canBeSubmitted() {
   const isDisabled = Object.keys(errors).some(x => errors[x]);
   return !isDisabled;
 }
+
 
  handleInputChange = event => {
   event.preventDefault();
@@ -88,12 +99,13 @@ canBeSubmitted() {
   return (
       
     <Card
-    className={this.props.Day.Day === false ? "red col s12 m12 l6 center" : "green darken-2 col s12 m12 l6 center"}
+    style={{padding:"0"}}
+    className={this.props.Day === false ? "red col s12 m6 l4 center z-depth-5" : "green darken-2 col s12 m6 l4 center z-depth-5"}
     key="filteredDay"
-    title={this.props.Day.Day === false ? "Sunday Off" : "Sunday On"}>
+    title={this.props.Day === false ? this.props.off: this.props.on }>
     <Row><Col s={12}>
-      <Button waves="dark" className={this.props.Day.Day === false ? "left grey " : "blue darken-2 left"}>On</Button>
-      <Button waves="dark" className={this.props.Day.Day === false ? "right blue darken-2 " : "grey lighten-2 right"}>Off</Button>
+      <Button waves="light" className={this.props.Day.Day === false ?  "bllighten-2 left":"left grey " }>On</Button>
+      <Button waves="light" className={this.props.Day.Day === false ?  "grelightghten-2 right":"right blue darken-2 " }>Off</Button>
     </Col></Row>
     <Row>
       {/* Shift Start Time================================================ */}
@@ -104,7 +116,7 @@ canBeSubmitted() {
         s={6}
         l={6}
         type="select"
-        defaultValue={this.props.shiftStartTime}
+        defaultValue={this.state.shiftTime.shiftStartTime}
         onBlur={this.handleBlur('shiftStartTime')}
         onChange={this.handleInputChange}
         className={shouldMarkError('shiftStartTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
@@ -144,7 +156,7 @@ canBeSubmitted() {
         type="select"
         onChange={this.handleInputChange}
         onBlur={this.handleBlur('shiftEndTime')}
-        defaultValue={this.props.shiftEndTime}
+        defaultValue={this.state.shiftTime.shiftEndTime}
         className={shouldMarkError('shiftEndTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
       >
         <option value="0800">8:00AM</option>
@@ -183,7 +195,7 @@ canBeSubmitted() {
         type="select"
         onChange={this.handleInputChange}
         onBlur={this.handleBlur('lunchStartTime')}
-        defaultValue={this.props.lunchtStartTime}
+        defaultValue={this.state.shiftTime.lunchStartTime}
         className={shouldMarkError('lunchStartTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
       >
         <option value="0000">None</option>
@@ -221,7 +233,7 @@ canBeSubmitted() {
         type="select"
         onChange={this.handleInputChange}
         onBlur={this.handleBlur('lunchEndTime')}
-        defaultValue={this.props.lunchtEndTime}
+        defaultValue={this.state.shiftTime.lunchEndTime}
         className={shouldMarkError('lunchEndTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
       >
         <option value="0000">None</option>
@@ -249,7 +261,7 @@ canBeSubmitted() {
         <option value="1830">6:30PM</option>
         <option value="1900">7:00PM</option>
       </Input>
-      <Button waves="light" className="blue"  disabled={isDisabled} >Save</Button>
+      <Button waves="light" className="blue" onClick={this.updateDayShift}  disabled={isDisabled} >Save</Button>
     </Row>
 
   </Card>

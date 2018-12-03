@@ -55,7 +55,7 @@ export default {
     return axios.get("/api/days");
   },
   // Updates day to true or false
-  updateDay: function(id, dayData) {
+  changeDayOnOff: function(id, dayData) {
     return axios.put("/api/day/" + id, dayData);
   },
   updateSunday: function(id, dayData) {

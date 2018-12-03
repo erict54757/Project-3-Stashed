@@ -81,10 +81,9 @@ class Main extends Component {
                     <h5 className="header center black-text text-lighten-3">
                       Charlotte Barber & Beard
                     </h5>
-                    <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
+                    <p>1200 The Plaza Suite B, Charlotte, NC 28205</p>
                     <p>Phone: (704) 595-7795</p>
                     <p>
-                      Hours:
                       <p>
                         <strong>Sunday-Monday</strong>
                         {"  "}Closed
