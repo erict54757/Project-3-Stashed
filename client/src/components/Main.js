@@ -15,7 +15,7 @@ class Main extends Component {
     console.log(this.props.isCust);
     return (
       <div className="mainContain">
-       
+
         <div id="index-banner" className="parallax-container">
           <h1 className="header center grey-text text-lighten-3">
             Charlotte Barber & Beard
@@ -67,48 +67,48 @@ class Main extends Component {
                   </div>
                 </div>
               ) : (
-                <div>
-                  <div
-                    className="col m6 s12 center"
-                    style={{ marginTop: "10px" }}
-                  >
-                    <Map />
-                  </div>
-                  <div
-                    className="col m6 s12 center"
-                    style={{ marginTop: "20px" }}
-                  >
-                    <h5 className="header center black-text text-lighten-3">
-                      Charlotte Barber & Beard
+                  <div>
+                    <div
+                      className="col m6 s12 center"
+                      style={{ marginTop: "10px" }}
+                    >
+                      <Map />
+                    </div>
+                    <div
+                      className="col m6 s12 center"
+                      style={{ marginTop: "20px" }}
+                    >
+                      <h5 className="header center black-text text-lighten-3">
+                        Charlotte Barber & Beard
                     </h5>
-                    <p>1200 The Plaza Suite B, Charlotte, NC 28205</p>
-                    <p>Phone: (704) 595-7795</p>
-                    <p>
+                      <p>1200 The Plaza Suite B, Charlotte, NC 28205</p>
+                      <p>Phone: (704) 595-7795</p>
                       <p>
-                        <strong>Sunday-Monday</strong>
-                        {"  "}Closed
+                        <p>
+                          <strong>Sunday-Monday</strong>
+                          {"  "}Closed
                       </p>
-                      <p>
-                        <strong>Tuesday-Friday</strong>
-                        {"  "}10AM-6PM
+                        <p>
+                          <strong>Tuesday-Friday</strong>
+                          {"  "}10AM-6PM
                       </p>
-                      <p>
-                        <strong>Saturday</strong>
-                        {"  "}9AM-4PM
+                        <p>
+                          <strong>Saturday</strong>
+                          {"  "}9AM-4PM
                       </p>
-                    </p>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </div>
           </div>
         </div>  <h4 className="center grey-text text-lighten-3 special">
           Specializing In Classic Cuts.
         </h4>
- 
-      <Parallax imageSrc={background2} /> 
-       
-       
+
+        <Parallax imageSrc={background2} />
+
+
         <div className="parallax-container valign-wrapper appoint white">
           <CustContact />
         </div>
