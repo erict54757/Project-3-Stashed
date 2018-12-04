@@ -55,13 +55,16 @@ export default {
     return axios.get("/api/days");
   },
   // Updates day to true or false
-  changeDayOnOff: function(id, dayData) {
-    return axios.put("/api/day/" + id, dayData);
+  changeDayOn: function(id, dayData) {
+    return axios.put("/api/days/Sunday/on/" + id, dayData);
+  },
+  changeDayOff: function(id, dayData) {
+    return axios.put("/api/days/Sunday/off/" + id, dayData);
   },
   updateSunday: function(id, dayData) {
     return axios.put("/api/Sunday/" + id, dayData);
   },
-  getSunday: function() {
-    return axios.get("/api/Sunday");
+  getSunday: function(id) {
+    return axios.get("/api/Sunday/"+id);
   },
 };

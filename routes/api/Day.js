@@ -7,9 +7,12 @@ router
   .get(dayController.findAll)
 
 // "/api/days/:id"
-router
-  .route("/:id")
-  .delete(dayController.delete)
-  .put(dayController.update);
 
+
+router
+  .route("/sunday/on/:id")
+  .put(dayController.updateOn);
+router
+  .route("/sunday/off/:id")
+  .put(dayController.updateOff);
 module.exports = router;

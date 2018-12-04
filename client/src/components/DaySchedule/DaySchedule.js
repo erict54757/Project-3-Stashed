@@ -4,6 +4,7 @@ import Auth from "../../utils/auth";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 import API from "../../utils/API"
+import moment from "moment"
 
 function validate(shiftStartTime, shiftEndTime, lunchStartTime, lunchEndTime) {
   // true means invalid, so our conditions got reversed
@@ -17,31 +18,36 @@ function validate(shiftStartTime, shiftEndTime, lunchStartTime, lunchEndTime) {
 }
 
 class DaySchedule extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+  
+    state = {
+
       shiftStartTime: "",
       shiftEndTime: "",
       lunchStartTime: "",
       lunchEndTime: "",
       shiftTime: [],
+
       touched: {
         shiftStartTime: false,
         shiftEndTime: false,
         lunchStartTime: false,
         lunchEndTime: false,
       },
+     
+     
+      Name:this.props.Name,
       DayOnOff: this.props.Day
 
     }
 
-  }
-  loadDayShift = () => {
-    this.props.funcGet
-      .then(res => this.setState({ shiftTime: res.data })
-        .then(console.log(this.state.shiftTime)))
-      .catch(err => console.log(this.state.shiftTime));
-    console.log(this.props.funcGet)
+  
+   loadDayShift =(id)=> {
+  
+    this.props.funcGet(id)
+      .then(res => this.setState({ shiftTime: res.data[0] })
+      ).then(console.log(this.state.shiftTime))
+      .catch(err => console.log(err));
+    
   }
 
   updateDayShift = () => {
@@ -51,20 +57,52 @@ class DaySchedule extends Component {
       lunchStartTime: this.state.lunchStartTime,
       lunchEndTime: this.state.lunchEndTime,
     })
-      .then(res => this.loadDayShift())
+      .then(res => this.componentDidMount())
       .catch(err => console.log(err));
   }
-  changeDayOnOff = () => {
-    API.changeDayOnOff(this.props.EmployeeId, {
-
+  changeDayOff = () => {
+    this.setState({
+      
+      DayOnOff: false
+    });
+    API.changeDayOff(this.props.EmployeeId, {
+        name:this.state.Name,
+        "DayState":false
     })
-      .then(res => this.loadDayShift())
+    // .then(this.props.refresh)
+      .then(res => this.componentDidMount())
+      .catch(err => console.log(err));
+  }
+  changeDayOn = () => {
+    this.setState({
+      
+      DayOnOff: true
+    });
+    API.changeDayOn(this.props.EmployeeId, {
+        name:this.props.Name,
+        "DayState":true
+    })
+    // .then(this.props.refresh)
+      .then(res => this.componentDidMount())
       .catch(err => console.log(err));
   }
 
-  // componentDidMount() {
-  //   this.loadDayShift();
-  // }
+
+async  componentDidMount() {
+   const response= await this.props.funcGet(this.props.EmployeeId);
+   const json = await response;
+  //  console.log(json.data[0].lunchEndTime)
+   this.setState({ shiftStartTime: json.data[0].shiftStartTime,
+    shiftEndTime:json.data[0].shiftEndTime,
+    lunchStartTime:json.data[0].lunchEndTime, 
+    lunchEndTime:json.data[0].lunchEndTime});
+    // console.log(this.state.shiftTime)
+  }
+  
+  
+
+    
+  
   handleBlur = (field) => (evt) => {
     this.setState({
       touched: { ...this.state.touched, [field]: true },
@@ -79,11 +117,13 @@ class DaySchedule extends Component {
 
   handleInputChange = event => {
     event.preventDefault();
+    console.log(this.state.shiftTime)
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
     // Updating the input's state
     this.setState({
+      
       [name]: value
     });
   };
@@ -100,12 +140,21 @@ class DaySchedule extends Component {
 
       <Card
         style={{ padding: "0" }}
-        className={this.props.Day === false ? "red col s12 m6 l4 center z-depth-5" : "green darken-2 col s12 m6 l4 center z-depth-5"}
+        className={this.state.DayOnOff  === false ? "red col s12 m6 l4 center z-depth-5" : "green darken-2 col s12 m6 l4 center z-depth-5"}
         key="filteredDay"
-        title={this.props.Day === false ? this.props.off : this.props.on}>
+        title={this.state.DayOnOff === false ? this.props.off : this.props.on}>
         <Row><Col s={12}>
-          <Button waves="light" className={this.props.Day === false ? "blue lighten-2 left" : "left grey "}>On</Button>
-          <Button waves="light" className={this.props.Day === false ? "grey lighten-2 right" : "right blue darken-2 "}>Off</Button>
+          <Button 
+          waves="light"
+          className={this.state.DayOnOff === false ?"left grey lighten-2":"blue lighten-1 left" }
+          onClick={this.changeDayOn}
+          
+          >On</Button>
+          <Button 
+          waves="light" 
+          className={this.state.DayOnOff === false ?"right blue lighten-1" : "grey lighten-2 right" }
+          onClick={this.changeDayOff}
+          >Off</Button>
         </Col></Row>
         <Row>
           {/* Shift Start Time================================================ */}
@@ -116,7 +165,8 @@ class DaySchedule extends Component {
             s={6}
             l={6}
             type="select"
-            defaultValue={this.state.shiftTime.shiftStartTime}
+            value={this.state.shiftStartTime}
+            // placeholder={this.state.shiftTime.shiftStartTime}
             onBlur={this.handleBlur('shiftStartTime')}
             onChange={this.handleInputChange}
             className={shouldMarkError('shiftStartTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
@@ -156,7 +206,7 @@ class DaySchedule extends Component {
             type="select"
             onChange={this.handleInputChange}
             onBlur={this.handleBlur('shiftEndTime')}
-            defaultValue={this.state.shiftTime.shiftEndTime}
+            value={this.state.shiftEndTime}
             className={shouldMarkError('shiftEndTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
           >
             <option value="0800">8:00AM</option>
@@ -195,7 +245,7 @@ class DaySchedule extends Component {
             type="select"
             onChange={this.handleInputChange}
             onBlur={this.handleBlur('lunchStartTime')}
-            defaultValue={this.state.shiftTime.lunchStartTime}
+            value={this.state.lunchStartTime}
             className={shouldMarkError('lunchStartTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
           >
             <option value="0000">None</option>
@@ -233,7 +283,7 @@ class DaySchedule extends Component {
             type="select"
             onChange={this.handleInputChange}
             onBlur={this.handleBlur('lunchEndTime')}
-            defaultValue={this.state.shiftTime.lunchEndTime}
+           value={this.state.lunchEndTime}
             className={shouldMarkError('lunchEndTime') ? "modalDrop red-text" : "modalDrop grey lighten-2 blue-text"}
           >
             <option value="0000">None</option>

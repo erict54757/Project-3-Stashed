@@ -28,6 +28,7 @@ class ManagerPortal extends Component {
 
   };
 
+
   componentDidMount() {
     this.loadEmployees();
     this.loadAppointments();
@@ -44,7 +45,7 @@ class ManagerPortal extends Component {
     API.getDays()
       .then(res => this.setState({ Days: res.data })
         .then(console.log(this.state.Days)))
-      .catch(err => console.log(err));
+      .catch(err => (err));
   };
 
   loadEmployees = () => {
@@ -84,7 +85,7 @@ class ManagerPortal extends Component {
       employeeInfoTab: false,
       employeeScheduleTab: false,
       scheduleTab: true
-    });
+    })
   };
 
   deleteEmployee = id => {
@@ -468,11 +469,13 @@ class ManagerPortal extends Component {
 
                         {filteredDays.map(Day => (
                         <DaySchedule
+                        refresh={() => this.componentDidMount()}
                         key="filteredDay"
                         Day={Day.Sunday}
-                        funcGet={API.getSunday()}
+                        funcGet={API.getSunday}
                         funcPut={API.updateSunday}
                         EmployeeId={this.state.active}
+                        Name="Sunday"
                         on="Sunday On"
                         off="Sunday Off"/>
                         ))}

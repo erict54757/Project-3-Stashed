@@ -168,6 +168,9 @@ module.exports = function(sequelize, DataTypes) {
   Employee.associate = function(models) {
     Employee.hasMany(models.Day, {});
   };
+  Employee.associate = function(models) {
+    Employee.hasMany(models.Sunday, {});
+  };
 
   Employee.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
