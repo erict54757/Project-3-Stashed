@@ -59,6 +59,7 @@ class EmployeeSchedule extends React.Component {
     console.log(this.state);
 
     return (
+      <div>
       <div className="container">
         <Row>
           <Col className="addCol">
@@ -83,14 +84,14 @@ class EmployeeSchedule extends React.Component {
             </Input>
           </Col>
         </Row>
-
+</div>
         <Row
           className="center"
           style={{ paddingLeft: "3%", paddingRight: "3%" }}
         >
           {filteredAppointments.length ? (
             filteredAppointments.map(appointment => (
-              <div className="col s12 m6 l4" key={appointment.id}>
+              <div className="col s12 m6 l4 center" key={appointment.id}>
                 <Appointment
                   customers={this.state.customers}
                   id={appointment.id}
@@ -109,6 +110,7 @@ class EmployeeSchedule extends React.Component {
             </div>
           )}
         </Row>
+       
       </div>
     );
   }

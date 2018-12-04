@@ -2,11 +2,11 @@ import React from "react";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
-import { Link } from "react-router-dom";
+import {  } from "react-router-dom";
 class Foot extends React.Component {
   render() {
     return (
-      <div className="page-footer white">
+      <footer className="page-footer white">
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
@@ -19,7 +19,7 @@ class Foot extends React.Component {
                 back, with solely the clientele in mind. People pay for quality
                 and this is where you will get it. We are barbers who
                 love our craft, providing top notch service that helps men Stay
-                Sharp..
+                Sharp.
               </p>
             </div>
             <div className="col l3 s12" />
@@ -57,7 +57,13 @@ class Foot extends React.Component {
             </div>
           </div>
         </div>
+        <div className="footer-copyright">
+      <div className="container center black-text"> 
+        &copy;Copyright 2018
       </div>
+    </div>
+      </footer>
+
     );
   }
 }

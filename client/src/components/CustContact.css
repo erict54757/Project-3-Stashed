@@ -1,15 +1,13 @@
-.error { border: 2px solid red; 
-    border-bottom-color: red;
-    box-shadow: red;
-    background-image: url(https://vignette.wikia.nocookie.net/phobia/images/5/5a/Red.jpg/revision/latest?cb=20161109225243);
-    
-    
+/* .error {
+     color: red;
+    display: show;
+    box-shadow: 2px;
+    box-shadow:red;
+    outline: 2px;
+    outline-color: red;
+ /* background-color: red; */
+ 
 
-  
-    
-
-}
-/* .rounded{
-    border: none;
+/* .emailValidate{
+    margin-left: 200px;
 } */
-

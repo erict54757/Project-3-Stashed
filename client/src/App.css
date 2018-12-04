@@ -1600,6 +1600,12 @@
 .transparent-text {
   color: transparent !important; }
 
+.tabs .tab a:hover {
+  color: black; }
+
+.tabs .tab a.active {
+  color: black; }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -1994,10 +2000,10 @@ a {
 .z-depth-3 {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3); }
 
-.z-depth-4, .modal {
+.z-depth-4 {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3); }
 
-.z-depth-5 {
+.z-depth-5, .modal {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3); }
 
 .hoverable {
@@ -3548,7 +3554,7 @@ small {
   overflow-y: hidden;
   height: 48px;
   width: 100%;
-  background-color: #fff;
+  background-color: black;
   margin: 0 auto;
   white-space: nowrap; }
   .tabs.tabs-transparent {
@@ -3575,7 +3581,7 @@ small {
     margin: 0;
     text-transform: uppercase; }
     .tabs .tab a {
-      color: rgba(238, 110, 115, 0.7);
+      color: rgba(66, 165, 245, 0.7);
       display: block;
       width: 100%;
       height: 100%;
@@ -3586,10 +3592,10 @@ small {
       transition: color .28s ease; }
       .tabs .tab a:hover, .tabs .tab a.active {
         background-color: transparent;
-        color: #ee6e73; }
+        color: #42A5F5; }
     .tabs .tab.disabled a,
     .tabs .tab.disabled a:hover {
-      color: rgba(238, 110, 115, 0.7);
+      color: rgba(66, 165, 245, 0.7);
       cursor: default; }
   .tabs .indicator {
     position: absolute;
@@ -3997,7 +4003,7 @@ button.btn-floating {
   right: 0;
   background-color: #fafafa;
   padding: 0;
-  max-height: 70%;
+  max-height: 100%;
   width: 55%;
   margin: auto;
   overflow-y: auto;
@@ -4037,7 +4043,7 @@ button.btn-floating {
 
 .modal.modal-fixed-footer {
   padding: 0;
-  height: 70%; }
+  height: 85%; }
   .modal.modal-fixed-footer .modal-content {
     position: absolute;
     height: calc(100% - 56px);
@@ -6887,23 +6893,22 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   /*shape-rendering: crispEdges;*/ }
 
 html {
-  position: relative;
   min-height: 100%;
   background-color: #f6f8fa; }
 
-body {
-  /* Margin bottom by footer height */
-  min-height: 100%;
-  margin-bottom: 40px; }
-
-#root {
-  min-height: 860px; }
-
-.footer {
-  width: 100%;
-  margin-top: 60px;
-  position: absolute;
-  bottom: 0; }
-
 h4 {
   text-align: center; }
+
+@media screen and (max-width: 760px) {
+  .modal, .modal-fixed-footer {
+    width: 100%;
+    height: 85%; } }
+
+.tabs .tab a:hover {
+  color: white !important; }
+
+.tabs .tab a.active {
+  color: white !important; }
+
+.tabs .tab a {
+  color: white !important; }

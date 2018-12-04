@@ -275,8 +275,8 @@ $spinner-default-color: $secondary-color !default;
 // ==========================================================================
 
 $tabs-underline-color: $primary-color-light !default;
-$tabs-text-color: $primary-color !default;
-$tabs-bg-color: #fff !default;
+$tabs-text-color: $secondary-color !default;
+$tabs-bg-color:black!default;
 
 
 // 19. Tables
@@ -341,3 +341,11 @@ $collection-line-height: 1.5rem !default;
 // ==========================================================================
 
 $progress-bar-color: $secondary-color !default;
+.tabs .tab a:hover {
+     color: black;
+}
+
+
+.tabs .tab a.active {
+     color: black; 
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, NavItem } from "react-materialize";
-
+import TourModal from "./TourModal.js"
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
@@ -9,7 +9,13 @@ import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
 import "./NavBarCust.css";
 
+
 class NavBarCust extends Component {
+  Alert=()=>{
+ 
+    alert("Admin: UserName: admin@gmail.com, Password: admin18")
+    return
+  }
   render() {
     return (
       <Navbar
@@ -26,10 +32,13 @@ class NavBarCust extends Component {
         right
         role="navigation"
       >
-        <NavItem>
+        <NavItem  style={{marginTop:"8px"}}>
+          <TourModal/>
+        </NavItem>
+        <NavItem  style={{marginTop:"8px"}}>
           <SignInModal />
         </NavItem>
-        <NavItem>
+        <NavItem style={{marginTop:"8px"}}>
           <SignUpModal />
         </NavItem>
       </Navbar>

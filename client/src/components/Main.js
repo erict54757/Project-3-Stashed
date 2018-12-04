@@ -14,7 +14,8 @@ class Main extends Component {
   render() {
     console.log(this.props.isCust);
     return (
-      <div>
+      <div className="mainContain">
+
         <div id="index-banner" className="parallax-container">
           <h1 className="header center grey-text text-lighten-3">
             Charlotte Barber & Beard
@@ -33,8 +34,8 @@ class Main extends Component {
               {this.props.token && this.props.isCust === "true" ? (
                 <div>
                   <div
-                    className="col l4 m12 s12 center"
-                    style={{ height: "200px",marginBottom: "100px" }}
+                    className="col l4 m12 s12 center makeAppoint"
+                    style={{ height: "200px" }}
                   >
                     <NewAppointment customerId={this.props.id} />
                   </div>
@@ -42,12 +43,12 @@ class Main extends Component {
                     <Map />
                   </div>
                   <div className="col l4 m6 s12 center">
-                  <h5 className="header center black-text text-lighten-3">
-            Charlotte Barber & Beard
-          </h5>
-                    
-                    <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
-                    <p>Phone: (704) 595-7795</p>
+                    <h5 className="header center black-text text-lighten-3">
+                      Charlotte Barber & Beard
+                    </h5>
+
+                    <p> 1200 The Plaza Suite B, Charlotte, NC 28205</p>
+                    <p> (704) 595-7795</p>
                     <p>
                       Hours:
                       <p>
@@ -66,47 +67,48 @@ class Main extends Component {
                   </div>
                 </div>
               ) : (
-                <div>
-                  <div
-                    className="col m6 s12 center"
-                    style={{ marginTop: "10px" }}
-                  >
-                    <Map />
-                  </div>
-                  <div
-                    className="col m6 s12 center"
-                    style={{ marginTop: "20px" }}
-                  >
-                    <h5 className="header center black-text text-lighten-3">
-                      Charlotte Barber & Beard
+                  <div>
+                    <div
+                      className="col m6 s12 center"
+                      style={{ marginTop: "10px" }}
+                    >
+                      <Map />
+                    </div>
+                    <div
+                      className="col m6 s12 center"
+                      style={{ marginTop: "20px" }}
+                    >
+                      <h5 className="header center black-text text-lighten-3">
+                        Charlotte Barber & Beard
                     </h5>
-                    <p>Address: 1200 The Plaza Suite B, Charlotte, NC 28205</p>
-                    <p>Phone: (704) 595-7795</p>
-                    <p>
-                      Hours:
+                      <p>1200 The Plaza Suite B, Charlotte, NC 28205</p>
+                      <p>Phone: (704) 595-7795</p>
                       <p>
-                        <strong>Sunday-Monday</strong>
-                        {"  "}Closed
+                        <p>
+                          <strong>Sunday-Monday</strong>
+                          {"  "}Closed
                       </p>
-                      <p>
-                        <strong>Tuesday-Friday</strong>
-                        {"  "}10AM-6PM
+                        <p>
+                          <strong>Tuesday-Friday</strong>
+                          {"  "}10AM-6PM
                       </p>
-                      <p>
-                        <strong>Saturday</strong>
-                        {"  "}9AM-4PM
+                        <p>
+                          <strong>Saturday</strong>
+                          {"  "}9AM-4PM
                       </p>
-                    </p>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </div>
           </div>
-        </div>
-        <h4 className=" index-banner header center grey-text text-lighten-3 light special">
+        </div>  <h4 className="center grey-text text-lighten-3 special">
           Specializing In Classic Cuts.
         </h4>
+
         <Parallax imageSrc={background2} />
+
+
         <div className="parallax-container valign-wrapper appoint white">
           <CustContact />
         </div>

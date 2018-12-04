@@ -4,7 +4,7 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  InfoWindow,
+  // InfoWindow,
 } from "react-google-maps";
 
 export default class MapWithADirectionsRenderer extends React.Component {
@@ -46,10 +46,10 @@ export default class MapWithADirectionsRenderer extends React.Component {
     );
   }
 }
-const pathCoordinates = [
-  { lat: 35.228624, lng: -80.834838 },
-  { lat: 35.218395, lng: -80.811001 }
-];
+// const pathCoordinates = [
+//   { lat: 35.228624, lng: -80.834838 },
+//   { lat: 35.218395, lng: -80.811001 }
+// ];
 const MyMapComponent = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap

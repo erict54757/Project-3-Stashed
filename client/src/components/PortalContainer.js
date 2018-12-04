@@ -10,7 +10,8 @@ import "./PortalContainer.css";
 class PortalContainer extends Component {
   render() {
     return (
-      <div className="container employeePortal rounded">
+      <div className="container employeePortal rounded"
+     >
         <div
           className=" row z-depth-5 employeePortal"
           style={{ marginTop: "25px" }}

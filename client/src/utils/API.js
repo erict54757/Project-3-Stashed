@@ -46,5 +46,25 @@ export default {
   },
   sendEmail: function(emailData) {
     return axios.post("/api/sendEmail", emailData);
-  }
+  },
+  saveDay: function(dayData) {
+    return axios.post("/api/days", dayData);
+  },
+   // Gets all days
+   getDays: function() {
+    return axios.get("/api/days");
+  },
+  // Updates day to true or false
+  changeDayOn: function(id, dayData) {
+    return axios.put("/api/days/Sunday/on/" + id, dayData);
+  },
+  changeDayOff: function(id, dayData) {
+    return axios.put("/api/days/Sunday/off/" + id, dayData);
+  },
+  updateSunday: function(id, dayData) {
+    return axios.put("/api/Sunday/" + id, dayData);
+  },
+  getSunday: function(id) {
+    return axios.get("/api/Sunday/"+id);
+  },
 };

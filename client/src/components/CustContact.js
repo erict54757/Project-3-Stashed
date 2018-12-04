@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Input, Button } from "react-materialize";
+import { Row, Input, Button,} from "react-materialize";
 
 // import { Link, Route } from "react-router-dom";
 import "jquery";
@@ -11,9 +11,9 @@ function validate(subject, message,email, phoneNumber) {
   // true means invalid, so our conditions got reversed
   return {
     subject: subject.length === 0,
-   message: message.length === 0,
-     phoneNumber: phoneNumber.length === 0,
-    email: email.length === 0
+   message: message.length <5,
+     phoneNumber: phoneNumber.length <9,
+    email: email.length <7
   };
 }
 
@@ -22,7 +22,6 @@ class CustContact extends Component {
     super();
 
   this.state = {
-   
     touched: { 
       subject: false,
      message: false,
@@ -32,7 +31,8 @@ class CustContact extends Component {
     }, subject:"",
     message:"",
     phoneNumber:"",
-    email:""
+    email:"",
+    sent: false
 };
 
 
@@ -60,8 +60,7 @@ handleInputChange = event => {
 handleSendEmail = event => {
   if (!this.canBeSubmitted()) {
    
-    const {subject, message,email,  phoneNumber } = this.state;
-    alert(`Signed up with email: ${email} subject: ${subject}`);
+   
     return;
   } this.sendEmail(this.state);
 };
@@ -76,7 +75,8 @@ resetState= ()=>{
       subject:"",
       message:"",
       phoneNumber:"",
-      email:""
+      email:"",
+      sent: true
       ,
      touched: {
        subject:false,
@@ -95,12 +95,7 @@ sendEmail= (event)=>{
     }).then(this.resetState());
   };
   render() {
-  //   const { email, message,subject,phoneNumber } = this.state;
-  //   const isEnabled =
-  // this.state.email.length > 0 &&
-  // this.state.message.length > 0 &&
-  // this.state.subject.length > 0 &&
-  // this.state.phoneNumber.length > 9;
+  
   const errors = validate( this.state.subject, this.state.message,this.state.email, this.state.phoneNumber);
   const isDisabled = Object.keys(errors).some(x => errors[x]);
   
@@ -125,9 +120,9 @@ sendEmail= (event)=>{
             className="col l8 m8 s12 offset-l2 offset-m2 center formEmail"
             
           >
-       
-              <input s={12}
-                 className={shouldMarkError('subject') ? "error" : ""}
+           
+              <Input s={12}
+              className={shouldMarkError('subject') ? "invalid error lighten-2" : ""}
                 type="text"
                 name="subject"
                 value={this.state.subject}
@@ -136,11 +131,13 @@ sendEmail= (event)=>{
                 onBlur={this.handleBlur('subject')}
                 placeholder="Subject"
               />
-            
-    
-              <textarea className={shouldMarkError('message') ? "error" : ""}
+   
+      
+       
+              <textarea className="col s12"
               value={this.state.message}
-                name="message"
+              className={shouldMarkError('message') ? "invalid" : ""}
+                name='message'
                 type="text"
                 placeholder="Message"
                 maxLength="140"
@@ -148,18 +145,19 @@ sendEmail= (event)=>{
                 onBlur={this.handleBlur('message')}
                 onChange={this.handleInputChange}
               />
-              <span className="section scrollspy">
+              
+              {this.state.sent ?(
                 <p id="characterLeft" className="help-block ">
-                  You have {140 - this.state.message.length} characters left.
-                </p>
-              </span>
+                  Thank You For Contacting Us. We Will Get Back To You As Soon As Possible.
+                </p>):(<p className={shouldMarkError('message') ? "err red-text col s12" : " black-text col s12"}>You have {140 - this.state.message.length} characters left.</p>)}
+              
            
 
             {/* <!-- set the reply-to address --> */}
-            <Row>
+     
               <Input
               s={6}
-                className={shouldMarkError('email') ? "error" : ""}
+              className={shouldMarkError('email') ? "invalid" : ""}
                 type="email"
                 name="email"
                 placeholder="Your Email"
@@ -170,7 +168,7 @@ sendEmail= (event)=>{
 
               <Input
               s={6}
-              className={shouldMarkError('phoneNumber') ? "error" : ""}
+              className={shouldMarkError('phoneNumber') ? "invalid" : ""}
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
@@ -178,7 +176,7 @@ sendEmail= (event)=>{
                 onBlur={this.handleBlur('phoneNumber')}
                 onChange={this.handleInputChange}
               />
-            </Row>
+            
 
             <Button
               className="btn waves-effect waves-blue blue"

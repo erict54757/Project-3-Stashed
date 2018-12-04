@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import Auth from "../utils/auth";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-
+import "./Employee.css"
 import NavBar from "../components/NavBar";
 import PortalContainer from "../components/PortalContainer";
 import PortalFooter from "../components/PortalFooter";
@@ -20,7 +20,10 @@ class Employee extends Component {
   render() {
     console.log(this.state.isEmp === "true");
     return (
-      <div>
+      <div style={{ minHeight: "860px",
+      position:"relative",paddingBottom:"150px"}}
+      
+      >
         {this.state.token &&
         this.state.isEmp === "true" &&
         this.state.name !== "Admin" ? (

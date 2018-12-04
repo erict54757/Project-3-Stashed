@@ -7,8 +7,8 @@ import "materialize-css/dist/js/materialize.js";
 const LogoutButton = props => {
   return props.token ? (
     <Button
-      style={{ marginBottom: "10px" }}
-      className="blue"
+      style={{ marginTop: "20px" }}
+      className="blue waves-effect waves-light"
       onClick={() => Auth.logout()}
     >
       Log Out

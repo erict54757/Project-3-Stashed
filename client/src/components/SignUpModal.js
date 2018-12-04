@@ -1,11 +1,27 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
-import { Modal, Button, Input, Row } from "react-materialize";
+import { Modal, Button, Input, Row, Icon } from "react-materialize";
 // import { Link, Route } from "react-router-dom";
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
-
 import "./SignUpModal.css";
+
+function validate(firstName, lastName, street, city, state, zip, email, phone, password) {
+  // true means invalid, so our conditions got reversed
+  return {  
+    firstName: firstName.length===0,
+     lastName:lastName.length===0,
+      street: street.length===0,
+       city: city.length===0,
+        state: state.length===0,
+         zip: zip.length<5,
+    email: email.length <7,
+    phone: phone.length<9,
+    password: password.length ===0
+   
+   
+  };
+}
 class SignUpModal extends Component {
   initialstate = {
     firstName: "",
@@ -16,8 +32,30 @@ class SignUpModal extends Component {
     zip: "",
     email: "",
     phone: "",
-    password: ""
+    password: "",
+    touched: { 
+      firstName: false,
+      lastName: false,
+      street: false,
+      city: false,
+      state: false,
+      zip: false,
+      email: false,
+      phone: false,
+      password: false
+     
+    }, 
   };
+  handleBlur = (field) => (evt) => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true },
+    });
+  }
+  canBeSubmitted() {
+    const errors = validate(this.state.firstName,this.state.lastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.phone, this.state.password);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
+  }
 
   state = this.initialstate;
 
@@ -48,6 +86,13 @@ class SignUpModal extends Component {
   };
 
   render() {
+    const errors = validate(this.state.firstName,this.state.lastName, this.state.street, this.state.city, this.state.state, this.state.zip, this.state.email, this.state.phone, this.state.password);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    const shouldMarkError = (field) => {
+    const hasError = errors[field];
+    const shouldShow = this.state.touched[field];
+      return hasError ? shouldShow : false;
+    };
     return (
       <div>
         <Modal
@@ -63,6 +108,7 @@ class SignUpModal extends Component {
                 id="add-account"
                 className="btn modal-close blue"
                 onClick={this.handleFormSubmit}
+                disabled={isDisabled}
               >
                 Submit
               </Button>
@@ -77,45 +123,61 @@ class SignUpModal extends Component {
               m={6}
               s={12}
               label="First Name"
+              maxLength="20"
               value={this.state.firstName}
               onChange={this.handleInputChange}
-              className="form-control"
+              onBlur={this.handleBlur('firstName')}
+              className={shouldMarkError('firstName') ? "error invalid" : ""}
               name="firstName"
               placeholder="John"
-            />
+            > 
+            <Icon>account_circle</Icon>
+            </Input>
 
             <Input
               m={6}
               s={12}
               label="Last Name"
+              maxLength="20"
               value={this.state.lastName}
+              onBlur={this.handleBlur('lastName')}
               onChange={this.handleInputChange}
-              className="form-control"
+              className={shouldMarkError('lastName') ? "error invalid" : ""}
               name="lastName"
               placeholder="Doe"
-            />
+            >      
+             <Icon>account_circle</Icon>
+            </Input>
 
             <Input
               m={12}
               s={12}
               label="Address"
+              maxLength="30"
               value={this.state.street}
               onChange={this.handleInputChange}
-              className="form-control"
+              onBlur={this.handleBlur('street')}
+              className={shouldMarkError('street') ? "error invalid" : ""}
               name="street"
               placeholder="123 Rocky Rd."
-            />
+            >   
+             <Icon>location_on</Icon>
+            </Input>
 
             <Input
               m={4}
               s={12}
               label="City"
+              maxLength="30"
               value={this.state.city}
               onChange={this.handleInputChange}
-              className="form-control"
+              onBlur={this.handleBlur('city')}
+              className={shouldMarkError('city') ? "error invalid" : ""}
               name="city"
               placeholder="City"
-            />
+            >  
+            <Icon>business</Icon>
+            </Input>
 
             <Input
               m={4}
@@ -123,7 +185,8 @@ class SignUpModal extends Component {
               name="state"
               type="select"
               onChange={this.handleInputChange}
-              className="modalDrop"
+              onBlur={this.handleBlur('state')}
+              className={shouldMarkError('state') ? "error invalid" : "modalDrop"}
             >
               <option value="AL">Alabama</option>
 
@@ -233,34 +296,47 @@ class SignUpModal extends Component {
               s={12}
               label="Zip"
               value={this.state.zip}
+              type="number"
+              maxLength="5"
               onChange={this.handleInputChange}
-              className="form-control"
+              onBlur={this.handleBlur('zip')}
+              className={shouldMarkError('zip') ? "error invalid" : ""}
               name="zip"
               placeholder="12567"
-            />
+            >    
+             <Icon>location_on</Icon>
+            </Input>
 
             <Input
               m={6}
               s={12}
               label="E-Mail"
+              maxLength="30"
               value={this.state.email}
               onChange={this.handleInputChange}
-              className="form-control"
+              onBlur={this.handleBlur('email')}
+              className={shouldMarkError('email') ? "error red lighten-2" : ""}
               name="email"
               placeholder="johndoe@email.com"
-            />
+            >
+            <Icon>email</Icon>
+            </Input>
 
             <Input
               m={6}
               s={12}
               label="Phone"
-              type="text"
+              type="number"
+              maxLength="10"
               value={this.state.phone}
               onChange={this.handleInputChange}
-              className="form-control"
+              onBlur={this.handleBlur('phone')}
+              className={shouldMarkError('phone') ? "error red lighten-2" : ""}
               name="phone"
               placeholder="704-123-4567"
-            />
+            >
+            <Icon>phone</Icon>
+            </Input>
             <Input
               m={12}
               s={12}
@@ -268,10 +344,13 @@ class SignUpModal extends Component {
               type="password"
               value={this.state.password}
               onChange={this.handleInputChange}
-              className="form-control"
+              onBlur={this.handleBlur('password')}
+              className={shouldMarkError('password') ? "error red lighten-2" : ""}
               name="password"
               placeholder="Password"
-            />
+            >
+            <Icon>account_circle</Icon>
+            </Input>
           </Row>
         </Modal>
       </div>

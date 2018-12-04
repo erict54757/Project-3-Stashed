@@ -26,7 +26,7 @@ class Appointment extends Component {
 
     return (
       <Card
-        className="blue-grey darken-1 cardBody z-depth-5"
+        className="blue-grey darken-1 cardBody z-depth-5 col s12"
         textClassName="white-text"
       >
         {filterCustomer.map(customer => (
@@ -37,16 +37,16 @@ class Appointment extends Component {
 
         <h5>At {this.props.time}</h5>
         <Row>
-          <Col s={3}>
+          <Col s={12}>
             <Button
-              className="red"
+              className="red deleteButton waves-effect waves-red"
               value={this.props.id}
               onClick={() => this.deleteAppointment(this.props.id)}
             >
               X
             </Button>
           </Col>
-          <Col s={8}>
+          <Col s={12}>
             {filterCustomer.map(customer => (
               <EmpApptUpdateModal
                 key={customer.id}
@@ -74,3 +74,5 @@ class Appointment extends Component {
   }
 }
 export default Appointment;
+
+
