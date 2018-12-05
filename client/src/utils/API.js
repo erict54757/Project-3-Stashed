@@ -55,16 +55,52 @@ export default {
     return axios.get("/api/days");
   },
   // Updates day to true or false
-  changeDayOn: function(id, dayData) {
-    return axios.put("/api/days/Sunday/on/" + id, dayData);
+  changeDayOn: function(id,Day, dayData) {
+    return axios.put("/api/days/"+Day+"/on/" + id, dayData);
   },
-  changeDayOff: function(id, dayData) {
-    return axios.put("/api/days/Sunday/off/" + id, dayData);
+  changeDayOff: function(id,Day, dayData) {
+    return axios.put("/api/days/"+Day+"/off/" + id, dayData);
   },
   updateSunday: function(id, dayData) {
     return axios.put("/api/Sunday/" + id, dayData);
   },
   getSunday: function(id) {
-    return axios.get("/api/Sunday/"+id);
+    return axios.get("/api/Sunday");
   },
+  updateMonday: function(id, dayData) {
+    return axios.put("/api/Monday/" + id, dayData);
+  },
+  getMonday: function(id) {
+    return axios.get("/api/Monday");
+  },
+  updateTuesday: function(id, dayData) {
+    return axios.put("/api/Tuesday/" + id, dayData);
+  },
+  getTuesday: function(id) {
+    return axios.get("/api/Tuesday");
+  },
+  updateWednesday: function(id, dayData) {
+    return axios.put("/api/Wednesday/" + id, dayData);
+  },
+  getWednesday: function(id) {
+    return axios.get("/api/Wednesday");
+  },
+  updateThursday: function(id, dayData) {
+    return axios.put("/api/Thursday/" + id, dayData);
+  },
+  getThursday: function(id) {
+    return axios.get("/api/Thursday");
+  },
+  updateFriday: function(id, dayData) {
+    return axios.put("/api/Friday/" + id, dayData);
+  },
+  getFriday: function(id) {
+    return axios.get("/api/Friday");
+  },
+  updateSaturday: function(id, dayData) {
+    return axios.put("/api/Saturday/" + id, dayData);
+  },
+  getSaturday: function(id) {
+    return axios.get("/api/Saturday");
+  }
 };
