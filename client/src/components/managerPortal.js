@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Row, CardPanel, Input, Icon, Tab, Tabs,Col, Button, Card } from "react-materialize";
+import { Row, CardPanel, Input, Icon, Tab, Tabs, Col, Button, Card } from "react-materialize";
 import ManagerPortalModal from "./managerPortalModal";
-import DaySchedule from "./DaySchedule/DaySchedule"
+import DaySchedule from "./DaySchedule"
 import "jquery";
 import "materialize-css/dist/js/materialize.js";
 
@@ -25,7 +25,13 @@ class ManagerPortal extends Component {
     scheduleTab: true,
     active: "",
     Days: [],
-
+    Sunday: [],
+    Monday: [],
+    Tuesday: [],
+    Wednesday: [],
+    Thursday: [],
+    Friday: [],
+    Saturday: []
   };
 
 
@@ -33,7 +39,16 @@ class ManagerPortal extends Component {
     this.loadEmployees();
     this.loadAppointments();
     this.getCustomers();
-    this.loadDays();
+    this.loadDays()
+    this.loadDayShift()
+    this.loadDayShiftMonday();
+    this.loadDayShiftTuesday();
+    this.loadDayShiftWednesday();
+    this.loadDayShiftThursday();
+    this.loadDayShiftFriday();
+    this.loadDayShiftSaturday();
+
+
   }
 
   getCustomers = () => {
@@ -43,8 +58,7 @@ class ManagerPortal extends Component {
   };
   loadDays = () => {
     API.getDays()
-      .then(res => this.setState({ Days: res.data })
-        .then(console.log(this.state.Days)))
+      .then(res => this.setState({ Days: res.data }))
       .catch(err => (err));
   };
 
@@ -119,10 +133,8 @@ class ManagerPortal extends Component {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
-    console.log(this.state.filtered);
     // Updating the input's state
     this.setState({
-      ...this.state,
       [name]: value
     });
   };
@@ -131,18 +143,155 @@ class ManagerPortal extends Component {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
-    console.log(this.state.filtered);
     // Updating the input's state
     this.setState({
-      ...this.state,
       [name]: value,
       employeeInfoTab: false
-
     });
   };
+  //Employee Day Shift Cards
+  loadDayShift = (id) => {
+    API.getSunday(this.state.employee.id)
+      .then(res =>
+        this.setState({
+          Sunday: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+  loadDayShiftMonday = (id) => {
+    API.getMonday(this.state.employee.id)
+      .then(res =>
+        this.setState({
+          Monday: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+  loadDayShiftTuesday = (id) => {
+    API.getTuesday(this.state.employee.id)
+      .then(res =>
+        this.setState({
+          Tuesday: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+  loadDayShiftWednesday = (id) => {
+    API.getWednesday(this.state.employee.id)
+      .then(res =>
+        this.setState({
+          Wednesday: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+  loadDayShiftThursday = (id) => {
+    API.getThursday(this.state.employee.id)
+      .then(res =>
+        this.setState({
+          Thursday: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+  loadDayShiftFriday = (id) => {
+    API.getFriday(this.state.employee.id)
+      .then(res =>
+        this.setState({
+          Friday: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+  loadDayShiftSaturday = (id) => {
+    API.getSaturday(this.state.employee.id)
+      .then(res =>
+        this.setState({
+          Saturday: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  }
+  updateDayShift = (event) => {
+    let value = event.target.value;
+    const name = event.target.name;
+    API.updateSunday(this.state.employee.id, {
+      [name]: value
+    })
+      .then(this.loadDayShift())
+      .catch(err => console.log(err));
+  }
 
+  updateDayShiftMonday = (event) => {
+    let value = event.target.value;
+    const name = event.target.name;
+    API.updateMonday(this.state.employee.id, {
+      [name]: value
+    })
+      .then(this.loadDayShiftMonday())
+      .catch(err => console.log(err));
+  }
+  updateDayShiftTuesday = (event) => {
+    let value = event.target.value;
+    const name = event.target.name;
+    API.updateTuesday(this.state.employee.id, {
+      [name]: value
+    })
+      .then(this.loadDayShiftTuesday())
+      .catch(err => console.log(err));
+  }
+  updateDayShiftWednesday = (event) => {
+    let value = event.target.value;
+    const name = event.target.name;
+    API.updateWednesday(this.state.employee.id, {
+      [name]: value
+    })
+      .then(this.loadDayShiftWednesday())
+      .catch(err => console.log(err));
+  }
+  updateDayShiftThursday = (event) => {
+    let value = event.target.value;
+    const name = event.target.name;
+    API.updateThursday(this.state.employee.id, {
+      [name]: value
+    })
+      .then(this.loadDayShiftThursday())
+      .catch(err => console.log(err));
+  }
+  updateDayShiftFriday = (event) => {
+    let value = event.target.value;
+    const name = event.target.name;
+    API.updateFriday(this.state.employee.id, {
+      [name]: value
+    })
+      .then(this.loadDayShiftFriday())
+      .catch(err => console.log(err));
+  }
+  updateDayShiftSaturday = (event) => {
+    let value = event.target.value;
+    const name = event.target.name;
+    API.updateSaturday(this.state.employee.id, {
+      [name]: value
+    })
+      .then(this.loadDayShiftSaturday())
+      .catch(err => console.log(err));
+  }
+  changeDayOff = (event) => {
+    let Day = event.target.value
+    API.changeDayOff(this.state.active, Day, {
+    })
+      .then(res => this.loadDays())
+      .catch(err => console.log(err));
+  }
+  changeDayOn = (event) => {
+    let Day = event.target.value
+    API.changeDayOn(this.state.active, Day, {
+    })
+      .then(res => this.loadDays())
+      .catch(err => console.log(err));
+  }
   render() {
-
     const filteredAppointments = this.state.Appointments.filter(appointment => {
       return (
         appointment.date === this.state.date &&
@@ -150,18 +299,49 @@ class ManagerPortal extends Component {
       );
     });
     const filteredDays = this.state.Days.filter(Day => {
-
       return (
         Day.EmployeeId === this.state.employee.id
-
       );
     });
-    console.log(filteredDays)
+    const filteredSunday = this.state.Sunday.filter(Sunday => {
+      return (
+        Sunday.EmployeeId === this.state.employee.id
+      );
+    });
+    const filteredMonday = this.state.Monday.filter(Monday => {
+      return (
+        Monday.EmployeeId === this.state.employee.id
+      );
+    });
+    const filteredTuesday = this.state.Tuesday.filter(Tuesday => {
+      return (
+        Tuesday.EmployeeId === this.state.employee.id
+      );
+    });
+    const filteredWednesday = this.state.Wednesday.filter(Wednesday => {
+      return (
+        Wednesday.EmployeeId === this.state.employee.id
+      );
+    });
+    const filteredThursday = this.state.Thursday.filter(Thursday => {
+      return (
+        Thursday.EmployeeId === this.state.employee.id
+      );
+    });
+    const filteredFriday = this.state.Friday.filter(Friday => {
+      return (
+        Friday.EmployeeId === this.state.employee.id
+      );
+    });
+    const filteredSaturday = this.state.Saturday.filter(Saturday => {
+      return (
+        Saturday.EmployeeId === this.state.employee.id
+      );
+    });
     const appointmentResult = function (employee, filteredAppointments) {
       if (employee && filteredAppointments) {
         return (
           <h5>
-
           </h5>
         );
       } else if (employee !== 0 && filteredAppointments === 0) {
@@ -174,7 +354,6 @@ class ManagerPortal extends Component {
         </h5>);
       }
     }
-
     return (
       <div className="container white">
         <div
@@ -184,7 +363,6 @@ class ManagerPortal extends Component {
           <Tabs
             className="white-text managerTabs z-depth-5"
           >
-
             <Tab className="text-white" title="Information" href="#employeeInfo" active={this.state.employeeInfoTab}>
               <div>
                 <Row>
@@ -444,7 +622,7 @@ class ManagerPortal extends Component {
                               {employee.first_name} {employee.last_name}
                             </div>
                             <span
-                              style={{ marginRight: "3px" }}
+                              style={{}}
                               waves="light"
                               className="material-icons red-text right "
                               onClick={() => this.deleteEmployee(employee.id)}>
@@ -461,38 +639,138 @@ class ManagerPortal extends Component {
                   </p>
                       )}
                   </Col>
-
+                  {/* display a card for each day of the week showing each employees schedule */}
                   <div
                     className="col s12  lighten-4 black-text">
                     <CardPanel className="z-depth-2  " >
                       <div className="row">
-
                         {filteredDays.map(Day => (
-                        <DaySchedule
-                        refresh={() => this.componentDidMount()}
-                        key="filteredDay"
-                        Day={Day.Sunday}
-                        funcGet={API.getSunday}
-                        funcPut={API.updateSunday}
-                        EmployeeId={this.state.active}
-                        Name="Sunday"
-                        on="Sunday On"
-                        off="Sunday Off"/>
+                          <div className="col s12 m6 l4 center" key="filteredDayShiftContain">
+                            {filteredSunday.map(DayShift => (
+                              <DaySchedule
+                                dayValue="Sunday"
+                                Day={Day.Sunday}
+                                changeDayOn={this.changeDayOn}
+                                changeDayOff={this.changeDayOff}
+                                shiftStartTime={DayShift.shiftStartTime}
+                                shiftEndTime={DayShift.shiftEndTime}
+                                lunchStartTime={DayShift.lunchStartTime}
+                                lunchEndTime={DayShift.lunchEndTime}
+                                key="filteredDayShifts"
+                                updateDayShift={this.updateDayShift}
+                              />))}
+                          </div>
+                        ))}
+                        {filteredDays.map(Day => (
+                          <div className="col s12 m6 l4 center" key="filteredDayShiftContain">
+                            {filteredMonday.map(DayShift => (
+                              <DaySchedule
+                                dayValue="Monday"
+                                Day={Day.Monday}
+                                changeDayOn={this.changeDayOn}
+                                changeDayOff={this.changeDayOff}
+                                shiftStartTime={DayShift.shiftStartTime}
+                                shiftEndTime={DayShift.shiftEndTime}
+                                lunchStartTime={DayShift.lunchStartTime}
+                                lunchEndTime={DayShift.lunchEndTime}
+                                key="filteredDayShifts"
+                                updateDayShift={this.updateDayShiftMonday}
+                              />))}
+                          </div>
+                        ))}
+                        {filteredDays.map(Day => (
+                          <div className="col s12 m6 l4 center" key="filteredDayShiftContain">
+                            {filteredTuesday.map(DayShift => (
+                              <DaySchedule
+                                dayValue="Tuesday"
+                                Day={Day.Tuesday}
+                                changeDayOn={this.changeDayOn}
+                                changeDayOff={this.changeDayOff}
+                                shiftStartTime={DayShift.shiftStartTime}
+                                shiftEndTime={DayShift.shiftEndTime}
+                                lunchStartTime={DayShift.lunchStartTime}
+                                lunchEndTime={DayShift.lunchEndTime}
+                                key="filteredDayShifts"
+                                updateDayShift={this.updateDayShiftTuesday}
+                              />))}
+                          </div>
+                        ))}
+                        {filteredDays.map(Day => (
+                          <div className="col s12 m6 l4 center" key="filteredDayShiftContain">
+                            {filteredWednesday.map(DayShift => (
+                              <DaySchedule
+                                dayValue="Wednesday"
+                                Day={Day.Wednesday}
+                                changeDayOn={this.changeDayOn}
+                                changeDayOff={this.changeDayOff}
+                                shiftStartTime={DayShift.shiftStartTime}
+                                shiftEndTime={DayShift.shiftEndTime}
+                                lunchStartTime={DayShift.lunchStartTime}
+                                lunchEndTime={DayShift.lunchEndTime}
+                                key="filteredDayShifts"
+                                updateDayShift={this.updateDayShiftWednesday}
+                              />))}
+                          </div>
+                        ))}
+                        {filteredDays.map(Day => (
+                          <div className="col s12 m6 l4 center" key="filteredDayShiftContain">
+                            {filteredThursday.map(DayShift => (
+                              <DaySchedule
+                                dayValue="Thursday"
+                                Day={Day.Thursday}
+                                changeDayOn={this.changeDayOn}
+                                changeDayOff={this.changeDayOff}
+                                shiftStartTime={DayShift.shiftStartTime}
+                                shiftEndTime={DayShift.shiftEndTime}
+                                lunchStartTime={DayShift.lunchStartTime}
+                                lunchEndTime={DayShift.lunchEndTime}
+                                key="filteredDayShifts"
+                                updateDayShift={this.updateDayShiftThursday}
+                              />))}
+                          </div>
+                        ))}
+                        {filteredDays.map(Day => (
+                          <div className="col s12 m6 l4 center" key="filteredDayShiftContain">
+                            {filteredFriday.map(DayShift => (
+                              <DaySchedule
+                                dayValue="Friday"
+                                Day={Day.Friday}
+                                changeDayOn={this.changeDayOn}
+                                changeDayOff={this.changeDayOff}
+                                shiftStartTime={DayShift.shiftStartTime}
+                                shiftEndTime={DayShift.shiftEndTime}
+                                lunchStartTime={DayShift.lunchStartTime}
+                                lunchEndTime={DayShift.lunchEndTime}
+                                key="filteredDayShifts"
+                                updateDayShift={this.updateDayShiftFriday}
+                              />))}
+                          </div>
+                        ))}
+                        {filteredDays.map(Day => (
+                          <div className="col s12 m6 l4 center" key="filteredDayShiftContain">
+                            {filteredSaturday.map(DayShift => (
+                              <DaySchedule
+                                dayValue="Saturday"
+                                Day={Day.Saturday}
+                                changeDayOn={this.changeDayOn}
+                                changeDayOff={this.changeDayOff}
+                                shiftStartTime={DayShift.shiftStartTime}
+                                shiftEndTime={DayShift.shiftEndTime}
+                                lunchStartTime={DayShift.lunchStartTime}
+                                lunchEndTime={DayShift.lunchEndTime}
+                                key="filteredDayShifts"
+                                updateDayShift={this.updateDayShiftSaturday}
+                              />))}
+                          </div>
                         ))}
                       
-                        Under Construction
                       </div>
-
-
                     </CardPanel>
                   </div>
                 </Row>
               </div>
             </Tab>
-
-
           </Tabs>
-
         </div>
       </div>
     );

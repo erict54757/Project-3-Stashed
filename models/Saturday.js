@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Sunday = sequelize.define("Sunday", {
-      Sunday: {
-        type:DataTypes.STRING,
-        allowNull:false
-      },
+    var Saturday = sequelize.define("Saturday", {
       shiftStartTime: {
         type: DataTypes.STRING, 
         allowNull: false,
@@ -25,9 +21,9 @@ module.exports = function(sequelize, DataTypes) {
         len:4
       }
     });
-    Sunday.associate = function(models) {
+    Saturday.associate = function(models) {
     
-      Sunday.belongsTo(models.Employee, {
+      Saturday.belongsTo(models.Employee, {
         foreignKey: {
           allowNull: false
         },
@@ -36,6 +32,6 @@ module.exports = function(sequelize, DataTypes) {
       });
     };
   
-    return Sunday;
+    return Saturday;
   };
   
