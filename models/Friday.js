@@ -1,5 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     var Friday = sequelize.define("Friday", {
+      Friday: {
+        type:DataTypes.STRING,
+        allowNull:false
+      }, 
       shiftStartTime: {
         type: DataTypes.STRING, 
         allowNull: false,

@@ -43,7 +43,15 @@ class ManagerPortalModal extends Component {
   
       .then(res => this.props.loadEmployees())
       .then(res => this.props.loadDays())
+      .then(res =>this.props.loadDayShift())
+      .then(res =>this.props.loadDayShiftMonday())
+      .then(res =>this.props.loadDayShiftTuesday())
+      .then(res =>this.props.loadDayShiftWednesday())
+      .then(res =>this.props.loadDayShiftThursday())
+      .then(res =>this.props.loadDayShiftFriday())
+      .then(res =>this.props.loadDayShiftSaturday())
       .then(res => this.setState(this.initialState))
+      
       .catch(err => console.log(err));
   };
 

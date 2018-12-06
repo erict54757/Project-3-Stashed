@@ -367,7 +367,16 @@ class ManagerPortal extends Component {
               <div>
                 <Row>
                   <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
-                    <ManagerPortalModal loadEmployees={this.loadEmployees} loadDays={this.loadDays} />
+                    <ManagerPortalModal 
+                    loadEmployees={this.loadEmployees} 
+                    loadDays={this.loadDays} 
+                    loadDayShift={this.loadDayShift} 
+                    loadDayShiftMonday={this.loadDayShiftMonday}
+                    loadDayShiftTuesday={this.loadDayShiftWednesday}
+                    loadDayShiftWednesday={this.loadDayShiftWednesday}
+                    loadDayShiftThursday={this.loadDayShiftThursday}
+                    loadDayShiftFriday={this.loadDayShiftFriday}
+                    loadDayShiftSaturday={this.loadDayShiftSaturday}/>
                   </Col>
                 </Row>
 
@@ -455,7 +464,16 @@ class ManagerPortal extends Component {
               <div>
                 <Row>
                   <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
-                    <ManagerPortalModal loadEmployees={this.loadEmployees} loadDays={this.loadDays} />
+                    <ManagerPortalModal 
+                    loadEmployees={this.loadEmployees} 
+                    loadDays={this.loadDays} 
+                    loadDayShift={this.loadDayShift} 
+                    loadDayShiftMonday={this.loadDayShiftMonday}
+                    loadDayShiftTuesday={this.loadDayShiftWednesday}
+                    loadDayShiftWednesday={this.loadDayShiftWednesday}
+                    loadDayShiftThursday={this.loadDayShiftThursday}
+                    loadDayShiftFriday={this.loadDayShiftFriday}
+                    loadDayShiftSaturday={this.loadDayShiftSaturday}/>
                   </Col>
                 </Row>
 
@@ -591,7 +609,16 @@ class ManagerPortal extends Component {
               <div>
                 <Row>
                   <Col style={{ marginLeft: "5px", marginTop: "10px" }}>
-                    <ManagerPortalModal loadEmployees={this.loadEmployees} loadDays={this.loadDays} />
+                    <ManagerPortalModal 
+                    loadEmployees={this.loadEmployees} 
+                    loadDays={this.loadDays} 
+                    loadDayShift={this.loadDayShift} 
+                    loadDayShiftMonday={this.loadDayShiftMonday}
+                    loadDayShiftTuesday={this.loadDayShiftWednesday}
+                    loadDayShiftWednesday={this.loadDayShiftWednesday}
+                    loadDayShiftThursday={this.loadDayShiftThursday}
+                    loadDayShiftFriday={this.loadDayShiftFriday}
+                    loadDayShiftSaturday={this.loadDayShiftSaturday}/>
                   </Col>
                 </Row>
 
