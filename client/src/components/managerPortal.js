@@ -380,7 +380,6 @@ class ManagerPortal extends Component {
                   </Col>
                 </Row>
 
-
                 <Row>
                   <Col
                     s={12}
