@@ -372,7 +372,7 @@ class ManagerPortal extends Component {
                     loadDays={this.loadDays} 
                     loadDayShift={this.loadDayShift} 
                     loadDayShiftMonday={this.loadDayShiftMonday}
-                    loadDayShiftTuesday={this.loadDayShiftWednesday}
+                    loadDayShiftTuesday={this.loadDayShiftTuesday}
                     loadDayShiftWednesday={this.loadDayShiftWednesday}
                     loadDayShiftThursday={this.loadDayShiftThursday}
                     loadDayShiftFriday={this.loadDayShiftFriday}
@@ -469,7 +469,7 @@ class ManagerPortal extends Component {
                     loadDays={this.loadDays} 
                     loadDayShift={this.loadDayShift} 
                     loadDayShiftMonday={this.loadDayShiftMonday}
-                    loadDayShiftTuesday={this.loadDayShiftWednesday}
+                    loadDayShiftTuesday={this.loadDayShiftTuesday}
                     loadDayShiftWednesday={this.loadDayShiftWednesday}
                     loadDayShiftThursday={this.loadDayShiftThursday}
                     loadDayShiftFriday={this.loadDayShiftFriday}
@@ -614,7 +614,7 @@ class ManagerPortal extends Component {
                     loadDays={this.loadDays} 
                     loadDayShift={this.loadDayShift} 
                     loadDayShiftMonday={this.loadDayShiftMonday}
-                    loadDayShiftTuesday={this.loadDayShiftWednesday}
+                    loadDayShiftTuesday={this.loadDayShiftTuesday}
                     loadDayShiftWednesday={this.loadDayShiftWednesday}
                     loadDayShiftThursday={this.loadDayShiftThursday}
                     loadDayShiftFriday={this.loadDayShiftFriday}
